@@ -19,7 +19,6 @@ Partial Class FrmWbIn
     'Do not modify it using THE code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmWbIn))
         Me.BunifuGradientPanel2 = New ns1.BunifuGradientPanel()
         Me.LabelControl35 = New DevExpress.XtraEditors.LabelControl()
@@ -80,16 +79,12 @@ Partial Class FrmWbIn
         Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TxtWeight = New DevExpress.XtraEditors.TextEdit()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.path1 = New DevExpress.XtraEditors.LabelControl()
         Me.path2 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl42 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl41 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
         Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -116,9 +111,6 @@ Partial Class FrmWbIn
         Me.LabelControl24 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl22 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl23 = New DevExpress.XtraEditors.LabelControl()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
         Me.BunifuGradientPanel2.SuspendLayout()
         Me.Panel9.SuspendLayout()
         CType(Me.PanelControl6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -149,9 +141,7 @@ Partial Class FrmWbIn
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtWeight.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -210,9 +200,9 @@ Partial Class FrmWbIn
         Me.LabelControl89.Appearance.Options.UseForeColor = True
         Me.LabelControl89.Location = New System.Drawing.Point(12, 15)
         Me.LabelControl89.Name = "LabelControl89"
-        Me.LabelControl89.Size = New System.Drawing.Size(81, 14)
+        Me.LabelControl89.Size = New System.Drawing.Size(71, 14)
         Me.LabelControl89.TabIndex = 0
-        Me.LabelControl89.Text = "PENERIMAAN"
+        Me.LabelControl89.Text = "Penerimaan"
         '
         'Panel9
         '
@@ -250,9 +240,9 @@ Partial Class FrmWbIn
         Me.LabelControl15.Appearance.Options.UseFont = True
         Me.LabelControl15.Location = New System.Drawing.Point(12, 283)
         Me.LabelControl15.Name = "LabelControl15"
-        Me.LabelControl15.Size = New System.Drawing.Size(93, 13)
+        Me.LabelControl15.Size = New System.Drawing.Size(82, 13)
         Me.LabelControl15.TabIndex = 44
-        Me.LabelControl15.Text = "SALES ORDER NO"
+        Me.LabelControl15.Text = "Sales Order No"
         '
         'LabelControl33
         '
@@ -260,9 +250,9 @@ Partial Class FrmWbIn
         Me.LabelControl33.Appearance.Options.UseFont = True
         Me.LabelControl33.Location = New System.Drawing.Point(12, 396)
         Me.LabelControl33.Name = "LabelControl33"
-        Me.LabelControl33.Size = New System.Drawing.Size(82, 13)
+        Me.LabelControl33.Size = New System.Drawing.Size(68, 13)
         Me.LabelControl33.TabIndex = 29
-        Me.LabelControl33.Text = "TRANSPORTER"
+        Me.LabelControl33.Text = "Transporter"
         '
         'LabelControl34
         '
@@ -270,9 +260,9 @@ Partial Class FrmWbIn
         Me.LabelControl34.Appearance.Options.UseFont = True
         Me.LabelControl34.Location = New System.Drawing.Point(12, 376)
         Me.LabelControl34.Name = "LabelControl34"
-        Me.LabelControl34.Size = New System.Drawing.Size(94, 13)
+        Me.LabelControl34.Size = New System.Drawing.Size(89, 13)
         Me.LabelControl34.TabIndex = 28
-        Me.LabelControl34.Text = "LICENSE NUMBER"
+        Me.LabelControl34.Text = "License Number"
         '
         'LabelControl36
         '
@@ -280,9 +270,9 @@ Partial Class FrmWbIn
         Me.LabelControl36.Appearance.Options.UseFont = True
         Me.LabelControl36.Location = New System.Drawing.Point(12, 356)
         Me.LabelControl36.Name = "LabelControl36"
-        Me.LabelControl36.Size = New System.Drawing.Size(43, 13)
+        Me.LabelControl36.Size = New System.Drawing.Size(35, 13)
         Me.LabelControl36.TabIndex = 27
-        Me.LabelControl36.Text = "DRIVER"
+        Me.LabelControl36.Text = "Driver"
         '
         'LabelControl14
         '
@@ -290,9 +280,9 @@ Partial Class FrmWbIn
         Me.LabelControl14.Appearance.Options.UseFont = True
         Me.LabelControl14.Location = New System.Drawing.Point(12, 336)
         Me.LabelControl14.Name = "LabelControl14"
-        Me.LabelControl14.Size = New System.Drawing.Size(68, 13)
+        Me.LabelControl14.Size = New System.Drawing.Size(61, 13)
         Me.LabelControl14.TabIndex = 22
-        Me.LabelControl14.Text = "REFF TICKET"
+        Me.LabelControl14.Text = "Reff Ticket"
         '
         'LabelControl21
         '
@@ -300,9 +290,9 @@ Partial Class FrmWbIn
         Me.LabelControl21.Appearance.Options.UseFont = True
         Me.LabelControl21.Location = New System.Drawing.Point(12, 456)
         Me.LabelControl21.Name = "LabelControl21"
-        Me.LabelControl21.Size = New System.Drawing.Size(54, 13)
+        Me.LabelControl21.Size = New System.Drawing.Size(49, 13)
         Me.LabelControl21.TabIndex = 43
-        Me.LabelControl21.Text = "LOADER 3"
+        Me.LabelControl21.Text = "Loader 3"
         '
         'LabelControl13
         '
@@ -310,9 +300,9 @@ Partial Class FrmWbIn
         Me.LabelControl13.Appearance.Options.UseFont = True
         Me.LabelControl13.Location = New System.Drawing.Point(12, 303)
         Me.LabelControl13.Name = "LabelControl13"
-        Me.LabelControl13.Size = New System.Drawing.Size(83, 13)
+        Me.LabelControl13.Size = New System.Drawing.Size(78, 13)
         Me.LabelControl13.TabIndex = 21
-        Me.LabelControl13.Text = "DELIVERY TYPE"
+        Me.LabelControl13.Text = "Delivery Type"
         '
         'LabelControl20
         '
@@ -320,9 +310,9 @@ Partial Class FrmWbIn
         Me.LabelControl20.Appearance.Options.UseFont = True
         Me.LabelControl20.Location = New System.Drawing.Point(12, 436)
         Me.LabelControl20.Name = "LabelControl20"
-        Me.LabelControl20.Size = New System.Drawing.Size(54, 13)
+        Me.LabelControl20.Size = New System.Drawing.Size(49, 13)
         Me.LabelControl20.TabIndex = 42
-        Me.LabelControl20.Text = "LOADER 2"
+        Me.LabelControl20.Text = "Loader 2"
         '
         'LabelControl12
         '
@@ -330,9 +320,9 @@ Partial Class FrmWbIn
         Me.LabelControl12.Appearance.Options.UseFont = True
         Me.LabelControl12.Location = New System.Drawing.Point(12, 263)
         Me.LabelControl12.Name = "LabelControl12"
-        Me.LabelControl12.Size = New System.Drawing.Size(62, 13)
+        Me.LabelControl12.Size = New System.Drawing.Size(55, 13)
         Me.LabelControl12.TabIndex = 20
-        Me.LabelControl12.Text = "CUSTOMER"
+        Me.LabelControl12.Text = "Customer"
         '
         'LabelControl19
         '
@@ -340,9 +330,9 @@ Partial Class FrmWbIn
         Me.LabelControl19.Appearance.Options.UseFont = True
         Me.LabelControl19.Location = New System.Drawing.Point(12, 416)
         Me.LabelControl19.Name = "LabelControl19"
-        Me.LabelControl19.Size = New System.Drawing.Size(54, 13)
+        Me.LabelControl19.Size = New System.Drawing.Size(49, 13)
         Me.LabelControl19.TabIndex = 41
-        Me.LabelControl19.Text = "LOADER 1"
+        Me.LabelControl19.Text = "Loader 1"
         '
         'LabelControl11
         '
@@ -350,9 +340,9 @@ Partial Class FrmWbIn
         Me.LabelControl11.Appearance.Options.UseFont = True
         Me.LabelControl11.Location = New System.Drawing.Point(12, 243)
         Me.LabelControl11.Name = "LabelControl11"
-        Me.LabelControl11.Size = New System.Drawing.Size(109, 13)
+        Me.LabelControl11.Size = New System.Drawing.Size(96, 13)
         Me.LabelControl11.TabIndex = 19
-        Me.LabelControl11.Text = "CONTRACT NUMBER"
+        Me.LabelControl11.Text = "Contract Number"
         '
         'LabelControl10
         '
@@ -360,9 +350,9 @@ Partial Class FrmWbIn
         Me.LabelControl10.Appearance.Options.UseFont = True
         Me.LabelControl10.Location = New System.Drawing.Point(12, 223)
         Me.LabelControl10.Name = "LabelControl10"
-        Me.LabelControl10.Size = New System.Drawing.Size(55, 13)
+        Me.LabelControl10.Size = New System.Drawing.Size(46, 13)
         Me.LabelControl10.TabIndex = 18
-        Me.LabelControl10.Text = "SUPPLIER"
+        Me.LabelControl10.Text = "Supplier"
         '
         'LabelControl9
         '
@@ -370,9 +360,9 @@ Partial Class FrmWbIn
         Me.LabelControl9.Appearance.Options.UseFont = True
         Me.LabelControl9.Location = New System.Drawing.Point(12, 203)
         Me.LabelControl9.Name = "LabelControl9"
-        Me.LabelControl9.Size = New System.Drawing.Size(58, 13)
+        Me.LabelControl9.Size = New System.Drawing.Size(47, 13)
         Me.LabelControl9.TabIndex = 17
-        Me.LabelControl9.Text = "MATERIAL"
+        Me.LabelControl9.Text = "Material"
         '
         'LabelControl8
         '
@@ -380,9 +370,9 @@ Partial Class FrmWbIn
         Me.LabelControl8.Appearance.Options.UseFont = True
         Me.LabelControl8.Location = New System.Drawing.Point(12, 174)
         Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(110, 13)
+        Me.LabelControl8.Size = New System.Drawing.Size(102, 13)
         Me.LabelControl8.TabIndex = 16
-        Me.LabelControl8.Text = "WEIGHBRIDGE TYPE"
+        Me.LabelControl8.Text = "Weighbridge Type"
         '
         'LabelControl2
         '
@@ -390,9 +380,9 @@ Partial Class FrmWbIn
         Me.LabelControl2.Appearance.Options.UseFont = True
         Me.LabelControl2.Location = New System.Drawing.Point(12, 69)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(89, 13)
+        Me.LabelControl2.Size = New System.Drawing.Size(82, 13)
         Me.LabelControl2.TabIndex = 15
-        Me.LabelControl2.Text = "TICKET NUMBER"
+        Me.LabelControl2.Text = "Ticket Number"
         '
         'LabelControl3
         '
@@ -400,9 +390,9 @@ Partial Class FrmWbIn
         Me.LabelControl3.Appearance.Options.UseFont = True
         Me.LabelControl3.Location = New System.Drawing.Point(12, 90)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(29, 13)
+        Me.LabelControl3.Size = New System.Drawing.Size(27, 13)
         Me.LabelControl3.TabIndex = 14
-        Me.LabelControl3.Text = "DATE"
+        Me.LabelControl3.Text = "Date"
         '
         'LabelControl4
         '
@@ -410,9 +400,9 @@ Partial Class FrmWbIn
         Me.LabelControl4.Appearance.Options.UseFont = True
         Me.LabelControl4.Location = New System.Drawing.Point(12, 111)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(84, 13)
+        Me.LabelControl4.Size = New System.Drawing.Size(76, 13)
         Me.LabelControl4.TabIndex = 13
-        Me.LabelControl4.Text = "PLATE NUMBER"
+        Me.LabelControl4.Text = "Plate Number"
         '
         'LabelControl5
         '
@@ -420,9 +410,9 @@ Partial Class FrmWbIn
         Me.LabelControl5.Appearance.Options.UseFont = True
         Me.LabelControl5.Location = New System.Drawing.Point(12, 132)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(72, 13)
+        Me.LabelControl5.Size = New System.Drawing.Size(67, 13)
         Me.LabelControl5.TabIndex = 12
-        Me.LabelControl5.Text = "WEIGHT (Kg)"
+        Me.LabelControl5.Text = "Weight (Kg)"
         '
         'LabelControl7
         '
@@ -430,9 +420,9 @@ Partial Class FrmWbIn
         Me.LabelControl7.Appearance.Options.UseFont = True
         Me.LabelControl7.Location = New System.Drawing.Point(12, 153)
         Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(66, 13)
+        Me.LabelControl7.Size = New System.Drawing.Size(58, 13)
         Me.LabelControl7.TabIndex = 11
-        Me.LabelControl7.Text = "TARRA (Kg)"
+        Me.LabelControl7.Text = "Tarra (Kg)"
         '
         'LabelControl1
         '
@@ -440,9 +430,9 @@ Partial Class FrmWbIn
         Me.LabelControl1.Appearance.Options.UseFont = True
         Me.LabelControl1.Location = New System.Drawing.Point(12, 48)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(115, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(104, 13)
         Me.LabelControl1.TabIndex = 10
-        Me.LabelControl1.Text = "WB CARD PASS / KIT"
+        Me.LabelControl1.Text = "WB Card Pass /KIT"
         '
         'PanelControl6
         '
@@ -932,9 +922,7 @@ Partial Class FrmWbIn
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(239, Byte), Integer))
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl3.Controls.Add(Me.PictureBox4)
         Me.PanelControl3.Controls.Add(Me.TxtWeight)
-        Me.PanelControl3.Controls.Add(Me.PictureBox3)
         Me.PanelControl3.Controls.Add(Me.PictureEdit3)
         Me.PanelControl3.Controls.Add(Me.PictureBox1)
         Me.PanelControl3.Controls.Add(Me.PictureBox2)
@@ -943,19 +931,6 @@ Partial Class FrmWbIn
         Me.PanelControl3.Name = "PanelControl3"
         Me.PanelControl3.Size = New System.Drawing.Size(660, 113)
         Me.PanelControl3.TabIndex = 98
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackColor = System.Drawing.Color.White
-        Me.PictureBox4.BackgroundImage = CType(resources.GetObject("PictureBox4.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox4.Location = New System.Drawing.Point(573, 58)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(80, 51)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 121
-        Me.PictureBox4.TabStop = False
         '
         'TxtWeight
         '
@@ -973,19 +948,6 @@ Partial Class FrmWbIn
         Me.TxtWeight.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.TxtWeight.Size = New System.Drawing.Size(125, 38)
         Me.TxtWeight.TabIndex = 100
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.White
-        Me.PictureBox3.BackgroundImage = CType(resources.GetObject("PictureBox3.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox3.Location = New System.Drawing.Point(573, 4)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(80, 51)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 118
-        Me.PictureBox3.TabStop = False
         '
         'PictureEdit3
         '
@@ -1055,35 +1017,6 @@ Partial Class FrmWbIn
         Me.path2.TabIndex = 122
         Me.path2.Text = "path2"
         '
-        'LabelControl42
-        '
-        Me.LabelControl42.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.LabelControl42.Appearance.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl42.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.LabelControl42.Appearance.Options.UseBackColor = True
-        Me.LabelControl42.Appearance.Options.UseFont = True
-        Me.LabelControl42.Appearance.Options.UseForeColor = True
-        Me.LabelControl42.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.LabelControl42.Location = New System.Drawing.Point(786, 229)
-        Me.LabelControl42.Name = "LabelControl42"
-        Me.LabelControl42.Size = New System.Drawing.Size(28, 15)
-        Me.LabelControl42.TabIndex = 117
-        Me.LabelControl42.Text = "Cam 2"
-        '
-        'LabelControl41
-        '
-        Me.LabelControl41.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.LabelControl41.Appearance.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl41.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.LabelControl41.Appearance.Options.UseBackColor = True
-        Me.LabelControl41.Appearance.Options.UseFont = True
-        Me.LabelControl41.Appearance.Options.UseForeColor = True
-        Me.LabelControl41.Location = New System.Drawing.Point(786, 213)
-        Me.LabelControl41.Name = "LabelControl41"
-        Me.LabelControl41.Size = New System.Drawing.Size(28, 15)
-        Me.LabelControl41.TabIndex = 116
-        Me.LabelControl41.Text = "Cam 1"
-        '
         'PanelControl4
         '
         Me.PanelControl4.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(239, Byte), Integer))
@@ -1136,7 +1069,7 @@ Partial Class FrmWbIn
         Me.SimpleButton7.Name = "SimpleButton7"
         Me.SimpleButton7.Size = New System.Drawing.Size(113, 29)
         Me.SimpleButton7.TabIndex = 1
-        Me.SimpleButton7.Text = "GO WB OUT"
+        Me.SimpleButton7.Text = "Go WB Out"
         '
         'BW1
         '
@@ -1295,35 +1228,35 @@ Partial Class FrmWbIn
         Me.LabelControl29.Appearance.Options.UseFont = True
         Me.LabelControl29.Location = New System.Drawing.Point(60, 181)
         Me.LabelControl29.Name = "LabelControl29"
-        Me.LabelControl29.Size = New System.Drawing.Size(83, 13)
+        Me.LabelControl29.Size = New System.Drawing.Size(78, 13)
         Me.LabelControl29.TabIndex = 37
-        Me.LabelControl29.Text = "SEGEL NUMBER"
+        Me.LabelControl29.Text = "Segel Number"
         '
         'LabelControl30
         '
         Me.LabelControl30.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl30.Appearance.Options.UseFont = True
-        Me.LabelControl30.Location = New System.Drawing.Point(115, 160)
+        Me.LabelControl30.Location = New System.Drawing.Point(117, 160)
         Me.LabelControl30.Name = "LabelControl30"
-        Me.LabelControl30.Size = New System.Drawing.Size(28, 13)
+        Me.LabelControl30.Size = New System.Drawing.Size(21, 13)
         Me.LabelControl30.TabIndex = 36
-        Me.LabelControl30.Text = "DIRT"
+        Me.LabelControl30.Text = "Dirt"
         '
         'LabelControl25
         '
         Me.LabelControl25.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl25.Appearance.Options.UseFont = True
-        Me.LabelControl25.Location = New System.Drawing.Point(84, 139)
+        Me.LabelControl25.Location = New System.Drawing.Point(88, 139)
         Me.LabelControl25.Name = "LabelControl25"
-        Me.LabelControl25.Size = New System.Drawing.Size(59, 13)
+        Me.LabelControl25.Size = New System.Drawing.Size(50, 13)
         Me.LabelControl25.TabIndex = 35
-        Me.LabelControl25.Text = "MOISTURE"
+        Me.LabelControl25.Text = "Moisture"
         '
         'LabelControl26
         '
         Me.LabelControl26.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl26.Appearance.Options.UseFont = True
-        Me.LabelControl26.Location = New System.Drawing.Point(122, 118)
+        Me.LabelControl26.Location = New System.Drawing.Point(117, 118)
         Me.LabelControl26.Name = "LabelControl26"
         Me.LabelControl26.Size = New System.Drawing.Size(21, 13)
         Me.LabelControl26.TabIndex = 34
@@ -1333,17 +1266,17 @@ Partial Class FrmWbIn
         '
         Me.LabelControl27.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl27.Appearance.Options.UseFont = True
-        Me.LabelControl27.Location = New System.Drawing.Point(55, 97)
+        Me.LabelControl27.Location = New System.Drawing.Point(63, 97)
         Me.LabelControl27.Name = "LabelControl27"
-        Me.LabelControl27.Size = New System.Drawing.Size(88, 13)
+        Me.LabelControl27.Size = New System.Drawing.Size(75, 13)
         Me.LabelControl27.TabIndex = 33
-        Me.LabelControl27.Text = "PLANTING YEAR"
+        Me.LabelControl27.Text = "Planting Year"
         '
         'LabelControl6
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(94, 7)
+        Me.LabelControl6.Location = New System.Drawing.Point(88, 7)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(49, 13)
         Me.LabelControl6.TabIndex = 3
@@ -1353,37 +1286,31 @@ Partial Class FrmWbIn
         '
         Me.LabelControl24.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl24.Appearance.Options.UseFont = True
-        Me.LabelControl24.Location = New System.Drawing.Point(89, 27)
+        Me.LabelControl24.Location = New System.Drawing.Point(91, 28)
         Me.LabelControl24.Name = "LabelControl24"
-        Me.LabelControl24.Size = New System.Drawing.Size(54, 13)
+        Me.LabelControl24.Size = New System.Drawing.Size(46, 13)
         Me.LabelControl24.TabIndex = 30
-        Me.LabelControl24.Text = "AFDELING"
+        Me.LabelControl24.Text = "Afdeling"
         '
         'LabelControl22
         '
         Me.LabelControl22.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl22.Appearance.Options.UseFont = True
-        Me.LabelControl22.Location = New System.Drawing.Point(94, 70)
+        Me.LabelControl22.Location = New System.Drawing.Point(93, 70)
         Me.LabelControl22.Name = "LabelControl22"
-        Me.LabelControl22.Size = New System.Drawing.Size(49, 13)
+        Me.LabelControl22.Size = New System.Drawing.Size(45, 13)
         Me.LabelControl22.TabIndex = 32
-        Me.LabelControl22.Text = "FFB UNIT"
+        Me.LabelControl22.Text = "FFB Unit"
         '
         'LabelControl23
         '
         Me.LabelControl23.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl23.Appearance.Options.UseFont = True
-        Me.LabelControl23.Location = New System.Drawing.Point(107, 48)
+        Me.LabelControl23.Location = New System.Drawing.Point(106, 49)
         Me.LabelControl23.Name = "LabelControl23"
-        Me.LabelControl23.Size = New System.Drawing.Size(36, 13)
+        Me.LabelControl23.Size = New System.Drawing.Size(31, 13)
         Me.LabelControl23.TabIndex = 31
-        Me.LabelControl23.Text = "BLOCK"
-        '
-        'BackgroundWorker1
-        '
-        '
-        'BackgroundWorker2
-        '
+        Me.LabelControl23.Text = "Block"
         '
         'FrmWbIn
         '
@@ -1395,8 +1322,6 @@ Partial Class FrmWbIn
         Me.Controls.Add(Me.path2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.SimpleButton7)
-        Me.Controls.Add(Me.LabelControl42)
-        Me.Controls.Add(Me.LabelControl41)
         Me.Controls.Add(Me.resultLabel)
         Me.Controls.Add(Me.PanelControl4)
         Me.Controls.Add(Me.PanelControl3)
@@ -1439,9 +1364,7 @@ Partial Class FrmWbIn
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtWeight.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1515,7 +1438,6 @@ Partial Class FrmWbIn
     Friend WithEvents LabelControl19 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents TextEdit18 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents PanelControl4 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents LabelControl41 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents resultLabel As Label
     Friend WithEvents SimpleButton7 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BW1 As System.ComponentModel.BackgroundWorker
@@ -1555,14 +1477,8 @@ Partial Class FrmWbIn
     Friend WithEvents TextEdit28 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl15 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents TextEdit29 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents LabelControl42 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents path1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents path2 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents Timer1 As Timer
-    Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
     Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

@@ -82,7 +82,12 @@ Public Class FrmMain
     End Sub
 
     Private Sub BunifuFlatButton3_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton3.Click
-        FrmChildShow(FrmConfigurationMenu)
+        If USERNAME = My.Settings.UserSetup Then
+            FrmChildShow(Frm)
+        Else
+            FrmChildShow(FrmConfigurationMenu)
+        End If
+
         BunifuFlatButton3.Visible = False
     End Sub
 

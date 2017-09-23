@@ -94,8 +94,6 @@ Public Class FrmTransporter
         GridView.ExpandAllGroups()
     End Sub
 
-
-
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         'SAVE TRANSPORTER
         If Not IsEmptyText({TextEdit17, TextEdit72, TextEdit70, TextEdit67, TextEdit71, TextEdit69}) = True Then

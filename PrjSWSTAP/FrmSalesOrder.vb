@@ -147,7 +147,7 @@ Public Class FrmSalesOrder
                 Dim SCNUMBER As String = TextEdit8.Text
                 Dim MATERIALCODE As String = GetCodeMaterial(ComboBoxEdit2.Text)
                 Dim TOLERANCE As String = TextEdit9.Text
-                Dim COMPLETE As String = "N"
+                Dim COMPLETE As String = ""
                 If CheckEdit1.Checked = True Then COMPLETE = "Y"
 
                 SQL = "SELECT * FROM T_SALESORDER WHERE SO_NO='" & TextEdit1.Text & "'"
@@ -224,10 +224,8 @@ Public Class FrmSalesOrder
 
             TextEdit1.Text = GridView6.GetRowCellValue(e.RowHandle, "SO_NO").ToString() 'SONUMBER
             TextEdit2.Text = GridView6.GetRowCellValue(e.RowHandle, "SO_QTY").ToString() 'SOQUANTITY
-            Dim SO_START As DateTime = GridView6.GetRowCellValue(e.RowHandle, "SO_START").ToString()
-            DateEdit1.Text = SO_START.ToString("M/d/yyyy")
-            Dim SO_END As DateTime = GridView6.GetRowCellValue(e.RowHandle, "SO_END").ToString()
-            DateEdit2.Text = SO_END.ToString("M/d/yyyy")
+            DateEdit1.Text = GridView6.GetRowCellValue(e.RowHandle, "SO_START").ToString()
+            DateEdit2.Text = GridView6.GetRowCellValue(e.RowHandle, "SO_END").ToString()
             ComboBoxEdit1.Text = GridView6.GetRowCellValue(e.RowHandle, "CUST_NAME").ToString() 'CUSTOMERCODE
             TextEdit3.Text = GridView6.GetRowCellValue(e.RowHandle, "SALDO").ToString() 'CUSTOMERNAME
             TextEdit5.Text = GridView6.GetRowCellValue(e.RowHandle, "INCOTERMS1").ToString() 'SALDO

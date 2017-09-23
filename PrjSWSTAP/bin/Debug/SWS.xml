@@ -13,12 +13,12 @@ SWS
 </member>
 <member name="P:PrjSWSTAP.My.Resources.Resources.ResourceManager">
 <summary>
-  Returns THE cached ResourceManager instance used by this class.
+  Returns the cached ResourceManager instance used by this class.
 </summary>
 </member>
 <member name="P:PrjSWSTAP.My.Resources.Resources.Culture">
 <summary>
-  Overrides THE current thread's CurrentUICulture property for all
+  Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
@@ -28,6 +28,11 @@ SWS
 </summary>
 </member>
 <member name="P:PrjSWSTAP.My.Resources.Resources.Admin_16px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:PrjSWSTAP.My.Resources.Resources.cctv">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

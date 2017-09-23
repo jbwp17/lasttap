@@ -26,8 +26,6 @@ Imports Devart.Data
 Imports Devart.Data.Oracle
 Imports Devart.Common
 
-Imports AForge.Video
-
 Module ModuleSWS
 
     Public SQL As String
@@ -79,6 +77,8 @@ Module ModuleSWS
     Public AppVersion As String
     Public config As Boolean = False
     Public STonlineUser As Boolean = False
+    Public ValTare As String
+
 
     Public singgeleForm As String
     Public pathimage As String
@@ -86,7 +86,7 @@ Module ModuleSWS
     Public ValLenWb As String
 
     'KONEKSI SERVER LOCAL
-    Public CONN As New OracleConnection
+    Public Conn As New OracleConnection
     Public CMD As New OracleCommand
     Public TRANS As OracleTransaction
     Public DR As OracleDataReader
@@ -103,7 +103,7 @@ Module ModuleSWS
     Public ConStringLocal As String
 
     'KONEKSI SERVER STAGING(1) 
-    Public CONN1 As New OracleConnection
+    Public Conn1 As New OracleConnection
     Public CMD1 As New OracleCommand
     Public TRANS1 As OracleTransaction
     Public DR1 As OracleDataReader
@@ -120,8 +120,8 @@ Module ModuleSWS
     Public ConStringStaging As String
 
     Public TblLogin As String = "Sign In"
-
     Public blobParameter As New OracleParameter
+
     'PARAMETER FORM GENERAL
     Public nFormName As String = ""
 
@@ -143,17 +143,34 @@ Module ModuleSWS
     Public BA_DATE As String
     Public BA_DIALOG As Boolean = False
 
-    'TIMER WB
-    Public WBIP As String
-    Public WBPORT As String
-    Public WBLEN As String
-    Public WBRL As String
+    'PARAMETER WB
+    Public WBIP As String               'IP ADDRESS
+    Public WBPORT As Integer            'PORT
+    Public WBLEN As String              'LEN 
+    Public WBRL As String               'RIGHT / LEFT
+    Public WB_ON As Boolean = False     'STATUS
 
-    Public WB_ON As Boolean = False
+    'PARAMETER CCTV /IPCAM
+    Public CAMCON1 As Boolean = False
+    Public CAMCON2 As Boolean = False
 
     Delegate Sub SetTextCallback(ByVal [text] As String) 'Added to prevent threading errors during receiveing of data
 
 #Region "General Config"
+    Public Function GetCctvParam(ByVal ncctv As String) As String
+        GetCctvParam = ""
+        Try
+            Dim dt As New DataTable
+            SQL = "SELECT TRIM(CONFIG)CONFIG FROM T_CCTV WHERE NAMA='" & ncctv & "'"
+            dt = ExecuteQuery(SQL)
+            If dt.Rows.Count > 0 Then
+                GetCctvParam = dt.Rows(0).Item("CONFIG").ToString
+            End If
+        Catch ex As Exception
+        End Try
+        Return GetCctvParam
+    End Function
+
     Public Sub GetConfig()
         CompanyCode = My.Settings.CompanyCode.ToString
         Company = My.Settings.Company.ToString
@@ -169,6 +186,7 @@ Module ModuleSWS
         LoadingRampTransit = My.Settings.LoadingRampTransit.ToString
         SAP = My.Settings.SAP.ToString
         AppVersion = My.Settings.AppVersion.ToString
+        ValTare = My.Settings.ValidasiTara
         'local seting
         DBSourceLocal = My.Settings.DBSourceLocal.ToString
         DBPortLocal = My.Settings.DBPortLocal.ToString
@@ -183,12 +201,56 @@ Module ModuleSWS
         DBVerStaging = My.Settings.DBVerStaging.ToString
         DBUserStaging = My.Settings.DBUserStaging.ToString
         DBPassStaging = My.Settings.DBPassStaging.ToString
-
         'parameter
         singgeleForm = If(My.Settings.SinggleFrmActive = 1, True, False)
         pathimage = My.Settings.PathImage
 
     End Sub
+
+#End Region
+#Region "CAM"
+    Public Sub CaptureCamImage(ByVal Source As String, ByVal Picturebox As PictureBox)
+        On Error Resume Next
+        Dim response As Byte() = Nothing
+        Using webClient = New WebClient()
+            'webClient.Credentials = New NetworkCredential("", "") '('user,password)
+            response = webClient.DownloadData(Source)
+        End Using
+        Dim img As Image = DirectCast((New ImageConverter()).ConvertFrom(response), Bitmap)
+        Picturebox.Image = img
+    End Sub
+
+    Public Function GetCam(ByVal Source As String, ByRef Pb As PictureBox) As Image
+        GetCam = Nothing
+        Try
+            Do Until Not CAMCON1 = True
+                Dim buffer As Byte() = New Byte(99999) {}
+                Dim read As Integer, total As Integer = 0
+                Dim req As HttpWebRequest = DirectCast(WebRequest.Create(Source), HttpWebRequest)
+                req.Method = "POST"
+                req.Timeout = 500
+                'Dim cred As New NetworkCredential("Administrator", "admintdx")
+                'req.Credentials = cred
+                Dim resp As WebResponse = req.GetResponse()
+                ' get response stream
+                Dim stream As Stream = resp.GetResponseStream()
+                ' read data from stream
+                While (InlineAssignHelper(read, stream.Read(buffer, total, 1000))) <> 0
+                    total += read
+                End While
+                Dim bmp As Bitmap = DirectCast(Bitmap.FromStream(New MemoryStream(buffer, 0, total)), Bitmap)
+                Pb.Image = bmp
+                GetCam = Pb.Image
+            Loop
+        Catch ex As Exception
+        End Try
+        Return GetCam
+    End Function
+    Public Function InlineAssignHelper(Of T)(ByRef target As T, value As T) As T
+        target = value
+        Return value
+    End Function
+
 
 #End Region
 #Region "FTP"
@@ -201,7 +263,7 @@ Module ModuleSWS
             ftpRequest.Credentials = New NetworkCredential(ftpusername, ftppassword)
             ' Read into a Byte array THE contents of THE file to be uploaded 
             Dim bytes() As Byte = System.IO.File.ReadAllBytes(filetoupload)
-            ' Transfer THE byte array contents into THE request stream, write and THEn close when done.
+            ' Transfer THE byte array contents into THE request stream, write and THEn Close when done.
             ftpRequest.ContentLength = bytes.Length
             Using UploadStream As Stream = ftpRequest.GetRequestStream()
                 UploadStream.Write(bytes, 0, bytes.Length)
@@ -236,10 +298,10 @@ Module ModuleSWS
 #End Region
 #Region "Oracle Koneksi"
     Public Sub GetStagingDbConfig()
-        ConStringStaging = "Data Source=(DESCRIPTION=" + "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" + "(HOST=" & DBSourceStaging & ")" + "(PORT=" & DBPortStaging & ")))(CONNECT_DATA=(SERVER=DEDICATED)" + "(SERVICE_NAME=" & DBVerStaging & ")));" + "User Id=" & DBUserStaging & ";Password=" & DBPassStaging & ";"
+        ConStringStaging = "Data Source=(DESCRIPTION=" + "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" + "(HOST=" & DBSourceStaging & ")" + "(PORT=" & DBPortStaging & ")))(ConnECT_DATA=(SERVER=DEDICATED)" + "(SERVICE_NAME=" & DBVerStaging & ")));" + "User Id=" & DBUserStaging & ";Password=" & DBPassStaging & ";"
     End Sub
     Public Sub GetLocalDbConfig()
-        ConStringLocal = "Data Source=(DESCRIPTION=" + "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" + "(HOST=" & DBSourceLocal & ")" + "(PORT=" & DBPortLocal & ")))(CONNECT_DATA=(SERVER=DEDICATED)" + "(SERVICE_NAME=" & DBVerLocal & ")));" + "User Id=" & DBUserLocal & ";Password=" & DBPassLocal & ";"
+        ConStringLocal = "Data Source=(DESCRIPTION=" + "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" + "(HOST=" & DBSourceLocal & ")" + "(PORT=" & DBPortLocal & ")))(ConnECT_DATA=(SERVER=DEDICATED)" + "(SERVICE_NAME=" & DBVerLocal & ")));" + "User Id=" & DBUserLocal & ";Password=" & DBPassLocal & ";"
     End Sub
     Public Function StatusSite() As Boolean
         StatusSite = False
@@ -257,22 +319,22 @@ Module ModuleSWS
         OpenConnLocal = False
         GetLocalDbConfig()
         Try
-            If CONN.State = ConnectionState.Closed Then
-                CONN = New OracleConnection(ConStringLocal)
-                CONN.Open()
+            If Conn.State = ConnectionState.Closed Then
+                Conn = New OracleConnection(ConStringLocal)
+                Conn.Open()
                 OpenConnLocal = True
             Else
                 OpenConnLocal = True
             End If
         Catch ex As Exception
-            CONN.Close()
+            Conn.Close()
             OpenConnLocal = False
         End Try
     End Function
 
     Public Sub CloseConnLocal()
-        If CONN.State = ConnectionState.Open Then
-            CONN.Close()
+        If Conn.State = ConnectionState.Open Then
+            Conn.Close()
         End If
     End Sub
 
@@ -280,23 +342,21 @@ Module ModuleSWS
         OpenConnStaging = False
         GetStagingDbConfig()
         Try
-            CONN1 = New OracleConnection(ConStringStaging)
-            If CONN1.State = ConnectionState.Closed Then
-                CONN1 = New OracleConnection(ConStringStaging)
-                CONN1.Open()
+            If Conn1.State = ConnectionState.Closed Then
+                Conn1 = New OracleConnection(ConStringStaging)
+                Conn1.Open()
                 OpenConnStaging = True
             Else
                 OpenConnStaging = True
             End If
         Catch ex As Exception
-            CONN1.Close()
+            Conn1.Close()
             OpenConnStaging = False
         End Try
-        Return OpenConnStaging()
     End Function
     Public Sub CloseConnStaging()
-        If CONN1.State = ConnectionState.Open Then
-            CONN1.Close()
+        If Conn1.State = ConnectionState.Open Then
+            Conn1.Close()
         End If
     End Sub
 #End Region
@@ -324,11 +384,9 @@ Module ModuleSWS
     Public Function Ping(hostNameOrAddress As String) As Boolean
         On Error Resume Next
         Ping = False
-        If My.Computer.Network.Ping(hostNameOrAddress, 1000) Then
-            ' MsgBox("Server pinged successfully.")
+        If My.Computer.Network.Ping(hostNameOrAddress, 3) Then
             Ping = True
         Else
-            'MsgBox("Ping request timed out.")
             Ping = False
         End If
         Return Ping
@@ -352,19 +410,22 @@ Module ModuleSWS
             Dim OnPC As String = GetLastOnline(USERNAME)
             MsgBox("YOU ARE ONLINE ON " & OnPC, vbInformation, "Info Login")
             LogOn = True
+            USERNAME = ""
         Else
             'INSERT LOG
             SQL = "INSERT INTO TLOGINHISTORY (LOGINDATE,USERID,IPADDRESS,REMARK,USED) " +
               "VALUES('" & Time & "','" & USERNAME & "','" & IP & "','SUCCESS','Y')"
             ExecuteNonQuery(SQL)
-            'LogOn = False
+            LogOn = False
         End If
+
         Return LogOn
     End Function
     Public Sub LogOFF()
         Dim Time As String = Now
         Dim IP As String = GetIPAddr()
         'CHECK LOG
+
         SQL = "SELECT * FROM TLOGINHISTORY WHERE USERID='" & USERNAME & "' AND USED='Y'"
         If CheckRecord(SQL) > 0 Then
             Dim OnPC As String = GetLastOnline(USERNAME)
@@ -408,8 +469,8 @@ Module ModuleSWS
         If Not OpenConnLocal() Then
             Exit Function
         End If
-        CMD = CONN.CreateCommand()
-        TRANS = CONN.BeginTransaction(IsolationLevel.ReadCommitted)
+        CMD = Conn.CreateCommand()
+        TRANS = Conn.BeginTransaction(IsolationLevel.ReadCommitted)
         CMD.Transaction = TRANS
         Try
             CMD.CommandText = Query
@@ -420,12 +481,12 @@ Module ModuleSWS
             DS = New DataSet
             DA.Fill(DS)
             DT = DS.Tables(0)
-            CONN.Close()
+            Conn.Close()
             CMD = Nothing
         Catch ex As Exception
             TRANS.Rollback()
             CMD = Nothing
-            CONN.Close()
+            Conn.Close()
         End Try
         Return DT
     End Function
@@ -435,9 +496,9 @@ Module ModuleSWS
             Exit Function
         End If
         Dim strsql As String = " SELECT * FROM TLOGINHISTORY WHERE ROWNUM <= 1 And used='Y' and userid='" & nUsername & "' order by logindate desc "
-        Dim CONN As New OracleConnection(ConStringLocal)
-        CMD = New OracleCommand(strsql, CONN)
-        CONN.Open()
+        Dim Conn As New OracleConnection(ConStringLocal)
+        CMD = New OracleCommand(strsql, Conn)
+        Conn.Open()
         Dim RDR As OracleDataReader = CMD.ExecuteReader
         While RDR.Read
             GetLastOnline = RDR("IPADDRESS").ToString
@@ -451,18 +512,19 @@ Module ModuleSWS
         CheckRecord = 0
         Dim i As Integer = 0
         Try
+            OpenConnLocal()
+
             If Not OpenConnLocal() Then
                 Exit Function
             End If
 
-            CMD = New OracleCommand(SSQL, CONN)
+            CMD = New OracleCommand(SSQL, Conn)
             Dim Odr As OracleDataReader = CMD.ExecuteReader
 
             While Odr.Read()
                 CheckRecord = CheckRecord + 1
             End While
-        Finally
-            CMD = Nothing
+        Catch EX As Exception
         End Try
         Return CheckRecord
     End Function
@@ -493,8 +555,8 @@ Module ModuleSWS
         If Not OpenConnLocal() Then
             Exit Sub
         End If
-        CMD = CONN.CreateCommand
-        TRANS = CONN.BeginTransaction(IsolationLevel.ReadCommitted)
+        CMD = Conn.CreateCommand
+        TRANS = Conn.BeginTransaction(IsolationLevel.ReadCommitted)
         CMD.Transaction = TRANS
         Try
             CMD.CommandText = query
@@ -504,7 +566,7 @@ Module ModuleSWS
             TRANS.Rollback()
         End Try
         CMD = Nothing
-        CONN.Close()
+        Conn.Close()
     End Sub
 
     Public Function AmbilTgl() As String
@@ -513,9 +575,9 @@ Module ModuleSWS
             Exit Function
         End If
         Dim strsql As String = "SELECT SYSDATE TGL FROM DUAL"
-        Dim CONN As New OracleConnection(ConStringLocal)
-        CMD = New OracleCommand(strsql, CONN)
-        CONN.Open()
+        Dim Conn As New OracleConnection(ConStringLocal)
+        CMD = New OracleCommand(strsql, Conn)
+        Conn.Open()
         Dim RDR As OracleDataReader = CMD.ExecuteReader
         While RDR.Read
             AmbilTgl = RDR("TGL").ToString
@@ -531,9 +593,9 @@ Module ModuleSWS
         End If
         Dim strsql As String = " SELECT IDSITE , MASTER NAMASITE FROM d_master " +
                                    " WHERE aktif='Y' and IDTABEL='MS'"
-        Dim CONN As New OracleConnection(ConStringLocal)
-        CMD = New OracleCommand(strsql, CONN)
-        CONN.Open()
+        Dim Conn As New OracleConnection(ConStringLocal)
+        CMD = New OracleCommand(strsql, Conn)
+        Conn.Open()
         Dim RDR As OracleDataReader = CMD.ExecuteReader
         While RDR.Read
             nNamaSite = RDR("NAMASITE").ToString
@@ -542,28 +604,24 @@ Module ModuleSWS
         RDR.Close()
         CMD = Nothing
     End Function
-    Public Function GetTara(ByVal NOPOL As String) As String
-        GetTara = 0
-        VEHICLE_TARA = 0
-        VEHICLE_MAX_TARA = 0
-        VEHICLE_MIN_TARA = 0
-        If Not OpenConnLocal() Then
-            Exit Function
-        End If
+    Public Function GetTara(ByVal NOPOL As String)
+        GetTara = ""
+
+        Dim dt As New DataTable
         Dim strsql As String = " SELECT DISTINCT PLATE_NUMBER,TARE,MAX_TARA,MIN_TARA FROM V_TOLERANCE_VEHICLE  " +
                                " WHERE trim(PLATE_NUMBER) = '" & NOPOL & "'"
-        Dim CONN As New OracleConnection(ConStringLocal)
-        CMD = New OracleCommand(strsql, CONN)
-        CONN.Open()
-        Dim RDR As OracleDataReader = CMD.ExecuteReader
-        While RDR.Read
-            ' GetTara = RDR("TARE").ToString
-            VEHICLE_TARA = Val(RDR("TARE").ToString)
-            VEHICLE_MAX_TARA = Val(RDR("MAX_TARA").ToString)
-            VEHICLE_MIN_TARA = Val(RDR("MIN_TARA").ToString)
-        End While
-        RDR.Close()
-        CMD = Nothing
+        Try
+            dt = ExecuteQuery(strsql)
+            If dt.Rows.Count > 0 Then
+                VEHICLE_TARA = CInt(dt.Rows(0).Item("TARE").ToString)
+                VEHICLE_MAX_TARA = CInt(dt.Rows(0).Item("MAX_TARA").ToString)
+                VEHICLE_MIN_TARA = CInt(dt.Rows(0).Item("MIN_TARA").ToString)
+                VEHICLE_NUMBER = dt.Rows(0).Item("VEHICLE_NUMBER").ToString
+                GetTara = VEHICLE_TARA
+            End If
+        Catch EX As Exception
+        End Try
+        GetTara = VEHICLE_TARA
         Return GetTara
     End Function
 
@@ -574,9 +632,9 @@ Module ModuleSWS
         End If
         Dim i As Integer = 0
         Dim queryString As String = "SELECT * FROM T_USERPROFILE WHERE USERNAME='" & nUser & "' and PASSWD ='" & nPass & "' "
-        Dim conn As New OracleConnection(ConStringLocal)
-        Dim cmd As New OracleCommand(queryString, conn)
-        conn.Open()
+        Dim Conn As New OracleConnection(ConStringLocal)
+        Dim cmd As New OracleCommand(queryString, Conn)
+        Conn.Open()
         Dim DR As OracleDataReader = cmd.ExecuteReader
         Try
             While DR.Read()
@@ -585,7 +643,6 @@ Module ModuleSWS
                 CheckLogin = True
             End While
             i = i + 1
-
         Finally
             DR.Close()
             cmd = Nothing
@@ -609,14 +666,20 @@ Module ModuleSWS
         Dim date1 As Date = Now
         Dim Th As String = date1.ToString("yyMM")
         Dim Bln As String = date1.ToString("MM")
-
-        SQL = "SELECT max(SUBSTR(trim(NO_TICKET),-11)) MaxTicket FROM " & nTabel & ""
+        Dim MAXTIKET As Double = 0
+        GetMaxTr = ""
+        SQL = "SELECT NVL(max(trim(NO_TICKET)),0) MaxTicket FROM " & nTabel & ""
         Dim DTS As New DataTable
         DTS = ExecuteQuery(SQL)
         If DTS.Rows.Count > 0 Then
-            GetMaxTr = DTS.Rows(0).Item("MaxTicket").ToString
-        Else
-            GetMaxTr = Th & "00001"
+            If DTS.Rows(0).Item("MAXTICKET") <> "" Then
+                GetMaxTr = DTS.Rows(0).Item("MaxTicket").ToString
+                GetMaxTr = Microsoft.VisualBasic.Right(GetMaxTr, 11)
+                MAXTIKET = GetMaxTr
+                GetMaxTr = MAXTIKET + 1
+            Else
+                GetMaxTr = Th & "00000"
+            End If
         End If
         Return GetMaxTr
     End Function
@@ -632,7 +695,8 @@ Module ModuleSWS
         Th = date1.ToString("yyyyMM")
         Bln = date1.ToString("MM")
 
-        Th = Left(PERIODE, 4) & Right(PERIODE, 2)
+        'Th = Left(PERIODE, 4) & Right(PERIODE, 2)
+        Th = Left(PERIODE, 4)
         Bln = Right(PERIODE, 2)
 
         If Bln = "" Or Th = "" Then
@@ -641,9 +705,7 @@ Module ModuleSWS
         End If
 
         Code = CStr(GetMaxTr("T_WBTICKET") + 1)
-
         GetTiketNew = ""
-
         Try
             If Code = "" Then
                 GetTiketNew = Th & Right(Code, 5)
@@ -662,15 +724,15 @@ Module ModuleSWS
     End Function
     Public Function GetFrmName(nMenuName As String) As String
         GetFrmName = ""
+
         Dim ssql As String
         If Not OpenConnLocal() Then
             Exit Function
         End If
-
-        ssql = "SELECT FRMNAME  FROM T_ACCESSRIGHTS WHERE ACCESSNAME='" & nMenuName & "'"
-        Dim cmd As New OracleCommand(ssql, CONN)
-        Dim oRs As OracleDataReader = cmd.ExecuteReader
         Try
+            ssql = "SELECT FRMNAME  FROM T_ACCESSRIGHTS WHERE ACCESSNAME='" & nMenuName & "'"
+            Dim cmd As New OracleCommand(ssql, Conn)
+            Dim oRs As OracleDataReader = cmd.ExecuteReader
             While oRs.Read
                 GetFrmName = oRs("frmname").ToString
             End While
@@ -686,7 +748,7 @@ Module ModuleSWS
         Try
             Dim ssql As String
             ssql = "SELECT MAX(" & nField & ")MAX FROM " & nTable & " "
-            Dim cmd As New OracleCommand(ssql, CONN)
+            Dim cmd As New OracleCommand(ssql, Conn)
             Dim oRs As OracleDataReader = cmd.ExecuteReader
             While oRs.Read
                 GetMaxID = Val(oRs("MAX")) + 1
@@ -707,7 +769,7 @@ Module ModuleSWS
             Dim ssql As String
             'cARI KODE
             ssql = "SELECT MAX(" & nField & ")MAX FROM " & nTable & ""
-            Dim cmd As New OracleCommand(ssql, CONN)
+            Dim cmd As New OracleCommand(ssql, Conn)
             Dim oRs As OracleDataReader = cmd.ExecuteReader
             While oRs.Read
                 Dim i As Integer = Len(Num(oRs("MAX")))
@@ -729,7 +791,7 @@ Module ModuleSWS
             Exit Function
         End If
         ssql = "SELECT MAX(USERID)MAX FROM T_USERPROFILE "
-        Dim cmd As New OracleCommand(ssql, CONN)
+        Dim cmd As New OracleCommand(ssql, Conn)
         Dim oRs As OracleDataReader = cmd.ExecuteReader
         Try
             While oRs.Read
@@ -746,7 +808,7 @@ Module ModuleSWS
             Exit Function
         End If
         ssql = "SELECT NVL((MAX(MATERIAL_JENIS_CODE)),0)MAX FROM T_MATERIAL_JENIS"
-        Dim cmd As New OracleCommand(ssql, CONN)
+        Dim cmd As New OracleCommand(ssql, Conn)
         Dim oRs As OracleDataReader = cmd.ExecuteReader
         Try
             While oRs.Read
@@ -764,7 +826,7 @@ Module ModuleSWS
         End If
         ssql = "SELECT MAX(USERID)+1 AS CODE FROM  T_USERPROFILE "
 
-        Dim cmd As New OracleCommand(ssql, CONN)
+        Dim cmd As New OracleCommand(ssql, Conn)
         Dim oRs As OracleDataReader = cmd.ExecuteReader
         While oRs.Read
             GetCodeUser = CInt(oRs("CODE").ToString)
@@ -779,7 +841,7 @@ Module ModuleSWS
         End If
         ssql = "SELECT urut FROM  M_CODE " +
                    " WHERE IDTABEL = '" & nKode & "'"
-        Dim cmd As New OracleCommand(ssql, CONN)
+        Dim cmd As New OracleCommand(ssql, Conn)
         Dim oRs As OracleDataReader = cmd.ExecuteReader
         While oRs.Read
             GetCode = nKode & Right("00000000" & CInt(oRs("urut").ToString) + 1, 6)
@@ -827,8 +889,8 @@ Module ModuleSWS
                 Exit Sub
             End If
             If sql = Nothing Then Exit Sub
-            CMD = New OracleCommand(sql, CONN)
-            CONN.Open()
+            CMD = New OracleCommand(sql, Conn)
+            Conn.Open()
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             Cbx.Properties.Items.Clear()
             While rdr.Read
@@ -839,25 +901,28 @@ Module ModuleSWS
         Catch ex As Exception
             MsgBox("Error:" & ex.ToString)
         Finally
-            CONN.Close()
+            Conn.Close()
         End Try
     End Sub
     Public Sub FILLGridView(ByVal sql As String, ByVal DgView As DevExpress.XtraGrid.GridControl)
         Dim View As GridView = CType(DgView.FocusedView, GridView)
+        Dim DT As New DataTable
+        OpenConnLocal()
         Try
             If Not OpenConnLocal() Then
                 Exit Sub
             End If
             DgView.DataSource = Nothing
-            DgView.DataSource = ExecuteQuery(sql)
-            View.OptionsView.ColumnAutoWidth = False
-            View.OptionsView.BestFitMaxRowCount = -1
-            View.BestFitColumns()
-            View.OptionsBehavior.Editable = False
+            DT = ExecuteQuery(sql)
+            If DT.Rows.Count > 0 Then
+                DgView.DataSource = DT
+                View.OptionsView.ColumnAutoWidth = False
+                View.OptionsView.BestFitMaxRowCount = -1
+                View.BestFitColumns()
+                View.OptionsBehavior.Editable = False
+            End If
         Catch ex As Exception
-            MsgBox("Error:" & ex.ToString)
-        Finally
-            CONN.Close()
+            'MsgBox("Error:" & ex.ToString)
         End Try
     End Sub
 
@@ -901,7 +966,7 @@ Module ModuleSWS
                 Exit Function
             End If
             Dim strsql As String = "SELECT DISTINCT IMGID FROM T_ACCESSRIGHTS  WHERE ACCESSNAME='" & nGroup & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 If Val(rdr("IMGID").ToString) <> 0 Then
@@ -923,7 +988,7 @@ Module ModuleSWS
                 Exit Function
             End If
             Dim strsql As String = "SELECT CONCAT('000',MAX(ACCESSID)+1) GKODE FROM  T_ACCESSRIGHTS  WHERE  TYPE=0"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 If Val(rdr("GKODE").ToString) <> 0 Then
@@ -946,7 +1011,7 @@ Module ModuleSWS
         End If
         Try
             Dim strsql As String = "SELECT MATERIAL_JENIS_CODE FROM  T_MATERIAL_JENIS WHERE  MATERIAL_JENIS='" & MtType & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetMtJenisCode = rdr("MATERIAL_JENIS_CODE").ToString
@@ -965,7 +1030,7 @@ Module ModuleSWS
         End If
         Try
             Dim strsql As String = "SELECT USERID FROM  T_USERPROFILE WHERE  USERNAME='" & UNAME & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 If Val(rdr("USERID").ToString) <> 0 Then
@@ -986,7 +1051,7 @@ Module ModuleSWS
         End If
         Try
             Dim strsql As String = "SELECT TRANSPORTER_CODE AS CODE FROM T_TRANSPORTER WHERE TRANSPORTER_NAME='" & UNAME & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetCodeTrans = rdr("CODE").ToString
@@ -1004,7 +1069,7 @@ Module ModuleSWS
         End If
         Try
             Dim strsql As String = "SELECT VENDOR_CODE AS CODE FROM T_VENDOR WHERE VENDOR_NAME='" & UNAME & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetCodeVendor = rdr("CODE").ToString
@@ -1032,7 +1097,7 @@ Module ModuleSWS
         End If
         Try
             Dim strsql As String = "SELECT MATERIAL_CODE AS CODE FROM T_MATERIAL WHERE MATERIAL_NAME='" & UNAME & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetCodeMaterial = rdr("CODE").ToString
@@ -1050,7 +1115,7 @@ Module ModuleSWS
         End If
         Try
             Dim strsql As String = "SELECT INCOTERMS1 AS CODE ,INCOTERMS2 FROM T_CONTRACT WHERE CONTRACT_NO='" & UNAME & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetDeliveryContract = rdr("CODE").ToString
@@ -1068,7 +1133,7 @@ Module ModuleSWS
         End If
         Try
             Dim strsql As String = "SELECT DRIVER_CODE,DRIVER_NAME,LICENSE_NUMBER AS CODE,TRANSPORTER_CODE FROM T_DRIVER WHERE INACTIVE IS NULL AND DRIVER_NAME LIKE '%" & UNAME & "%' AND TRANSPORTER_CODE '%" & TRAN & "%'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetSimDriver = rdr("CODE").ToString
@@ -1090,7 +1155,7 @@ Module ModuleSWS
             " Left JOIN T_TRANSPORTER  B On A.TRANSPORTER_CODE=B.TRANSPORTER_CODE And B.INACTIVE IS NULL " +
             " WHERE A.INACTIVE IS NULL " +
             " AND A.PLATE_NUMBER='" & VNumber & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetTranspotVehicle = rdr("TRANSPORTER_NAME").ToString
@@ -1108,7 +1173,7 @@ Module ModuleSWS
         End If
         Try
             Dim strsql As String = "SELECT CUST_CODE AS CODE FROM T_CUSTOMER WHERE CUST_NAME='" & UNAME & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetCodeCust = rdr("CODE").ToString
@@ -1128,7 +1193,7 @@ Module ModuleSWS
         End If
         Try
             Dim strsql As String = "SELECT ROLEID FROM  T_ROLE WHERE  ROLENAME='" & nRole & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetCodeRole = rdr("ROLEID").ToString
@@ -1148,7 +1213,7 @@ Module ModuleSWS
         End If
         Try
             Dim strsql As String = "SELECT PARENTID,ACCESSNAME FROM T_ACCESSRIGHTS WHERE ACCESSID='" & nMenu & "' AND TYPE='1'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetParent = rdr("ACCESSNAME").ToString
@@ -1168,7 +1233,7 @@ Module ModuleSWS
                 Exit Function
             End If
             Dim strsql As String = "SELECT CONCAT('000',NVL(MAX(ACCESSID)+1,0)) MKODE FROM  T_ACCESSRIGHTS  WHERE  TYPE=1 AND PARENTID='" & parentid & "'"
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetCodeSub = rdr("MKODE").ToString
@@ -1191,7 +1256,7 @@ Module ModuleSWS
             End If
 
             Dim strsql As String = "SELECT ACCESSID,ACCESSNAME,PARENTID FROM T_ACCESSRIGHTS WHERE ACCESSID='" & menuname & "' AND TYPE=1"  'CARI PARENT DARI MENUID
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetParentId = rdr("PARENTID").ToString
@@ -1248,7 +1313,7 @@ Module ModuleSWS
         " REMARKS,INPUT_BY,INPUT_DATE,UPDATE_BY,  " +
         " UPDATE_DATE,STATUS,TAHUN_TANAM,ESTATE,  " +
         " AFDELING,BLOCK,FFB_UNITS,CUSTOMER_RECEIVE, " +
-        " DELETED,VERIFIED,VERIFIED_DATE,CUSTOMER_RETURN,REF_TICKETNO,TICKET_CLOSED,  " +
+        " DELETED,VERIFIED,VERIFIED_DATE,CUSTOMER_RETURN,REF_TICKETNO,TICKET_CloseD,  " +
         " NO_TICKET_TAP,CUSTOMERID_DUP,EXPORTED,KIT) " +
         " SELECT  " +
         " NO_TICKET,CUSTOMER_CODE,SUPPLIER_CODE,TRANSPORTER_CODE,  " +
@@ -1262,7 +1327,7 @@ Module ModuleSWS
         " REMARKS,INPUT_BY,INPUT_DATE,UPDATE_BY,  " +
         " UPDATE_DATE,STATUS,TAHUN_TANAM,ESTATE,  " +
         " AFDELING,BLOCK,FFB_UNITS,CUSTOMER_RECEIVE, " +
-        " DELETED,VERIFIED,VERIFIED_DATE,CUSTOMER_RETURN,REF_TICKETNO,TICKET_CLOSED,  " +
+        " DELETED,VERIFIED,VERIFIED_DATE,CUSTOMER_RETURN,REF_TICKETNO,TICKET_CloseD,  " +
         " NO_TICKET_TAP,CUSTOMERID_DUP,EXPORTED,KIT " +
         " FROM T_WBTICKET " +
         " WHERE NO_TICKET ='" & NTicket & "'"
@@ -1279,7 +1344,7 @@ Module ModuleSWS
             End If
 
             Dim strsql As String = "SELECT ACCESSID,ACCESSNAME,PARENTID FROM T_ACCESSRIGHTS WHERE ACCESSNAME='" & menuname & "' AND TYPE=0"  'CARI MENUID DARI NAMA (GROUP ONLY)
-            CMD = New OracleCommand(strsql, CONN)
+            CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
                 GetMenuId = rdr("ACCESSID").ToString
@@ -1311,12 +1376,12 @@ Module ModuleSWS
         Dim Cmd As New OracleCommand
         Dim Da As New OracleDataAdapter
 
-        Dim conn As OracleConnection = New OracleConnection(ConStringLocal)
-        conn.ConnectionString = ConStringLocal
-        conn.Open()
+        Dim Conn As OracleConnection = New OracleConnection(ConStringLocal)
+        Conn.ConnectionString = ConStringLocal
+        Conn.Open()
 
         With Cmd
-            .Connection = conn
+            .Connection = Conn
             .CommandText = queryString
             .CommandType = CommandType.Text
         End With
@@ -1341,8 +1406,8 @@ Module ModuleSWS
         ' free resources used by report
         Rpt.Dispose()
         Da = Nothing
-        conn.Close()
-        conn = Nothing
+        Conn.Close()
+        Conn = Nothing
     End Sub
     '-------------------------Fast Report -------End
 
@@ -1353,7 +1418,7 @@ Module ModuleSWS
             If Not (objText(i).Text.Length > 0) Then ' validas inputkan text, klo enggak diisi tampilkan peringatan
                 MessageBox.Show("SORRY THE TEXT SHOULD BE FILLED", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 objText(i).Focus()
-                ' objText(i).BackColor = Color.Gold
+                ' objText(i).BackColor = Color.YellowGreen
                 Return True
                 Exit Function
             End If
@@ -1380,7 +1445,7 @@ Module ModuleSWS
             If Not IsNumeric(objText(i).EditValue) = True Then ' validas inputkan text, klo enggak diisi tampilkan peringatan
                 MessageBox.Show("SORRY THE TEXT SHOULD BE NUMERICE ONLY", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 objText(i).Focus()
-                objText(i).BackColor = Color.WhiteSmoke
+                ' objText(i).BackColor = Color.YellowGreen
                 Return True
                 Exit Function
             End If
@@ -1417,14 +1482,14 @@ Module ModuleSWS
         Return False
     End Function
 
-    Public Function TextEnebled(ByVal objText() As DevExpress.XtraEditors.TextEdit) As Boolean
-        Dim i As Integer
-        For i = 0 To objText.GetUpperBound(0) ' lakukan perulangan sebanyak array objek
-            objText(i).BackColor = Color.White
-            objText(i).Enabled = True ' Ubah Jadi ENEBLE
-        Next
-        Return False
-    End Function
+    'Public Function TextEnAbled(ByVal objText() As DevExpress.XtraEditors.TextEdit) As Boolean
+    '    Dim i As Integer
+    '    For i = 0 To objText.GetUpperBound(0) ' lakukan perulangan sebanyak array objek
+    '        objText(i).ResetBackColor()
+    '        objText(i).Enabled = True ' Ubah Jadi ENEBLE
+    '    Next
+    '    Return False
+    'End Function
     Public Function TextClear(ByVal objText() As DevExpress.XtraEditors.TextEdit) As Boolean
         Dim i As Integer
         For i = 0 To objText.GetUpperBound(0) ' lakukan perulangan sebanyak array objek
@@ -1469,22 +1534,19 @@ Module ModuleSWS
         Num = wordy
     End Function
     Public Function GetSCSMessage(ByVal IP As String, ByVal Port As Int32) As String
+        GetWBConfig()
         Dim tcpClient As New System.Net.Sockets.TcpClient()
         Try
             tcpClient.Connect(IP, Port)
             tcpClient.NoDelay = True
             Dim networkStream As NetworkStream = tcpClient.GetStream()
             If networkStream.CanWrite And networkStream.CanRead Then
-                ' Do a simple write.
-                Dim sendBytes As [Byte]() = Encoding.ASCII.GetBytes("$gimme")
+                Dim sendBytes As [Byte]() = Encoding.ASCII.GetBytes("$Client")
                 networkStream.Write(sendBytes, 0, sendBytes.Length)
-                ' Read THE NetworkStream into a byte buffer.
                 Dim bytes(tcpClient.ReceiveBufferSize) As Byte
                 networkStream.Read(bytes, 0, CInt(tcpClient.ReceiveBufferSize))
-                ' Output THE data received FROM THE host to THE console.
                 Dim ReturnData As String = Encoding.ASCII.GetString(bytes)
                 If InStr(ReturnData, "Socket Server") > 0 Then
-                    ' Rewrite output to server to get real data
                     networkStream.Write(sendBytes, 0, sendBytes.Length)
                     Dim newbytes(tcpClient.ReceiveBufferSize) As Byte
                     networkStream.Read(newbytes, 0, CInt(tcpClient.ReceiveBufferSize))
@@ -1515,11 +1577,9 @@ Module ModuleSWS
     End Function
 #End Region
     Public Function GetWBConfig() As String
-
         GetWBConfig = ""
-        'configurasi wb yang di pakai
         Try
-            If WBPORT = "" Then WBPORT = "8080"
+            If WBPORT = 0 Then WBPORT = "8080"
             If WBIP = "" Then WBIP = "127.0.0.1"
             SQL = "SELECT A.WBCODE ,B.IPADDRESS,B.PORT,B.LEN,B.RL " +
             " FROM T_CONFIG A " +
@@ -1535,26 +1595,12 @@ Module ModuleSWS
             End If
             GetWBConfig = "WB Setting. " & WBCode & "| IP." & WBIP & "| PORT." & WBPORT
         Catch
-            GetWBConfig = "Not Found Setting ...!!!"
         End Try
         Return GetWBConfig
     End Function
-    Public Function GetCCTVParam(ByVal ncctv As String) As String
-        GetCCTVParam = ""
-        Try
-            Dim dt As New DataTable
-            SQL = "SELECT CONFIG FROM T_CCTV WHERE NAMA='" & ncctv & "'"
-            dt = ExecuteQuery(SQL)
-            If dt.Rows.Count > 0 Then GetCCTVParam = dt.Rows(0).Item("config").ToString()
-        Catch ex As Exception
-            DT.Dispose()
-        End Try
-        DT.Clear()
-        Return GetCCTVParam
-    End Function
+
 End Module
 
-'Provides a simple container object to be used for THE state object passed to thIFe connection monitoring thread
 Public Class MonitorInfo
     Public Property Cancel As Boolean
     Private _Connections As List(Of ConnectionInfo)
@@ -1571,15 +1617,13 @@ Public Class MonitorInfo
         End Get
     End Property
 
-    Public Sub New(tcpListener As TcpListener, connectionInfoList As List(Of ConnectionInfo))
+    Public Sub New(tcpListener As TcpListener, ConnectionInfoList As List(Of ConnectionInfo))
         _Listener = tcpListener
-        _Connections = connectionInfoList
+        _Connections = ConnectionInfoList
     End Sub
 End Class
 
-'Provides a container object to serve as THE state object for async client and stream operations
 Public Class ConnectionInfo
-    'hold a reference to entire monitor instead of just THE listener
     Private _Monitor As MonitorInfo
     Public ReadOnly Property Monitor As MonitorInfo
         Get
@@ -1662,27 +1706,5 @@ Public Class ConnectionInfo
             Dim messageData() As Byte = System.Text.Encoding.ASCII.GetBytes(message)
             Stream.Write(messageData, 0, messageData.Length)
         End If
-    End Sub
-End Class
-
-Public Class SampleCallEveryXMinute
-
-    Private WithEvents xTimer As New System.Windows.Forms.Timer
-    Dim wbip As String
-    Dim wbport As String
-    Public Sub New(TickValue As Integer)
-        xTimer = New System.Windows.Forms.Timer
-        xTimer.Interval = TickValue
-    End Sub
-
-    Public Sub StartTimer()
-        xTimer.Start()
-    End Sub
-
-    Public Sub StopTimer()
-        xTimer.Stop()
-    End Sub
-
-    Private Sub Timer_Tick() Handles xTimer.Tick
     End Sub
 End Class

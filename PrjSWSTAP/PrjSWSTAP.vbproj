@@ -88,28 +88,24 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resources\AForge.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resources\AForge.Video.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resources\AForge.Video.DirectShow.dll</HintPath>
-    </Reference>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>C:\Program Files (x86)\Bunifu Technologies\Bunifu Framework Manager\bin\updates\Bunifu_UI_1.5\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
-    <Reference Include="Devart.Data, Version=5.0.1654.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+    <Reference Include="Devart.Data, Version=5.0.1555.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resources\Devart.Data.dll</HintPath>
+      <HintPath>.\Devart.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Devart.Data.Oracle, Version=9.3.230.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+    <Reference Include="Devart.Data.Oracle, Version=9.1.131.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resources\Devart.Data.Oracle.dll</HintPath>
+      <HintPath>.\Devart.Data.Oracle.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data.Oracle.Design, Version=9.1.131.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Devart.Data.Oracle.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data.Oracle.Vs, Version=9.1.131.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Devart.Data.Oracle.Vs.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -118,18 +114,21 @@
     <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="FastReport">
-      <HintPath>Resources\FastReport.dll</HintPath>
-    </Reference>
-    <Reference Include="FastReport.Bars">
-      <HintPath>Resources\FastReport.Bars.dll</HintPath>
-    </Reference>
-    <Reference Include="FastReport.Oracle">
-      <HintPath>Resources\FastReport.Oracle.dll</HintPath>
-    </Reference>
-    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+    <Reference Include="FastReport, Version=2017.1.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\Oracle.DataAccess.dll</HintPath>
+      <HintPath>.\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars, Version=2017.1.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\FastReport.Bars.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Editor, Version=2017.1.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\FastReport.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Oracle, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b33a9a06fcc00c4c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\FastReport.Oracle.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -141,10 +140,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="TCPCam, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resources\TCPCam.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -289,6 +284,12 @@
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmSalesOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmServerSetup.Designer.vb">
+      <DependentUpon>FrmServerSetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmServerSetup.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTransporter.designer.vb">
@@ -459,6 +460,9 @@
     <EmbeddedResource Include="FrmSalesOrder.resx">
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmServerSetup.resx">
+      <DependentUpon>FrmServerSetup.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTransporter.resx">
       <DependentUpon>FrmTransporter.vb</DependentUpon>
     </EmbeddedResource>
@@ -576,26 +580,8 @@
     <None Include="Resources\ON.png" />
     <None Include="Resources\IndicatorPic.bmp" />
     <None Include="Resources\TruckPic.jpg" />
+    <None Include="Resources\cctv.jpg" />
     <Content Include="Weighbridge.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="AxAXVLC">
-      <Guid>{DF2BBE39-40A8-433B-A279-073F48DA94B6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="AXVLC">
-      <Guid>{DF2BBE39-40A8-433B-A279-073F48DA94B6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

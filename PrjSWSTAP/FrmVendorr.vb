@@ -96,14 +96,14 @@ Public Class FrmVendorr
                 Dim UPDATE_DATE As String = Now
 
                 Dim INACTIVEDATE As String = Now
-                Dim INACTIVE As String = "N"
+                Dim INACTIVE As String = "NULL"
                 Dim STATUS As String = "N"
                 Dim INTER As String = ComboBoxEdit1.Text
 
                 SQL = "SELECT * FROM T_VENDOR WHERE VENDOR_CODE='" & TextEdit1.Text & "'"
                 If CheckRecord(SQL) = 0 Then
                     SQL = " INSERT INTO T_VENDOR (VENDOR_CODE,VENDOR_NAME,INTERNAL,NPWP,EMAIL,ADDRESS,POSTAL_CODE,STATE,COUNTRY,PHONE,MOBILEPHONE,FAX,CONTACTPERSON,BANKACCOUNT,ACCOUNTGROUP,ACCOUNTGROUPN,INPUTBY,INPUTDATE,INACTIVE,STATUS)" +
-                      " VALUES('" & VENCODE & "','" & VENNAME & "','" & INTER & "','" & NPWP & "','" & EMAIL & "','" & ADDRESS & "','" & POSTCODE & "','" & STATE & "','" & COUNTRY & "','" & PHONE & "','" & MPHONE & "','" & FAX & "','" & CP & "','" & BANKACC & "','" & ACCOUNTGROUP & "','" & ACCOUNTGROUPN & "','" & USERNAME & "',SYSDATE,'" & INACTIVE & "','" & STATUS & "')"
+                      " VALUES('" & VENCODE & "','" & VENNAME & "','" & INTER & "','" & NPWP & "','" & EMAIL & "','" & ADDRESS & "','" & POSTCODE & "','" & STATE & "','" & COUNTRY & "','" & PHONE & "','" & MPHONE & "','" & FAX & "','" & CP & "','" & BANKACC & "','" & ACCOUNTGROUP & "','" & ACCOUNTGROUPN & "','" & USERNAME & "',SYSDATE,NULL,'" & STATUS & "')"
                     ExecuteNonQuery(SQL)
                     LoadUser()
                     MsgBox("SAVE SUCCESSFUL", vbInformation, "VENDOR")
@@ -112,7 +112,8 @@ Public Class FrmVendorr
                 Else
                     SQL = "SELECT * FROM T_VENDOR WHERE VENDOR_CODE='" & TextEdit1.Text & "' AND INACTIVE='X'"
                     If CheckRecord(SQL) > 0 Then
-                        SQL = "UPDATE T_VENDOR SET VENDOR_NAME='" & VENNAME & "',INTERNAL='" & INTER & "',NPWP='" & NPWP & "',EMAIL='" & EMAIL & "',ADDRESS='" & ADDRESS & "',POSTAL_CODE='" & POSTCODE & "',STATE='" & STATE & "',COUNTRY='" & COUNTRY & "',PHONE='" & PHONE & "',MOBILEPHONE='" & MPHONE & "',FAX='" & FAX & "',CONTACTPERSON='" & CP & "',BANKACCOUNT='" & BANKACC & "',ACCOUNTGROUP='" & ACCOUNTGROUP & "',ACCOUNTGROUPN='" & ACCOUNTGROUPN & "',UPDATEDATE=SYSDATE,UPDATEBY='" & USERNAME & "',STATUS='" & STATUS & "' ,INACTIVE='N'" +
+
+                        SQL = "UPDATE T_VENDOR SET VENDOR_NAME='" & VENNAME & "',INTERNAL='" & INTER & "',NPWP='" & NPWP & "',EMAIL='" & EMAIL & "',ADDRESS='" & ADDRESS & "',POSTAL_CODE='" & POSTCODE & "',STATE='" & STATE & "',COUNTRY='" & COUNTRY & "',PHONE='" & PHONE & "',MOBILEPHONE='" & MPHONE & "',FAX='" & FAX & "',CONTACTPERSON='" & CP & "',BANKACCOUNT='" & BANKACC & "',ACCOUNTGROUP='" & ACCOUNTGROUP & "',ACCOUNTGROUPN='" & ACCOUNTGROUPN & "',UPDATEDATE=SYSDATE,UPDATEBY='" & USERNAME & "',STATUS='" & STATUS & "' ,INACTIVE =NULL" +
                        " WHERE VENDOR_CODE= '" & TextEdit1.Text & "' AND INACTIVE='X'"
                         ExecuteNonQuery(SQL)
                         LoadUser()

@@ -23,19 +23,10 @@ Public Class FrmWbIn
     Dim source1 As String  '//CAM1
     Dim source2 As String  '//CAM2
 
-    Dim sourceM1 As String '//CAM1
-    Dim sourceM2 As String '//CAM2
-
-    Dim CAMON As Boolean = False
-
     Public Sub New()
         InitializeComponent()
         BW1.WorkerReportsProgress = True
         BW1.WorkerSupportsCancellation = True
-        BackgroundWorker1.WorkerReportsProgress = True
-        BackgroundWorker1.WorkerSupportsCancellation = True
-        BackgroundWorker2.WorkerReportsProgress = True
-        BackgroundWorker2.WorkerSupportsCancellation = True
     End Sub
 
     Private Sub FrmWbOut_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -50,18 +41,10 @@ Public Class FrmWbIn
 
         INDICATORON()
 
-        CAMCON1 = True
-        CAMCON2 = True
-        BackgroundWorker1.RunWorkerAsync()
-        BackgroundWorker2.RunWorkerAsync()
-
-        LabelControl41.Text = "Cam 1"
-        LabelControl42.Text = "Cam 2"
-
         path1.Text = ""
         path2.Text = ""
 
-        LoadDataWB
+        LoadDataWB()
     End Sub
     Private Sub LoadDataWB()
         SQL = "SELECT A.NO_TICKET,A.DATE_IN,A.POLICE_NO,A.MATERIAL,A.WEIGHT_IN FROM V_TICKET_FINISH A WHERE A.WEIGHT_OUT=0"
@@ -83,8 +66,6 @@ Public Class FrmWbIn
                     Dim responseData As [String] = [String].Empty
                     responseData = GetSCSMessage(Ip, Port)
                     worker.ReportProgress(responseData)
-                    CaptureCamImage(source1, PictureBox3)
-                    CaptureCamImage(source2, PictureBox4)
                 End If
             Loop
         Catch ex As Exception
@@ -247,18 +228,6 @@ Public Class FrmWbIn
                 TextEdit26.Text = DT.Rows(0).Item("BLOCK").ToString  'BLOCK
                 TextEdit27.Text = DT.Rows(0).Item("FFB_UNITS").ToString  'FFB UNIT
 
-                'TextEdit28.Text = DT.Rows(0).Item("TAHUN_TANAM").ToString  'PLATING YEAR
-                'TextEdit29.Text = Val(TextEdit11.Text) / Val(TextEdit27.Text) 'ABW=ADJUST WEIGHT /FFB UNIT
-                'TextEdit30.Text = DT.Rows(0).Item("LOADER1").ToString  'LOADER1
-                'TextEdit31.Text = DT.Rows(0).Item("LOADER2").ToString  'LOADER2
-                'TextEdit32.Text = DT.Rows(0).Item("LOADER3").ToString  'LOADER3
-
-                'TextEdit33.Text = DT.Rows(0).Item("FFA").ToString  'FFA
-                'TextEdit34.Text = DT.Rows(0).Item("MOISTURE").ToString  'MOISTURE
-                'TextEdit35.Text = DT.Rows(0).Item("DIRT").ToString  'DIRT
-                'TextEdit36.Text = DT.Rows(0).Item("NO_SEGEL").ToString  'NO SEGEL
-
-
                 TextEdit7.Text = GetTipeTrWB(TextEdit2.Text) 'TYPE TR WB
 
                 DisebelAllText() 'DISEBEL ALL
@@ -320,37 +289,16 @@ Public Class FrmWbIn
         If TxtWeight.Text > 0 Then
             TextEdit5.Text = TxtWeight.Text                'WB WEIGHT
             TextEdit6.Text = GetTara(TextEdit4.Text)       'TARA  DARI NO VEHICLE
+
             'CAPTURE IMAGE
-            PictureBox1.Image = PictureBox3.Image
-            PictureBox2.Image = PictureBox4.Image
+            PictureBox1.Image = GetCam(source1, PictureBox1)
+            PictureBox2.Image = GetCam(source2, PictureBox2)
             SIMPANGAMBAR(TextEdit2.Text)
         End If
     End Sub
 
-    Private Sub CCTV_OFF()
-        CAMON = False
-        BackgroundWorker1.CancelAsync()
-
-        BackgroundWorker1.CancelAsync()
-    End Sub
-    Private Sub CCTV_ON()
-        If Ping(IPCamera1) = True Then
-            CAMON = True
-            BackgroundWorker1.RunWorkerAsync()
-        Else
-            CAMON = False
-        End If
-
-        If Ping(IPCamera2) = True Then
-            LabelControl42.Text = "CAM 1 ON"
-        Else
-            LabelControl42.Text = "CAM 2 OFF"
-        End If
-    End Sub
     Private Sub SimpleButton14_Click(sender As Object, e As EventArgs) Handles SimpleButton14.Click
         'CANCEL
-        LabelControl41.Text = "Cam 1"
-        LabelControl42.Text = "Cam 2"
 
         path1.Text = ""
         path2.Text = ""
@@ -536,13 +484,12 @@ Public Class FrmWbIn
         'VALIDASI BERAT HARUS TERISI SEBELUM LANJUT
         If Not IsEmptyText({TextEdit5}) Then
             TextEnabled({TextEdit9})
-            LSQL = "SELECT VENDOR_CODE,VENDOR_NAME  FROM T_VENDOR WHERE INACTIVE IS NULL "
-            'LSQL = "SELECT DISTINCT A.VENDOR_CODE ,A.VENDOR_NAME FROM T_VENDOR A  " +
-            '" WHERE VENDOR_CODE In (Select DISTINCT B.VENDORID  " +
-            '" From T_CONTRACT B  " +
-            '" Where b.MATERIALCODE ='" & TextEdit8.Text & "'" +
-            '" And b.INACTIVE Is NULL " +
-            '" And CONTRACTENDDATE>= SYSDATE )"
+            LSQL = "SELECT DISTINCT A.VENDOR_CODE ,A.VENDOR_NAME FROM T_VENDOR A  " +
+            " WHERE VENDOR_CODE In (Select DISTINCT B.VENDORID  " +
+            " From T_CONTRACT B  " +
+            " Where b.MATERIALCODE ='" & TextEdit8.Text & "'" +
+            " And b.INACTIVE Is NULL " +
+            " And CONTRACTENDDATE>= SYSDATE )"
             LField = "VENDOR_CODE"
             ValueLoV = ""
             TextEdit9.Text = FrmShowLOV(FrmLoV, LSQL, "SUPPLIER", "SUPPLIER")
@@ -606,10 +553,6 @@ Public Class FrmWbIn
             TextEdit6.Text = GetTara(TextEdit4.Text)
         End If
     End Sub
-    Private Sub TxtWeight_EditValueChanged(sender As Object, e As EventArgs) Handles TxtWeight.EditValueChanged
-
-    End Sub
-
     Private Sub FrmWbIn_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         PanelControl4.Height = Me.Height - 400
     End Sub
@@ -621,76 +564,5 @@ Public Class FrmWbIn
     Private Sub SimpleButton7_Click(sender As Object, e As EventArgs) Handles SimpleButton7.Click
         Close()
         FrmChildShow(FrmWbOut)
-    End Sub
-    Private Shared Function InlineAssignHelper(Of T)(ByRef target As T, value As T) As T
-        target = value
-        Return value
-    End Function
-
-    Private Sub BackgroundWorker1_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker1.DoWork
-        Try
-            Do Until Not CAMCON1 = True
-                Dim buffer As Byte() = New Byte(99999) {}
-                Dim read As Integer, total As Integer = 0
-                Dim req As HttpWebRequest = DirectCast(WebRequest.Create(source1), HttpWebRequest)
-                req.Method = "POST"
-                req.Timeout = 500
-                'Dim cred As New NetworkCredential("Administrator", "admintdx")
-                'req.Credentials = cred
-                Dim resp As WebResponse = req.GetResponse()
-                ' get response stream
-                Dim stream As Stream = resp.GetResponseStream()
-                ' read data from stream
-                While (InlineAssignHelper(read, stream.Read(buffer, total, 1000))) <> 0
-                    total += read
-                End While
-                Dim bmp As Bitmap = DirectCast(Bitmap.FromStream(New MemoryStream(buffer, 0, total)), Bitmap)
-                PictureBox3.Image = bmp
-            Loop
-        Catch ex As Exception
-        End Try
-    End Sub
-
-    Private Sub BackgroundWorker1_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
-        If e.Cancelled = True Then
-            resultLabel.Text = "Canceled!"
-        ElseIf e.Error IsNot Nothing Then
-            resultLabel.Text = "Error: " & e.Error.Message
-        Else
-            CAMCON1 = True
-            BackgroundWorker1.RunWorkerAsync()
-        End If
-    End Sub
-    Private Sub BackgroundWorker2_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker2.DoWork
-        Try
-            Do Until Not CAMCON2 = True
-                Dim buffer As Byte() = New Byte(99999) {}
-                Dim read As Integer, total As Integer = 0
-                Dim req As HttpWebRequest = DirectCast(WebRequest.Create(source1), HttpWebRequest)
-                req.Method = "POST"
-                req.Timeout = 500
-                'Dim cred As New NetworkCredential("Administrator", "admintdx")
-                'req.Credentials = cred
-                Dim resp As WebResponse = req.GetResponse()
-                ' get response stream
-                Dim stream As Stream = resp.GetResponseStream()
-                ' read data from stream
-                While (InlineAssignHelper(read, stream.Read(buffer, total, 1000))) <> 0
-                    total += read
-                End While
-                Dim bmp As Bitmap = DirectCast(Bitmap.FromStream(New MemoryStream(buffer, 0, total)), Bitmap)
-                PictureBox4.Image = bmp
-            Loop
-        Catch ex As Exception
-        End Try
-    End Sub
-
-    Private Sub BackgroundWorker2_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BackgroundWorker2.RunWorkerCompleted
-        If e.Cancelled = True Then
-        ElseIf e.Error IsNot Nothing Then
-        Else
-            CAMCON2 = True
-            BackgroundWorker2.RunWorkerAsync()
-        End If
     End Sub
 End Class

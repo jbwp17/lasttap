@@ -41,7 +41,7 @@ Public Class FrmVehicleType
     End Sub
     Private Sub GridHeader()
         Dim view As ColumnView = CType(GridControl5.MainView, ColumnView)
-        Dim fieldNames() As String = New String() {"VEHICLE_TYPE", "TOLERANCE"}
+        Dim fieldNames() As String = New String() {"VEHICLE_TYPE", "TOLERANCE", "INACTIVE"}
         Dim I As Integer
         Dim Column As DevExpress.XtraGrid.Columns.GridColumn
 
@@ -55,7 +55,7 @@ Public Class FrmVehicleType
         GridView5.ExpandAllGroups()
     End Sub
     Private Sub LoadView()
-        SQL = "SELECT VEHICLE_TYPE,TOLERANCE FROM T_VEHICLE_TYPE WHERE INACTIVE IS NULL"
+        SQL = "SELECT VEHICLE_TYPE,TOLERANCE,INACTIVE FROM T_VEHICLE_TYPE ORDER BY TYPE"
         FILLGridView(SQL, GridControl5)
         GridControl5.DataSource = ExecuteQuery(SQL)
         Dim GridView As GridView = CType(GridControl5.FocusedView, GridView)
@@ -86,7 +86,7 @@ Public Class FrmVehicleType
             Dim TOLERANCE As String = TextEdit2.Text
             If CheckRecord(SQL) = 0 Then
                 SQL = "INSERT INTO T_VEHICLE_TYPE (VEHICLE_TYPE,TOLERANCE,INACTIVE)" +
-                " VALUES('" & VEHICLETYPE & "','" & TOLERANCE & "','N')"
+                " VALUES('" & VEHICLETYPE & "','" & TOLERANCE & "',NULL)"
                 ExecuteNonQuery(SQL)
                 LoadView()
                 MsgBox("SAVE SUCCESSFUL", vbInformation, "VEHICLE TYPE")
@@ -95,7 +95,7 @@ Public Class FrmVehicleType
             Else
                 SQL = " SELECT * FROM T_VEHICLE_TYPE WHERE VEHICLE_TYPE='" & TextEdit1.Text & "' AND INACTIVE='X'"
                 If CheckRecord(SQL) > 0 Then
-                    SQL = " UPDATE T_VEHICLE_TYPE SET TOLERANCE='" & TOLERANCE & "',INACTIVE='N'" +
+                    SQL = " UPDATE T_VEHICLE_TYPE SET TOLERANCE='" & TOLERANCE & "',INACTIVE=NULL" +
                           " WHERE VEHICLE_TYPE= '" & TextEdit1.Text & "' AND INACTIVE='X' "
                     ExecuteNonQuery(SQL)
                     LoadView()

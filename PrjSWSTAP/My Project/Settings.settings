@@ -95,5 +95,8 @@
     <Setting Name="PathImage" Type="System.String" Scope="User">
       <Value Profile="(Default)">C://IMAGE_SWS/TEMP</Value>
     </Setting>
+    <Setting Name="ValidasiTara" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
