@@ -106,9 +106,9 @@ Public Class FrmMaterialType
                 LoadView()
                 MsgBox("SAVE SUCCESSFUL", vbInformation, "MATERIAL TYPE")
 
-                'UPDATE MATERIAL YANG MENGGUNAKAN TYPE INI
-                SQL = "UPDATE T_MATERIAL SET INACTIVE =DEFAULT ,INACTIVE_DATE=SYSDATE,STATUS='' WHERE MATERIAL_JENIS_CODE='" & TextEdit1.Text & "' AND INACTIVE='X'"
-                ExecuteNonQuery(SQL)
+                ''UPDATE MATERIAL YANG MENGGUNAKAN TYPE INI
+                'SQL = "UPDATE T_MATERIAL SET INACTIVE =DEFAULT ,INACTIVE_DATE=SYSDATE,STATUS='' WHERE MATERIAL_JENIS_CODE='" & TextEdit1.Text & "' AND INACTIVE='X'"
+                'ExecuteNonQuery(SQL)
                 ClearInputMT()
             Else
 
@@ -119,9 +119,9 @@ Public Class FrmMaterialType
                     ExecuteNonQuery(SQL)
                     LoadView()
                     MsgBox("SAVE SUCCESSFUL", vbInformation, "MATERIAL TYPE")
-                    'UPDATE MATERIAL YANG MENGGUNAKAN TYPE INI
-                    SQL = "UPDATE T_MATERIAL SET INACTIVE=DEFAULT,INACTIVE_DATE=SYSDATE,STATUS='' WHERE MATERIAL_JENIS_CODE='" & TextEdit1.Text & "' AND INACTIVE='X'"
-                    ExecuteNonQuery(SQL)
+                    ''UPDATE MATERIAL YANG MENGGUNAKAN TYPE INI
+                    'SQL = "UPDATE T_MATERIAL SET INACTIVE=DEFAULT,INACTIVE_DATE=SYSDATE,STATUS='' WHERE MATERIAL_JENIS_CODE='" & TextEdit1.Text & "' AND INACTIVE='X'"
+                    'ExecuteNonQuery(SQL)
                     ClearInputMT()
                 End If
 
