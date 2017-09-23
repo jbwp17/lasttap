@@ -91,8 +91,7 @@ Public Class FrmVehicle
         'GROUPING
         Dim GridView As GridView = CType(GridControl4.FocusedView, GridView)
         GridView.SortInfo.ClearAndAddRange(New GridColumnSortInfo() {
-        New GridColumnSortInfo(GridView.Columns("TRANSPORTER_NAME"), DevExpress.Data.ColumnSortOrder.Ascending),
-        New GridColumnSortInfo(GridView.Columns("VEHICLE_CODE"), DevExpress.Data.ColumnSortOrder.Ascending)}, 1)
+        New GridColumnSortInfo(GridView.Columns("TRANSPORTER_NAME"), DevExpress.Data.ColumnSortOrder.Ascending)}, 1)
         GridView.ExpandAllGroups()
 
     End Sub
@@ -121,7 +120,7 @@ Public Class FrmVehicle
                     SQL = " SELECT * FROM T_VEHICLE WHERE VEHICLE_CODE= '" & VEHICLECODE & "' AND INACTIVE='X'"
                     If CheckRecord(SQL) > 0 Then
                         SQL = "UPDATE T_VEHICLE SET VEHICLE_TYPE='" & VEHICLETYPE & "',PLATE_NUMBER='" & PLATENUMBER & "',OWNERSHIP='" & OWNERSHIP & "',TRANSPORTER_CODE='" & TRANSPORTERCODE & "',STATUS='" & STATUS & "'" +
-                              ",INACTIVE ='NULL' " +
+                              ",INACTIVE =NULL " +
                               " WHERE VEHICLE_CODE= '" & TextEdit1.Text & "' AND INACTIVE IS NULL"
                         ExecuteNonQuery(SQL)
                         LoadView()
@@ -146,7 +145,7 @@ Public Class FrmVehicle
 
     Private Sub SimpleButton3_Click(sender As Object, e As EventArgs) Handles SimpleButton3.Click
         'delete
-        SQL = "UPDATE T_VEHICLE SET INACTIVE= 'X',INACTIVE_DATE=SYSDATE WHERE VEHICLE_CODE='" & TextEdit1.Text & "'"
+        SQL = "UPDATE T_VEHICLE SET INACTIVE= 'X',INACTIVE_DATE=SYSDATE WHERE VEHICLE_CODE='" & TextEdit1.Text & "' AND INACTIVE IS NULL"
         ExecuteNonQuery(SQL)
         CLearInputVC()
         LoadView()
