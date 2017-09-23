@@ -33,23 +33,8 @@ Public Class FrmConfigurationMenu
         InitializeComponent()
         BW1.WorkerReportsProgress = True
         BW1.WorkerSupportsCancellation = True
-
-        BWC1.WorkerReportsProgress = True
-        BWC1.WorkerSupportsCancellation = True
     End Sub
 
-    Private Sub ToggleSwitch1_Toggled(sender As Object, e As EventArgs) Handles ToggleSwitch1.Toggled
-        On Error Resume Next
-        If TextEdit8.Text = "" Then Exit Sub
-        source1 = TextEdit8.Text
-        If ToggleSwitch1.IsOn = True Then
-
-            BWC1.RunWorkerAsync()
-        Else
-
-            BWC1.CancelAsync()
-        End If
-    End Sub
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         'CLOSE
         Me.Close()
@@ -158,8 +143,6 @@ Public Class FrmConfigurationMenu
         TextEdit8.Text = ""
         TextEdit9.Text = ""
         TextEdit7.Text = ""
-        TextEdit6.Text = ""
-        TextEdit12.Text = ""
         TextEdit13.Text = ""
         SimpleButton16.Enabled = False
         SimpleButton4.Enabled = False
@@ -174,13 +157,11 @@ Public Class FrmConfigurationMenu
             Dim KONFIG As String = TextEdit8.Text
             Dim IPCCTV As String = TextEdit9.Text
             Dim PORT As String = TextEdit7.Text
-            Dim USERN As String = TextEdit6.Text
-            Dim PASSN As String = TextEdit12.Text
             Dim LOKASICCTV As String = TextEdit13.Text
 
             If CheckRecord(SQL) = 0 Then
-                SQL = "INSERT INTO T_CCTV (KDNAMA,NAMA,CONFIG,IPADDRESS,PORT,USERN,PASSN,LOKASICCTV,UPDATEUSER,UPDATEDATE,AKTIF) " +
-                      "VALUES ('" & KDNAMA & "','" & NAMACCTV & "','" & KONFIG & "','" & IPCCTV & "','" & PORT & "','" & USERN & "','" & PASSN & "','" & LOKASICCTV & "','" & USERNAME & "','" & Now & "','Y') "
+                SQL = "INSERT INTO T_CCTV (KDNAMA,NAMA,CONFIG,IPADDRESS,PORT,LOKASICCTV,UPDATEUSER,UPDATEDATE,AKTIF) " +
+                      "VALUES ('" & KDNAMA & "','" & NAMACCTV & "','" & KONFIG & "','" & IPCCTV & "','" & PORT & "','" & LOKASICCTV & "','" & USERNAME & "','" & Now & "','Y') "
                 ExecuteNonQuery(SQL)
                 SQL = "SELECT * FROM T_CCTV WHERE KDNAMA='" & TextEdit11.Text & "'"
                 If CheckRecord(SQL) > 0 Then UpdateCode("CM")
@@ -189,7 +170,7 @@ Public Class FrmConfigurationMenu
                 UNLockAll_IpCamera()
                 ClearInputCm()
             Else
-                SQL = "UPDATE T_CCTV SET NAMA='" & NAMACCTV & "',CONFIG='" & KONFIG & "',IPADDRESS='" & IPCCTV & "',PORT='" & PORT & "',USERN='" & USERN & "',PASSN='" & PASSN & "',LOKASICCTV='" & LOKASICCTV & "',UPDATEUSER='" & USERNAME & "',UPDATEDATE='" & Now & "'  " +
+                SQL = "UPDATE T_CCTV SET NAMA='" & NAMACCTV & "',CONFIG='" & KONFIG & "',IPADDRESS='" & IPCCTV & "',PORT='" & PORT & "',LOKASICCTV='" & LOKASICCTV & "',UPDATEUSER='" & USERNAME & "',UPDATEDATE='" & Now & "'  " +
                       " WHERE KDNAMA='" & TextEdit11.Text & "'"
                 ExecuteNonQuery(SQL)
                 LoadView()
@@ -687,8 +668,6 @@ Public Class FrmConfigurationMenu
         TextEdit8.Enabled = False
         TextEdit9.Enabled = False
         TextEdit7.Enabled = False
-        TextEdit6.Enabled = False
-        TextEdit12.Enabled = False
         TextEdit13.Enabled = False
 
     End Sub
@@ -698,8 +677,6 @@ Public Class FrmConfigurationMenu
         TextEdit8.Enabled = True
         TextEdit9.Enabled = True
         TextEdit7.Enabled = True
-        TextEdit6.Enabled = True
-        TextEdit12.Enabled = True
         TextEdit13.Enabled = True
 
     End Sub
@@ -766,9 +743,9 @@ Public Class FrmConfigurationMenu
     End Sub
     Private Sub TextEdit8_EditValueChanged(sender As Object, e As EventArgs) Handles TextEdit8.EditValueChanged
         If TextEdit8.Text = "" Then
-            ToggleSwitch1.Enabled = False
+            SimpleButton23.Enabled = False
         Else
-            ToggleSwitch1.Enabled = True
+            SimpleButton23.Enabled = True
         End If
     End Sub
     Private Sub gridView1_RowClick(sender As Object, e As DevExpress.XtraGrid.Views.Grid.RowClickEventArgs) Handles GridView1.RowCellClick
@@ -780,22 +757,20 @@ Public Class FrmConfigurationMenu
             SimpleButton4.Text = "Save" 'SAVE
             SimpleButton16.Enabled = False 'EDIT
             ClearInputCm()
-            ToggleSwitch1.IsOn = False
+            SimpleButton23.Enabled = False
             Exit Sub
         Else
             SimpleButton5.Enabled = False 'ADD
             SimpleButton4.Enabled = False 'SAVE
             SimpleButton4.Text = "Update" 'SAVE
             SimpleButton16.Enabled = True 'EDIT
-            ToggleSwitch1.IsOn = False
+            SimpleButton23.Enabled = False
 
             TextEdit11.Text = GridView1.GetRowCellValue(e.RowHandle, "CCTVID").ToString()  'ID
             TextEdit10.Text = GridView1.GetRowCellValue(e.RowHandle, "CCTV").ToString() 'NAME
             TextEdit8.Text = GridView1.GetRowCellValue(e.RowHandle, "CONFIG").ToString()   'BRAND
             TextEdit9.Text = GridView1.GetRowCellValue(e.RowHandle, "IPADDRESS").ToString()   'IP
             TextEdit7.Text = GridView1.GetRowCellValue(e.RowHandle, "PORT").ToString() 'PORT
-            TextEdit6.Text = GridView1.GetRowCellValue(e.RowHandle, "USERN").ToString()   'UNIT
-            TextEdit12.Text = GridView1.GetRowCellValue(e.RowHandle, "PASSN").ToString() 'LOCATION
             TextEdit13.Text = GridView1.GetRowCellValue(e.RowHandle, "LOKASICCTV").ToString() 'LOCATION
             nAction = "EDIT"
             LockAll_IpCamera()
@@ -891,22 +866,18 @@ Public Class FrmConfigurationMenu
         End If
     End Sub
 
+    Private Sub BWC1_DoWork(sender As Object, e As DoWorkEventArgs)
+        Try
+            Do Until Not CAMCON1 = True
 
+            Loop
+        Catch ex As Exception
+        End Try
+    End Sub
     Private Shared Function InlineAssignHelper(Of T)(ByRef target As T, value As T) As T
         target = value
         Return value
     End Function
-
-    Private Sub BWC1_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BWC1.RunWorkerCompleted
-        If e.Cancelled = True Then
-            LabelControl55.Text = "CAM 1 Cancel!"
-        ElseIf e.Error IsNot Nothing Then
-            LabelControl55.Text = "CAM 1 Error: " & e.Error.Message
-        Else
-
-            BWC1.RunWorkerAsync()
-        End If
-    End Sub
 
     Private Sub SimpleButton24_Click(sender As Object, e As EventArgs) Handles SimpleButton24.Click
         SQL = "update TLOGINHISTORY set used='N'  WHERE USED='Y' and userid='" & TextEdit29.Text & "' and ipaddress='" & TextEdit32.Text & "' "
@@ -928,6 +899,32 @@ Public Class FrmConfigurationMenu
 
     Private Sub SimpleButton26_Click(sender As Object, e As EventArgs) Handles SimpleButton26.Click
         Close()
+    End Sub
+
+    Private Sub SimpleButton23_Click(sender As Object, e As EventArgs) Handles SimpleButton23.Click
+        'get image
+        Try
+            Dim buffer As Byte() = New Byte(99999) {}
+            Dim read As Integer, total As Integer = 0
+            Dim req As HttpWebRequest = DirectCast(WebRequest.Create(TextEdit8.Text), HttpWebRequest)
+            req.Method = "POST"
+            req.Timeout = 10000
+            'Dim cred As New NetworkCredential("USER", "PASSWORD")
+            'req.Credentials = cred
+            Dim resp As WebResponse = req.GetResponse()
+            Dim stream As Stream = resp.GetResponseStream()
+            While (InlineAssignHelper(read, stream.Read(buffer, total, 1000))) <> 0
+                total += read
+            End While
+            Dim bmp As Bitmap = DirectCast(Bitmap.FromStream(New MemoryStream(buffer, 0, total)), Bitmap)
+            PictureBox1.Image = bmp
+        Catch EX As Exception
+            PictureBox1.BackgroundImage = My.Resources.cctv
+        End Try
+    End Sub
+
+    Private Sub gridView2_RowClick(sender As Object, e As RowCellClickEventArgs) Handles GridView2.RowCellClick
+
     End Sub
 
 #End Region

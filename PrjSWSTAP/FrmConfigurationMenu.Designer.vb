@@ -55,7 +55,6 @@ Partial Class FrmConfigurationMenu
         Me.ComboBoxEdit12 = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.ComboBoxEdit13 = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.BackstageViewClientControl5 = New DevExpress.XtraBars.Ribbon.BackstageViewClientControl()
-        Me.BW1 = New System.ComponentModel.BackgroundWorker()
         Me.BackstageViewTabItem4 = New DevExpress.XtraBars.Ribbon.BackstageViewTabItem()
         Me.BackstageViewClientControl4 = New DevExpress.XtraBars.Ribbon.BackstageViewClientControl()
         Me.PanelControl7 = New DevExpress.XtraEditors.PanelControl()
@@ -96,12 +95,11 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem3 = New DevExpress.XtraBars.Ribbon.BackstageViewTabItem()
         Me.BackstageViewClientControl3 = New DevExpress.XtraBars.Ribbon.BackstageViewClientControl()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
+        Me.SimpleButton23 = New DevExpress.XtraEditors.SimpleButton()
         Me.LabelControl55 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl51 = New DevExpress.XtraEditors.LabelControl()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ToggleSwitch1 = New DevExpress.XtraEditors.ToggleSwitch()
         Me.TextEdit13 = New DevExpress.XtraEditors.TextEdit()
-        Me.TextEdit12 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit11 = New DevExpress.XtraEditors.TextEdit()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
         Me.SimpleButton9 = New DevExpress.XtraEditors.SimpleButton()
@@ -109,7 +107,6 @@ Partial Class FrmConfigurationMenu
         Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
-        Me.TextEdit6 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit7 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit8 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit9 = New DevExpress.XtraEditors.TextEdit()
@@ -117,8 +114,6 @@ Partial Class FrmConfigurationMenu
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl14 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
@@ -206,7 +201,7 @@ Partial Class FrmConfigurationMenu
         Me.LabelControl63 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl64 = New DevExpress.XtraEditors.LabelControl()
         Me.BackstageViewTabItem6 = New DevExpress.XtraBars.Ribbon.BackstageViewTabItem()
-        Me.BWC1 = New System.ComponentModel.BackgroundWorker()
+        Me.BW1 = New System.ComponentModel.BackgroundWorker()
         Me.BunifuGradientPanel1.SuspendLayout()
         CType(Me.ImageCollection1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -250,13 +245,10 @@ Partial Class FrmConfigurationMenu
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ToggleSwitch1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit13.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit12.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit11.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
-        CType(Me.TextEdit6.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit7.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit8.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit9.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -673,9 +665,6 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewClientControl5.Name = "BackstageViewClientControl5"
         Me.BackstageViewClientControl5.Size = New System.Drawing.Size(640, 489)
         Me.BackstageViewClientControl5.TabIndex = 5
-        '
-        'BW1
-        '
         '
         'BackstageViewTabItem4
         '
@@ -1096,7 +1085,7 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem3.Caption = "IP CAMERA"
         Me.BackstageViewTabItem3.ContentControl = Me.BackstageViewClientControl3
         Me.BackstageViewTabItem3.Name = "BackstageViewTabItem3"
-        Me.BackstageViewTabItem3.Selected = False
+        Me.BackstageViewTabItem3.Selected = True
         '
         'BackstageViewClientControl3
         '
@@ -1110,15 +1099,13 @@ Partial Class FrmConfigurationMenu
         '
         'PanelControl2
         '
+        Me.PanelControl2.Controls.Add(Me.SimpleButton23)
         Me.PanelControl2.Controls.Add(Me.LabelControl55)
         Me.PanelControl2.Controls.Add(Me.LabelControl51)
         Me.PanelControl2.Controls.Add(Me.PictureBox1)
-        Me.PanelControl2.Controls.Add(Me.ToggleSwitch1)
         Me.PanelControl2.Controls.Add(Me.TextEdit13)
-        Me.PanelControl2.Controls.Add(Me.TextEdit12)
         Me.PanelControl2.Controls.Add(Me.TextEdit11)
         Me.PanelControl2.Controls.Add(Me.PanelControl3)
-        Me.PanelControl2.Controls.Add(Me.TextEdit6)
         Me.PanelControl2.Controls.Add(Me.TextEdit7)
         Me.PanelControl2.Controls.Add(Me.TextEdit8)
         Me.PanelControl2.Controls.Add(Me.TextEdit9)
@@ -1126,8 +1113,23 @@ Partial Class FrmConfigurationMenu
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl2.Location = New System.Drawing.Point(153, 0)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(501, 273)
+        Me.PanelControl2.Size = New System.Drawing.Size(501, 245)
         Me.PanelControl2.TabIndex = 13
+        '
+        'SimpleButton23
+        '
+        Me.SimpleButton23.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton23.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.SimpleButton23.Appearance.Options.UseFont = True
+        Me.SimpleButton23.Appearance.Options.UseForeColor = True
+        Me.SimpleButton23.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.SimpleButton23.Image = CType(resources.GetObject("SimpleButton23.Image"), System.Drawing.Image)
+        Me.SimpleButton23.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
+        Me.SimpleButton23.Location = New System.Drawing.Point(6, 195)
+        Me.SimpleButton23.Name = "SimpleButton23"
+        Me.SimpleButton23.Size = New System.Drawing.Size(235, 46)
+        Me.SimpleButton23.TabIndex = 54
+        Me.SimpleButton23.Text = "Get Image"
         '
         'LabelControl55
         '
@@ -1138,9 +1140,9 @@ Partial Class FrmConfigurationMenu
         Me.LabelControl55.Appearance.Options.UseFont = True
         Me.LabelControl55.Appearance.Options.UseForeColor = True
         Me.LabelControl55.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl55.Location = New System.Drawing.Point(247, 244)
+        Me.LabelControl55.Location = New System.Drawing.Point(247, 220)
         Me.LabelControl55.Name = "LabelControl55"
-        Me.LabelControl55.Size = New System.Drawing.Size(228, 19)
+        Me.LabelControl55.Size = New System.Drawing.Size(193, 19)
         Me.LabelControl55.TabIndex = 61
         '
         'LabelControl51
@@ -1154,44 +1156,28 @@ Partial Class FrmConfigurationMenu
         Me.LabelControl51.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.LabelControl51.Location = New System.Drawing.Point(247, 48)
         Me.LabelControl51.Name = "LabelControl51"
-        Me.LabelControl51.Size = New System.Drawing.Size(228, 19)
+        Me.LabelControl51.Size = New System.Drawing.Size(193, 19)
         Me.LabelControl51.TabIndex = 60
         Me.LabelControl51.Text = "CCTV"
         '
         'PictureBox1
         '
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Image = Global.PrjSWSTAP.My.Resources.Resources.cctv
         Me.PictureBox1.Location = New System.Drawing.Point(247, 71)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(228, 171)
+        Me.PictureBox1.Size = New System.Drawing.Size(193, 146)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 55
         Me.PictureBox1.TabStop = False
         '
-        'ToggleSwitch1
-        '
-        Me.ToggleSwitch1.Location = New System.Drawing.Point(5, 245)
-        Me.ToggleSwitch1.Name = "ToggleSwitch1"
-        Me.ToggleSwitch1.Properties.OffText = "Off"
-        Me.ToggleSwitch1.Properties.OnText = "On"
-        Me.ToggleSwitch1.Size = New System.Drawing.Size(95, 24)
-        Me.ToggleSwitch1.TabIndex = 54
-        '
         'TextEdit13
         '
         Me.TextEdit13.EnterMoveNextControl = True
-        Me.TextEdit13.Location = New System.Drawing.Point(5, 222)
+        Me.TextEdit13.Location = New System.Drawing.Point(6, 171)
         Me.TextEdit13.Name = "TextEdit13"
         Me.TextEdit13.Size = New System.Drawing.Size(236, 20)
-        Me.TextEdit13.TabIndex = 51
-        '
-        'TextEdit12
-        '
-        Me.TextEdit12.EnterMoveNextControl = True
-        Me.TextEdit12.Location = New System.Drawing.Point(5, 197)
-        Me.TextEdit12.Name = "TextEdit12"
-        Me.TextEdit12.Size = New System.Drawing.Size(236, 20)
-        Me.TextEdit12.TabIndex = 50
+        Me.TextEdit13.TabIndex = 5
         '
         'TextEdit11
         '
@@ -1199,7 +1185,7 @@ Partial Class FrmConfigurationMenu
         Me.TextEdit11.Location = New System.Drawing.Point(5, 47)
         Me.TextEdit11.Name = "TextEdit11"
         Me.TextEdit11.Size = New System.Drawing.Size(236, 20)
-        Me.TextEdit11.TabIndex = 49
+        Me.TextEdit11.TabIndex = 0
         '
         'PanelControl3
         '
@@ -1224,7 +1210,7 @@ Partial Class FrmConfigurationMenu
         Me.SimpleButton9.Location = New System.Drawing.Point(236, 5)
         Me.SimpleButton9.Name = "SimpleButton9"
         Me.SimpleButton9.Size = New System.Drawing.Size(75, 27)
-        Me.SimpleButton9.TabIndex = 53
+        Me.SimpleButton9.TabIndex = 3
         Me.SimpleButton9.Text = "Cancel"
         '
         'SimpleButton16
@@ -1237,7 +1223,7 @@ Partial Class FrmConfigurationMenu
         Me.SimpleButton16.Location = New System.Drawing.Point(82, 5)
         Me.SimpleButton16.Name = "SimpleButton16"
         Me.SimpleButton16.Size = New System.Drawing.Size(75, 27)
-        Me.SimpleButton16.TabIndex = 51
+        Me.SimpleButton16.TabIndex = 1
         Me.SimpleButton16.Text = "Edit"
         '
         'SimpleButton5
@@ -1250,7 +1236,7 @@ Partial Class FrmConfigurationMenu
         Me.SimpleButton5.Location = New System.Drawing.Point(5, 5)
         Me.SimpleButton5.Name = "SimpleButton5"
         Me.SimpleButton5.Size = New System.Drawing.Size(75, 27)
-        Me.SimpleButton5.TabIndex = 50
+        Me.SimpleButton5.TabIndex = 0
         Me.SimpleButton5.Text = "Add"
         '
         'SimpleButton3
@@ -1263,7 +1249,7 @@ Partial Class FrmConfigurationMenu
         Me.SimpleButton3.Location = New System.Drawing.Point(313, 5)
         Me.SimpleButton3.Name = "SimpleButton3"
         Me.SimpleButton3.Size = New System.Drawing.Size(75, 27)
-        Me.SimpleButton3.TabIndex = 49
+        Me.SimpleButton3.TabIndex = 4
         Me.SimpleButton3.Text = "Close"
         '
         'SimpleButton4
@@ -1276,16 +1262,8 @@ Partial Class FrmConfigurationMenu
         Me.SimpleButton4.Location = New System.Drawing.Point(159, 5)
         Me.SimpleButton4.Name = "SimpleButton4"
         Me.SimpleButton4.Size = New System.Drawing.Size(75, 27)
-        Me.SimpleButton4.TabIndex = 48
+        Me.SimpleButton4.TabIndex = 2
         Me.SimpleButton4.Text = "Save"
-        '
-        'TextEdit6
-        '
-        Me.TextEdit6.EnterMoveNextControl = True
-        Me.TextEdit6.Location = New System.Drawing.Point(5, 172)
-        Me.TextEdit6.Name = "TextEdit6"
-        Me.TextEdit6.Size = New System.Drawing.Size(236, 20)
-        Me.TextEdit6.TabIndex = 45
         '
         'TextEdit7
         '
@@ -1293,7 +1271,7 @@ Partial Class FrmConfigurationMenu
         Me.TextEdit7.Location = New System.Drawing.Point(5, 147)
         Me.TextEdit7.Name = "TextEdit7"
         Me.TextEdit7.Size = New System.Drawing.Size(236, 20)
-        Me.TextEdit7.TabIndex = 44
+        Me.TextEdit7.TabIndex = 4
         '
         'TextEdit8
         '
@@ -1301,7 +1279,7 @@ Partial Class FrmConfigurationMenu
         Me.TextEdit8.Location = New System.Drawing.Point(5, 97)
         Me.TextEdit8.Name = "TextEdit8"
         Me.TextEdit8.Size = New System.Drawing.Size(236, 20)
-        Me.TextEdit8.TabIndex = 43
+        Me.TextEdit8.TabIndex = 2
         '
         'TextEdit9
         '
@@ -1309,7 +1287,7 @@ Partial Class FrmConfigurationMenu
         Me.TextEdit9.Location = New System.Drawing.Point(5, 122)
         Me.TextEdit9.Name = "TextEdit9"
         Me.TextEdit9.Size = New System.Drawing.Size(236, 20)
-        Me.TextEdit9.TabIndex = 42
+        Me.TextEdit9.TabIndex = 3
         '
         'TextEdit10
         '
@@ -1317,15 +1295,13 @@ Partial Class FrmConfigurationMenu
         Me.TextEdit10.Location = New System.Drawing.Point(5, 72)
         Me.TextEdit10.Name = "TextEdit10"
         Me.TextEdit10.Size = New System.Drawing.Size(236, 20)
-        Me.TextEdit10.TabIndex = 41
+        Me.TextEdit10.TabIndex = 1
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Panel2.Controls.Add(Me.LabelControl16)
         Me.Panel2.Controls.Add(Me.LabelControl15)
-        Me.Panel2.Controls.Add(Me.LabelControl14)
-        Me.Panel2.Controls.Add(Me.LabelControl8)
         Me.Panel2.Controls.Add(Me.LabelControl9)
         Me.Panel2.Controls.Add(Me.LabelControl10)
         Me.Panel2.Controls.Add(Me.LabelControl11)
@@ -1335,48 +1311,28 @@ Partial Class FrmConfigurationMenu
         Me.Panel2.ForeColor = System.Drawing.Color.Black
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(153, 273)
+        Me.Panel2.Size = New System.Drawing.Size(153, 245)
         Me.Panel2.TabIndex = 12
         '
         'LabelControl16
         '
         Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl16.Appearance.Options.UseFont = True
-        Me.LabelControl16.Location = New System.Drawing.Point(14, 250)
+        Me.LabelControl16.Location = New System.Drawing.Point(14, 196)
         Me.LabelControl16.Name = "LabelControl16"
-        Me.LabelControl16.Size = New System.Drawing.Size(44, 13)
+        Me.LabelControl16.Size = New System.Drawing.Size(81, 13)
         Me.LabelControl16.TabIndex = 11
-        Me.LabelControl16.Text = "STATUS"
+        Me.LabelControl16.Text = "TEST CAPTURE"
         '
         'LabelControl15
         '
         Me.LabelControl15.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl15.Appearance.Options.UseFont = True
-        Me.LabelControl15.Location = New System.Drawing.Point(14, 225)
+        Me.LabelControl15.Location = New System.Drawing.Point(14, 174)
         Me.LabelControl15.Name = "LabelControl15"
         Me.LabelControl15.Size = New System.Drawing.Size(41, 13)
         Me.LabelControl15.TabIndex = 10
         Me.LabelControl15.Text = "LOKASI"
-        '
-        'LabelControl14
-        '
-        Me.LabelControl14.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl14.Appearance.Options.UseFont = True
-        Me.LabelControl14.Location = New System.Drawing.Point(13, 200)
-        Me.LabelControl14.Name = "LabelControl14"
-        Me.LabelControl14.Size = New System.Drawing.Size(64, 13)
-        Me.LabelControl14.TabIndex = 9
-        Me.LabelControl14.Text = "PASSWORD"
-        '
-        'LabelControl8
-        '
-        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl8.Appearance.Options.UseFont = True
-        Me.LabelControl8.Location = New System.Drawing.Point(14, 175)
-        Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(60, 13)
-        Me.LabelControl8.TabIndex = 8
-        Me.LabelControl8.Text = "USERNAME"
         '
         'LabelControl9
         '
@@ -1432,9 +1388,9 @@ Partial Class FrmConfigurationMenu
         '
         Me.PanelControl4.Controls.Add(Me.GridControl1)
         Me.PanelControl4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl4.Location = New System.Drawing.Point(0, 273)
+        Me.PanelControl4.Location = New System.Drawing.Point(0, 245)
         Me.PanelControl4.Name = "PanelControl4"
-        Me.PanelControl4.Size = New System.Drawing.Size(654, 216)
+        Me.PanelControl4.Size = New System.Drawing.Size(654, 244)
         Me.PanelControl4.TabIndex = 11
         '
         'GridControl1
@@ -1443,7 +1399,7 @@ Partial Class FrmConfigurationMenu
         Me.GridControl1.Location = New System.Drawing.Point(2, 2)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(650, 212)
+        Me.GridControl1.Size = New System.Drawing.Size(650, 240)
         Me.GridControl1.TabIndex = 1
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView3})
         '
@@ -1718,7 +1674,7 @@ Partial Class FrmConfigurationMenu
         Me.SimpleButton22.Location = New System.Drawing.Point(385, 275)
         Me.SimpleButton22.Name = "SimpleButton22"
         Me.SimpleButton22.Size = New System.Drawing.Size(46, 21)
-        Me.SimpleButton22.TabIndex = 58
+        Me.SimpleButton22.TabIndex = 19
         '
         'SimpleButton21
         '
@@ -1732,7 +1688,7 @@ Partial Class FrmConfigurationMenu
         Me.SimpleButton21.Location = New System.Drawing.Point(385, 253)
         Me.SimpleButton21.Name = "SimpleButton21"
         Me.SimpleButton21.Size = New System.Drawing.Size(46, 21)
-        Me.SimpleButton21.TabIndex = 57
+        Me.SimpleButton21.TabIndex = 18
         '
         'SimpleButton20
         '
@@ -1746,7 +1702,7 @@ Partial Class FrmConfigurationMenu
         Me.SimpleButton20.Location = New System.Drawing.Point(385, 183)
         Me.SimpleButton20.Name = "SimpleButton20"
         Me.SimpleButton20.Size = New System.Drawing.Size(46, 21)
-        Me.SimpleButton20.TabIndex = 56
+        Me.SimpleButton20.TabIndex = 17
         '
         'ComboBoxEdit6
         '
@@ -1757,7 +1713,7 @@ Partial Class FrmConfigurationMenu
         Me.ComboBoxEdit6.Properties.Items.AddRange(New Object() {"Y", "N"})
         Me.ComboBoxEdit6.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.ComboBoxEdit6.Size = New System.Drawing.Size(46, 20)
-        Me.ComboBoxEdit6.TabIndex = 55
+        Me.ComboBoxEdit6.TabIndex = 15
         '
         'TextEdit26
         '
@@ -1768,7 +1724,7 @@ Partial Class FrmConfigurationMenu
         Me.TextEdit26.Properties.MaxLength = 2
         Me.TextEdit26.Properties.ReadOnly = True
         Me.TextEdit26.Size = New System.Drawing.Size(220, 20)
-        Me.TextEdit26.TabIndex = 54
+        Me.TextEdit26.TabIndex = 10
         '
         'TextEdit24
         '
@@ -1779,7 +1735,7 @@ Partial Class FrmConfigurationMenu
         Me.TextEdit24.Properties.MaxLength = 2
         Me.TextEdit24.Properties.ReadOnly = True
         Me.TextEdit24.Size = New System.Drawing.Size(220, 20)
-        Me.TextEdit24.TabIndex = 53
+        Me.TextEdit24.TabIndex = 9
         '
         'TextEdit16
         '
@@ -1790,7 +1746,7 @@ Partial Class FrmConfigurationMenu
         Me.TextEdit16.Properties.MaxLength = 2
         Me.TextEdit16.Properties.ReadOnly = True
         Me.TextEdit16.Size = New System.Drawing.Size(220, 20)
-        Me.TextEdit16.TabIndex = 52
+        Me.TextEdit16.TabIndex = 6
         '
         'SimpleButton19
         '
@@ -1804,7 +1760,7 @@ Partial Class FrmConfigurationMenu
         Me.SimpleButton19.Location = New System.Drawing.Point(385, 45)
         Me.SimpleButton19.Name = "SimpleButton19"
         Me.SimpleButton19.Size = New System.Drawing.Size(46, 21)
-        Me.SimpleButton19.TabIndex = 13
+        Me.SimpleButton19.TabIndex = 16
         '
         'TextEdit31
         '
@@ -2147,8 +2103,8 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewControl1.Location = New System.Drawing.Point(0, 43)
         Me.BackstageViewControl1.Name = "BackstageViewControl1"
         Me.BackstageViewControl1.PaintStyle = DevExpress.XtraBars.Ribbon.BackstageViewPaintStyle.Flat
-        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem6
-        Me.BackstageViewControl1.SelectedTabIndex = 4
+        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem3
+        Me.BackstageViewControl1.SelectedTabIndex = 2
         Me.BackstageViewControl1.Size = New System.Drawing.Size(810, 489)
         Me.BackstageViewControl1.TabIndex = 9
         Me.BackstageViewControl1.Text = "BackstageViewControl1"
@@ -2183,7 +2139,7 @@ Partial Class FrmConfigurationMenu
         Me.GridControl3.MainView = Me.GridView4
         Me.GridControl3.Name = "GridControl3"
         Me.GridControl3.Size = New System.Drawing.Size(497, 340)
-        Me.GridControl3.TabIndex = 24
+        Me.GridControl3.TabIndex = 2
         Me.GridControl3.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView4})
         '
         'GridView4
@@ -2315,9 +2271,9 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem6.Caption = "ACTIVITY LOG"
         Me.BackstageViewTabItem6.ContentControl = Me.BackstageViewClientControl6
         Me.BackstageViewTabItem6.Name = "BackstageViewTabItem6"
-        Me.BackstageViewTabItem6.Selected = True
+        Me.BackstageViewTabItem6.Selected = False
         '
-        'BWC1
+        'BW1
         '
         '
         'FrmConfigurationMenu
@@ -2376,13 +2332,10 @@ Partial Class FrmConfigurationMenu
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ToggleSwitch1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit13.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit12.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit11.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
-        CType(Me.TextEdit6.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit7.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit8.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit9.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2480,7 +2433,6 @@ Partial Class FrmConfigurationMenu
     Friend WithEvents ComboBoxEdit12 As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents ComboBoxEdit13 As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents BackstageViewClientControl5 As DevExpress.XtraBars.Ribbon.BackstageViewClientControl
-    Friend WithEvents BW1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents BackstageViewTabItem4 As DevExpress.XtraBars.Ribbon.BackstageViewTabItem
     Friend WithEvents BackstageViewClientControl4 As DevExpress.XtraBars.Ribbon.BackstageViewClientControl
     Friend WithEvents PanelControl7 As DevExpress.XtraEditors.PanelControl
@@ -2523,9 +2475,7 @@ Partial Class FrmConfigurationMenu
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents LabelControl51 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents ToggleSwitch1 As DevExpress.XtraEditors.ToggleSwitch
     Friend WithEvents TextEdit13 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents TextEdit12 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TextEdit11 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents PanelControl3 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents SimpleButton9 As DevExpress.XtraEditors.SimpleButton
@@ -2533,7 +2483,6 @@ Partial Class FrmConfigurationMenu
     Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton3 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents TextEdit6 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TextEdit7 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TextEdit8 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TextEdit9 As DevExpress.XtraEditors.TextEdit
@@ -2541,11 +2490,8 @@ Partial Class FrmConfigurationMenu
     Friend WithEvents Panel2 As Panel
     Friend WithEvents LabelControl16 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl15 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl14 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl9 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl13 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PanelControl4 As DevExpress.XtraEditors.PanelControl
@@ -2613,7 +2559,6 @@ Partial Class FrmConfigurationMenu
     Friend WithEvents LabelControl44 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents GridView3 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents BackstageViewControl1 As DevExpress.XtraBars.Ribbon.BackstageViewControl
-    Friend WithEvents BWC1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents LabelControl55 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents BackstageViewClientControl6 As DevExpress.XtraBars.Ribbon.BackstageViewClientControl
     Friend WithEvents PanelControl6 As DevExpress.XtraEditors.PanelControl
@@ -2630,7 +2575,10 @@ Partial Class FrmConfigurationMenu
     Friend WithEvents TextEdit29 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TextEdit27 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents PanelControl13 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents SimpleButton23 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents GridControl3 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView4 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents BW1 As System.ComponentModel.BackgroundWorker
     '    Friend WiTHEvents VlcControl1 As Vlc.DotNet.Forms.VlcControl
 End Class
