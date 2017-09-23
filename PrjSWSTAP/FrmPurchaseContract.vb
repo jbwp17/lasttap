@@ -121,7 +121,7 @@ Public Class FrmPurchaseContract
     End Sub
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         'save purchase contract
-        If Not IsEmptyText({TextEdit1, TextEdit2, TextEdit2, TextEdit5, TextEdit6, TextEdit8}) Then
+        If Not IsEmptyText({TextEdit1, TextEdit3, TextEdit5, TextEdit6}) Then
             If Not IsEmptyCombo({ComboBoxEdit1, ComboBoxEdit2}) Then
                 Dim CON_NO As String = TextEdit1.Text
                 Dim DOC_TYPE As String = TextEdit2.Text
@@ -140,22 +140,21 @@ Public Class FrmPurchaseContract
                     SQL = " INSERT INTO T_PURCHASECONTRACT (CONTRACT_NUMBER,DOCUMENT_TYPE,CONTRACT_STARTDATE,CONTRACT_ENDDATE,VENDOR_CODE, " +
                         " INCOTERMS1,INCOTERMS2,ITEMNO,MATERIALCODE,FLATE_RATE,GRADING,STATUS,INACTIVE,INPUT_BY,INPUT_DATE) " +
                         " VALUES ('" & CON_NO & "','" & DOC_TYPE & "'," & CON_START & "," & CON_END & ",'" & VENDOR_CODE & "', " +
-                        " '" & IN1 & "','" & IN2 & "','" & ITEMNO & "','" & MAT_CODE & "','" & FLRATE & "','" & GRADING & "','','N','" & USERNAME & "',SYSDATE) "
+                        " '" & IN1 & "','" & IN2 & "','" & ITEMNO & "','" & MAT_CODE & "','" & FLRATE & "','" & GRADING & "','',NULL,'" & USERNAME & "',SYSDATE) "
                     ExecuteNonQuery(SQL)
                     LoadUser()
                     MsgBox("SAVE SUCCESSFUL", vbInformation, "PURCHASE CONTRACT")
                     UnlockAll()
                     ClearInputPC()
                 Else
-                    SQL = "SELECT * FROM T_PURCHASECONTRACT WHERE CONTRACT_NUMBER='" & TextEdit1.Text & "' AND INACTIVE='X' "
-                    If CheckRecord(SQL) > 0 Then
-                        SQL = "UPDATE T_PURCHASECONTRACT SET DOCUMENT_TYPE='" & DOC_TYPE & "',CONTRACT_STARTDATE=" & CON_START & ",CONTRACT_ENDDATE=" & CON_END & ",VENDOR_CODE='" & VENDOR_CODE & "',INCOTERMs1='" & IN1 & "',INCOTERMS2='" & IN2 & "',ITEMNO='" & ITEMNO & "',MATERIALCODE='" & MAT_CODE & "',FLATE_RATE='" & FLRATE & "',UPDATE_BY='" & USERNAME & "',UPDATE_DATE=SYSDATE,GRADING='" & GRADING & "'" +
-                         " WHERE CONTRACT_NUMBER= '" & CON_NO & "' and INACTIVE IS NULL"
-                        ExecuteNonQuery(SQL)
-                        LoadUser()
-                        MsgBox("UPDATE SUCCESSFUL", vbInformation, "PURCHASE CONTRACT")
-                        ClearInputPC()
-                    End If
+                    '    SQL = "SELECT * FROM T_PURCHASECONTRACT WHERE CONTRACT_NUMBER='" & TextEdit1.Text & "' AND INACTIVE='X' "
+                    '    If CheckRecord(SQL) > 0 Then
+                    '        SQL = "UPDATE T_PURCHASECONTRACT SET DOCUMENT_TYPE='" & DOC_TYPE & "',CONTRACT_STARTDATE=" & CON_START & ",CONTRACT_ENDDATE=" & CON_END & ",VENDOR_CODE='" & VENDOR_CODE & "',INCOTERMs1='" & IN1 & "',INCOTERMS2='" & IN2 & "',ITEMNO='" & ITEMNO & "',MATERIALCODE='" & MAT_CODE & "',FLATE_RATE='" & FLRATE & "',UPDATE_BY='" & USERNAME & "',UPDATE_DATE=SYSDATE,GRADING='" & GRADING & "'" +
+                    '         " WHERE CONTRACT_NUMBER= '" & CON_NO & "' and INACTIVE IS NULL"
+                    '        ExecuteNonQuery(SQL)
+                    '        LoadUser()
+                    '        MsgBox("UPDATE SUCCESSFUL", vbInformation, "PURCHASE CONTRACT")
+                    '        ClearInputPC()
                 End If
                 If UCase(SimpleButton2.Text) = "UPDATE" Then
                     SQL = "UPDATE T_PURCHASECONTRACT SET DOCUMENT_TYPE='" & DOC_TYPE & "',CONTRACT_STARTDATE=" & CON_START & ",CONTRACT_ENDDATE=" & CON_END & ",VENDOR_CODE='" & VENDOR_CODE & "',INCOTERMs1='" & IN1 & "',INCOTERMS2='" & IN2 & "',ITEMNO='" & ITEMNO & "',MATERIALCODE='" & MAT_CODE & "',FLATE_RATE='" & FLRATE & "',UPDATE_BY='" & USERNAME & "',UPDATE_DATE=SYSDATE,GRADING='" & GRADING & "'" +
