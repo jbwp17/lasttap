@@ -243,6 +243,7 @@ Public Class FrmConfigurationMenu
         Dim MM As String = ""
         Dim KTU As String = ""
         SAP = My.MySettings.Default.SAP
+        ValTare = My.MySettings.Default.ValidasiTara
 
         SQL = "SELECT * FROM T_CONFIG WHERE COMPANYCODE='" & TextEdit41.Text & "' "
 
@@ -365,6 +366,9 @@ Public Class FrmConfigurationMenu
         My.Settings.Save()
         My.Settings.SAP = ComboBoxEdit4.Text
         My.Settings.Save()
+        My.Settings.ValidasiTara = ComboBoxEdit6.Text
+        My.Settings.Save()
+
     End Sub
 
     Private Sub BackstageViewTabItem1_SELECTedChanged(sender As Object, e As DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs) Handles BackstageViewTabItem1.SelectedChanged
@@ -886,14 +890,14 @@ Public Class FrmConfigurationMenu
         LoadView()
     End Sub
 
-    Private Sub gridView3_RowClick(sender As Object, e As DevExpress.XtraGrid.Views.Grid.RowClickEventArgs) Handles GridView3.RowCellClick
+    Private Sub gridView4_RowClick(sender As Object, e As DevExpress.XtraGrid.Views.Grid.RowClickEventArgs) Handles GridView4.RowCellClick
         If e.RowHandle < 0 Then
             Exit Sub
         Else
-            TextEdit27.Text = GridView3.GetRowCellValue(e.RowHandle, "LOGINDATE").ToString()  'ID
-            TextEdit29.Text = GridView3.GetRowCellValue(e.RowHandle, "USERID").ToString() 'NAME
-            TextEdit32.Text = GridView3.GetRowCellValue(e.RowHandle, "IPADDRESS").ToString()   'BRAND
-            TextEdit33.Text = GridView3.GetRowCellValue(e.RowHandle, "USED").ToString()   'IP
+            TextEdit27.Text = GridView4.GetRowCellValue(e.RowHandle, "LOGINDATE").ToString()  'ID
+            TextEdit29.Text = GridView4.GetRowCellValue(e.RowHandle, "USERID").ToString() 'NAME
+            TextEdit32.Text = GridView4.GetRowCellValue(e.RowHandle, "IPADDRESS").ToString()   'BRAND
+            TextEdit33.Text = GridView4.GetRowCellValue(e.RowHandle, "USED").ToString()   'IP
         End If
     End Sub
 
@@ -923,9 +927,10 @@ Public Class FrmConfigurationMenu
         End Try
     End Sub
 
-    Private Sub gridView2_RowClick(sender As Object, e As RowCellClickEventArgs) Handles GridView2.RowCellClick
+    Private Sub GridControl2_Click(sender As Object, e As EventArgs) Handles GridControl2.Click
 
     End Sub
+
 
 #End Region
 End Class

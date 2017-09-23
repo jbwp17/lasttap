@@ -128,9 +128,9 @@ Partial Class FrmVendorr
         Me.LabelControl67.Appearance.Options.UseFont = True
         Me.LabelControl67.Location = New System.Drawing.Point(12, 200)
         Me.LabelControl67.Name = "LabelControl67"
-        Me.LabelControl67.Size = New System.Drawing.Size(53, 13)
+        Me.LabelControl67.Size = New System.Drawing.Size(45, 13)
         Me.LabelControl67.TabIndex = 33
-        Me.LabelControl67.Text = "COUNTRY"
+        Me.LabelControl67.Text = "Country"
         '
         'LabelControl68
         '
@@ -138,9 +138,9 @@ Partial Class FrmVendorr
         Me.LabelControl68.Appearance.Options.UseFont = True
         Me.LabelControl68.Location = New System.Drawing.Point(12, 112)
         Me.LabelControl68.Name = "LabelControl68"
-        Me.LabelControl68.Size = New System.Drawing.Size(35, 13)
+        Me.LabelControl68.Size = New System.Drawing.Size(30, 13)
         Me.LabelControl68.TabIndex = 32
-        Me.LabelControl68.Text = "EMAIL"
+        Me.LabelControl68.Text = "Email"
         '
         'LabelControl69
         '
@@ -148,9 +148,9 @@ Partial Class FrmVendorr
         Me.LabelControl69.Appearance.Options.UseFont = True
         Me.LabelControl69.Location = New System.Drawing.Point(12, 178)
         Me.LabelControl69.Name = "LabelControl69"
-        Me.LabelControl69.Size = New System.Drawing.Size(35, 13)
+        Me.LabelControl69.Size = New System.Drawing.Size(31, 13)
         Me.LabelControl69.TabIndex = 31
-        Me.LabelControl69.Text = "STATE"
+        Me.LabelControl69.Text = "State"
         '
         'LabelControl70
         '
@@ -158,9 +158,9 @@ Partial Class FrmVendorr
         Me.LabelControl70.Appearance.Options.UseFont = True
         Me.LabelControl70.Location = New System.Drawing.Point(12, 156)
         Me.LabelControl70.Name = "LabelControl70"
-        Me.LabelControl70.Size = New System.Drawing.Size(75, 13)
+        Me.LabelControl70.Size = New System.Drawing.Size(66, 13)
         Me.LabelControl70.TabIndex = 30
-        Me.LabelControl70.Text = "POSTAL CODE"
+        Me.LabelControl70.Text = "Postal Code"
         '
         'LabelControl71
         '
@@ -178,9 +178,9 @@ Partial Class FrmVendorr
         Me.LabelControl72.Appearance.Options.UseFont = True
         Me.LabelControl72.Location = New System.Drawing.Point(12, 134)
         Me.LabelControl72.Name = "LabelControl72"
-        Me.LabelControl72.Size = New System.Drawing.Size(52, 13)
+        Me.LabelControl72.Size = New System.Drawing.Size(46, 13)
         Me.LabelControl72.TabIndex = 28
-        Me.LabelControl72.Text = "ADDRESS"
+        Me.LabelControl72.Text = "Address"
         '
         'LabelControl73
         '
@@ -188,9 +188,9 @@ Partial Class FrmVendorr
         Me.LabelControl73.Appearance.Options.UseFont = True
         Me.LabelControl73.Location = New System.Drawing.Point(12, 68)
         Me.LabelControl73.Name = "LabelControl73"
-        Me.LabelControl73.Size = New System.Drawing.Size(78, 13)
+        Me.LabelControl73.Size = New System.Drawing.Size(75, 13)
         Me.LabelControl73.TabIndex = 27
-        Me.LabelControl73.Text = "VENDOR NAME"
+        Me.LabelControl73.Text = "Vendor Name"
         '
         'LabelControl74
         '
@@ -198,9 +198,9 @@ Partial Class FrmVendorr
         Me.LabelControl74.Appearance.Options.UseFont = True
         Me.LabelControl74.Location = New System.Drawing.Point(12, 46)
         Me.LabelControl74.Name = "LabelControl74"
-        Me.LabelControl74.Size = New System.Drawing.Size(76, 13)
+        Me.LabelControl74.Size = New System.Drawing.Size(71, 13)
         Me.LabelControl74.TabIndex = 26
-        Me.LabelControl74.Text = "VENDOR CODE"
+        Me.LabelControl74.Text = "Vendor Code"
         '
         'LabelControl1
         '
@@ -208,9 +208,9 @@ Partial Class FrmVendorr
         Me.LabelControl1.Appearance.Options.UseFont = True
         Me.LabelControl1.Location = New System.Drawing.Point(12, 162)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(102, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(89, 13)
         Me.LabelControl1.TabIndex = 34
-        Me.LabelControl1.Text = "INTERNAL VENDOR"
+        Me.LabelControl1.Text = "Internal Vendor"
         '
         'LabelControl66
         '
@@ -218,9 +218,9 @@ Partial Class FrmVendorr
         Me.LabelControl66.Appearance.Options.UseFont = True
         Me.LabelControl66.Location = New System.Drawing.Point(12, 8)
         Me.LabelControl66.Name = "LabelControl66"
-        Me.LabelControl66.Size = New System.Drawing.Size(36, 13)
+        Me.LabelControl66.Size = New System.Drawing.Size(35, 13)
         Me.LabelControl66.TabIndex = 34
-        Me.LabelControl66.Text = "PHONE"
+        Me.LabelControl66.Text = "Phone"
         '
         'LabelControl103
         '
@@ -228,9 +228,9 @@ Partial Class FrmVendorr
         Me.LabelControl103.Appearance.Options.UseFont = True
         Me.LabelControl103.Location = New System.Drawing.Point(12, 118)
         Me.LabelControl103.Name = "LabelControl103"
-        Me.LabelControl103.Size = New System.Drawing.Size(94, 13)
+        Me.LabelControl103.Size = New System.Drawing.Size(83, 13)
         Me.LabelControl103.TabIndex = 43
-        Me.LabelControl103.Text = "ACCOUNT GROUP"
+        Me.LabelControl103.Text = "Account Group"
         '
         'LabelControl13
         '
@@ -238,9 +238,9 @@ Partial Class FrmVendorr
         Me.LabelControl13.Appearance.Options.UseFont = True
         Me.LabelControl13.Location = New System.Drawing.Point(12, 52)
         Me.LabelControl13.Name = "LabelControl13"
-        Me.LabelControl13.Size = New System.Drawing.Size(97, 13)
+        Me.LabelControl13.Size = New System.Drawing.Size(86, 13)
         Me.LabelControl13.TabIndex = 39
-        Me.LabelControl13.Text = "CONTACT PERSON"
+        Me.LabelControl13.Text = "Contact Person"
         '
         'LabelControl15
         '
@@ -248,9 +248,9 @@ Partial Class FrmVendorr
         Me.LabelControl15.Appearance.Options.UseFont = True
         Me.LabelControl15.Location = New System.Drawing.Point(12, 140)
         Me.LabelControl15.Name = "LabelControl15"
-        Me.LabelControl15.Size = New System.Drawing.Size(128, 13)
+        Me.LabelControl15.Size = New System.Drawing.Size(118, 13)
         Me.LabelControl15.TabIndex = 38
-        Me.LabelControl15.Text = "ACCOUNT GROUP NAME"
+        Me.LabelControl15.Text = "Account Group Name"
         '
         'LabelControl16
         '
@@ -258,9 +258,9 @@ Partial Class FrmVendorr
         Me.LabelControl16.Appearance.Options.UseFont = True
         Me.LabelControl16.Location = New System.Drawing.Point(12, 30)
         Me.LabelControl16.Name = "LabelControl16"
-        Me.LabelControl16.Size = New System.Drawing.Size(22, 13)
+        Me.LabelControl16.Size = New System.Drawing.Size(20, 13)
         Me.LabelControl16.TabIndex = 37
-        Me.LabelControl16.Text = "FAX"
+        Me.LabelControl16.Text = "Fax"
         '
         'LabelControl51
         '
@@ -268,9 +268,9 @@ Partial Class FrmVendorr
         Me.LabelControl51.Appearance.Options.UseFont = True
         Me.LabelControl51.Location = New System.Drawing.Point(12, 96)
         Me.LabelControl51.Name = "LabelControl51"
-        Me.LabelControl51.Size = New System.Drawing.Size(84, 13)
+        Me.LabelControl51.Size = New System.Drawing.Size(77, 13)
         Me.LabelControl51.TabIndex = 36
-        Me.LabelControl51.Text = "BANK ACCOUNT"
+        Me.LabelControl51.Text = "Bank Account"
         '
         'LabelControl65
         '
@@ -278,9 +278,9 @@ Partial Class FrmVendorr
         Me.LabelControl65.Appearance.Options.UseFont = True
         Me.LabelControl65.Location = New System.Drawing.Point(12, 74)
         Me.LabelControl65.Name = "LabelControl65"
-        Me.LabelControl65.Size = New System.Drawing.Size(81, 13)
+        Me.LabelControl65.Size = New System.Drawing.Size(75, 13)
         Me.LabelControl65.TabIndex = 35
-        Me.LabelControl65.Text = "MOBILE PHONE"
+        Me.LabelControl65.Text = "Mobile Phone"
         '
         'GridView1
         '
@@ -344,7 +344,6 @@ Partial Class FrmVendorr
         Me.TextEdit13.Name = "TextEdit13"
         Me.TextEdit13.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TextEdit13.Properties.Appearance.Options.UseBackColor = True
-        Me.TextEdit13.Properties.MaxLength = 20
         Me.TextEdit13.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit13.TabIndex = 12
         '
@@ -355,7 +354,6 @@ Partial Class FrmVendorr
         Me.TextEdit9.Name = "TextEdit9"
         Me.TextEdit9.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TextEdit9.Properties.Appearance.Options.UseBackColor = True
-        Me.TextEdit9.Properties.MaxLength = 12
         Me.TextEdit9.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit9.TabIndex = 8
         '
@@ -364,7 +362,6 @@ Partial Class FrmVendorr
         Me.TextEdit8.EnterMoveNextControl = True
         Me.TextEdit8.Location = New System.Drawing.Point(157, 240)
         Me.TextEdit8.Name = "TextEdit8"
-        Me.TextEdit8.Properties.MaxLength = 10
         Me.TextEdit8.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit8.TabIndex = 7
         '
@@ -530,7 +527,6 @@ Partial Class FrmVendorr
         Me.TextEdit6.Name = "TextEdit6"
         Me.TextEdit6.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TextEdit6.Properties.Appearance.Options.UseBackColor = True
-        Me.TextEdit6.Properties.MaxLength = 6
         Me.TextEdit6.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit6.TabIndex = 5
         '
@@ -539,7 +535,6 @@ Partial Class FrmVendorr
         Me.TextEdit7.EnterMoveNextControl = True
         Me.TextEdit7.Location = New System.Drawing.Point(157, 218)
         Me.TextEdit7.Name = "TextEdit7"
-        Me.TextEdit7.Properties.MaxLength = 25
         Me.TextEdit7.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit7.TabIndex = 6
         '
@@ -550,7 +545,6 @@ Partial Class FrmVendorr
         Me.TextEdit10.Name = "TextEdit10"
         Me.TextEdit10.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TextEdit10.Properties.Appearance.Options.UseBackColor = True
-        Me.TextEdit10.Properties.MaxLength = 12
         Me.TextEdit10.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit10.TabIndex = 9
         '
@@ -559,7 +553,6 @@ Partial Class FrmVendorr
         Me.TextEdit11.EnterMoveNextControl = True
         Me.TextEdit11.Location = New System.Drawing.Point(557, 130)
         Me.TextEdit11.Name = "TextEdit11"
-        Me.TextEdit11.Properties.MaxLength = 25
         Me.TextEdit11.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit11.TabIndex = 10
         '
@@ -570,7 +563,6 @@ Partial Class FrmVendorr
         Me.TextEdit12.Name = "TextEdit12"
         Me.TextEdit12.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TextEdit12.Properties.Appearance.Options.UseBackColor = True
-        Me.TextEdit12.Properties.MaxLength = 12
         Me.TextEdit12.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit12.TabIndex = 11
         '
@@ -579,7 +571,6 @@ Partial Class FrmVendorr
         Me.TextEdit14.EnterMoveNextControl = True
         Me.TextEdit14.Location = New System.Drawing.Point(557, 196)
         Me.TextEdit14.Name = "TextEdit14"
-        Me.TextEdit14.Properties.MaxLength = 4
         Me.TextEdit14.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit14.TabIndex = 13
         '
@@ -588,7 +579,6 @@ Partial Class FrmVendorr
         Me.TextEdit15.EnterMoveNextControl = True
         Me.TextEdit15.Location = New System.Drawing.Point(557, 218)
         Me.TextEdit15.Name = "TextEdit15"
-        Me.TextEdit15.Properties.MaxLength = 40
         Me.TextEdit15.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit15.TabIndex = 14
         '

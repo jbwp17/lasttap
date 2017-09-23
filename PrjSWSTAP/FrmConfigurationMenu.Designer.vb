@@ -185,13 +185,14 @@ Partial Class FrmConfigurationMenu
         Me.LabelControl44 = New DevExpress.XtraEditors.LabelControl()
         Me.BackstageViewControl1 = New DevExpress.XtraBars.Ribbon.BackstageViewControl()
         Me.BackstageViewClientControl6 = New DevExpress.XtraBars.Ribbon.BackstageViewClientControl()
-        Me.PanelControl13 = New DevExpress.XtraEditors.PanelControl()
-        Me.GridControl3 = New DevExpress.XtraGrid.GridControl()
-        Me.GridView4 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.PanelControl14 = New DevExpress.XtraEditors.PanelControl()
         Me.TextEdit33 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit32 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit29 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit27 = New DevExpress.XtraEditors.TextEdit()
+        Me.PanelControl13 = New DevExpress.XtraEditors.PanelControl()
+        Me.GridControl3 = New DevExpress.XtraGrid.GridControl()
+        Me.GridView4 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.PanelControl6 = New DevExpress.XtraEditors.PanelControl()
         Me.SimpleButton24 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton26 = New DevExpress.XtraEditors.SimpleButton()
@@ -293,14 +294,16 @@ Partial Class FrmConfigurationMenu
         CType(Me.BackstageViewControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BackstageViewControl1.SuspendLayout()
         Me.BackstageViewClientControl6.SuspendLayout()
-        CType(Me.PanelControl13, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl13.SuspendLayout()
-        CType(Me.GridControl3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl14, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl14.SuspendLayout()
         CType(Me.TextEdit33.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit32.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit29.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit27.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl13, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl13.SuspendLayout()
+        CType(Me.GridControl3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl6.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -671,7 +674,7 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem4.Caption = "IP WEIGHBRIDGE"
         Me.BackstageViewTabItem4.ContentControl = Me.BackstageViewClientControl4
         Me.BackstageViewTabItem4.Name = "BackstageViewTabItem4"
-        Me.BackstageViewTabItem4.Selected = False
+        Me.BackstageViewTabItem4.Selected = True
         '
         'BackstageViewClientControl4
         '
@@ -1085,7 +1088,7 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem3.Caption = "IP CAMERA"
         Me.BackstageViewTabItem3.ContentControl = Me.BackstageViewClientControl3
         Me.BackstageViewTabItem3.Name = "BackstageViewTabItem3"
-        Me.BackstageViewTabItem3.Selected = True
+        Me.BackstageViewTabItem3.Selected = False
         '
         'BackstageViewClientControl3
         '
@@ -2103,25 +2106,62 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewControl1.Location = New System.Drawing.Point(0, 43)
         Me.BackstageViewControl1.Name = "BackstageViewControl1"
         Me.BackstageViewControl1.PaintStyle = DevExpress.XtraBars.Ribbon.BackstageViewPaintStyle.Flat
-        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem3
-        Me.BackstageViewControl1.SelectedTabIndex = 2
+        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem4
+        Me.BackstageViewControl1.SelectedTabIndex = 3
         Me.BackstageViewControl1.Size = New System.Drawing.Size(810, 489)
         Me.BackstageViewControl1.TabIndex = 9
         Me.BackstageViewControl1.Text = "BackstageViewControl1"
         '
         'BackstageViewClientControl6
         '
+        Me.BackstageViewClientControl6.Controls.Add(Me.PanelControl14)
         Me.BackstageViewClientControl6.Controls.Add(Me.PanelControl13)
-        Me.BackstageViewClientControl6.Controls.Add(Me.TextEdit33)
-        Me.BackstageViewClientControl6.Controls.Add(Me.TextEdit32)
-        Me.BackstageViewClientControl6.Controls.Add(Me.TextEdit29)
-        Me.BackstageViewClientControl6.Controls.Add(Me.TextEdit27)
         Me.BackstageViewClientControl6.Controls.Add(Me.PanelControl6)
         Me.BackstageViewClientControl6.Controls.Add(Me.Panel6)
         Me.BackstageViewClientControl6.Location = New System.Drawing.Point(156, 0)
         Me.BackstageViewClientControl6.Name = "BackstageViewClientControl6"
         Me.BackstageViewClientControl6.Size = New System.Drawing.Size(654, 489)
         Me.BackstageViewClientControl6.TabIndex = 5
+        '
+        'PanelControl14
+        '
+        Me.PanelControl14.Controls.Add(Me.TextEdit33)
+        Me.PanelControl14.Controls.Add(Me.TextEdit32)
+        Me.PanelControl14.Controls.Add(Me.TextEdit29)
+        Me.PanelControl14.Controls.Add(Me.TextEdit27)
+        Me.PanelControl14.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelControl14.Location = New System.Drawing.Point(153, 39)
+        Me.PanelControl14.Name = "PanelControl14"
+        Me.PanelControl14.Size = New System.Drawing.Size(501, 106)
+        Me.PanelControl14.TabIndex = 25
+        '
+        'TextEdit33
+        '
+        Me.TextEdit33.Location = New System.Drawing.Point(8, 77)
+        Me.TextEdit33.Name = "TextEdit33"
+        Me.TextEdit33.Size = New System.Drawing.Size(84, 20)
+        Me.TextEdit33.TabIndex = 26
+        '
+        'TextEdit32
+        '
+        Me.TextEdit32.Location = New System.Drawing.Point(8, 53)
+        Me.TextEdit32.Name = "TextEdit32"
+        Me.TextEdit32.Size = New System.Drawing.Size(229, 20)
+        Me.TextEdit32.TabIndex = 25
+        '
+        'TextEdit29
+        '
+        Me.TextEdit29.Location = New System.Drawing.Point(8, 29)
+        Me.TextEdit29.Name = "TextEdit29"
+        Me.TextEdit29.Size = New System.Drawing.Size(229, 20)
+        Me.TextEdit29.TabIndex = 24
+        '
+        'TextEdit27
+        '
+        Me.TextEdit27.Location = New System.Drawing.Point(8, 5)
+        Me.TextEdit27.Name = "TextEdit27"
+        Me.TextEdit27.Size = New System.Drawing.Size(229, 20)
+        Me.TextEdit27.TabIndex = 23
         '
         'PanelControl13
         '
@@ -2147,34 +2187,6 @@ Partial Class FrmConfigurationMenu
         Me.GridView4.GridControl = Me.GridControl3
         Me.GridView4.Name = "GridView4"
         Me.GridView4.OptionsView.ShowGroupPanel = False
-        '
-        'TextEdit33
-        '
-        Me.TextEdit33.Location = New System.Drawing.Point(159, 119)
-        Me.TextEdit33.Name = "TextEdit33"
-        Me.TextEdit33.Size = New System.Drawing.Size(84, 20)
-        Me.TextEdit33.TabIndex = 22
-        '
-        'TextEdit32
-        '
-        Me.TextEdit32.Location = New System.Drawing.Point(159, 95)
-        Me.TextEdit32.Name = "TextEdit32"
-        Me.TextEdit32.Size = New System.Drawing.Size(229, 20)
-        Me.TextEdit32.TabIndex = 21
-        '
-        'TextEdit29
-        '
-        Me.TextEdit29.Location = New System.Drawing.Point(159, 71)
-        Me.TextEdit29.Name = "TextEdit29"
-        Me.TextEdit29.Size = New System.Drawing.Size(229, 20)
-        Me.TextEdit29.TabIndex = 20
-        '
-        'TextEdit27
-        '
-        Me.TextEdit27.Location = New System.Drawing.Point(159, 47)
-        Me.TextEdit27.Name = "TextEdit27"
-        Me.TextEdit27.Size = New System.Drawing.Size(229, 20)
-        Me.TextEdit27.TabIndex = 19
         '
         'PanelControl6
         '
@@ -2383,14 +2395,16 @@ Partial Class FrmConfigurationMenu
         CType(Me.BackstageViewControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BackstageViewControl1.ResumeLayout(False)
         Me.BackstageViewClientControl6.ResumeLayout(False)
-        CType(Me.PanelControl13, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl13.ResumeLayout(False)
-        CType(Me.GridControl3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl14, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl14.ResumeLayout(False)
         CType(Me.TextEdit33.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit32.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit29.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit27.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl13, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl13.ResumeLayout(False)
+        CType(Me.GridControl3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl6.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
@@ -2570,15 +2584,16 @@ Partial Class FrmConfigurationMenu
     Friend WithEvents LabelControl63 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl64 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents BackstageViewTabItem6 As DevExpress.XtraBars.Ribbon.BackstageViewTabItem
-    Friend WithEvents TextEdit33 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents TextEdit32 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents TextEdit29 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents TextEdit27 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents PanelControl13 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents SimpleButton23 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents GridControl3 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView4 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents BW1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents PanelControl14 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents TextEdit33 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit32 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit29 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit27 As DevExpress.XtraEditors.TextEdit
     '    Friend WiTHEvents VlcControl1 As Vlc.DotNet.Forms.VlcControl
 End Class

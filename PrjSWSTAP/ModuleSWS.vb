@@ -486,7 +486,6 @@ Module ModuleSWS
         Catch ex As Exception
             TRANS.Rollback()
             CMD = Nothing
-            Conn.Close()
         End Try
         Return DT
     End Function
@@ -566,7 +565,6 @@ Module ModuleSWS
             TRANS.Rollback()
         End Try
         CMD = Nothing
-        Conn.Close()
     End Sub
 
     Public Function AmbilTgl() As String
@@ -663,14 +661,18 @@ Module ModuleSWS
         Return PeriodeJalan
     End Function
     Public Function GetMaxTr(ByVal nTabel As String) As String
+        GetMaxTr = ""
+        If Not OpenConnLocal() Then
+            Exit Function
+        End If
         Dim date1 As Date = Now
         Dim Th As String = date1.ToString("yyMM")
         Dim Bln As String = date1.ToString("MM")
         Dim MAXTIKET As Double = 0
         GetMaxTr = ""
-        SQL = "SELECT NVL(max(trim(NO_TICKET)),0) MaxTicket FROM " & nTabel & ""
+        LSQL = "SELECT NVL(max(trim(NO_TICKET)),0) MaxTicket FROM " & nTabel & ""
         Dim DTS As New DataTable
-        DTS = ExecuteQuery(SQL)
+        DTS = ExecuteQuery(LSQL)
         If DTS.Rows.Count > 0 Then
             If DTS.Rows(0).Item("MAXTICKET") <> "" Then
                 GetMaxTr = DTS.Rows(0).Item("MaxTicket").ToString
@@ -678,7 +680,7 @@ Module ModuleSWS
                 MAXTIKET = GetMaxTr
                 GetMaxTr = MAXTIKET + 1
             Else
-                GetMaxTr = Th & "00000"
+                GetMaxTr = Th & Bln & "00000"
             End If
         End If
         Return GetMaxTr
@@ -691,7 +693,7 @@ Module ModuleSWS
         Dim date1 As Date = Now
         Dim Code As String
         Dim PERIODE As String = PeriodeJalan()
-
+        Dim ThBln As String = "190001"
         Th = date1.ToString("yyyyMM")
         Bln = date1.ToString("MM")
 
@@ -704,17 +706,19 @@ Module ModuleSWS
             Bln = date1.ToString("MM")
         End If
 
+        ThBln = Th & Bln
+
         Code = CStr(GetMaxTr("T_WBTICKET") + 1)
         GetTiketNew = ""
         Try
             If Code = "" Then
-                GetTiketNew = Th & Right(Code, 5)
+                GetTiketNew = ThBln & Right(Code, 5)
             ElseIf Th > Left(Code, 4) Then
                 'Call ResetCode(Ind)
                 Code = "000001"
-                GetTiketNew = Th & Right(Code, 5)
+                GetTiketNew = ThBln & Right(Code, 5)
             ElseIf CInt(Left(Code, 4)) <> 0 Then
-                GetTiketNew = Th & Right(Code, 5)
+                GetTiketNew = ThBln & Right(Code, 5)
             End If
             GetTiketNew = Ind & GetTiketNew
         Catch ex As Exception
@@ -1534,7 +1538,6 @@ Module ModuleSWS
         Num = wordy
     End Function
     Public Function GetSCSMessage(ByVal IP As String, ByVal Port As Int32) As String
-        GetWBConfig()
         Dim tcpClient As New System.Net.Sockets.TcpClient()
         Try
             tcpClient.Connect(IP, Port)

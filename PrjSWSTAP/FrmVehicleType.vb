@@ -55,7 +55,7 @@ Public Class FrmVehicleType
         GridView5.ExpandAllGroups()
     End Sub
     Private Sub LoadView()
-        SQL = "SELECT VEHICLE_TYPE,TOLERANCE,INACTIVE FROM T_VEHICLE_TYPE ORDER BY TYPE"
+        SQL = "SELECT VEHICLE_TYPE,TOLERANCE,INACTIVE FROM T_VEHICLE_TYPE ORDER BY VEHICLE_TYPE"
         FILLGridView(SQL, GridControl5)
         GridControl5.DataSource = ExecuteQuery(SQL)
         Dim GridView As GridView = CType(GridControl5.FocusedView, GridView)
