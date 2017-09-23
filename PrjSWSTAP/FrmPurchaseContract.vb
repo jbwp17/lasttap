@@ -147,6 +147,7 @@ Public Class FrmPurchaseContract
                     UnlockAll()
                     ClearInputPC()
                 Else
+                    MsgBox("Code Purchase Already...", vbInformation, Me.Text)
                     '    SQL = "SELECT * FROM T_PURCHASECONTRACT WHERE CONTRACT_NUMBER='" & TextEdit1.Text & "' AND INACTIVE='X' "
                     '    If CheckRecord(SQL) > 0 Then
                     '        SQL = "UPDATE T_PURCHASECONTRACT SET DOCUMENT_TYPE='" & DOC_TYPE & "',CONTRACT_STARTDATE=" & CON_START & ",CONTRACT_ENDDATE=" & CON_END & ",VENDOR_CODE='" & VENDOR_CODE & "',INCOTERMs1='" & IN1 & "',INCOTERMS2='" & IN2 & "',ITEMNO='" & ITEMNO & "',MATERIALCODE='" & MAT_CODE & "',FLATE_RATE='" & FLRATE & "',UPDATE_BY='" & USERNAME & "',UPDATE_DATE=SYSDATE,GRADING='" & GRADING & "'" +
