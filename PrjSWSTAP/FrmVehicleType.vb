@@ -86,7 +86,7 @@ Public Class FrmVehicleType
             Dim TOLERANCE As String = TextEdit2.Text
             If CheckRecord(SQL) = 0 Then
                 SQL = "INSERT INTO T_VEHICLE_TYPE (VEHICLE_TYPE,TOLERANCE,INACTIVE)" +
-                " VALUES('" & VEHICLETYPE & "','" & TOLERANCE & "',NULL)"
+                " VALUES('" & VEHICLETYPE & "','" & TOLERANCE & "',DEFAULT)"
                 ExecuteNonQuery(SQL)
                 LoadView()
                 MsgBox("SAVE SUCCESSFUL", vbInformation, "VEHICLE TYPE")
@@ -105,7 +105,7 @@ Public Class FrmVehicleType
 
             If UCase(SimpleButton2.Text) = "UPDATE" Then
                 SQL = "UPDATE T_VEHICLE_TYPE SET TOLERANCE='" & TOLERANCE & "'" +
-                      " WHERE VEHICLE_CODE= '" & TextEdit1.Text & "'"
+                      " WHERE VEHICLE_CODE= '" & TextEdit1.Text & "' AND INACTIVE IS NULL"
                 ExecuteNonQuery(SQL)
                 LoadView()
                 MsgBox("UPDATE SUCCESSFUL", vbInformation, "VEHICLE TYPE")
