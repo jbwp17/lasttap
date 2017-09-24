@@ -6,9 +6,7 @@ Imports System.Net
 Imports System.Windows.Forms
 Imports System.Reflection
 
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
+Imports Oracle.ManagedDataAccess.Client
 
 Public Class FrmMain
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -33,6 +31,8 @@ Public Class FrmMain
 
     Private Sub NavBarControl1_LinkClicked(sender As Object, e As NavBarLinkEventArgs) Handles NavBarControl1.LinkClicked
         Dim Frm As String = e.Link.Caption
+
+        Frm = Trim(Frm)
         Dim frmAktive As String = GetFrmName(Frm)
         Select Case Frm
 
@@ -73,7 +73,6 @@ Public Class FrmMain
         'PRODUCTNAME ='PrjSWSTAP' Tidak Bisa Di ubah..
         'efek Form Tidak bisa di ambil..
         Return System.Reflection.Assembly.GetExecutingAssembly().CreateInstance(ProductName & "." & strFormName)
-
     End Function
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         LabelControl7.Text = "Welcome, " & USERNAME & "," & Format(Now, "dd-MM-yyyy")
@@ -165,4 +164,5 @@ Public Class FrmMain
             BunifuFlatButton3.Visible = False
         End If
     End Sub
+
 End Class

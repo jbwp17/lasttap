@@ -31,6 +31,9 @@ Partial Class Frm
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.MemoEdit1 = New DevExpress.XtraEditors.MemoEdit()
+        Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
         Me.TextEdit19 = New DevExpress.XtraEditors.TextEdit()
         Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
@@ -41,12 +44,12 @@ Partial Class Frm
         Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
         Me.ComboBoxEdit1 = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
+        Me.MemoEdit2 = New DevExpress.XtraEditors.MemoEdit()
         Me.BunifuGradientPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.MemoEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit19.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl5.SuspendLayout()
@@ -56,6 +59,7 @@ Partial Class Frm
         CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MemoEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BunifuGradientPanel1
@@ -71,7 +75,7 @@ Partial Class Frm
         Me.BunifuGradientPanel1.Location = New System.Drawing.Point(0, 0)
         Me.BunifuGradientPanel1.Name = "BunifuGradientPanel1"
         Me.BunifuGradientPanel1.Quality = 10
-        Me.BunifuGradientPanel1.Size = New System.Drawing.Size(681, 43)
+        Me.BunifuGradientPanel1.Size = New System.Drawing.Size(708, 43)
         Me.BunifuGradientPanel1.TabIndex = 13
         '
         'LabelControl1
@@ -100,7 +104,7 @@ Partial Class Frm
         Me.Panel1.ForeColor = System.Drawing.Color.Black
         Me.Panel1.Location = New System.Drawing.Point(0, 43)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(153, 251)
+        Me.Panel1.Size = New System.Drawing.Size(153, 477)
         Me.Panel1.TabIndex = 14
         '
         'LabelControl49
@@ -175,6 +179,8 @@ Partial Class Frm
         '
         'PanelControl1
         '
+        Me.PanelControl1.Controls.Add(Me.MemoEdit2)
+        Me.PanelControl1.Controls.Add(Me.MemoEdit1)
         Me.PanelControl1.Controls.Add(Me.LabelControl9)
         Me.PanelControl1.Controls.Add(Me.LabelControl8)
         Me.PanelControl1.Controls.Add(Me.TextEdit19)
@@ -188,8 +194,37 @@ Partial Class Frm
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl1.Location = New System.Drawing.Point(153, 43)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(528, 251)
+        Me.PanelControl1.Size = New System.Drawing.Size(555, 477)
         Me.PanelControl1.TabIndex = 16
+        '
+        'MemoEdit1
+        '
+        Me.MemoEdit1.Location = New System.Drawing.Point(7, 298)
+        Me.MemoEdit1.Name = "MemoEdit1"
+        Me.MemoEdit1.Size = New System.Drawing.Size(518, 167)
+        Me.MemoEdit1.TabIndex = 52
+        '
+        'LabelControl9
+        '
+        Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl9.Appearance.ForeColor = System.Drawing.Color.Red
+        Me.LabelControl9.Appearance.Options.UseFont = True
+        Me.LabelControl9.Appearance.Options.UseForeColor = True
+        Me.LabelControl9.Location = New System.Drawing.Point(7, 223)
+        Me.LabelControl9.Name = "LabelControl9"
+        Me.LabelControl9.Size = New System.Drawing.Size(412, 13)
+        Me.LabelControl9.TabIndex = 51
+        Me.LabelControl9.Text = "PERUBAHAN DATA AKAN MENYEBABKAN BERUBAHNYA KONEKSI DATABASE.."
+        '
+        'LabelControl8
+        '
+        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl8.Appearance.Options.UseFont = True
+        Me.LabelControl8.Location = New System.Drawing.Point(7, 204)
+        Me.LabelControl8.Name = "LabelControl8"
+        Me.LabelControl8.Size = New System.Drawing.Size(31, 13)
+        Me.LabelControl8.TabIndex = 50
+        Me.LabelControl8.Text = "NOTE."
         '
         'TextEdit19
         '
@@ -206,7 +241,7 @@ Partial Class Frm
         Me.PanelControl5.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl5.Location = New System.Drawing.Point(2, 2)
         Me.PanelControl5.Name = "PanelControl5"
-        Me.PanelControl5.Size = New System.Drawing.Size(524, 39)
+        Me.PanelControl5.Size = New System.Drawing.Size(551, 39)
         Me.PanelControl5.TabIndex = 49
         '
         'SimpleButton2
@@ -286,33 +321,18 @@ Partial Class Frm
         Me.ComboBoxEdit1.Size = New System.Drawing.Size(236, 20)
         Me.ComboBoxEdit1.TabIndex = 7
         '
-        'LabelControl8
+        'MemoEdit2
         '
-        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl8.Appearance.Options.UseFont = True
-        Me.LabelControl8.Location = New System.Drawing.Point(7, 204)
-        Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(31, 13)
-        Me.LabelControl8.TabIndex = 50
-        Me.LabelControl8.Text = "NOTE."
-        '
-        'LabelControl9
-        '
-        Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl9.Appearance.ForeColor = System.Drawing.Color.Red
-        Me.LabelControl9.Appearance.Options.UseFont = True
-        Me.LabelControl9.Appearance.Options.UseForeColor = True
-        Me.LabelControl9.Location = New System.Drawing.Point(7, 223)
-        Me.LabelControl9.Name = "LabelControl9"
-        Me.LabelControl9.Size = New System.Drawing.Size(412, 13)
-        Me.LabelControl9.TabIndex = 51
-        Me.LabelControl9.Text = "PERUBAHAN DATA AKAN MENYEBABKAN BERUBAHNYA KONEKSI DATABASE.."
+        Me.MemoEdit2.Location = New System.Drawing.Point(7, 238)
+        Me.MemoEdit2.Name = "MemoEdit2"
+        Me.MemoEdit2.Size = New System.Drawing.Size(518, 56)
+        Me.MemoEdit2.TabIndex = 53
         '
         'Frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(681, 294)
+        Me.ClientSize = New System.Drawing.Size(708, 520)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.BunifuGradientPanel1)
@@ -326,6 +346,7 @@ Partial Class Frm
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
+        CType(Me.MemoEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit19.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl5.ResumeLayout(False)
@@ -335,6 +356,7 @@ Partial Class Frm
         CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MemoEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -362,4 +384,6 @@ Partial Class Frm
     Friend WithEvents ComboBoxEdit1 As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents LabelControl9 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents MemoEdit1 As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents MemoEdit2 As DevExpress.XtraEditors.MemoEdit
 End Class

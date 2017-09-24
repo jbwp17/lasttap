@@ -4,10 +4,7 @@ Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraGrid.Views.BandedGrid
 Imports DevExpress.XtraEditors.Repository
 
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
-
+Imports Oracle.ManagedDataAccess.Client
 Public Class FrmMaterialType
     Private Sub FrmMaterial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "MATERIAL TYPE"

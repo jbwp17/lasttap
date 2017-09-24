@@ -13,10 +13,7 @@ Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraGrid.Views.BandedGrid
 Imports DevExpress.XtraSplashScreen
 
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
-
+Imports Oracle.ManagedDataAccess.Client
 Public Class FrmWbIn
     Private Delegate Sub AppendTextBoxDelegate(ByVal TB As String, ByVal txt As String)
 
@@ -368,8 +365,8 @@ Public Class FrmWbIn
         Dim parameter As Object = New OracleParameter("BlobParameter", OracleDbType.Blob)
         Dim parameter2 As Object = New OracleParameter("BlobParameter2", OracleDbType.Blob)
 
-        paramCollection.AddWithValue(":BlobParameter", blob)
-        paramCollection.AddWithValue(":BlobParameter2", blob2)
+        paramCollection.Add(":BlobParameter", blob)
+        paramCollection.Add(":BlobParameter2", blob2)
 
         CMD.Connection.Open()
         CMD.ExecuteNonQuery()

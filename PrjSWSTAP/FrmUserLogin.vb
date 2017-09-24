@@ -2,9 +2,9 @@
 Imports System.Threading
 Imports DevExpress.XtraNavBar
 Imports DevExpress.XtraSplashScreen
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
+''
+''.Oracle
+'Imports Devart.Common
 
 Public Class FrmUserLogin
     Dim attempts As Integer = 1

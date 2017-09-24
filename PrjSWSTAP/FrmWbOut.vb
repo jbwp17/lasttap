@@ -12,9 +12,9 @@ Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraGrid.Views.BandedGrid
 Imports DevExpress.XtraSplashScreen
 
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
+''
+''.Oracle
+'Imports Devart.Common
 Imports System.ComponentModel
 Imports System.Drawing.Imaging
 

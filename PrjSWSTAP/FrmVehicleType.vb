@@ -4,9 +4,9 @@ Imports DevExpress.XtraGrid.Views.Grid
 Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraGrid.Views.BandedGrid
 Imports DevExpress.XtraEditors.Repository
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
+''
+''.Oracle
+'Imports Devart.Common
 Public Class FrmVehicleType
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
         'ADD VEHICLE TYPE

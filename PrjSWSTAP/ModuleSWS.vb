@@ -22,9 +22,7 @@ Imports DevExpress.Utils
 
 Imports FastReport
 
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
+Imports Oracle.ManagedDataAccess.Client
 
 Module ModuleSWS
 
@@ -418,14 +416,12 @@ Module ModuleSWS
             ExecuteNonQuery(SQL)
             LogOn = False
         End If
-
         Return LogOn
     End Function
     Public Sub LogOFF()
         Dim Time As String = Now
         Dim IP As String = GetIPAddr()
         'CHECK LOG
-
         SQL = "SELECT * FROM TLOGINHISTORY WHERE USERID='" & USERNAME & "' AND USED='Y'"
         If CheckRecord(SQL) > 0 Then
             Dim OnPC As String = GetLastOnline(USERNAME)
@@ -563,6 +559,7 @@ Module ModuleSWS
             TRANS.Commit()
         Catch e As Exception
             TRANS.Rollback()
+            Conn.Close()
         End Try
         CMD = Nothing
     End Sub
@@ -575,7 +572,6 @@ Module ModuleSWS
         Dim strsql As String = "SELECT SYSDATE TGL FROM DUAL"
         Dim Conn As New OracleConnection(ConStringLocal)
         CMD = New OracleCommand(strsql, Conn)
-        Conn.Open()
         Dim RDR As OracleDataReader = CMD.ExecuteReader
         While RDR.Read
             AmbilTgl = RDR("TGL").ToString
@@ -584,24 +580,6 @@ Module ModuleSWS
         CMD = Nothing
     End Function
 
-    Public Function GetSite() As String
-        GetSite = Nothing
-        If Not OpenConnLocal() Then
-            Exit Function
-        End If
-        Dim strsql As String = " SELECT IDSITE , MASTER NAMASITE FROM d_master " +
-                                   " WHERE aktif='Y' and IDTABEL='MS'"
-        Dim Conn As New OracleConnection(ConStringLocal)
-        CMD = New OracleCommand(strsql, Conn)
-        Conn.Open()
-        Dim RDR As OracleDataReader = CMD.ExecuteReader
-        While RDR.Read
-            nNamaSite = RDR("NAMASITE").ToString
-            nIdSite = RDR("IDSITE").ToString
-        End While
-        RDR.Close()
-        CMD = Nothing
-    End Function
     Public Function GetTara(ByVal NOPOL As String)
         GetTara = ""
 
@@ -630,9 +608,9 @@ Module ModuleSWS
         End If
         Dim i As Integer = 0
         Dim queryString As String = "SELECT * FROM T_USERPROFILE WHERE USERNAME='" & nUser & "' and PASSWD ='" & nPass & "' "
-        Dim Conn As New OracleConnection(ConStringLocal)
+        '       Dim Conn As New OracleConnection(ConStringLocal)
         Dim cmd As New OracleCommand(queryString, Conn)
-        Conn.Open()
+        '      Conn.Open()
         Dim DR As OracleDataReader = cmd.ExecuteReader
         Try
             While DR.Read()
@@ -739,6 +717,7 @@ Module ModuleSWS
             Dim oRs As OracleDataReader = cmd.ExecuteReader
             While oRs.Read
                 GetFrmName = oRs("frmname").ToString
+                GetFrmName = Trim(GetFrmName)
             End While
         Catch
         End Try
@@ -894,7 +873,7 @@ Module ModuleSWS
             End If
             If sql = Nothing Then Exit Sub
             CMD = New OracleCommand(sql, Conn)
-            Conn.Open()
+            '         Conn.Open()
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             Cbx.Properties.Items.Clear()
             While rdr.Read
@@ -904,14 +883,12 @@ Module ModuleSWS
             rdr.Close()
         Catch ex As Exception
             MsgBox("Error:" & ex.ToString)
-        Finally
-            Conn.Close()
+            CMD = Nothing
         End Try
     End Sub
     Public Sub FILLGridView(ByVal sql As String, ByVal DgView As DevExpress.XtraGrid.GridControl)
         Dim View As GridView = CType(DgView.FocusedView, GridView)
         Dim DT As New DataTable
-        OpenConnLocal()
         Try
             If Not OpenConnLocal() Then
                 Exit Sub
@@ -926,7 +903,6 @@ Module ModuleSWS
                 View.OptionsBehavior.Editable = False
             End If
         Catch ex As Exception
-            'MsgBox("Error:" & ex.ToString)
         End Try
     End Sub
 
@@ -939,7 +915,6 @@ Module ModuleSWS
         For i = 0 To sqlData.Columns.Count - 1
             lvList.Columns.Add(sqlData.Columns(i).ColumnName)
         Next i
-
         For i = 0 To sqlData.Rows.Count - 1
             lvList.Items.Add(sqlData.Rows(i).Item(0).ToString, imageID)
             For j = 1 To sqlData.Columns.Count - 1
@@ -1088,7 +1063,6 @@ Module ModuleSWS
     Public Function FrmDate(ByVal nDateEdit As DevExpress.XtraEditors.DateEdit, ByVal nFormatdate As String)
         nDateEdit.Properties.Mask.Culture = New System.Globalization.CultureInfo("en-US")
         nDateEdit.Properties.Mask.EditMask = nFormatdate
-        'nDateEdit.Properties.Mask.UseMaskAsDisplayFormat = True
         nDateEdit.Properties.CharacterCasing = CharacterCasing.Upper
         FrmDate = "TO_DATE('" & nDateEdit.Text & "','MM/dd/yyyy')"
         Return FrmDate
@@ -1208,8 +1182,6 @@ Module ModuleSWS
         CMD = Nothing
         Return GetCodeRole
     End Function
-
-
     Public Function GetParent(ByVal nMenu As String) As String
         GetParent = ""
         If Not OpenConnLocal() Then
@@ -1228,8 +1200,6 @@ Module ModuleSWS
         CMD = Nothing
         Return GetParent
     End Function
-
-
     Public Function GetCodeSub(ByVal parentid As String) As String
         GetCodeSub = ""
         Try
@@ -1243,7 +1213,6 @@ Module ModuleSWS
                 GetCodeSub = rdr("MKODE").ToString
                 GetCodeSub = Right(GetCodeSub, 4)
                 If GetCodeSub = "0000" Then GetCodeSub = Right(parentid, 2) & "01"
-
             End While
             rdr.Close()
             CMD = Nothing
@@ -1380,12 +1349,12 @@ Module ModuleSWS
         Dim Cmd As New OracleCommand
         Dim Da As New OracleDataAdapter
 
-        Dim Conn As OracleConnection = New OracleConnection(ConStringLocal)
-        Conn.ConnectionString = ConStringLocal
-        Conn.Open()
+        Dim ConnR As OracleConnection = New OracleConnection(ConStringLocal)
+        ConnR.ConnectionString = ConStringLocal
+        ConnR.Open()
 
         With Cmd
-            .Connection = Conn
+            .Connection = ConnR
             .CommandText = queryString
             .CommandType = CommandType.Text
         End With
@@ -1410,8 +1379,8 @@ Module ModuleSWS
         ' free resources used by report
         Rpt.Dispose()
         Da = Nothing
-        Conn.Close()
-        Conn = Nothing
+        ConnR.Close()
+        ConnR = Nothing
     End Sub
     '-------------------------Fast Report -------End
 
@@ -1591,7 +1560,7 @@ Module ModuleSWS
             Dim dts As New DataTable
             dts = ExecuteQuery(SQL)
             If dts.Rows.Count > 0 Then
-                WBIP = dts.Rows(0).Item("IPADDRESS").ToString
+                WBIP = Trim(dts.Rows(0).Item("IPADDRESS").ToString)
                 WBPORT = dts.Rows(0).Item("PORT").ToString
                 WBLEN = dts.Rows(0).Item("LEN").ToString
                 WBRL = dts.Rows(0).Item("RL").ToString

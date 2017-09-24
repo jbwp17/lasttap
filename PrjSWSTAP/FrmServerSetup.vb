@@ -1,7 +1,11 @@
-﻿Public Class Frm
+﻿Imports Oracle.ManagedDataAccess.Client
+Public Class Frm
+    Dim Conn1 As New OracleConnection
+    Dim Conn2 As New OracleConnection
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
         'SAVE CONFIG
-        'SAVE
+        MemoEdit1.Text = ""
+        MemoEdit2.Text = ""
         If Not IsEmptyCombo({ComboBoxEdit1}) Then
             If Not IsEmptyText({TextEdit1, TextEdit2, TextEdit3, TextEdit4, TextEdit5}) Then
                 If ComboBoxEdit1.Text = "LOKAL" Then
@@ -17,8 +21,8 @@
                     My.Settings.Save()
                     My.Settings.DBPassLocal = TextEdit5.Text
                     My.Settings.Save()
-                    CheckConLocal()
-                    CloseConnLocal()
+                    CheckCon1Local()
+                    If Conn1.State = ConnectionState.Open Then Conn1.Close()
                 ElseIf ComboBoxEdit1.Text = "STAGING" Then
                     My.Settings.DBSourceStaging = TextEdit1.Text
                     My.Settings.Save()
@@ -32,29 +36,57 @@
                     My.Settings.Save()
                     My.Settings.DBPassStaging = TextEdit5.Text
                     My.Settings.Save()
-                    CheckConStaging()
-                    CloseConnStaging()
+                    CheckCon1Staging()
+                    If Conn2.State = ConnectionState.Open Then Conn2.Close()
                 End If
             End If
         End If
 
     End Sub
-    Private Sub CheckConLocal()
+    Private Sub CheckCon1Local()
         CONFIG_SERVER()
-        If OpenConnLocal() = True Then
-            MsgBox("Connection Successful", vbInformation, "Conection")
-        Else
-            MsgBox("Connection Failed", vbInformation, "Conection")
+        If ConnLocal() = True Then
+            MemoEdit1.Text = "Connection Success"
         End If
     End Sub
-    Private Sub CheckConStaging()
+    Private Sub CheckCon1Staging()
         CONFIG_SERVER()
-        If OpenConnStaging() = True Then
-            MsgBox("Connection Successful", vbInformation, "Conection")
-        Else
-            MsgBox("Connection Failed", vbInformation, "Conection")
+        If ConnStaging() = True Then
+            MemoEdit1.Text = "Connection Success"
         End If
     End Sub
+    Private Function ConnLocal() As Boolean
+        ConnLocal = False
+        GetLocalDbConfig()
+        MemoEdit2.Text = ConStringLocal
+        Try
+            If Conn1.State = ConnectionState.Closed Then
+                Conn1 = New OracleConnection(ConStringLocal)
+                Conn1.Open()
+                ConnLocal = True
+            Else
+                ConnLocal = True
+            End If
+        Catch ex As Exception
+            MemoEdit1.Text = ex.ToString
+        End Try
+    End Function
+    Private Function ConnStaging() As Boolean
+        ConnStaging = False
+        GetStagingDbConfig()
+        MemoEdit2.Text = ConStringStaging
+        Try
+            If Conn2.State = ConnectionState.Closed Then
+                Conn2 = New OracleConnection(ConStringStaging)
+                Conn2.Open()
+                ConnStaging = True
+            Else
+                ConnStaging = True
+            End If
+        Catch ex As Exception
+            MemoEdit1.Text = ex.ToString
+        End Try
+    End Function
 
     Private Sub CONFIG_SERVER()
         'local seting
@@ -108,4 +140,5 @@
     Private Sub Frm_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.Text = "SERVER KONFIGURASI"
     End Sub
+
 End Class

@@ -5,9 +5,7 @@ Imports System.Threading.Tasks
 Imports System.Text.RegularExpressions ' Namespace untuk manipulasi registry
 Imports System.Text
 
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
+Imports Oracle.ManagedDataAccess.Client
 
 Imports DevExpress
 Imports DevExpress.XtraSplashScreen
@@ -820,7 +818,7 @@ Public Class FrmConfigurationMenu
     End Sub
     Private Sub BW1_DoWork(ByVal sender As System.Object, ByVal e As DoWorkEventArgs) Handles BW1.DoWork
         Dim worker As BackgroundWorker = CType(sender, BackgroundWorker)
-        Dim Ip As String = TextEdit22.Text
+        Dim Ip As String = Trim(TextEdit22.Text)
         Dim Port As Int32 = CInt(TextEdit20.Text)
         Try
             Do Until Not WB_ON = True

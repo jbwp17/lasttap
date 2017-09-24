@@ -8,9 +8,9 @@ Imports DevExpress.XtraEditors.Repository
 Imports DevExpress.Export
 Imports DevExpress.XtraPrinting
 
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
+''
+''.Oracle
+'Imports Devart.Common
 
 Imports Microsoft.VisualBasic
 Imports System

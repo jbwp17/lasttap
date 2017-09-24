@@ -9,9 +9,9 @@ Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraGrid.Views.BandedGrid
 Imports DevExpress.XtraEditors.Repository
 
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
+''
+''.Oracle
+'Imports Devart.Common
 Imports System.ComponentModel
 
 Public Class FrmVehicle
@@ -371,8 +371,9 @@ Public Class FrmVehicle
                     e.Cancel = True
                     Exit Do
                 Else
+
                     Dim responseData As [String] = [String].Empty
-                    responseData = GetSCSMessage(WBIP, CInt(WBPORT))
+                    responseData = GetSCSMessage(Trim(WBIP), CInt(WBPORT))
                     worker.ReportProgress(Trim(responseData))
 
                 End If

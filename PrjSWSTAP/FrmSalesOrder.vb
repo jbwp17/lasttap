@@ -6,9 +6,9 @@ Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraGrid.Views.BandedGrid
 Imports DevExpress.XtraEditors.Repository
 
-Imports Devart.Data
-Imports Devart.Data.Oracle
-Imports Devart.Common
+''
+''.Oracle
+'Imports Devart.Common
 Public Class FrmSalesOrder
     Private Sub FrmSalesOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "SALES ORDER"
