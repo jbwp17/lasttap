@@ -22,7 +22,7 @@ Imports DevExpress.Utils
 
 Imports FastReport
 
-Imports Oracle.ManagedDataAccess.Client
+Imports Devart.Data.Oracle 'Imports Oracle.ManagedDataAccess.Client
 
 Module ModuleSWS
 

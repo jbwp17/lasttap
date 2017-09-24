@@ -1,4 +1,4 @@
-﻿Imports Oracle.ManagedDataAccess.Client
+﻿Imports Devart.Data.Oracle 'Imports Oracle.ManagedDataAccess.Client
 Public Class Frm
     Dim Conn1 As New OracleConnection
     Dim Conn2 As New OracleConnection
@@ -130,7 +130,6 @@ Public Class Frm
         TextEdit1.Text = My.Settings.DBSourceStaging.ToString  'ipadress
         TextEdit3.Text = My.Settings.DBPortStaging.ToString     'ipport
 
-        TextEdit19.Text = My.Settings.DBNameStaging.ToString   'db name
         TextEdit2.Text = My.Settings.DBVerStaging.ToString   'version
 
         TextEdit4.Text = My.Settings.DBUserStaging.ToString    'user

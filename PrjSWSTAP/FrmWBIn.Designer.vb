@@ -79,12 +79,12 @@ Partial Class FrmWbIn
         Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
+        Me.path1 = New DevExpress.XtraEditors.LabelControl()
+        Me.path2 = New DevExpress.XtraEditors.LabelControl()
         Me.TxtWeight = New DevExpress.XtraEditors.TextEdit()
         Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.path1 = New DevExpress.XtraEditors.LabelControl()
-        Me.path2 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
         Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -111,6 +111,8 @@ Partial Class FrmWbIn
         Me.LabelControl24 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl22 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl23 = New DevExpress.XtraEditors.LabelControl()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl()
         Me.BunifuGradientPanel2.SuspendLayout()
         Me.Panel9.SuspendLayout()
         CType(Me.PanelControl6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -200,9 +202,9 @@ Partial Class FrmWbIn
         Me.LabelControl89.Appearance.Options.UseForeColor = True
         Me.LabelControl89.Location = New System.Drawing.Point(12, 15)
         Me.LabelControl89.Name = "LabelControl89"
-        Me.LabelControl89.Size = New System.Drawing.Size(71, 14)
+        Me.LabelControl89.Size = New System.Drawing.Size(81, 14)
         Me.LabelControl89.TabIndex = 0
-        Me.LabelControl89.Text = "Penerimaan"
+        Me.LabelControl89.Text = "PENERIMAAN"
         '
         'Panel9
         '
@@ -581,7 +583,7 @@ Partial Class FrmWbIn
         Me.SimpleButton11.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.SimpleButton11.Image = CType(resources.GetObject("SimpleButton11.Image"), System.Drawing.Image)
         Me.SimpleButton11.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton11.Location = New System.Drawing.Point(191, 223)
+        Me.SimpleButton11.Location = New System.Drawing.Point(190, 221)
         Me.SimpleButton11.Name = "SimpleButton11"
         Me.SimpleButton11.Size = New System.Drawing.Size(39, 20)
         Me.SimpleButton11.TabIndex = 97
@@ -595,7 +597,7 @@ Partial Class FrmWbIn
         Me.SimpleButton10.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.SimpleButton10.Image = CType(resources.GetObject("SimpleButton10.Image"), System.Drawing.Image)
         Me.SimpleButton10.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton10.Location = New System.Drawing.Point(191, 201)
+        Me.SimpleButton10.Location = New System.Drawing.Point(190, 200)
         Me.SimpleButton10.Name = "SimpleButton10"
         Me.SimpleButton10.Size = New System.Drawing.Size(39, 20)
         Me.SimpleButton10.TabIndex = 96
@@ -609,7 +611,7 @@ Partial Class FrmWbIn
         Me.SimpleButton9.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.SimpleButton9.Image = CType(resources.GetObject("SimpleButton9.Image"), System.Drawing.Image)
         Me.SimpleButton9.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton9.Location = New System.Drawing.Point(191, 179)
+        Me.SimpleButton9.Location = New System.Drawing.Point(190, 179)
         Me.SimpleButton9.Name = "SimpleButton9"
         Me.SimpleButton9.Size = New System.Drawing.Size(39, 20)
         Me.SimpleButton9.TabIndex = 95
@@ -623,7 +625,7 @@ Partial Class FrmWbIn
         Me.SimpleButton8.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.SimpleButton8.Image = CType(resources.GetObject("SimpleButton8.Image"), System.Drawing.Image)
         Me.SimpleButton8.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton8.Location = New System.Drawing.Point(191, 157)
+        Me.SimpleButton8.Location = New System.Drawing.Point(190, 158)
         Me.SimpleButton8.Name = "SimpleButton8"
         Me.SimpleButton8.Size = New System.Drawing.Size(39, 20)
         Me.SimpleButton8.TabIndex = 94
@@ -637,7 +639,7 @@ Partial Class FrmWbIn
         Me.SimpleButton13.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.SimpleButton13.Image = CType(resources.GetObject("SimpleButton13.Image"), System.Drawing.Image)
         Me.SimpleButton13.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton13.Location = New System.Drawing.Point(191, 132)
+        Me.SimpleButton13.Location = New System.Drawing.Point(190, 132)
         Me.SimpleButton13.Name = "SimpleButton13"
         Me.SimpleButton13.Size = New System.Drawing.Size(39, 20)
         Me.SimpleButton13.TabIndex = 93
@@ -922,6 +924,8 @@ Partial Class FrmWbIn
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(239, Byte), Integer))
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl3.Controls.Add(Me.path1)
+        Me.PanelControl3.Controls.Add(Me.path2)
         Me.PanelControl3.Controls.Add(Me.TxtWeight)
         Me.PanelControl3.Controls.Add(Me.PictureEdit3)
         Me.PanelControl3.Controls.Add(Me.PictureBox1)
@@ -931,6 +935,36 @@ Partial Class FrmWbIn
         Me.PanelControl3.Name = "PanelControl3"
         Me.PanelControl3.Size = New System.Drawing.Size(660, 113)
         Me.PanelControl3.TabIndex = 98
+        '
+        'path1
+        '
+        Me.path1.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.path1.Appearance.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.path1.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue
+        Me.path1.Appearance.Options.UseBackColor = True
+        Me.path1.Appearance.Options.UseFont = True
+        Me.path1.Appearance.Options.UseForeColor = True
+        Me.path1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.path1.Location = New System.Drawing.Point(210, 94)
+        Me.path1.Name = "path1"
+        Me.path1.Size = New System.Drawing.Size(22, 15)
+        Me.path1.TabIndex = 121
+        Me.path1.Text = "path1"
+        '
+        'path2
+        '
+        Me.path2.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.path2.Appearance.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.path2.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue
+        Me.path2.Appearance.Options.UseBackColor = True
+        Me.path2.Appearance.Options.UseFont = True
+        Me.path2.Appearance.Options.UseForeColor = True
+        Me.path2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.path2.Location = New System.Drawing.Point(394, 93)
+        Me.path2.Name = "path2"
+        Me.path2.Size = New System.Drawing.Size(22, 15)
+        Me.path2.TabIndex = 122
+        Me.path2.Text = "path2"
         '
         'TxtWeight
         '
@@ -967,6 +1001,7 @@ Partial Class FrmWbIn
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Image = Global.PrjSWSTAP.My.Resources.Resources.cctv
         Me.PictureBox1.Location = New System.Drawing.Point(207, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(180, 107)
@@ -980,42 +1015,13 @@ Partial Class FrmWbIn
         Me.PictureBox2.BackgroundImage = CType(resources.GetObject("PictureBox2.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox2.Image = Global.PrjSWSTAP.My.Resources.Resources.cctv
         Me.PictureBox2.Location = New System.Drawing.Point(391, 3)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(180, 107)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 102
         Me.PictureBox2.TabStop = False
-        '
-        'path1
-        '
-        Me.path1.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.path1.Appearance.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.path1.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.path1.Appearance.Options.UseBackColor = True
-        Me.path1.Appearance.Options.UseFont = True
-        Me.path1.Appearance.Options.UseForeColor = True
-        Me.path1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.path1.Location = New System.Drawing.Point(786, 245)
-        Me.path1.Name = "path1"
-        Me.path1.Size = New System.Drawing.Size(22, 15)
-        Me.path1.TabIndex = 121
-        Me.path1.Text = "path1"
-        '
-        'path2
-        '
-        Me.path2.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.path2.Appearance.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.path2.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.path2.Appearance.Options.UseBackColor = True
-        Me.path2.Appearance.Options.UseFont = True
-        Me.path2.Appearance.Options.UseForeColor = True
-        Me.path2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.path2.Location = New System.Drawing.Point(786, 261)
-        Me.path2.Name = "path2"
-        Me.path2.Size = New System.Drawing.Size(22, 15)
-        Me.path2.TabIndex = 122
-        Me.path2.Text = "path2"
         '
         'PanelControl4
         '
@@ -1051,11 +1057,11 @@ Partial Class FrmWbIn
         Me.resultLabel.BackColor = System.Drawing.Color.Transparent
         Me.resultLabel.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.resultLabel.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.resultLabel.Location = New System.Drawing.Point(786, 197)
+        Me.resultLabel.Location = New System.Drawing.Point(784, 197)
         Me.resultLabel.Name = "resultLabel"
-        Me.resultLabel.Size = New System.Drawing.Size(27, 15)
+        Me.resultLabel.Size = New System.Drawing.Size(24, 15)
         Me.resultLabel.TabIndex = 114
-        Me.resultLabel.Text = "Hasil"
+        Me.resultLabel.Text = "WB."
         '
         'SimpleButton7
         '
@@ -1312,14 +1318,40 @@ Partial Class FrmWbIn
         Me.LabelControl23.TabIndex = 31
         Me.LabelControl23.Text = "Block"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.Location = New System.Drawing.Point(782, 221)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(83, 13)
+        Me.Label1.TabIndex = 121
+        Me.Label1.Text = "Display Name"
+        '
+        'LabelControl16
+        '
+        Me.LabelControl16.Appearance.BackColor = System.Drawing.Color.White
+        Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl16.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.LabelControl16.Appearance.Options.UseBackColor = True
+        Me.LabelControl16.Appearance.Options.UseFont = True
+        Me.LabelControl16.Appearance.Options.UseForeColor = True
+        Me.LabelControl16.Location = New System.Drawing.Point(871, 221)
+        Me.LabelControl16.Name = "LabelControl16"
+        Me.LabelControl16.Size = New System.Drawing.Size(51, 13)
+        Me.LabelControl16.TabIndex = 122
+        Me.LabelControl16.Text = "Usernme"
+        '
         'FrmWbIn
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1049, 522)
-        Me.Controls.Add(Me.path1)
+        Me.Controls.Add(Me.LabelControl16)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PanelControl5)
-        Me.Controls.Add(Me.path2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.SimpleButton7)
         Me.Controls.Add(Me.resultLabel)
@@ -1364,6 +1396,7 @@ Partial Class FrmWbIn
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
+        Me.PanelControl3.PerformLayout()
         CType(Me.TxtWeight.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1481,4 +1514,6 @@ Partial Class FrmWbIn
     Friend WithEvents path2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents LabelControl16 As DevExpress.XtraEditors.LabelControl
 End Class

@@ -13,7 +13,8 @@ Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraGrid.Views.BandedGrid
 Imports DevExpress.XtraSplashScreen
 
-Imports Oracle.ManagedDataAccess.Client
+Imports Devart.Data.Oracle 'Imports Oracle.ManagedDataAccess.Client
+
 Public Class FrmWbIn
     Private Delegate Sub AppendTextBoxDelegate(ByVal TB As String, ByVal txt As String)
 
@@ -26,9 +27,11 @@ Public Class FrmWbIn
         BW1.WorkerSupportsCancellation = True
     End Sub
 
-    Private Sub FrmWbOut_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmWbIN_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "WB IN"
         resultLabel.Text = "WB START"
+        LabelControl16.Text = USERNAME
+
         DisebelAllText()
 
         source1 = GetCctvParam(IPCamera1)
@@ -493,16 +496,35 @@ Public Class FrmWbIn
 
             TextDisebled({TextEdit11})
             TextEdit11.Text = ""
-            LabelControl89.Text = "PENGELUARAN"
+            LabelControl89.Text = "PENGELUARAN" 'HEADER FORM
             '//VALIDASI SUPLIER /VENDOR
             Dim SPL As String = Microsoft.VisualBasic.Left(TextEdit9.Text, 4)
             TextEnabled({TextEdit10}) 'CONTRACT
             If SPL = "VINT" Then
                 TextDisebled({TextEdit10}) 'CONTRACT
+                TextEnabled({TextEdit20, TextEdit21, TextEdit22}) 'NAB,AFDELING,BLOK
             ElseIf SPL = "TRST" Then
                 TextDisebled({TextEdit10}) 'CONTRACT
+
             ElseIf SPL = "MILL" Then
                 TextDisebled({TextEdit10}) 'CONTRACT
+            End If
+            'CHEK TARA JIKA PENERIMAAN 
+            TextEdit6.Text = GetTara(TextEdit4.Text)
+            If ValTare = True And LabelControl89.Text = "PENERIMAAN" Then   'PARAMETER GENERAL UNTUK CHEK TARA / TIDAK
+                Dim TARA As Integer = CInt(TxtWeight.Text)
+                WB_ACTUAL = TARA
+                If WB_ACTUAL > VEHICLE_MAX_TARA Then
+                    FrmShowUp(FrmPopBA)
+                ElseIf WB_ACTUAL < VEHICLE_MIN_TARA Then
+                    FrmShowUp(FrmPopBA)
+                End If
+
+                If BA_DIALOG = True Then
+                    FrmShowUp(FrmBeritaAcara)
+                End If
+
+                TextEdit6.Text = GetTara(TextEdit4.Text)
             End If
 
         End If
@@ -523,31 +545,40 @@ Public Class FrmWbIn
     End Sub
 
     Private Sub SimpleButton11_Click(sender As Object, e As EventArgs) Handles SimpleButton11.Click
-        'CUATOMER
+        'CUSATOMER (KHUSUS PENGELUARAN ) 
         If Not IsEmptyText({TextEdit5}) Then
             TextEnabled({TextEdit11})
-            LSQL = "SELECT CUST_CODE,CUST_NAME,INACTIVE  FROM T_CUSTOMER WHERE INACTIVE IS NULL "
+            ' LSQL = "SELECT CUST_CODE,CUST_NAME,INACTIVE  FROM T_CUSTOMER WHERE INACTIVE IS NULL "
+            'CUSTOMER SESUAI DENGANSALES ORDER
+            LSQL = " Select Case DISTINCT A.CUST_CODE , B.CUST_NAME ,A.MATERIAL_CODE " +
+            " From T_SALESORDER A " +
+            " Left Join T_CUSTOMER B ON B.CUST_CODE=A.CUST_CODE " +
+            " Where B.INACTIVE Is NULL "
             LField = "CUST_CODE"
             ValueLoV = ""
             TextEdit11.Text = FrmShowLOV(FrmLoV, LSQL, "CUSTOMER", "CUSTOMER")
-            LabelControl89.Text = "PENERIMAAN"
+            LabelControl89.Text = "PENGELUARAN"
             TextDisebled({TextEdit9})
             TextEdit9.Text = ""
             '//validasi tara
             BA_DIALOG = False
 
-            Dim TARA As Integer = CInt(TxtWeight.Text)
-            WB_ACTUAL = TARA
-            If TARA > VEHICLE_MAX_TARA Then
-                FrmShowUp(FrmPopBA)
-            ElseIf TARA < VEHICLE_MIN_TARA Then
-                FrmShowUp(FrmPopBA)
-            End If
-
-            If BA_DIALOG = True Then
-                FrmShowUp(FrmBeritaAcara)
-            End If
             TextEdit6.Text = GetTara(TextEdit4.Text)
+            If ValTare = True And LabelControl89.Text = "PENGELUARAN" Then   'PARAMETER GENERAL UNTUK CHEK TARA / TIDAK
+                Dim TARA As Integer = CInt(TxtWeight.Text)
+                WB_ACTUAL = TARA
+                If WB_ACTUAL > VEHICLE_MAX_TARA Then
+                    FrmShowUp(FrmPopBA)
+                ElseIf WB_ACTUAL < VEHICLE_MIN_TARA Then
+                    FrmShowUp(FrmPopBA)
+                End If
+
+                If BA_DIALOG = True Then
+                    FrmShowUp(FrmBeritaAcara)
+                End If
+
+                TextEdit6.Text = GetTara(TextEdit4.Text)
+            End If
         End If
     End Sub
     Private Sub FrmWbIn_Resize(sender As Object, e As EventArgs) Handles Me.Resize

@@ -126,7 +126,6 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem2 = New DevExpress.XtraBars.Ribbon.BackstageViewTabItem()
         Me.BackstageViewClientControl2 = New DevExpress.XtraBars.Ribbon.BackstageViewClientControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
-        Me.TextEdit19 = New DevExpress.XtraEditors.TextEdit()
         Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
@@ -137,7 +136,6 @@ Partial Class FrmConfigurationMenu
         Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
         Me.ComboBoxEdit1 = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.LabelControl49 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
@@ -263,7 +261,6 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewClientControl2.SuspendLayout()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
-        CType(Me.TextEdit19.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl5.SuspendLayout()
         CType(Me.TextEdit5.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -674,7 +671,7 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem4.Caption = "IP WEIGHBRIDGE"
         Me.BackstageViewTabItem4.ContentControl = Me.BackstageViewClientControl4
         Me.BackstageViewTabItem4.Name = "BackstageViewTabItem4"
-        Me.BackstageViewTabItem4.Selected = True
+        Me.BackstageViewTabItem4.Selected = False
         '
         'BackstageViewClientControl4
         '
@@ -1422,7 +1419,7 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem2.Caption = "SERVER"
         Me.BackstageViewTabItem2.ContentControl = Me.BackstageViewClientControl2
         Me.BackstageViewTabItem2.Name = "BackstageViewTabItem2"
-        Me.BackstageViewTabItem2.Selected = False
+        Me.BackstageViewTabItem2.Selected = True
         '
         'BackstageViewClientControl2
         '
@@ -1435,7 +1432,6 @@ Partial Class FrmConfigurationMenu
         '
         'PanelControl1
         '
-        Me.PanelControl1.Controls.Add(Me.TextEdit19)
         Me.PanelControl1.Controls.Add(Me.PanelControl5)
         Me.PanelControl1.Controls.Add(Me.TextEdit5)
         Me.PanelControl1.Controls.Add(Me.TextEdit4)
@@ -1448,14 +1444,6 @@ Partial Class FrmConfigurationMenu
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(501, 489)
         Me.PanelControl1.TabIndex = 9
-        '
-        'TextEdit19
-        '
-        Me.TextEdit19.EnterMoveNextControl = True
-        Me.TextEdit19.Location = New System.Drawing.Point(5, 112)
-        Me.TextEdit19.Name = "TextEdit19"
-        Me.TextEdit19.Size = New System.Drawing.Size(236, 20)
-        Me.TextEdit19.TabIndex = 3
         '
         'PanelControl5
         '
@@ -1496,7 +1484,7 @@ Partial Class FrmConfigurationMenu
         'TextEdit5
         '
         Me.TextEdit5.EnterMoveNextControl = True
-        Me.TextEdit5.Location = New System.Drawing.Point(5, 178)
+        Me.TextEdit5.Location = New System.Drawing.Point(5, 156)
         Me.TextEdit5.Name = "TextEdit5"
         Me.TextEdit5.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit5.TabIndex = 6
@@ -1504,7 +1492,7 @@ Partial Class FrmConfigurationMenu
         'TextEdit4
         '
         Me.TextEdit4.EnterMoveNextControl = True
-        Me.TextEdit4.Location = New System.Drawing.Point(5, 156)
+        Me.TextEdit4.Location = New System.Drawing.Point(5, 134)
         Me.TextEdit4.Name = "TextEdit4"
         Me.TextEdit4.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit4.TabIndex = 5
@@ -1520,7 +1508,7 @@ Partial Class FrmConfigurationMenu
         'TextEdit2
         '
         Me.TextEdit2.EnterMoveNextControl = True
-        Me.TextEdit2.Location = New System.Drawing.Point(5, 134)
+        Me.TextEdit2.Location = New System.Drawing.Point(5, 112)
         Me.TextEdit2.Name = "TextEdit2"
         Me.TextEdit2.Size = New System.Drawing.Size(236, 20)
         Me.TextEdit2.TabIndex = 4
@@ -1547,7 +1535,6 @@ Partial Class FrmConfigurationMenu
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.LabelControl49)
         Me.Panel1.Controls.Add(Me.LabelControl6)
         Me.Panel1.Controls.Add(Me.LabelControl5)
         Me.Panel1.Controls.Add(Me.LabelControl2)
@@ -1561,21 +1548,11 @@ Partial Class FrmConfigurationMenu
         Me.Panel1.Size = New System.Drawing.Size(153, 489)
         Me.Panel1.TabIndex = 8
         '
-        'LabelControl49
-        '
-        Me.LabelControl49.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl49.Appearance.Options.UseFont = True
-        Me.LabelControl49.Location = New System.Drawing.Point(14, 115)
-        Me.LabelControl49.Name = "LabelControl49"
-        Me.LabelControl49.Size = New System.Drawing.Size(49, 13)
-        Me.LabelControl49.TabIndex = 9
-        Me.LabelControl49.Text = "DB NAME"
-        '
         'LabelControl6
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(14, 181)
+        Me.LabelControl6.Location = New System.Drawing.Point(15, 159)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(64, 13)
         Me.LabelControl6.TabIndex = 8
@@ -1585,7 +1562,7 @@ Partial Class FrmConfigurationMenu
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(14, 159)
+        Me.LabelControl5.Location = New System.Drawing.Point(15, 137)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(30, 13)
         Me.LabelControl5.TabIndex = 7
@@ -1605,17 +1582,17 @@ Partial Class FrmConfigurationMenu
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(15, 137)
+        Me.LabelControl4.Location = New System.Drawing.Point(15, 115)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(66, 13)
+        Me.LabelControl4.Size = New System.Drawing.Size(80, 13)
         Me.LabelControl4.TabIndex = 5
-        Me.LabelControl4.Text = "DB VERSION"
+        Me.LabelControl4.Text = "SERVICE NAME"
         '
         'LabelControl3
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(14, 71)
+        Me.LabelControl3.Location = New System.Drawing.Point(15, 71)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(67, 13)
         Me.LabelControl3.TabIndex = 4
@@ -2106,8 +2083,8 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewControl1.Location = New System.Drawing.Point(0, 43)
         Me.BackstageViewControl1.Name = "BackstageViewControl1"
         Me.BackstageViewControl1.PaintStyle = DevExpress.XtraBars.Ribbon.BackstageViewPaintStyle.Flat
-        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem4
-        Me.BackstageViewControl1.SelectedTabIndex = 3
+        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem2
+        Me.BackstageViewControl1.SelectedTabIndex = 1
         Me.BackstageViewControl1.Size = New System.Drawing.Size(810, 489)
         Me.BackstageViewControl1.TabIndex = 9
         Me.BackstageViewControl1.Text = "BackstageViewControl1"
@@ -2362,7 +2339,6 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewClientControl2.ResumeLayout(False)
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
-        CType(Me.TextEdit19.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl5.ResumeLayout(False)
         CType(Me.TextEdit5.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2514,7 +2490,6 @@ Partial Class FrmConfigurationMenu
     Friend WithEvents BackstageViewTabItem2 As DevExpress.XtraBars.Ribbon.BackstageViewTabItem
     Friend WithEvents BackstageViewClientControl2 As DevExpress.XtraBars.Ribbon.BackstageViewClientControl
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents TextEdit19 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents PanelControl5 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
@@ -2525,7 +2500,6 @@ Partial Class FrmConfigurationMenu
     Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents ComboBoxEdit1 As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents LabelControl49 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl

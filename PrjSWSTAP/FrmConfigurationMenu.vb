@@ -5,7 +5,7 @@ Imports System.Threading.Tasks
 Imports System.Text.RegularExpressions ' Namespace untuk manipulasi registry
 Imports System.Text
 
-Imports Oracle.ManagedDataAccess.Client
+Imports Devart.Data.Oracle 'Imports Oracle.ManagedDataAccess.Client
 
 Imports DevExpress
 Imports DevExpress.XtraSplashScreen
@@ -47,8 +47,6 @@ Public Class FrmConfigurationMenu
                     My.Settings.Save()
                     My.Settings.DBVerLocal = TextEdit2.Text
                     My.Settings.Save()
-                    My.Settings.DBNameLocal = TextEdit19.Text
-                    My.Settings.Save()
                     My.Settings.DBPortLocal = TextEdit3.Text
                     My.Settings.Save()
                     My.Settings.DBUserLocal = TextEdit4.Text
@@ -62,8 +60,6 @@ Public Class FrmConfigurationMenu
                     My.Settings.DBSourceStaging = TextEdit1.Text
                     My.Settings.Save()
                     My.Settings.DBVerStaging = TextEdit2.Text
-                    My.Settings.Save()
-                    My.Settings.DBNameStaging = TextEdit19.Text
                     My.Settings.Save()
                     My.Settings.DBPortStaging = TextEdit3.Text
                     My.Settings.Save()
@@ -90,7 +86,6 @@ Public Class FrmConfigurationMenu
         TextEdit1.Text = My.Settings.DBSourceLocal.ToString  'ipadress
         TextEdit3.Text = My.Settings.DBPortLocal.ToString    'ipport
 
-        TextEdit19.Text = My.Settings.DBNameLocal.ToString     'db name
         TextEdit2.Text = My.Settings.DBVerLocal.ToString     'version
 
         TextEdit4.Text = My.Settings.DBUserLocal.ToString    'user
@@ -100,7 +95,6 @@ Public Class FrmConfigurationMenu
         TextEdit1.Text = My.Settings.DBSourceStaging.ToString  'ipadress
         TextEdit3.Text = My.Settings.DBPortStaging.ToString     'ipport
 
-        TextEdit19.Text = My.Settings.DBNameStaging.ToString   'db name
         TextEdit2.Text = My.Settings.DBVerStaging.ToString   'version
 
         TextEdit4.Text = My.Settings.DBUserStaging.ToString    'user

@@ -6,7 +6,7 @@ Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraGrid.Views.BandedGrid
 Imports DevExpress.XtraEditors.Repository
 
-Imports Oracle.ManagedDataAccess.Client
+Imports Devart.Data.Oracle 'Imports Oracle.ManagedDataAccess.Client
 Public Class FrmUserProfile
     Dim imagename As String
 

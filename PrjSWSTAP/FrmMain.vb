@@ -6,7 +6,7 @@ Imports System.Net
 Imports System.Windows.Forms
 Imports System.Reflection
 
-Imports Oracle.ManagedDataAccess.Client
+Imports Devart.Data.Oracle 'Imports Oracle.ManagedDataAccess.Client
 
 Public Class FrmMain
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load

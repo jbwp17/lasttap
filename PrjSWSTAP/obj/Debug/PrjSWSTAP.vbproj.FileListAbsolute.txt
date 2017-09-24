@@ -1315,3 +1315,6 @@ D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\obj\Debug\SWS.exe.licenses
 D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\obj\Debug\SWS.exe
 D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\obj\Debug\SWS.xml
 D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\obj\Debug\SWS.pdb
+D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\obj\Debug\PrjSWSTAP.vbprojResolveAssemblyReference.cache
+D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\bin\Debug\Devart.Data.dll
+D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\bin\Debug\Devart.Data.Oracle.dll
