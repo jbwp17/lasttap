@@ -2526,6 +2526,12 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:FastReport.Forms.RTFExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.RichText.RTFExport"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="T:FastReport.Forms.BaseExportForm">
             <summary>
             Base form for all export options dialog forms.
@@ -2653,6 +2659,11 @@
             Initializes a new instance of the <see cref="T:FastReport.Forms.BaseExportForm"/> class with default settings.
             </summary>
         </member>
+        <member name="P:FastReport.Forms.BaseExportForm.OpenAfterVisible">
+            <summary>
+            Represents the "Open after export" button visibility.
+            </summary>
+        </member>
         <member name="P:FastReport.Forms.BaseExportForm.Export">
             <summary>
             Gets a reference to the currently editing export filter.
@@ -2673,6 +2684,40 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.RTFExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.RTFExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.RTFExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.RTFExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.RTFExportForm"/> class.
+            </summary>
+        </member>
+        <member name="T:FastReport.Export.Image.ImageExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Image.ImageExport"/>.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:FastReport.Export.Image.ImageExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Image.ImageExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Image.ImageExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Image.ImageExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Export.Image.ImageExportForm"/> class.
             </summary>
         </member>
         <member name="F:FastReport.Export.Image.ImageExportForm.components">
@@ -3571,7 +3616,7 @@
             Represents a poly line object.
             </summary>
             <remarks>
-            Use the <b>Border.Width</b>, <b>Border.Style</b> and <b>Border.Color</b> properties to set 
+            Use the <b>Border.Width</b>, <b>Border.Style</b> and <b>Border.Color</b> properties to set
             the line width, style and color.
             </remarks>
         </member>
@@ -4106,38 +4151,11 @@
             Gets an object's parent data band.
             </summary>
         </member>
-        <member name="M:FastReport.PolyLineObject.GetSelectionPoints">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.getPath(System.Drawing.Pen,System.Single,System.Single)">
-            <summary>
-            Calculate GraphicsPath for draw to page
-            </summary>
-            <param name="pen">Pen for lines</param>
-            <param name="scaleX">scale by width</param>
-            <param name="scaleY">scale by height</param>
-            <returns>Always returns a non-empty path</returns>
-        </member>
-        <member name="M:FastReport.PolyLineObject.drawPoly(FastReport.Utils.FRPaintEventArgs)">
-            <summary>
-            Draw polyline path to graphics
-            </summary>
-            <param name="e">Event arguments</param>
-        </member>
         <member name="M:FastReport.PolyLineObject.addPoint(System.Single,System.Single,System.Byte)">
             <summary>
             Add point to end of polyline, need to recalculate bounds after add
             First point must have zero coordinate and zero type
             </summary>
-            <param name="localX">local x - relative to left-top point</param>
-            <param name="localY">local y - relative to left-top point</param>
-            <param name="pointType">0-start,1-line</param>
-        </member>
-        <member name="M:FastReport.PolyLineObject.insertPoint(System.Int32,System.Single,System.Single,System.Byte)">
-            <summary>
-            Insert point to desired place of polyline
-            </summary>
-            <param name="index">Index of place from zero to count</param>
             <param name="localX">local x - relative to left-top point</param>
             <param name="localY">local y - relative to left-top point</param>
             <param name="pointType">0-start,1-line</param>
@@ -4149,49 +4167,37 @@
             </summary>
             <param name="index">Index of point in polyline</param>
         </member>
+        <member name="M:FastReport.PolyLineObject.drawPoly(FastReport.Utils.FRPaintEventArgs)">
+            <summary>
+            Draw polyline path to graphics
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:FastReport.PolyLineObject.getPath(System.Drawing.Pen,System.Single,System.Single)">
+            <summary>
+            Calculate GraphicsPath for draw to page
+            </summary>
+            <param name="pen">Pen for lines</param>
+            <param name="scaleX">scale by width</param>
+            <param name="scaleY">scale by height</param>
+            <returns>Always returns a non-empty path</returns>
+        </member>
+        <member name="M:FastReport.PolyLineObject.GetSelectionPoints">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.insertPoint(System.Int32,System.Single,System.Single,System.Byte)">
+            <summary>
+            Insert point to desired place of polyline
+            </summary>
+            <param name="index">Index of place from zero to count</param>
+            <param name="localX">local x - relative to left-top point</param>
+            <param name="localY">local y - relative to left-top point</param>
+            <param name="pointType">0-start,1-line</param>
+        </member>
         <member name="M:FastReport.PolyLineObject.recalculateBounds">
             <summary>
             Recalculate position and size of element
             </summary>
-        </member>
-        <member name="M:FastReport.PolyLineObject.Assign(FastReport.Base)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.PointInObject(System.Drawing.PointF)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.CheckNegativeSize(FastReport.Utils.FRMouseEventArgs)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.GetPreferredSize">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.HandleMouseMove(FastReport.Utils.FRMouseEventArgs)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.HandleMouseUp(FastReport.Utils.FRMouseEventArgs)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.HandleMouseDown(FastReport.Utils.FRMouseEventArgs)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.Draw(FastReport.Utils.FRPaintEventArgs)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.Serialize(FastReport.Utils.FRWriter)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.Deserialize(FastReport.Utils.FRReader)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.OnBeforeInsert(System.Int32)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.OnAfterInsert(FastReport.InsertFrom)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.PolyLineObject.SelectionChanged">
-            <inheritdoc/>
         </member>
         <member name="M:FastReport.PolyLineObject.AddPointToEnd(System.Single,System.Single)">
             <summary>
@@ -4209,12 +4215,29 @@
             <param name="localX">local x - relative to left-top point</param>
             <param name="localY">local y - relative to left-top point</param>
         </member>
-        <member name="M:FastReport.PolyLineObject.RemovePointAt(System.Int32)">
-            <summary>
-            Delete point from polyline by index
-            Recalculate bounds after remove
-            </summary>
-            <param name="index">Index of point in polyline</param>
+        <member name="M:FastReport.PolyLineObject.Assign(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.CheckNegativeSize(FastReport.Utils.FRMouseEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.Deserialize(FastReport.Utils.FRReader)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.Draw(FastReport.Utils.FRPaintEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.GetPreferredSize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.HandleMouseDown(FastReport.Utils.FRMouseEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.HandleMouseMove(FastReport.Utils.FRMouseEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.HandleMouseUp(FastReport.Utils.FRMouseEventArgs)">
+            <inheritdoc/>
         </member>
         <member name="M:FastReport.PolyLineObject.InsertPointByIndex(System.Int32,System.Single,System.Single)">
             <summary>
@@ -4238,19 +4261,31 @@
         <member name="M:FastReport.PolyLineObject.InvokeEditor">
             <inheritdoc/>
         </member>
+        <member name="M:FastReport.PolyLineObject.OnAfterInsert(FastReport.InsertFrom)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.OnBeforeInsert(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.PointInObject(System.Drawing.PointF)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.RemovePointAt(System.Int32)">
+            <summary>
+            Delete point from polyline by index
+            Recalculate bounds after remove
+            </summary>
+            <param name="index">Index of point in polyline</param>
+        </member>
+        <member name="M:FastReport.PolyLineObject.SelectionChanged">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.PolyLineObject.Serialize(FastReport.Utils.FRWriter)">
+            <inheritdoc/>
+        </member>
         <member name="M:FastReport.PolyLineObject.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:FastReport.LineObject"/> class with default settings.
-            </summary>
-        </member>
-        <member name="P:FastReport.PolyLineObject.PointsArray">
-            <summary>
-            Return points array of line
-            </summary>
-        </member>
-        <member name="P:FastReport.PolyLineObject.PointTypesArray">
-            <summary>
-            Return point types array. 0 - Start of line, 1 - Keep on line
             </summary>
         </member>
         <member name="P:FastReport.PolyLineObject.CenterX">
@@ -4263,10 +4298,20 @@
             Returns origin of coordinates relative to the top left corner
             </summary>
         </member>
-        <member name="P:FastReport.PolyLineObject.Width">
+        <member name="P:FastReport.PolyLineObject.Height">
             <inheritdoc/>
         </member>
-        <member name="P:FastReport.PolyLineObject.Height">
+        <member name="P:FastReport.PolyLineObject.PointsArray">
+            <summary>
+            Return points array of line
+            </summary>
+        </member>
+        <member name="P:FastReport.PolyLineObject.PointTypesArray">
+            <summary>
+            Return point types array. 0 - Start of line, 1 - Keep on line
+            </summary>
+        </member>
+        <member name="P:FastReport.PolyLineObject.Width">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.PolygonObject.getPolygonPath(System.Drawing.Pen,System.Single,System.Single)">
@@ -4318,9 +4363,68 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:FastReport.Messaging.Authentication.Sasl.SaslMechanism">
+            <summary>
+            The base abstarct class for all SASL mechanisms.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Authentication.Sasl.SaslMechanism.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Authentication.Sasl.SaslMechanism"/> class.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Authentication.Sasl.SaslMechanism.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Authentication.Sasl.SaslMechanism"/> class with specified parameters.
+            </summary>
+            <param name="username">The username.</param>
+            <param name="password">The user's password.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Authentication.Sasl.SaslMechanism.ComputeResponse(System.Byte[])">
+            <summary>
+            Computes client response for server challenge.
+            </summary>
+            <param name="challenge">The server challenge.</param>
+            <returns>The client response.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Authentication.Sasl.SaslMechanism.GetResponse(System.String)">
+            <summary>
+            Gets the base64-encoded client response fo the server challenge.
+            </summary>
+            <param name="challenge">The base64-string containing server challenge.</param>
+            <returns>The base64-string containing client response.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Authentication.Sasl.SaslMechanism.GetResponse(System.Byte[])">
+            <summary>
+            Gets the client response for the server challenge.
+            </summary>
+            <param name="challenge">Byte array containing server challenge.</param>
+            <returns>Byte array containing client response.</returns>
+        </member>
+        <member name="P:FastReport.Messaging.Authentication.Sasl.SaslMechanism.Name">
+            <summary>
+            Gets or sets the name of mechanism.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Authentication.Sasl.SaslMechanism.Username">
+            <summary>
+            Gets or sets the username.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Authentication.Sasl.SaslMechanism.Password">
+            <summary>
+            Gets or sets the user's password.
+            </summary>
+        </member>
         <member name="T:FastReport.Functions.Roman">
             <summary>
             Based on code of Stefan Bцther,  xprocs@hotmail.de
+            </summary>
+        </member>
+        <member name="T:FastReport.Forms.PowerPoint2007ExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.OoXML.PowerPoint2007Export"/>.
+            For internal use only.
             </summary>
         </member>
         <member name="F:FastReport.Forms.PowerPoint2007ExportForm.components">
@@ -4338,6 +4442,40 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.PowerPoint2007ExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PowerPoint2007ExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PowerPoint2007ExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PowerPoint2007ExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.PowerPoint2007ExportForm"/> class.
+            </summary>
+        </member>
+        <member name="T:FastReport.Forms.Excel2007ExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.OoXML.Excel2007Export"/>.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.Excel2007ExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.Excel2007ExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.Excel2007ExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.Excel2007ExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.Excel2007ExportForm"/> class.
             </summary>
         </member>
         <member name="F:FastReport.Forms.Excel2007ExportForm.components">
@@ -4390,17 +4528,23 @@
             This method is called when the export starts.
             </summary>
         </member>
-        <member name="M:FastReport.Export.ExportBase.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.ExportBase.ExportPageBegin(FastReport.ReportPage)">
             <summary>
-            This method is called for each exported page.
+            This method is called at the start of exports of each page.
             </summary>
-            <param name="pageNo">Page number to export.</param>
-            <remarks>
-            To get a page, use the following code:
-            <code>
-            ReportPage page = Report.PreparedPages.GetPage(pageNo);
-            </code>
-            </remarks>
+            <param name="page">Page for export may be empty in this method.</param>
+        </member>
+        <member name="M:FastReport.Export.ExportBase.ExportPageEnd(FastReport.ReportPage)">
+            <summary>
+            This method is called at the end of exports of each page.
+            </summary>
+            <param name="page">Page for export may be empty in this method.</param>
+        </member>
+        <member name="M:FastReport.Export.ExportBase.ExportBand(FastReport.Base)">
+            <summary>
+            This method is called for each band on exported page.
+            </summary>
+            <param name="band">Band, dispose after method compite.</param>
         </member>
         <member name="M:FastReport.Export.ExportBase.Finish">
             <summary>
@@ -4552,10 +4696,24 @@
         <member name="M:FastReport.Export.Html.HTMLExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Html.HTMLExport.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.Html.HTMLExport.ExportPageBegin(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Html.HTMLExport.ProcessPage(System.Int32,System.Int32)">
+        <member name="M:FastReport.Export.Html.HTMLExport.ExportPageEnd(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Html.HTMLExport.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Html.HTMLExport.ProcessPageBegin(System.Int32,System.Int32,FastReport.ReportPage)">
+            <summary>
+            Process Page with number p and real page ReportPage
+            </summary>
+            <param name="p"></param>
+            <param name="ReportPage"></param>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.Html.HTMLExport.ProcessPageEnd(System.Int32,System.Int32)">
             <summary>
             Process Page with number p and real page ReportPage
             </summary>
@@ -4700,12 +4858,17 @@
         </member>
         <member name="P:FastReport.Export.Html.HTMLExport.GeneratedStreams">
             <summary>
-            Gets list of generated streams
+            Gets list of generated streams.
             </summary>
         </member>
         <member name="P:FastReport.Export.Html.HTMLExport.SaveStreams">
             <summary>
-            Enable or disable saving streams in GeneratedStreams collection
+            Enable or disable saving streams in GeneratedStreams collection.
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Html.HTMLExport.EnableMargins">
+            <summary>
+            Enable or disable margins for pages. Works only for Layers-mode.
             </summary>
         </member>
         <member name="T:FastReport.Design.ExportPlugins.FR3.FR3ExportPlugin">
@@ -7622,7 +7785,7 @@
         </member>
         <member name="T:FastReport.CustomCalcEventArgs">
             <summary>
-            Provides data for the <see cref="E:FastReport.Report.LoadBaseReport"/> event.
+            Provides data for the <see cref="E:FastReport.Report.CustomCalc"/> event.
             </summary>
         </member>
         <member name="M:FastReport.CustomCalcEventArgs.#ctor(System.String,System.Object,FastReport.Report)">
@@ -8077,6 +8240,12 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:FastReport.Forms.XAMLExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.XAML.XAMLExport"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.XAMLExportForm.components">
             <summary>
             Required designer variable.
@@ -8092,6 +8261,20 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.XAMLExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.XAMLExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.XAMLExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.XAMLExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.XAMLExportForm"/> class.
             </summary>
         </member>
         <member name="T:FastReport.Export.Html.HtmlTemplates">
@@ -8170,6 +8353,12 @@
             <para/>The report that you pass in this method must be prepared using the <b>Prepare</b> method.
             </remarks>
         </member>
+        <member name="M:FastReport.Export.Email.EmailExport.Serialize(FastReport.Utils.FRWriter)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Email.EmailExport.Deserialize(FastReport.Utils.FRReader)">
+            <inheritdoc/>
+        </member>
         <member name="M:FastReport.Export.Email.EmailExport.#ctor(FastReport.Report)">
             <summary>
             Initializes a new instance of the <see cref="T:FastReport.Export.Email.EmailExport"/> class with default settings.
@@ -8235,7 +8424,13 @@
         <member name="M:FastReport.Export.Csv.CSVExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Csv.CSVExport.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.Csv.CSVExport.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Csv.CSVExport.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Csv.CSVExport.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.Csv.CSVExport.GetFileFilter">
@@ -8647,6 +8842,55 @@
             </summary>
             <param name="sa">The StringAlignment value.</param>
             <returns>The string with RDL TextAlign value.</returns>
+        </member>
+        <member name="T:FastReport.Data.CsvConnectionStringBuilder">
+            <summary>
+            Represents the CsvDataConnection connection string builder.
+            </summary>
+            <remarks>
+            Use this class to parse connection string returned by the <b>CsvDataConnection</b> class.
+            </remarks>
+        </member>
+        <member name="M:FastReport.Data.CsvConnectionStringBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Data.CsvConnectionStringBuilder"/> class.
+            </summary>
+        </member>
+        <member name="M:FastReport.Data.CsvConnectionStringBuilder.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Data.CsvConnectionStringBuilder"/> class with a specified connection string.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+        </member>
+        <member name="P:FastReport.Data.CsvConnectionStringBuilder.CsvFile">
+            <summary>
+            Gets or sets the path to .csv file.
+            </summary>
+        </member>
+        <member name="P:FastReport.Data.CsvConnectionStringBuilder.Codepage">
+            <summary>
+            Gets or sets the codepage of .csv file.
+            </summary>
+        </member>
+        <member name="P:FastReport.Data.CsvConnectionStringBuilder.Separator">
+            <summary>
+            Gets or sets the separator.
+            </summary>
+        </member>
+        <member name="P:FastReport.Data.CsvConnectionStringBuilder.FieldNamesInFirstString">
+            <summary>
+            Gets or sets the value indicating that field names should be loaded from the first string of the file.
+            </summary>
+        </member>
+        <member name="P:FastReport.Data.CsvConnectionStringBuilder.RemoveQuotationMarks">
+            <summary>
+            Gets or sets the value indicating that quotation marks should be removed.
+            </summary>
+        </member>
+        <member name="P:FastReport.Data.CsvConnectionStringBuilder.ConvertFieldTypes">
+            <summary>
+            Gets or sets the value indicating that field types should be converted.
+            </summary>
         </member>
         <member name="T:FastReport.Data.ConnectionEditors.ConnectionEditorBase">
             <summary>
@@ -10637,6 +10881,12 @@
             Gets or sets the connection string builder which contains the connection properties.
             </summary>
         </member>
+        <member name="T:FastReport.Forms.MHTExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Mht.MHTExport"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.MHTExportForm.components">
             <summary>
             Required designer variable.
@@ -10652,6 +10902,20 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.MHTExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.MHTExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.MHTExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.MHTExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.MHTExportForm"/> class.
             </summary>
         </member>
         <member name="T:FastReport.Design.DesignerSettings">
@@ -11515,6 +11779,227 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:FastReport.Messaging.Xmpp.XmppMessengerForm">
+            <summary>
+            Represents the form of the XMPP messenger.
+            </summary>
+        </member>
+        <member name="T:FastReport.Messaging.MessengerForm">
+            <summary>
+            Represents form of messenger.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.pgFile">
+            <summary>
+            Page File.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.pgProxy">
+            <summary>
+            Page Proxy.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.cbFileType">
+            <summary>
+            ComboBox File Type.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.labelFileType">
+            <summary>
+            Label File Type.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.buttonSettings">
+            <summary>
+            Buttons Settings.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.labelProxyColon">
+            <summary>
+            Label Colon.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.labelProxyPassword">
+            <summary>
+            Label Password.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.labelProxyUsername">
+            <summary>
+            Label Username.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.labelProxyServer">
+            <summary>
+            Label Server.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.tbProxyUsername">
+            <summary>
+            TextBox Username.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.tbProxyPort">
+            <summary>
+            TextBox Port.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.tbProxyServer">
+            <summary>
+            TextBox Server.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.tbProxyPassword">
+            <summary>
+            TextBox Password.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.MessengerForm.pageControl1">
+            <summary>
+            PageControl pageControl1.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.MessengerForm"/> class.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.#ctor(FastReport.Report)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.MessengerForm"/> class.
+            </summary>
+            <param name="report">The report template.</param>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.InitExports">
+            <summary>
+            Initializes the list of exports.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.GetProxySettings">
+            <summary>
+            Gets the proxy settings.
+            </summary>
+            <returns>The proxy settings.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.Init">
+            <summary>
+            Initializes the component.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.IsNumeric(System.String)">
+            <summary>
+            Checks is the string numeric.
+            </summary>
+            <param name="str">The checking string.</param>
+            <returns>True if string is numeric, otherwise false.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.Done">
+            <summary>
+            Finishes the form work.
+            </summary>
+            <returns>Returns true if work has been successfully finished, otherwise false.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.cbFileType_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            SelectedIndexChanged event handler for ComboBox File Type.
+            </summary>
+            <param name="sender">Event sender.</param>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.buttonSettings_Click(System.Object,System.EventArgs)">
+            <summary>
+            Click event handler for Button Settings.
+            </summary>
+            <param name="sender">Event sender.</param>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.MessengerForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            FormClosing event handler for CloudStorageClientForm.
+            </summary>
+            <param name="sender">Event sender.</param>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerForm.btnOk_Click(System.Object,System.EventArgs)">
+            <summary>
+            Click event handler for button OK.
+            </summary>
+            <param name="sender">Event sender.</param>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="P:FastReport.Messaging.MessengerForm.Report">
+            <summary>
+            Gets or sets the report template.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.MessengerForm.Exports">
+            <summary>
+            Gets or sets the list of exports.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.Xmpp.XmppMessengerForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessengerForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessengerForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessengerForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.XmppMessengerForm"/> class.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessengerForm.#ctor(System.String,System.String,System.String,FastReport.Report)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.XmppMessengerForm"/> class with specified parameters.
+            </summary>
+            <param name="jidFrom">User's JID without resource.</param>
+            <param name="password">User's password.</param>
+            <param name="jidTo">Send to user's JID.</param>
+            <param name="report">Report template.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessengerForm.Init">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessengerForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessengerForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessengerForm.btnOk_Click(System.Object,System.EventArgs)">
+            <inheritdoc/>
+        </member>
         <member name="T:FastReport.Map.DistanceScale">
             <summary>
             Represents a distance scale.
@@ -11643,6 +12128,26 @@
             </summary>
             <param name="designer"></param>
         </member>
+        <member name="T:FastReport.Forms.SVGExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Svg.SVGExport"/>.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.SVGExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.SVGExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.SVGExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.SVGExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.SVGExportForm"/> class.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.SVGExportForm.components">
             <summary>
             Required designer variable.
@@ -11679,6 +12184,26 @@
         </member>
         <member name="M:FastReport.Export.Text.TextExportPrintForm.Localize">
             <inheritdoc/>
+        </member>
+        <member name="T:FastReport.Forms.PDFExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Pdf.PDFExport"/>.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.PDFExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PDFExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PDFExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PDFExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.PDFExportForm"/> class.
+            </summary>
         </member>
         <member name="F:FastReport.Forms.PDFExportForm.components">
             <summary>
@@ -11788,6 +12313,23 @@
         </member>
         <member name="P:FastReport.Design.StandardDesigner.DesignerForm.PluginName">
             <inheritdoc/>
+        </member>
+        <member name="F:FastReport.Data.ConnectionEditors.CsvConnectionEditor.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FastReport.Data.ConnectionEditors.CsvConnectionEditor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FastReport.Data.ConnectionEditors.CsvConnectionEditor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
         </member>
         <member name="T:FastReport.Cloud.StorageClient.Ftp.FtpStorageClientForm">
             <summary>
@@ -14539,6 +15081,26 @@
             <param name="index">Index of an element.</param>
             <returns>The element at the specified index.</returns>
         </member>
+        <member name="T:FastReport.Forms.PSExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.PS.PSExport"/>.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.PSExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PSExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PSExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PSExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.PSExportForm"/> class.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.PSExportForm.components">
             <summary>
             Required designer variable.
@@ -14591,6 +15153,9 @@
             Create Window.
             </summary>
         </member>
+        <member name="M:FastReport.Export.PS.PSDocument.AddCurveTextLine(System.Collections.Generic.List{System.Single},System.Single,System.String,System.String,System.Drawing.Font,System.Single,System.Single,System.Collections.Generic.List{System.String},System.Single)">
+            Add TextLine in curves
+        </member>
         <member name="M:FastReport.Export.PS.PSDocument.AddTextObject(System.Single,System.Single,System.Single,System.Single,System.String,System.String,System.String,System.Single,System.Single,System.Single,System.Single,System.Single,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Single,System.String,System.String,System.String,System.String,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Single,System.Boolean,System.String,System.Drawing.Font)">
             <summary>
             Method for add TextObject.
@@ -14626,11 +15191,13 @@
             Method for add line with dash.
              </summary>
         </member>
-        <member name="M:FastReport.Export.PS.PSDocument.AddImage(System.String,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:FastReport.Export.PS.PSDocument.AddImage(System.String,System.String,System.String,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Add image
             </summary>
             <param name="filename"></param>
+            <param name="format"></param>
+            <param name="name"></param>
             <param name="left"></param>
             <param name="top"></param>
             <param name="width"></param>
@@ -14658,7 +15225,7 @@
         </member>
         <member name="M:FastReport.Export.Ppml.PPMLDocument.AddImage(System.String,System.Single,System.Single,System.Single,System.Single)">
             <summary>
-            Add image
+            Add image as PPMLObject
             </summary>
             <param name="filename"></param>
             <param name="left"></param>
@@ -15372,7 +15939,7 @@
             </summary>
             <param name="report">The report template that should be saved.</param>
             <param name="export">The export filter that should export template before.</param>
-            <returns>True if report has been successfully saved.</returns>
+            <exception cref="T:FastReport.Utils.CloudStorageException"/>
         </member>
         <member name="P:FastReport.Cloud.StorageClient.CloudStorageClient.Filename">
             <summary>
@@ -15406,6 +15973,11 @@
         <member name="P:FastReport.Cloud.StorageClient.FastCloud.FastCloudStorageClient.AccessToken">
             <summary>
             Gets or sets the access token.
+            </summary>
+        </member>
+        <member name="P:FastReport.Cloud.StorageClient.FastCloud.FastCloudStorageClient.ReportUrl">
+            <summary>
+            Gets the report URL that can be used to download report from cloud.
             </summary>
         </member>
         <member name="T:FastReport.Barcode.Aztec.SupportClass">
@@ -16972,6 +17544,26 @@
             to the external report parameters.
             </summary>
         </member>
+        <member name="T:FastReport.Forms.ODFExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Odf.ODFExport"/>.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.ODFExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.ODFExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.ODFExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.ODFExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.ODFExportForm"/> class.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.ODFExportForm.components">
             <summary>
             Required designer variable.
@@ -17926,6 +18518,12 @@
             TextExportPrint.PrintStream("EPSON FX-1000", "My Report", 1, txtStream)</code>
             </example>
         </member>
+        <member name="T:FastReport.Forms.DbfExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Dbf.DBFExport"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.DbfExportForm.components">
             <summary>
             Required designer variable.
@@ -17943,9 +18541,39 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:FastReport.Forms.DbfExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.DbfExportForm"/> class.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.DbfExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.DbfExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.DbfExportForm.Localize">
+            <inheritdoc/>
+        </member>
         <member name="T:FastReport.Export.Pdf.PDFExport">
             <summary>
             PDF export (Adobe Acrobat)
+            </summary>
+        </member>
+        <member name="M:FastReport.Export.Pdf.PDFExport.GetMask(System.Int32[])">
+            <summary>
+            Calculates mask for <see cref="F:System.Drawing.Imaging.PixelFormat.Format32bppArgb"/> image.
+            </summary>
+        </member>
+        <member name="M:FastReport.Export.Pdf.PDFExport.CalculateArea(FastReport.PictureObject,System.Int32,System.Int32)">
+            <summary>
+            Calculates image bounds according to <see cref="T:System.Windows.Forms.PictureBoxSizeMode"/>.
+            </summary>
+        </member>
+        <member name="M:FastReport.Export.Pdf.PDFExport.WritePixelColors(System.Int32[],System.IO.Stream)">
+            <summary>
+            Writes pixels' colors without alpha to stream according to CMYK or RGB color space.
+            Pixels should be in the <see cref="F:System.Drawing.Imaging.PixelFormat.Format32bppArgb"/> format.
             </summary>
         </member>
         <member name="M:FastReport.Export.Pdf.PDFExport.GetFileFilter">
@@ -17957,8 +18585,23 @@
         <member name="M:FastReport.Export.Pdf.PDFExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Pdf.PDFExport.ExportPage(System.Int32)">
-            <inheritdoc/>
+        <member name="M:FastReport.Export.Pdf.PDFExport.ExportPageBegin(FastReport.ReportPage)">
+            <summary>
+            Begin exporting of page
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.Pdf.PDFExport.ExportPageEnd(FastReport.ReportPage)">
+            <summary>
+            End exporting
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.Pdf.PDFExport.ExportBand(FastReport.Base)">
+            <summary>
+            Export of Band
+            </summary>
+            <param name="band"></param>
         </member>
         <member name="M:FastReport.Export.Pdf.PDFExport.Finish">
             <inheritdoc/>
@@ -17971,29 +18614,10 @@
             Initializes a new instance of the <see cref="T:FastReport.Export.Pdf.PDFExport"/> class.
             </summary>
         </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.JpegQuality">
+        <member name="P:FastReport.Export.Pdf.PDFExport.PdfCompliance">
             <summary>
-            Sets the quality of images in the PDF
-            </summary>
-        </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.RichTextQuality">
-            <summary>
-            Sets the quality of RichText objects in the PDF
-            </summary>
-        </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.PdfA">
-            <summary>
-            Enable or disable the PDF/A compatibility.
-            </summary>
-        </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.PdfACompliance">
-            <summary>
-            Gets or sets PDF/A Compliance standard.
-            </summary>
-        </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.Compressed">
-            <summary>
-            Enable or disable the compression in PDF document.
+            Gets or sets PDF Compliance standard.
+            After set, do not change other settings, it may lead to fail compliance test.
             </summary>
         </member>
         <member name="P:FastReport.Export.Pdf.PDFExport.EmbeddingFonts">
@@ -18001,29 +18625,39 @@
             Enable or disable of embedding the TrueType fonts.
             </summary>
         </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.TextInCurves">
-            <summary>
-            Enable or disable export text in curves
-            </summary>
-        </member>
         <member name="P:FastReport.Export.Pdf.PDFExport.Background">
             <summary>
             Enable or disable of exporting the background.
             </summary>
         </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.TextInCurves">
+            <summary>
+            Enable or disable export text in curves
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.ColorSpace">
+            <summary>
+            Gets or sets PDF color space
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.ImagesOriginalResolution">
+            <summary>
+            Enables or disables saving images in their original resolution
+            </summary>
+        </member>
         <member name="P:FastReport.Export.Pdf.PDFExport.PrintOptimized">
             <summary>
-            Enable or disable of optimization the images for printing.
+            Enables or disables optimization of images for printing
             </summary>
         </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.TransparentImages">
+        <member name="P:FastReport.Export.Pdf.PDFExport.JpegCompression">
             <summary>
-            Enable or disable of images transparency.
+            Enable or disable image jpeg compression
             </summary>
         </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.Cmyk">
+        <member name="P:FastReport.Export.Pdf.PDFExport.JpegQuality">
             <summary>
-            Enable or diasble of CMYK colors in document
+            Sets the quality of images in the PDF
             </summary>
         </member>
         <member name="P:FastReport.Export.Pdf.PDFExport.Title">
@@ -18056,14 +18690,39 @@
             Producer of the document.
             </summary>
         </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.Outline">
+        <member name="P:FastReport.Export.Pdf.PDFExport.OwnerPassword">
             <summary>
-            Enable or disable of document's Outline.
+            Sets the owner password.
             </summary>
         </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.DisplayDocTitle">
+        <member name="P:FastReport.Export.Pdf.PDFExport.UserPassword">
             <summary>
-            Enable or disable of displaying document's title.
+            Sets the user password.
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.AllowPrint">
+            <summary>
+            Enable or disable printing in protected document.
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.AllowModify">
+            <summary>
+            Enable or disable modifying in protected document.
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.AllowCopy">
+            <summary>
+            Enable or disable copying in protected document.
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.AllowAnnotate">
+            <summary>
+            Enable or disable annotating in protected document.
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.ShowPrintDialog">
+            <summary>
+            Enable or disable the print dialog window after opening
             </summary>
         </member>
         <member name="P:FastReport.Export.Pdf.PDFExport.HideToolbar">
@@ -18096,34 +18755,9 @@
             Enable or disable of scaling the page for shrink to printable area.
             </summary>
         </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.UserPassword">
+        <member name="P:FastReport.Export.Pdf.PDFExport.Outline">
             <summary>
-            Sets the user password.
-            </summary>
-        </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.OwnerPassword">
-            <summary>
-            Sets the owner password.
-            </summary>
-        </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.AllowPrint">
-            <summary>
-            Enable or disable printing in protected document.
-            </summary>
-        </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.AllowModify">
-            <summary>
-            Enable or disable modifying in protected document.
-            </summary>
-        </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.AllowCopy">
-            <summary>
-            Enable or disable copying in protected document.
-            </summary>
-        </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.AllowAnnotate">
-            <summary>
-            Enable or disable annotating in protected document.
+            Enable or disable of document's Outline.
             </summary>
         </member>
         <member name="P:FastReport.Export.Pdf.PDFExport.DefaultZoom">
@@ -18131,14 +18765,35 @@
             Set default zoom on open document
             </summary>
         </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.RichTextQuality">
+            <summary>
+            Sets the quality of RichText objects in the PDF
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.Compressed">
+            <summary>
+            Enable or disable the compression in PDF document.
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.TransparentImages">
+            <summary>
+            Enable or disable of images transparency.
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.Pdf.PDFExport.DisplayDocTitle">
+            <summary>
+            Enable or disable of displaying document's title.
+            </summary>
+        </member>
         <member name="P:FastReport.Export.Pdf.PDFExport.DefaultPage">
             <summary>
             Set default page on open document
             </summary>
         </member>
-        <member name="P:FastReport.Export.Pdf.PDFExport.ShowPrintDialog">
+        <member name="P:FastReport.Export.Pdf.PDFExport.ColorProfile">
             <summary>
-            Enable or disable the print dialog window after opening
+            Color Profile (ICC file).
+            If "null" then default profile will be used
             </summary>
         </member>
         <member name="T:FastReport.Export.Pdf.PDFExport.MagnificationFactor">
@@ -18216,29 +18871,65 @@
             800%
             </summary>
         </member>
-        <member name="T:FastReport.Export.Pdf.PDFExport.PdfAStandard">
+        <member name="T:FastReport.Export.Pdf.PDFExport.PdfStandard">
             <summary>
             Standard of PDF format.
             </summary>
         </member>
-        <member name="F:FastReport.Export.Pdf.PDFExport.PdfAStandard.PdfA_2a">
+        <member name="F:FastReport.Export.Pdf.PDFExport.PdfStandard.None">
+            <summary>
+            PDF 1.5
+            </summary>
+        </member>
+        <member name="F:FastReport.Export.Pdf.PDFExport.PdfStandard.PdfA_2a">
             <summary>
             PDF/A-2a
             </summary>
         </member>
-        <member name="F:FastReport.Export.Pdf.PDFExport.PdfAStandard.PdfA_2b">
+        <member name="F:FastReport.Export.Pdf.PDFExport.PdfStandard.PdfA_2b">
             <summary>
             PDF/A-2b
             </summary>
         </member>
-        <member name="F:FastReport.Export.Pdf.PDFExport.PdfAStandard.PdfA_3a">
+        <member name="F:FastReport.Export.Pdf.PDFExport.PdfStandard.PdfA_3a">
             <summary>
             PDF/A-3a
             </summary>
         </member>
-        <member name="F:FastReport.Export.Pdf.PDFExport.PdfAStandard.PdfA_3b">
+        <member name="F:FastReport.Export.Pdf.PDFExport.PdfStandard.PdfA_3b">
             <summary>
             PDF/A-3b
+            </summary>
+        </member>
+        <member name="F:FastReport.Export.Pdf.PDFExport.PdfStandard.PdfX_3">
+            <summary>
+            Pdf/X-3
+            </summary>
+        </member>
+        <member name="F:FastReport.Export.Pdf.PDFExport.PdfStandard.PdfX_4">
+            <summary>
+            Pdf/X-4
+            </summary>
+        </member>
+        <member name="T:FastReport.Export.Pdf.PDFExport.PdfColorSpace">
+            <summary>
+            Color Space
+            </summary>
+        </member>
+        <member name="F:FastReport.Export.Pdf.PDFExport.PdfColorSpace.RGB">
+            <summary>
+            RGB color space
+            </summary>
+        </member>
+        <member name="F:FastReport.Export.Pdf.PDFExport.PdfColorSpace.CMYK">
+            <summary>
+            CMYK color space
+            </summary>
+        </member>
+        <member name="T:FastReport.Forms.CsvExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Csv.CSVExport"/>.
+            For internal use only.
             </summary>
         </member>
         <member name="F:FastReport.Forms.CsvExportForm.components">
@@ -18256,6 +18947,20 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.CsvExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.CsvExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.CsvExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.CsvExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.CsvExportForm"/> class.
             </summary>
         </member>
         <member name="T:FastReport.EmailSettings">
@@ -18606,12 +19311,12 @@
         </member>
         <member name="P:FastReport.Cloud.CloudProxySettings.ProxyType">
             <summary>
-            Gets or sert the type of proxy.
+            Gets or sets the type of proxy.
             </summary>
         </member>
         <member name="P:FastReport.Cloud.CloudProxySettings.Server">
             <summary>
-            Gets or sert the proxy server.
+            Gets or sets the proxy server.
             </summary>
         </member>
         <member name="P:FastReport.Cloud.CloudProxySettings.Port">
@@ -18626,7 +19331,7 @@
         </member>
         <member name="P:FastReport.Cloud.CloudProxySettings.Password">
             <summary>
-            Getst or sets the user's password.
+            Gets or sets the user's password.
             </summary>
         </member>
         <member name="T:FastReport.Cloud.ProxyType">
@@ -18674,6 +19379,7 @@
             <param name="report">The report template that should be saved.</param>
             <param name="export">The export filter that should export template before.</param>
             <returns>True if report has been successfully saved.</returns>
+            <exception cref="T:FastReport.Utils.CloudStorageException"/>
         </member>
         <member name="P:FastReport.Cloud.StorageClient.Ftp.FtpStorageClient.Server">
             <summary>
@@ -19058,6 +19764,12 @@
             <remarks>
             This method is for internal use only.
             </remarks>
+        </member>
+        <member name="M:FastReport.Data.Dictionary.ReRegisterData(FastReport.Data.Dictionary)">
+            <summary>
+            Re-registers the data registered before.
+            </summary>
+            <param name="dictionary"></param>
         </member>
         <member name="M:FastReport.Data.Dictionary.ClearRegisteredData">
             <summary>
@@ -19761,6 +20473,171 @@
             All buttons are visible.
             </summary>
         </member>
+        <member name="T:FastReport.PreviewExports">
+            <summary>
+            Specifies the set of export buttons available in the preview.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.None">
+            <summary>
+            No exports visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.RTFExport">
+            <summary>
+            The "RTFExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.ImageExport">
+            <summary>
+            The "ImageExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.HTMLExport">
+            <summary>
+            The "HTMLExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.MHTExport">
+            <summary>
+            The "MHTExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.ODTExport">
+            <summary>
+            The "ODTExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.ODSExport">
+            <summary>
+            The "ODSExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.PDFExport">
+            <summary>
+            The "PDFExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.TextExport">
+            <summary>
+            The "TextExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.CSVExport">
+            <summary>
+            The "CSVExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.XMLExport">
+            <summary>
+            The "XMLExport" export button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.Excel2007Export">
+            <summary>
+            The "Excel2007Export" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.PowerPoint2007Export">
+            <summary>
+            The "PowerPoint2007Export" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.XAMLExport">
+            <summary>
+            The "XAMLExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.SVGExport">
+            <summary>
+            The "SVGExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.PPMLExport">
+            <summary>
+            The "PPMLExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.PSExport">
+            <summary>
+            The "PSExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.Word2007Export">
+            <summary>
+            The "Word2007Export" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.XPSExport">
+            <summary>
+            The "XPSExport" export button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.JsonExport">
+            <summary>
+            The "JsonExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.DBFExport">
+            <summary>
+            The "DBFExport" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewExports.All">
+            <summary>
+            The All export buttons is visible.
+            </summary>
+        </member>
+        <member name="T:FastReport.PreviewClouds">
+            <summary>
+            Specifies the set of export in clouds buttons available in the preview.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewClouds.None">
+            <summary>
+            No exports in clouds visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewClouds.Box">
+            <summary>
+            The "Box" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewClouds.Dropbox">
+            <summary>
+            The "Dropbox" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewClouds.FastCloud">
+            <summary>
+            The "FastCloud" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewClouds.Ftp">
+            <summary>
+            The "Ftp" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewClouds.GoogleDrive">
+            <summary>
+            The "GoogleDrive" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewClouds.SkyDrive">
+            <summary>
+            The "SkyDrive" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewClouds.Xmpp">
+            <summary>
+            The "Xmpp" button is visible.
+            </summary>
+        </member>
+        <member name="F:FastReport.PreviewClouds.All">
+            <summary>
+            The All export in clouds buttons is visible.
+            </summary>
+        </member>
         <member name="T:FastReport.PreviewSettings">
             <summary>
             Contains some settings of the preview window.
@@ -19797,6 +20674,16 @@
             PreviewButtons.Navigator | 
             PreviewButtons.Close; 
             </remarks>
+        </member>
+        <member name="P:FastReport.PreviewSettings.Exports">
+            <summary>
+            Specifies the set of exports that will be available in the preview's "save" menu.
+            </summary>
+        </member>
+        <member name="P:FastReport.PreviewSettings.Clouds">
+            <summary>
+            Specifies the set of exports in clouds that will be available in the preview's "save" menu.
+            </summary>
         </member>
         <member name="P:FastReport.PreviewSettings.PagesInCache">
             <summary>
@@ -19859,7 +20746,13 @@
         <member name="M:FastReport.Export.Odf.ODFExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Odf.ODFExport.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.Odf.ODFExport.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Odf.ODFExport.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Odf.ODFExport.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.Odf.ODFExport.Finish">
@@ -19909,6 +20802,12 @@
             Initializes a new instance of the <see cref="T:FastReport.Export.Odf.ODTExport"/> class.
             </summary>
         </member>
+        <member name="T:FastReport.Forms.XMLExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Xml.XMLExport"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.XMLExportForm.components">
             <summary>
             Required designer variable.
@@ -19924,6 +20823,20 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.XMLExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.XMLExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.XMLExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.XMLExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.XMLExportForm"/> class.
             </summary>
         </member>
         <member name="F:FastReport.Data.ConnectionEditors.OleDbConnectionEditor.components">
@@ -19976,6 +20889,250 @@
             <summary> 
             Required method for Designer support - do not modify 
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FastReport.Messaging.Xmpp.XmppMessenger">
+            <summary>
+            Represents the XMPP messenger.
+            </summary>
+        </member>
+        <member name="T:FastReport.Messaging.MessengerBase">
+            <summary>
+            The base class for all messengers.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.MessengerBase"/> class.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerBase.Authorize">
+            <summary>
+            Authorizes the user.
+            </summary>
+            <returns>True if user has been successfully authorized.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerBase.PrepareToSave(FastReport.Report,FastReport.Export.ExportBase)">
+            <summary>
+            Prepares the report before it will be send.
+            </summary>
+            <param name="report">The report template.</param>
+            <param name="export">The export filter.</param>
+            <returns>Memory stream that contains prepared report.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.MessengerBase.SendReport(FastReport.Report,FastReport.Export.ExportBase)">
+            <summary>
+            Sends the report.
+            </summary>
+            <param name="report">The report template that should be sent.</param>
+            <param name="export">The export filter that should export template before.</param>
+            <returns>True if report has been successfully sent.</returns>
+        </member>
+        <member name="P:FastReport.Messaging.MessengerBase.Filename">
+            <summary>
+            Gets the filename.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.MessengerBase.ProxySettings">
+            <summary>
+            Gets or sets the proxy settings.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.XmppMessenger"/> class.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.#ctor(System.String,System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.XmppMessenger"/> class with specified parameters.
+            </summary>
+            <param name="username">Username.</param>
+            <param name="password">Password.</param>
+            <param name="hostname">Hostname.</param>
+            <param name="port">Port.</param>
+            <param name="sendToUsername">Username to send file to.</param>
+            <param name="sendToResource">Send to user's resource.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.XmppMessenger"/> class with specified parameters.
+            </summary>
+            <param name="jidFrom">User's JID without resource.</param>
+            <param name="password">User's password.</param>
+            <param name="jidTo">JID to send to with resource.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.SendString(System.String)">
+            <summary>
+            Sends the specified string to the server.
+            </summary>
+            <param name="str">The string to send.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.InitiateStream(System.String)">
+            <summary>
+            Initiates the stream to the server.
+            </summary>
+            <param name="hostname">The hostname.</param>
+            <returns>The features response of the server.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.ValidateServerCertificate(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            Validates the server certificate.
+            </summary>
+            <param name="sender">The sender object.</param>
+            <param name="certificate">X509 certificate.</param>
+            <param name="chain">The X509 chain.</param>
+            <param name="sslPolicyErrors">The SSL policy errors.</param>
+            <returns>True if successfull.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.StartTls(System.String)">
+            <summary>
+            Secures the stream by TLS.
+            </summary>
+            <param name="hostname">The hostname.</param>
+            <returns>The features response of the server.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.SelectMechanism(System.Collections.Generic.List{System.String})">
+            <summary>
+            Selects the SASL authentication mechanism.
+            </summary>
+            <param name="mechanisms">List of mechanisms.</param>
+            <returns>The string containing mechanism name.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.AuthenticateUsingPlainMechanism">
+            <summary>
+            Authenticates the user on the server using Plain mechanism.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.AuthenticateUsingDigestMd5Mechanism">
+            <summary>
+            Authenticates the user on the server using Digest-MD5 mechanism.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.Authenticate(System.Collections.Generic.List{System.String})">
+            <summary>
+            Authenticates the user on the server.
+            </summary>
+            <param name="mechanisms">The SASL mechanisms list.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.SetupConnection">
+            <summary>
+            Setups the connection with the server.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.BindResource">
+            <summary>
+            Binds resource and gets the full JID that will be associated with current session.
+            </summary>
+            <returns>The full session JID.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.OpenSession">
+            <summary>
+            Opens session between client and server.
+            </summary>
+            <returns>The id of the opened session.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.Connect">
+            <summary>
+            Connects to the server.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.SendMessage(System.String)">
+            <summary>
+            Sends the message.
+            </summary>
+            <param name="text">The text of the message.</param>
+            <returns>True if message has been successfully sent.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.SendPresence(System.String)">
+            <summary>
+            Sends the presence.
+            </summary>
+            <param name="text">The text of the presence.</param>
+            <returns>True if presence has been successfully sent.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.InitiateInBandBytestream">
+            <summary>
+            Initiates the In Band Bytestream for sending the file (XEP-0047).
+            </summary>
+            <returns>True if bytestream has been successfully initiated.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.SendChunk(System.Byte[],System.Int32)">
+            <summary>
+            Sends the chunk to the XMPP server.
+            </summary>
+            <param name="chunk">The data of the chunk.</param>
+            <param name="number">The number of the chunk.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.SendFileUsingIbb(System.IO.MemoryStream)">
+            <summary>
+            Sends the file using In Band Bytestream.
+            </summary>
+            <param name="ms">The memory stream containing data of the file.</param>
+            <returns>True if file has been successfully sent.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.SendFileUsingFastReportCloud(FastReport.Report,FastReport.Export.ExportBase)">
+            <summary>
+            Sends the file using FastReport Cloud as a proxy server.
+            </summary>
+            <param name="report">The report template.</param>
+            <param name="export">The export filter to export report before sending.</param>
+            <returns>True if file has been successfully sent.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.Disconnect">
+            <summary>
+            Disconnects from the server.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.Authorize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.SendReport(FastReport.Report,FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.Close">
+            <summary>
+            Closes the connection.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.XmppMessenger.Dispose">
+            <summary>
+            Releases all the resources used by the XMPP messenger.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.XmppMessenger.Username">
+            <summary>
+            Gets or sets the username.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.XmppMessenger.Password">
+            <summary>
+            Gets or sets the user's password.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.XmppMessenger.Hostname">
+            <summary>
+            Gets or sets the hostname of XMPP server.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.XmppMessenger.Port">
+            <summary>
+            Gets or sets the port number of the XMPP service of the server.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.XmppMessenger.SendToUsername">
+            <summary>
+            Gets or sets the username to send file to.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.XmppMessenger.JidFrom">
+            <summary>
+            Gets or sets the JID to send from.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.XmppMessenger.JidTo">
+            <summary>
+            Gets or set the JID to send to.
             </summary>
         </member>
         <member name="T:FastReport.Map.LayerCollection">
@@ -20039,7 +21196,7 @@
         </member>
         <member name="T:FastReport.Export.XAML.XAMLDocument">
             <summary>
-            
+            XAML generator
             </summary>
         </member>
         <member name="M:FastReport.Export.XAML.XAMLDocument.CreateWindow(System.String)">
@@ -20104,53 +21261,72 @@
         </member>
         <member name="M:FastReport.Export.XAML.XAMLDocument.AddTextObject(System.Single,System.Single,System.Single,System.Single,System.String,System.String,System.String,System.Single,System.Single,System.Single,System.Single,System.Single,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Single,System.String,System.String,System.String,System.Single,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Boolean,System.String)">
             <summary>
-            Method for add TextObject.
+            Add TextObject.
              </summary>
         </member>
-        <member name="M:FastReport.Export.XAML.XAMLDocument.AddTextObject(System.Single,System.Single,System.Single,System.Single,System.String,System.String,System.String,System.Single,System.Single,System.Single,System.Single,System.Single,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Single,System.String,System.String,System.String,System.Single,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Single,System.Boolean,System.String)">
+        <member name="M:FastReport.Export.XAML.XAMLDocument.AddTextObject(System.Single,System.Single,System.Single,System.Single,System.String,System.String,System.String,System.Single,System.Single,System.Single,System.Single,System.Single,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Single,System.String,System.String,System.String,System.Single,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Boolean,System.String,System.Single)">
             <summary>
             Method for add TextObject with angle
              </summary>
         </member>
-        <member name="M:FastReport.Export.XAML.XAMLDocument.AddLine(System.Single,System.Single,System.Single,System.Single,System.String,System.Single,System.String)">
+        <member name="M:FastReport.Export.XAML.XAMLDocument.AddLine(System.Single,System.Single,System.Single,System.Single,System.String,System.Single)">
             <summary>
-            Method for add line.
+            Add line.
              </summary>
         </member>
-        <member name="M:FastReport.Export.XAML.XAMLDocument.AddLine(System.Single,System.Single,System.Single,System.Single,System.String,System.Single,System.String,FastReport.Export.XAML.Dashes)">
+        <member name="M:FastReport.Export.XAML.XAMLDocument.AddLine(System.Single,System.Single,System.Single,System.Single,System.String,System.Single,FastReport.Export.XAML.Dashes)">
             <summary>
-            Method for add line with dash.
+            Add line with dash.
              </summary>
         </member>
         <member name="M:FastReport.Export.XAML.XAMLDocument.AddRectangle(System.Single,System.Single,System.Single,System.Single,System.String,System.Single,System.String,System.Boolean)">
             <summary>
-            Method to add rectangle.
+            Add rectangle.
             </summary>
         </member>
         <member name="M:FastReport.Export.XAML.XAMLDocument.AddEllipse(System.Single,System.Single,System.Single,System.Single,System.String,System.Single,System.String)">
             <summary>
-            Method for add ellips.
+            Add ellips.
             </summary>
         </member>
         <member name="M:FastReport.Export.XAML.XAMLDocument.AddTriangle(System.Single,System.Single,System.Single,System.Single,System.String,System.Single,System.String)">
             <summary>
-            Method for add triangle.
+            Add triangle.
             </summary>
         </member>
         <member name="M:FastReport.Export.XAML.XAMLDocument.AddDiamond(System.Single,System.Single,System.Single,System.Single,System.String,System.Single,System.String)">
             <summary>
-            Method for add Diamond.
+            Add Diamond.
             </summary>
         </member>
-        <member name="M:FastReport.Export.XAML.XAMLDocument.AddImage(System.String,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:FastReport.Export.XAML.XAMLDocument.AddImage(System.String,System.String,System.String,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Add image
             </summary>
             <param name="filename"></param>
+            <param name="format"></param>
+            <param name="name"></param>
             <param name="left"></param>
             <param name="top"></param>
             <param name="width"></param>
             <param name="height"></param>
+        </member>
+        <member name="M:FastReport.Export.XAML.XAMLDocument.AddImage(System.String,System.String,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Add image without name
+            </summary>
+            <param name="filename"></param>
+            <param name="format"></param>
+            <param name="left"></param>
+            <param name="top"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:FastReport.Export.XAML.XAMLDocument.AddPage(System.Int32)">
+            <summary>
+            Add page to StackPanel
+            </summary>
+            <param name="PageNum"></param>
         </member>
         <member name="M:FastReport.Export.XAML.XAMLDocument.Save(System.String)">
             <summary>
@@ -20162,12 +21338,6 @@
             Save xaml stream.
             </summary>
         </member>
-        <member name="M:FastReport.Export.XAML.XAMLDocument.AddPage(System.Int32)">
-            <summary>
-            Add page to StackPanel
-            </summary>
-            <param name="PageNum"></param>
-        </member>
         <member name="M:FastReport.Export.XAML.XAMLDocument.#ctor(System.String,System.Int32,System.String,System.Single,System.Single,System.Boolean)">
             <param name="name"></param>
             <param name="Width"></param>
@@ -20175,11 +21345,6 @@
             <param name="PagesCount"></param>
             <param name="Fill"></param>
             <param name="isScrolled"></param>
-        </member>
-        <member name="M:FastReport.Export.XAML.XAMLDocument.#ctor">
-            <summary>
-            
-            </summary>
         </member>
         <member name="T:FastReport.Export.Dbf.DBFExport">
             <summary>
@@ -20194,7 +21359,13 @@
         <member name="M:FastReport.Export.Dbf.DBFExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Dbf.DBFExport.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.Dbf.DBFExport.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Dbf.DBFExport.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Dbf.DBFExport.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.Dbf.DBFExport.Finish">
@@ -20283,7 +21454,13 @@
         <member name="M:FastReport.Export.OoXML.XPSExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.OoXML.XPSExport.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.OoXML.XPSExport.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.OoXML.XPSExport.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.OoXML.XPSExport.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.OoXML.XPSExport.Finish">
@@ -20372,6 +21549,93 @@
         <member name="P:FastReport.Design.StandardDesigner.DesignerControl.ShowStatusBar">
             <summary>
             Gets or sets a value indicating whether the status bar should be displayed or not.
+            </summary>
+        </member>
+        <member name="T:FastReport.Data.CsvDataConnection">
+            <summary>
+            Represents a connection to csv file-based database.
+            </summary>
+            <example>This example shows how to add a new connection to the report.
+            <code>
+            Report report1;
+            CsvDataConnection conn = new CsvDataConnection();
+            conn.CsvFile = @"c:\data.csv";
+            report1.Dictionary.Connections.Add(conn);
+            conn.CreateAllTables();
+            </code>
+            </example>
+        </member>
+        <member name="F:FastReport.Data.CsvDataConnection.DEFAULT_FIELD_NAME">
+            <summary>
+            The default field name.
+            </summary>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Data.CsvDataConnection"/> class.
+            </summary>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.CreateDataSet">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.SetConnectionString(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.FillTableSchema(System.Data.DataTable,System.String,FastReport.Data.CommandParameterCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.FillTableData(System.Data.DataTable,System.String,FastReport.Data.CommandParameterCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.CreateTable(FastReport.Data.TableDataSource)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.DeleteTable(FastReport.Data.TableDataSource)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.QuoteIdentifier(System.String,System.Data.Common.DbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.GetEditor">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.GetConnectionId">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.GetTableNames">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Data.CsvDataConnection.TestConnection">
+            <inheritdoc/>
+        </member>
+        <member name="P:FastReport.Data.CsvDataConnection.CsvFile">
+            <summary>
+            Gets or sets the path to .csv file.
+            </summary>
+        </member>
+        <member name="P:FastReport.Data.CsvDataConnection.Codepage">
+            <summary>
+            Gets or sets the codepage of the .csv file.
+            </summary>
+        </member>
+        <member name="P:FastReport.Data.CsvDataConnection.Separator">
+            <summary>
+            Gets or sets the separator of the .csv file.
+            </summary>
+        </member>
+        <member name="P:FastReport.Data.CsvDataConnection.FieldNamesInFirstString">
+            <summary>
+            Gets or sets the value indicating that field names should be loaded from the first string of the file.
+            </summary>
+        </member>
+        <member name="P:FastReport.Data.CsvDataConnection.RemoveQuotationMarks">
+            <summary>
+            Gets or sets the value indicating that quotation marks should be removed.
+            </summary>
+        </member>
+        <member name="P:FastReport.Data.CsvDataConnection.ConvertFieldTypes">
+            <summary>
+            Gets or sets the value indicating that field types fhould be converted.
             </summary>
         </member>
         <member name="T:FastReport.Cloud.OAuth.Auth">
@@ -21380,6 +22644,175 @@
             This property is not relevant to this class.
             </summary>
         </member>
+        <member name="T:FastReport.Utils.FastString">
+            <summary>
+            Fast alternative of StringBuilder.
+            </summary>
+        </member>
+        <member name="M:FastReport.Utils.FastString.Init(System.Int32)">
+            <summary>
+            Initialize the new array for chars.
+            </summary>
+            <param name="iniCapacity">Length of initial array.</param>
+        </member>
+        <member name="M:FastReport.Utils.FastString.IsEmpty">
+            <summary>
+            Checks the empty array.
+            </summary>
+            <returns>True if string is empty.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.ToString">
+            <summary>
+            Converts the array in string.
+            </summary>
+            <returns>String value.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.Clear">
+            <summary>
+            Clears the string.
+            </summary>
+            <returns>FastString object.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.Append(System.String)">
+            <summary>
+            Appends the string by string value.
+            </summary>
+            <param name="value">String value.</param>
+            <returns>FastString object.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.AppendLine(System.String)">
+            <summary>
+            Appends the string by string value.
+            </summary>
+            <param name="value">String value.</param>
+            <returns>FastString object.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.AppendFormat(System.String,System.Object[])">
+            <summary>
+            Append formatted string.
+            </summary>
+            <param name="format"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.AppendLine">
+            <summary>
+            Appends new line.
+            </summary>
+            <returns>FastString object.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.Append(System.Char)">
+            <summary>
+            Appends the string by char value.
+            </summary>
+            <param name="value">Char value.</param>
+            <returns>FastString object.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.Append(FastReport.Utils.FastString)">
+            <summary>
+            Appends the another FastString object.
+            </summary>
+            <param name="fastString">FastString object.</param>
+            <returns>FastString object.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.Append(System.Object)">
+            <summary>
+            Appends the string by object data.
+            </summary>
+            <param name="value">Object value.</param>
+            <returns>FastString object.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.CopyTo(System.Int32,System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Copies the substring in char array.
+            </summary>
+            <param name="sourceIndex">Start index in source.</param>
+            <param name="destination">Destination array.</param>
+            <param name="destinationIndex">Destination index.</param>
+            <param name="count">Count of chars</param>
+        </member>
+        <member name="M:FastReport.Utils.FastString.Remove(System.Int32,System.Int32)">
+            <summary>
+            Removes substring.
+            </summary>
+            <param name="startIndex">Start index of removed string.</param>
+            <param name="length">Length of removed string.</param>
+            <returns>FastString object.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.Insert(System.Int32,System.String)">
+            <summary>
+            Inserts string.
+            </summary>
+            <param name="startIndex">Start index in existing string.</param>
+            <param name="value">Value of inserting string.</param>
+            <returns>FastString object.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.Replace(System.String,System.String)">
+            <summary>
+            Replacing the substring on other.
+            </summary>
+            <param name="oldValue">Old string value.</param>
+            <param name="newValue">New string value.</param>
+            <returns>FastString object.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.IndexOf(System.String,System.Int32)">
+            <summary>
+            Index of substring.
+            </summary>
+            <param name="value">Substring for search.</param>
+            <param name="startIndex">Sarting position for search.</param>
+            <returns>Position of substring.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.SubstringCompare(System.Int32,System.String)">
+            <summary>
+            Compare of substring in position.
+            </summary>
+            <param name="startIndex">Starting index for comparsion.</param>
+            <param name="value">Value for compare.</param>
+            <returns>True if substring is identical in position.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.Substring(System.Int32,System.Int32)">
+            <summary>
+            Returns the substring.
+            </summary>
+            <param name="startIndex">Starting index.</param>
+            <param name="length">Length of substring.</param>
+            <returns>Substring.</returns>
+        </member>
+        <member name="M:FastReport.Utils.FastString.#ctor(System.Int32)">
+            <summary>
+            Creates the new FastString object with initial capacity.
+            </summary>
+            <param name="iniCapacity">Initial capacity.</param>
+        </member>
+        <member name="M:FastReport.Utils.FastString.#ctor">
+            <summary>
+            Creates the new FastString object with default capacity.
+            </summary>
+        </member>
+        <member name="M:FastReport.Utils.FastString.#ctor(System.String)">
+            <summary>
+            Creates the new FastString object from initial string.
+            </summary>
+            <param name="initValue"></param>
+        </member>
+        <member name="P:FastReport.Utils.FastString.Length">
+            <summary>
+            Gets the Length of string.
+            </summary>
+        </member>
+        <member name="P:FastReport.Utils.FastString.Item(System.Int32)">
+            <summary>
+            Gets or sets the chars of string.
+            </summary>
+            <param name="index"></param>
+            <returns>Char value</returns>
+        </member>
+        <member name="P:FastReport.Utils.FastString.StringBuilder">
+            <summary>
+            Gets StringBuilder
+            </summary>
+        </member>
         <member name="T:FastReport.Matrix.MatrixAggregateFunction">
             <summary>
             Specifies the aggregate function used in the <see cref="T:FastReport.Matrix.MatrixObject"/>.
@@ -22032,6 +23465,20 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FastReport.Forms.JsonExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Json.JsonExport"/>.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.JsonExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.JsonExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.JsonExportForm"/> class.
             </summary>
         </member>
         <member name="F:FastReport.Forms.JsonExportForm.components">
@@ -22871,7 +24318,13 @@
         <member name="M:FastReport.Export.RichText.RTFExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.RichText.RTFExport.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.RichText.RTFExport.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.RichText.RTFExport.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.RichText.RTFExport.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.RichText.RTFExport.Finish">
@@ -22943,6 +24396,12 @@
             The document will be more editable, but less wysiwyg.
             </remarks>
         </member>
+        <member name="T:FastReport.Forms.HTMLExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Html.HTMLExport"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.HTMLExportForm.components">
             <summary>
             Required designer variable.
@@ -22958,6 +24417,20 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.HTMLExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.HTMLExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.HTMLExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.HTMLExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.HTMLExportForm"/> class.
             </summary>
         </member>
         <member name="T:FastReport.Export.Html.CustomDrawEventArgs">
@@ -23105,6 +24578,40 @@
         <member name="M:FastReport.AssemblyInitializer.#ctor">
             <summary>
             Registers all standard objects, wizards, export filters.
+            </summary>
+        </member>
+        <member name="T:FastReport.Messaging.Xmpp.StreamParser">
+            <summary>
+            The parser for XMPP XML-streams.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.StreamParser.#ctor(System.IO.Stream,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.StreamParser"/> class.
+            </summary>
+            <param name="stream">The stream for parsing.</param>
+            <param name="leaveOpen">True to leave the stream opened after closing the StreamReader instance.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.StreamParser.ReadRootElement">
+            <summary>
+            Read the XML stream up to opening "stream:stream" tag.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.StreamParser.ReadNextElement(System.Collections.Generic.List{System.String})">
+            <summary>
+            Reads the next XML element from the stream.
+            </summary>
+            <param name="expected">The list of XML elements that are expected.</param>
+            <returns>The XML element.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.StreamParser.Close">
+            <summary>
+            Closes the stream parser.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.StreamParser.Dispose">
+            <summary>
+            Releases all resources used by the current instance of the <see cref="T:FastReport.Messaging.Xmpp.StreamParser"/> class.
             </summary>
         </member>
         <member name="F:FastReport.Map.Forms.MapEditorControl.components">
@@ -23285,6 +24792,12 @@
             Gets or sets a value that specifies show caption or not.
             </summary>
         </member>
+        <member name="T:FastReport.Forms.PPMLExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Ppml.PPMLExport"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.PPMLExportForm.components">
             <summary>
             Required designer variable.
@@ -23300,6 +24813,20 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.PPMLExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PPMLExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PPMLExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.PPMLExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.PPMLExportForm"/> class.
             </summary>
         </member>
         <member name="T:FastReport.Export.OoXML.XPS_Font">
@@ -23353,19 +24880,19 @@
             object to the other intrinsic types when possible.
             </summary>
             <remarks>
-            <para>The Variant class is an intrinsic object container structure 
+            <para>The Variant class is an intrinsic object container structure
             inspired by Visual Basic 6.0's Variant. The key features
-            of a Variant class include the ability to perform typecasts and 
+            of a Variant class include the ability to perform typecasts and
             arithmetic between types that are not normally considered compatible.
-            For example, if a Variant class contains a string describing a 
-            number, such as "1.1", then floating point arithmetic can be 
+            For example, if a Variant class contains a string describing a
+            number, such as "1.1", then floating point arithmetic can be
             performed on it.</para>
             <para>Variants are normally considered dangerous because they
             strip away the effectiveness of type safety, which is the
-            reason why the Visual Basic 6.0 Variant was left out of 
-            Visual Basic .NET. However, this implementation restores the 
-            Variant structure, both as a proof of concept and as a 
-            restoration of the utility and positive merits of the Variant 
+            reason why the Visual Basic 6.0 Variant was left out of
+            Visual Basic .NET. However, this implementation restores the
+            Variant structure, both as a proof of concept and as a
+            restoration of the utility and positive merits of the Variant
             where it can be used responsibly.</para>
             </remarks>
         </member>
@@ -23401,15 +24928,15 @@
         <member name="M:FastReport.Variant.ToBoolean">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Boolean"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance to 
+            as-is. Otherwise, attempts to convert the value of this instance to
             an equivalent <see cref="T:System.Boolean"/> value.
             </summary>
         </member>
         <member name="M:FastReport.Variant.ToBoolean(System.IFormatProvider)">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Boolean"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance to 
-            an equivalent <see cref="T:System.Boolean"/> value using the specified culture-specific 
+            as-is. Otherwise, attempts to convert the value of this instance to
+            an equivalent <see cref="T:System.Boolean"/> value using the specified culture-specific
             formatting information.
             </summary>
             <param name="formatProvider">The culture-specific formatting information.</param>
@@ -23417,15 +24944,15 @@
         <member name="M:FastReport.Variant.ToByte">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Byte"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance 
+            as-is. Otherwise, attempts to convert the value of this instance
             to an equivalent 8-bit unsigned integer.
             </summary>
         </member>
         <member name="M:FastReport.Variant.ToByte(System.IFormatProvider)">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Byte"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance 
-            to an equivalent 8-bit unsigned integer using the specified 
+            as-is. Otherwise, attempts to convert the value of this instance
+            to an equivalent 8-bit unsigned integer using the specified
             culture-specific formatting information.
             </summary>
             <param name="formatProvider">The culture-specific formatting information.</param>
@@ -23433,15 +24960,15 @@
         <member name="M:FastReport.Variant.ToInt16">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Int16"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance 
+            as-is. Otherwise, attempts to convert the value of this instance
             to an equivalent 16-bit signed integer.
             </summary>
         </member>
         <member name="M:FastReport.Variant.ToInt16(System.IFormatProvider)">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Boolean"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance to 
-            an equivalent 16-bit signed integer using the specified 
+            as-is. Otherwise, attempts to convert the value of this instance to
+            an equivalent 16-bit signed integer using the specified
             culture-specific formatting information.
             </summary>
             <param name="formatProvider">The culture-specific formatting information.</param>
@@ -23449,15 +24976,15 @@
         <member name="M:FastReport.Variant.ToInt32">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Int32"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance 
+            as-is. Otherwise, attempts to convert the value of this instance
             to an equivalent 32-bit signed integer.
             </summary>
         </member>
         <member name="M:FastReport.Variant.ToInt32(System.IFormatProvider)">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Int32"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance 
-            to an equivalent 32-bit signed integer using the specified 
+            as-is. Otherwise, attempts to convert the value of this instance
+            to an equivalent 32-bit signed integer using the specified
             culture-specific formatting information.
             </summary>
             <param name="formatProvider">The culture-specific formatting information.</param>
@@ -23465,15 +24992,15 @@
         <member name="M:FastReport.Variant.ToInt64">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Int64"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance 
+            as-is. Otherwise, attempts to convert the value of this instance
             to an equivalent 64-bit signed integer.
             </summary>
         </member>
         <member name="M:FastReport.Variant.ToInt64(System.IFormatProvider)">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Int64"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance 
-            to an equivalent 64-bit signed integer using the specified 
+            as-is. Otherwise, attempts to convert the value of this instance
+            to an equivalent 64-bit signed integer using the specified
             culture-specific formatting information.
             </summary>
             <param name="formatProvider">The culture-specific formatting information.</param>
@@ -23481,15 +25008,15 @@
         <member name="M:FastReport.Variant.ToDouble">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Double"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance 
+            as-is. Otherwise, attempts to convert the value of this instance
             to an equivalent double-precision floating-point number.
             </summary>
         </member>
         <member name="M:FastReport.Variant.ToDouble(System.IFormatProvider)">
             <summary>
             If <see cref="P:FastReport.Variant.Value"/> is a <see cref="T:System.Double"/>, returns
-            as-is. Otherwise, attempts to convert the value of this instance 
-            to an equivalent double-precision floating-point number using the 
+            as-is. Otherwise, attempts to convert the value of this instance
+            to an equivalent double-precision floating-point number using the
             specified culture-specific formatting information.
             </summary>
             <param name="formatProvider">The culture-specific formatting information.</param>
@@ -23650,15 +25177,15 @@
             is a <see cref="T:System.DateTime"/>, arithmetic
             is performed on the <see cref="P:System.DateTime.Ticks"/> property and the
             resulting value is set to the DateTime type.
-            Otherwise, if the value on the right is a number, both 
-            the Variant and the value on the right are 
-            converted to a <see cref="T:System.Double"/>, the arithmetic 
-            is performed, and the resulting value is converted back to the 
+            Otherwise, if the value on the right is a number, both
+            the Variant and the value on the right are
+            converted to a <see cref="T:System.Double"/>, the arithmetic
+            is performed, and the resulting value is converted back to the
             original type that the Variant previously represented.
-            If the type that the Variant previously represented 
+            If the type that the Variant previously represented
             cannot contain the resulting value--such as if the type is a
             <see cref="T:System.UInt32"/> and the value is <c>-12</c>--then the
-            type will be converted to a type that can contain 
+            type will be converted to a type that can contain
             the value, such as <see cref="T:System.Int32"/>.
             </remarks>
             <param name="subjectVariant"></param>
@@ -23675,14 +25202,14 @@
             is performed on the <see cref="P:System.DateTime.Ticks"/> property and the
             resulting value is set to the DateTime type.
             Otherwise, if the value on the right is a number, both
-            the Variant and the value on the right are 
-            converted to a <see cref="T:System.Double"/>, the arithmetic 
-            is performed, and the resulting value is converted back to the 
+            the Variant and the value on the right are
+            converted to a <see cref="T:System.Double"/>, the arithmetic
+            is performed, and the resulting value is converted back to the
             original type that the Variant previously represented.
-            If the type that the Variant previously represented 
+            If the type that the Variant previously represented
             cannot contain the resulting value--such as if the type is a
             <see cref="T:System.UInt32"/> and the value is <c>-12</c>--then the
-            type will be converted to a type that can contain 
+            type will be converted to a type that can contain
             the value, such as <see cref="T:System.Int32"/>.
             </remarks>
             <param name="subjectVariant"></param>
@@ -23723,15 +25250,15 @@
             is a <see cref="T:System.DateTime"/>, arithmetic
             is performed on the <see cref="P:System.DateTime.Ticks"/> property and the
             resulting value is set to the DateTime type.
-            Otherwise, if the value on the right is a number, both 
-            the Variant and the value on the right are 
-            converted to a <see cref="T:System.Double"/>, the arithmetic 
-            is performed, and the resulting value is converted back to the 
+            Otherwise, if the value on the right is a number, both
+            the Variant and the value on the right are
+            converted to a <see cref="T:System.Double"/>, the arithmetic
+            is performed, and the resulting value is converted back to the
             original type that the Variant previously represented.
-            If the type that the Variant previously represented 
+            If the type that the Variant previously represented
             cannot contain the resulting value--such as if the type is a
             <see cref="T:System.UInt32"/> and the value is <c>-12</c>--then the
-            type will be converted to a type that can contain 
+            type will be converted to a type that can contain
             the value, such as <see cref="T:System.Int32"/>.
             </remarks>
             <param name="subjectVariant"></param>
@@ -23747,15 +25274,15 @@
             is a <see cref="T:System.DateTime"/>, arithmetic
             is performed on the <see cref="P:System.DateTime.Ticks"/> property and the
             resulting value is set to the DateTime type.
-            Otherwise, if the value on the right is a number, both 
-            the Variant and the value on the right are 
-            converted to a <see cref="T:System.Double"/>, the arithmetic 
-            is performed, and the resulting value is converted back to the 
+            Otherwise, if the value on the right is a number, both
+            the Variant and the value on the right are
+            converted to a <see cref="T:System.Double"/>, the arithmetic
+            is performed, and the resulting value is converted back to the
             original type that the Variant previously represented.
-            If the type that the Variant previously represented 
+            If the type that the Variant previously represented
             cannot contain the resulting value--such as if the type is a
             <see cref="T:System.UInt32"/> and the value is <c>-12</c>--then the
-            type will be converted to a type that can contain 
+            type will be converted to a type that can contain
             the value, such as <see cref="T:System.Int32"/>.
             </remarks>
             <param name="subjectVariant"></param>
@@ -23771,15 +25298,15 @@
             is a <see cref="T:System.DateTime"/>, arithmetic
             is performed on the <see cref="P:System.DateTime.Ticks"/> property and the
             resulting value is set to the DateTime type.
-            Otherwise, if the value on the right is a number, both 
-            the Variant and the value on the right are 
-            converted to a <see cref="T:System.Double"/>, the arithmetic 
-            is performed, and the resulting value is converted back to the 
+            Otherwise, if the value on the right is a number, both
+            the Variant and the value on the right are
+            converted to a <see cref="T:System.Double"/>, the arithmetic
+            is performed, and the resulting value is converted back to the
             original type that the Variant previously represented.
-            If the type that the Variant previously represented 
+            If the type that the Variant previously represented
             cannot contain the resulting value--such as if the type is a
             <see cref="T:System.UInt32"/> and the value is <c>-12</c>--then the
-            type will be converted to a type that can contain 
+            type will be converted to a type that can contain
             the value, such as <see cref="T:System.Int32"/>.
             </remarks>
             <param name="subjectVariant"></param>
@@ -23795,15 +25322,15 @@
             is a <see cref="T:System.DateTime"/>, arithmetic
             is performed on the <see cref="P:System.DateTime.Ticks"/> property and the
             resulting value is set to the DateTime type.
-            Otherwise, if the value on the right is a number, both 
-            the Variant and the value on the right are 
-            converted to a <see cref="T:System.Double"/>, the arithmetic 
-            is performed, and the resulting value is converted back to the 
+            Otherwise, if the value on the right is a number, both
+            the Variant and the value on the right are
+            converted to a <see cref="T:System.Double"/>, the arithmetic
+            is performed, and the resulting value is converted back to the
             original type that the Variant previously represented.
-            If the type that the Variant previously represented 
+            If the type that the Variant previously represented
             cannot contain the resulting value--such as if the type is a
             <see cref="T:System.UInt32"/> and the value is <c>-12</c>--then the
-            type will be converted to a type that can contain 
+            type will be converted to a type that can contain
             the value, such as <see cref="T:System.Int32"/>.
             </remarks>
             <param name="subjectVariant"></param>
@@ -23819,15 +25346,15 @@
             is a <see cref="T:System.DateTime"/>, arithmetic
             is performed on the <see cref="P:System.DateTime.Ticks"/> property and the
             resulting value is set to the DateTime type.
-            Otherwise, if the value on the right is a number, both 
-            the Variant and the value on the right are 
-            converted to a <see cref="T:System.Double"/>, the arithmetic 
-            is performed, and the resulting value is converted back to the 
+            Otherwise, if the value on the right is a number, both
+            the Variant and the value on the right are
+            converted to a <see cref="T:System.Double"/>, the arithmetic
+            is performed, and the resulting value is converted back to the
             original type that the Variant previously represented.
-            If the type that the Variant previously represented 
+            If the type that the Variant previously represented
             cannot contain the resulting value--such as if the type is a
             <see cref="T:System.UInt32"/> and the value is <c>-12</c>--then the
-            type will be converted to a type that can contain 
+            type will be converted to a type that can contain
             the value, such as <see cref="T:System.Int32"/>.
             </remarks>
             <param name="subjectVariant"></param>
@@ -23847,9 +25374,9 @@
         <member name="M:FastReport.Variant.op_Equality(FastReport.Variant,System.Object)">
             <summary>
             <para>Equality operator.</para>
-            <para>First attempts to compare the left value after 
-            temporarily converting it to the type of the right value. 
-            If the conversion cannot occur, such as if the value is not an 
+            <para>First attempts to compare the left value after
+            temporarily converting it to the type of the right value.
+            If the conversion cannot occur, such as if the value is not an
             intrinsic value type, the comparison occurs at the <see cref="T:System.Object"/>
             level using <b>Object.Equals</b>.</para>
             </summary>
@@ -23882,7 +25409,7 @@
         </member>
         <member name="M:FastReport.Variant.ToString(System.IFormatProvider)">
             <summary>
-            Converts the value of this instance to an equivalent <see cref="P:FastReport.Variant.String"/> 
+            Converts the value of this instance to an equivalent <see cref="P:FastReport.Variant.String"/>
             using the specified culture-specific formatting information.
             </summary>
             <param name="formatProvider"></param>
@@ -23903,12 +25430,12 @@
         </member>
         <member name="M:FastReport.Variant.CBln(System.Object)">
             <summary>
-            Converts an object to a boolean. 
+            Converts an object to a boolean.
             For any type, if null, returns false.
             For Boolean: true/false.
-            For String: "", "false", "0", etc. == false; 
-              "1", "true", etc. == true, else true. 
-            For numeric intrinsics: 0 == false, else true. 
+            For String: "", "false", "0", etc. == false;
+              "1", "true", etc. == true, else true.
+            For numeric intrinsics: 0 == false, else true.
             For any other non-null object, returns true.
             </summary>
             <param name="bln">The string to be converted</param>
@@ -24012,8 +25539,8 @@
         </member>
         <member name="P:FastReport.Variant.Value">
             <summary>
-            The actual value being stored in its original <see cref="T:System.Type"/>, 
-            returned as an <see cref="T:System.Object"/>. 
+            The actual value being stored in its original <see cref="T:System.Type"/>,
+            returned as an <see cref="T:System.Object"/>.
             </summary>
         </member>
         <member name="P:FastReport.Variant.Type">
@@ -24033,14 +25560,14 @@
         </member>
         <member name="P:FastReport.Variant.IsNumeric">
             <summary>
-            Returns true if the <see cref="P:FastReport.Variant.Value"/> property 
+            Returns true if the <see cref="P:FastReport.Variant.Value"/> property
             is a numeric intrinsic value.
             </summary>
         </member>
         <member name="P:FastReport.Variant.IsNumberable">
             <summary>
-            Returns true if the <see cref="P:FastReport.Variant.Value"/> property 
-            is a numeric intrinsic value or else can be parsed into 
+            Returns true if the <see cref="P:FastReport.Variant.Value"/> property
+            is a numeric intrinsic value or else can be parsed into
             a numeric intrinsic value.
             </summary>
         </member>
@@ -25224,6 +26751,12 @@
             <param name="index">The index of prepared page to replace.</param>
             <param name="newPage">The new page to replace with.</param>
         </member>
+        <member name="M:FastReport.Preview.PreparedPages.ModifyPageSize(System.String)">
+            <summary>
+            Modify the prepared page with new sizes.
+            </summary>
+            <param name="name">The name of prepared page to reSize.</param>
+        </member>
         <member name="M:FastReport.Preview.PreparedPages.RemovePage(System.Int32)">
             <summary>
             Removes a page with the specified index.
@@ -25258,6 +26791,12 @@
             <summary>
             Clears the prepared report's pages.
             </summary>
+        </member>
+        <member name="M:FastReport.Preview.PreparedPages.#ctor(FastReport.Report)">
+            <summary>
+            Creates the pages of a prepared report
+            </summary>
+            <param name="report"></param>
         </member>
         <member name="P:FastReport.Preview.PreparedPages.Count">
             <summary>
@@ -25488,6 +27027,12 @@
         <member name="T:FastReport.Utils.NotValidIdentifierException">
             <summary>
             The exception that is thrown if an error occurs in the <b>MatrixObject.ManualBuild</b> event.
+            </summary>
+        </member>
+        <member name="T:FastReport.Utils.CloudStorageException">
+            <summary>
+            <see cref="T:FastReport.Cloud.StorageClient.CloudStorageClient"/> throws this exception if an error occurs in the <b>SaveReport</b> method.
+            See inner exception for detailed information.
             </summary>
         </member>
         <member name="T:FastReport.TypeEditors.FlagsEditor">
@@ -25824,7 +27369,13 @@
         <member name="M:FastReport.Export.Image.ImageExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Image.ImageExport.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.Image.ImageExport.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Image.ImageExport.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Image.ImageExport.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.Image.ImageExport.Finish">
@@ -25939,7 +27490,13 @@
         <member name="M:FastReport.Export.Xml.XMLExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Xml.XMLExport.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.Xml.XMLExport.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Xml.XMLExport.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Xml.XMLExport.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.Xml.XMLExport.Finish">
@@ -25979,6 +27536,119 @@
         <member name="P:FastReport.Export.Xml.XMLExport.DataOnly">
             <summary>
             Gets or sets a value that determines whether to export the databand rows only.
+            </summary>
+        </member>
+        <member name="T:FastReport.Messaging.Xmpp.Stanza">
+            <summary>
+            Represents the base class for XML stanzas used in XMPP.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Stanza.#ctor(System.String,System.String,System.String,System.String,System.Globalization.CultureInfo,System.Collections.Generic.List{System.Xml.XmlElement})">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.Stanza"/> class with specified parameters.
+            </summary>
+            <param name="nspace">The namespace of the stanza.</param>
+            <param name="jidFrom">The JID of the sender.</param>
+            <param name="jidTo">The JID of the recipient.</param>
+            <param name="id">The ID of the stanza.</param>
+            <param name="language">The language of the stanza.</param>
+            <param name="data">The data of the stanza.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Stanza.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.Stanza"/> class using specified XmlElement instance.
+            </summary>
+            <param name="data">The XmlElement instance using like a data.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Stanza.ToString">
+            <summary>
+            Converts stanza to string.
+            </summary>
+            <returns>String containing stanza value.</returns>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.Stanza.Data">
+            <summary>
+            Gets the data of the stanza.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.Stanza.JidFrom">
+            <summary>
+            Gets or sets the JID of the sender.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.Stanza.JidTo">
+            <summary>
+            Gets or sets the JID of the recipient.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.Stanza.Id">
+            <summary>
+            Gets or sets the ID of the stanza.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.Stanza.Language">
+            <summary>
+            Gets or sets the language of the stanza.
+            </summary>
+        </member>
+        <member name="T:FastReport.Messaging.ProxySettings">
+            <summary>
+            Represents proxy settings of the messenger.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.ProxySettings.#ctor(System.String,System.Int32,System.String,System.String,FastReport.Messaging.ProxyType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.ProxySettings"/> class.
+            </summary>
+            <param name="server">The proxy server.</param>
+            <param name="port">The port number of server.</param>
+            <param name="username">The username.</param>
+            <param name="password">The user's password.</param>
+            <param name="proxyType">The type of proxy.</param>
+        </member>
+        <member name="P:FastReport.Messaging.ProxySettings.Server">
+            <summary>
+            Gets or sets the proxy server.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.ProxySettings.Port">
+            <summary>
+            Gets or sets the port number of proxy server.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.ProxySettings.Username">
+            <summary>
+            Gets or sets the username.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.ProxySettings.Password">
+            <summary>
+            Gets or sets the user's password.
+            </summary>
+        </member>
+        <member name="P:FastReport.Messaging.ProxySettings.ProxyType">
+            <summary>
+            Gets or sets the type of proxy.
+            </summary>
+        </member>
+        <member name="T:FastReport.Messaging.ProxyType">
+            <summary>
+            Represents the type of rpoxy.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.ProxyType.Http">
+            <summary>
+            The HTTP proxy type.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.ProxyType.Socks4">
+            <summary>
+            The SOCKS4 proxy type.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.ProxyType.Socks5">
+            <summary>
+            The SOCKS5 proxy type.
             </summary>
         </member>
         <member name="F:FastReport.Map.Forms.MapEditorForm.components">
@@ -26123,24 +27793,6 @@
             Represents the XAML export filter.
             </summary>
         </member>
-        <member name="M:FastReport.Export.XAML.XAMLExport.Start">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.XAML.XAMLExport.ExportPage(System.Int32)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.XAML.XAMLExport.Finish">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.XAML.XAMLExport.GetFileFilter">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.XAML.XAMLExport.Serialize(FastReport.Utils.FRWriter)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.XAML.XAMLExport.ShowDialog">
-            <inheritdoc/>
-        </member>
         <member name="M:FastReport.Export.XAML.XAMLExport.AddTextObject(FastReport.Export.XAML.XAMLDocument,FastReport.TextObject,System.Boolean)">
             <summary>
             Add TextObject.
@@ -26161,10 +27813,45 @@
             Add Shape.
             </summary>
         </member>
-        <member name="M:FastReport.Export.XAML.XAMLExport.ToARGB(System.Int32,System.Int32,System.Int32,System.Int32)">
+        <member name="M:FastReport.Export.XAML.XAMLExport.Start">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.XAML.XAMLExport.ExportPageBegin(FastReport.ReportPage)">
             <summary>
-            Convert To ARG.
-             </summary>
+            Begin exporting of page
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.XAML.XAMLExport.ExportBand(FastReport.Base)">
+            <summary>
+            Export of Band
+            </summary>
+            <param name="band"></param>
+        </member>
+        <member name="M:FastReport.Export.XAML.XAMLExport.ExportPageEnd(FastReport.ReportPage)">
+            <summary>
+            End exporting
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.XAML.XAMLExport.Finish">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.XAML.XAMLExport.GetFileFilter">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.XAML.XAMLExport.GetImage(System.String)">
+            <summary>
+            Gem MemoryStream what contain image
+            </summary>
+            <param name="image_name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FastReport.Export.XAML.XAMLExport.Serialize(FastReport.Utils.FRWriter)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.XAML.XAMLExport.ShowDialog">
+            <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.XAML.XAMLExport.#ctor">
             <summary>
@@ -26173,7 +27860,7 @@
         </member>
         <member name="P:FastReport.Export.XAML.XAMLExport.WPFClassName">
             <summary>
-            Gets or sets the class name of XAML documentne
+            Gets or sets the class name of XAML document
             </summary>
         </member>
         <member name="P:FastReport.Export.XAML.XAMLExport.Pictures">
@@ -26191,14 +27878,14 @@
             Gets or sets the image format used when exporting.
             </summary>
         </member>
-        <member name="P:FastReport.Export.XAML.XAMLExport.ToMultipleFiles">
-            <summary>
-            Get or set exports type(to one file or to multiple)
-            </summary>
-        </member>
         <member name="P:FastReport.Export.XAML.XAMLExport.IsScrolled">
             <summary>
             Get or set scrollbar settings
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.XAML.XAMLExport.Images">
+            <summary>
+            Get dictionary of saved images
             </summary>
         </member>
         <member name="T:FastReport.Export.Email.MAPI">
@@ -26225,6 +27912,12 @@
             <param name="error">The error code.</param>
             <returns>The text describing an error.</returns>
         </member>
+        <member name="T:FastReport.Export.Email.EmailExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Email.EmailExport"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="F:FastReport.Export.Email.EmailExportForm.components">
             <summary>
             Required designer variable.
@@ -26240,6 +27933,20 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Export.Email.EmailExportForm.HideAttachmentSettings">
+            <summary>
+            Hides attachment settings.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:FastReport.Export.Email.EmailExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Email.EmailExportForm.#ctor(FastReport.Export.Email.EmailExport)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Export.Email.EmailExportForm"/> class.
             </summary>
         </member>
         <member name="T:FastReport.Data.OdbcDataConnection">
@@ -26361,6 +28068,14 @@
             Gets a value indicating whether this <see cref="T:FastReport.Barcode.Aztec.GenericGFPoly"/> is zero.
             </summary>
             <value>true iff this polynomial is the monomial "0"</value>
+        </member>
+        <member name="T:FastReport.Barcode.BarcodePharmacode">
+            <summary>
+            Generates the Pharmacode barcode.
+            </summary>
+        </member>
+        <member name="P:FastReport.Barcode.BarcodePharmacode.IsNumeric">
+            <inheritdoc/>
         </member>
         <member name="T:FastReport.Utils.ObjectInfo">
             <summary>
@@ -26522,6 +28237,22 @@
             <code>
             // register own cloud storage client
             RegisteredObjects.AddCloud(typeof(MyCloud), "My Cloud");
+            </code>
+            </example>
+        </member>
+        <member name="M:FastReport.Utils.RegisteredObjects.AddMessenger(System.Type,System.String)">
+            <summary>
+            Registers a new messenger.
+            </summary>
+            <param name="obj">Type of messenger.</param>
+            <param name="text">Text messenger's menu item.</param>
+            <remarks>
+            The <b>obj</b> must be of <see cref="T:FastReport.Messaging.MessengerBase"/> type.
+            </remarks>
+            <example>
+            <code>
+            // register own messenger
+            RegisteredObjects.AddMessenger(typeof(MyMessenger), "My Messenger");
             </code>
             </example>
         </member>
@@ -27409,13 +29140,37 @@
         </member>
         <member name="T:FastReport.Barcode.BarcodeEAN128">
             <summary>
-            Generates the GS1-128 (formerly known as UCC-128 or EAN-128) barcode. Currently supports only numeric values.
+            Generates the GS1-128 (formerly known as UCC-128 or EAN-128) barcode.
             </summary>
         </member>
         <member name="M:FastReport.Barcode.BarcodeEAN128.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:FastReport.Barcode.BarcodeEAN128"/> class with default settings.
             </summary>
+        </member>
+        <member name="T:FastReport.Messaging.Authentication.Sasl.PlainMechanism">
+            <summary>
+            The PLAIN SASL authentication mechanism.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.Authentication.Sasl.PlainMechanism.MECHANISM_NAME">
+            <summary>
+            The mechanism name.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Authentication.Sasl.PlainMechanism.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Authentication.Sasl.PlainMechanism"/> class.
+            </summary>
+            <param name="username">The username.</param>
+            <param name="password">The user's password.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Authentication.Sasl.PlainMechanism.ComputeResponse(System.Byte[])">
+            <summary>
+            Computes the client response for server challenge.
+            </summary>
+            <param name="challenge">The challenge from server. Usually empty for PLAIN mechanism.</param>
+            <returns>The response from client.</returns>
         </member>
         <member name="T:FastReport.Map.ShapeCollection">
             <summary>
@@ -27480,13 +29235,19 @@
         <member name="M:FastReport.Export.Text.TextExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Text.TextExport.ExportPage(System.Int32)">
-            <inheritdoc/>
-        </member>
         <member name="M:FastReport.Export.Text.TextExport.Finish">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.Text.TextExport.GetFileFilter">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Text.TextExport.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Text.TextExport.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Text.TextExport.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.Text.TextExport.#ctor">
@@ -27653,6 +29414,12 @@
             Specifies the Double line.
             </summary>
         </member>
+        <member name="T:FastReport.Forms.Word2007ExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.OoXML.Word2007Export"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.Word2007ExportForm.components">
             <summary>
             Required designer variable.
@@ -27668,6 +29435,20 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.Word2007ExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.Word2007ExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.Word2007ExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.Word2007ExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.Word2007ExportForm"/> class.
             </summary>
         </member>
         <member name="T:FastReport.Export.OoXML.OoXMLDrawing">
@@ -27711,7 +29492,13 @@
         <member name="M:FastReport.Export.OoXML.Excel2007Export.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.OoXML.Excel2007Export.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.OoXML.Excel2007Export.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.OoXML.Excel2007Export.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.OoXML.Excel2007Export.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.OoXML.Excel2007Export.Finish">
@@ -28618,6 +30405,11 @@
             Represents sequence of characters that have the same <see cref="P:FastReport.Utils.AdvancedTextRenderer.Run.Style"/>.
             </summary>
         </member>
+        <member name="T:FastReport.Utils.AdvancedTextRenderer.RunImage">
+            <summary>
+            Represents inline Image.
+            </summary>
+        </member>
         <member name="T:FastReport.Utils.StandardTextRenderer">
             <summary>
             Standard text renderer uses standard DrawString method to draw text. It also supports:
@@ -29031,6 +30823,26 @@
             <summary>
             Initializes a new instance of the <see cref="T:FastReport.MSChart.SparklineObject"/> with default settings.
             </summary>
+        </member>
+        <member name="T:FastReport.Messaging.Authentication.Sasl.DigestMd5Mechanism">
+            <summary>
+            The DIGEST-MD5 SASL authentication mechanism.
+            </summary>
+        </member>
+        <member name="F:FastReport.Messaging.Authentication.Sasl.DigestMd5Mechanism.MECHANISM_NAME">
+            <summary>
+            The mechanism name.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Authentication.Sasl.DigestMd5Mechanism.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Authentication.Sasl.DigestMd5Mechanism"/> class.
+            </summary>
+            <param name="username">The username.</param>
+            <param name="password">The user's password.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Authentication.Sasl.DigestMd5Mechanism.ComputeResponse(System.Byte[])">
+            <inheritdoc/>
         </member>
         <member name="F:FastReport.Forms.LoadAutoSaveForm.components">
             <summary>
@@ -30325,6 +32137,16 @@
             Specifies the set of buttons available in the toolbar.
             </summary>
         </member>
+        <member name="P:FastReport.Preview.PreviewControl.Exports">
+            <summary>
+            Specifies the set of exports that will be available in the preview's "save" menu.
+            </summary>
+        </member>
+        <member name="P:FastReport.Preview.PreviewControl.Clouds">
+            <summary>
+            Specifies the set of exports in clouds that will be available in the preview's "save" menu.
+            </summary>
+        </member>
         <member name="P:FastReport.Preview.PreviewControl.FastScrolling">
             <summary>
             Gets or sets a value indicating whether the fast scrolling method should be used.
@@ -30552,9 +32374,6 @@
         <member name="M:FastReport.Export.Mht.MHTExport.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Mht.MHTExport.ExportPage(System.Int32)">
-            <inheritdoc/>
-        </member>
         <member name="M:FastReport.Export.Mht.MHTExport.Finish">
             <inheritdoc/>
         </member>
@@ -30756,7 +32575,13 @@
         <member name="M:FastReport.Export.OoXML.PowerPoint2007Export.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.OoXML.PowerPoint2007Export.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.OoXML.PowerPoint2007Export.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.OoXML.PowerPoint2007Export.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.OoXML.PowerPoint2007Export.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.OoXML.PowerPoint2007Export.Finish">
@@ -32576,6 +34401,34 @@
             Gets or sets the path to .xsd file.
             </summary>
         </member>
+        <member name="T:FastReport.Messaging.Xmpp.Message">
+            <summary>
+            Represents the XMPP message.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Message.#ctor(System.String,System.String,System.String,System.String,System.String,System.Globalization.CultureInfo,System.Collections.Generic.List{System.Xml.XmlElement})">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.Message"/> class with specified parameters.
+            </summary>
+            <param name="nspace">The namespace of the message.</param>
+            <param name="type">The type of message.</param>
+            <param name="jidFrom">The JID of the sender.</param>
+            <param name="jidTo">The JID of the recipient.</param>
+            <param name="id">The ID of the message.</param>
+            <param name="language">The language of the message.</param>
+            <param name="data">The data of the message.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Message.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.Message"/> class using specified XmlElement instance.
+            </summary>
+            <param name="data">The XmlElement instance using like a data.</param>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.Message.Type">
+            <summary>
+            Gets or sets the type of message.
+            </summary>
+        </member>
         <member name="T:FastReport.Map.ShapePolygon">
             <summary>
             Represents a polygon shape.
@@ -32722,24 +34575,6 @@
             Represents the SVG export filter.
             </summary>
         </member>
-        <member name="M:FastReport.Export.Svg.SVGExport.Start">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.Svg.SVGExport.ExportPage(System.Int32)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.Svg.SVGExport.Finish">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.Svg.SVGExport.GetFileFilter">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.Svg.SVGExport.Serialize(FastReport.Utils.FRWriter)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.Svg.SVGExport.ShowDialog">
-            <inheritdoc/>
-        </member>
         <member name="M:FastReport.Export.Svg.SVGExport.AddTextObject(FastReport.Export.Svg.SVGDocument,FastReport.TextObject,System.Boolean)">
             <summary>
             Add TextObject.
@@ -32760,10 +34595,38 @@
             Add Shape.
             </summary>
         </member>
-        <member name="M:FastReport.Export.Svg.SVGExport.ToARGB(System.Int32,System.Int32,System.Int32)">
+        <member name="M:FastReport.Export.Svg.SVGExport.Start">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Svg.SVGExport.ExportPageBegin(FastReport.ReportPage)">
             <summary>
-            Convert To ARG.
-             </summary>
+            Begin exporting of page
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.Svg.SVGExport.ExportBand(FastReport.Base)">
+            <summary>
+            Export of Band
+            </summary>
+            <param name="band"></param>
+        </member>
+        <member name="M:FastReport.Export.Svg.SVGExport.ExportPageEnd(FastReport.ReportPage)">
+            <summary>
+            End exporting
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.Svg.SVGExport.Finish">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Svg.SVGExport.GetFileFilter">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Svg.SVGExport.Serialize(FastReport.Utils.FRWriter)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Svg.SVGExport.ShowDialog">
+            <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.Svg.SVGExport.#ctor">
             <summary>
@@ -32785,17 +34648,17 @@
             Gets or sets the image format used when exporting.
             </summary>
         </member>
-        <member name="T:FastReport.Export.PS.ImageFormat">
+        <member name="T:FastReport.Export.PS.PSImageFormat">
             <summary>
             Specifies the image format in ps export.
             </summary>
         </member>
-        <member name="F:FastReport.Export.PS.ImageFormat.Png">
+        <member name="F:FastReport.Export.PS.PSImageFormat.Png">
             <summary>
             Specifies the .png format.
             </summary>
         </member>
-        <member name="F:FastReport.Export.PS.ImageFormat.Jpeg">
+        <member name="F:FastReport.Export.PS.PSImageFormat.Jpeg">
             <summary>
             Specifies the .jpg format.
             </summary>
@@ -32804,24 +34667,6 @@
             <summary>
             Represents the ps export filter.
             </summary>
-        </member>
-        <member name="M:FastReport.Export.PS.PSExport.Start">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.PS.PSExport.ExportPage(System.Int32)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.PS.PSExport.Finish">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.PS.PSExport.GetFileFilter">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.PS.PSExport.Serialize(FastReport.Utils.FRWriter)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.PS.PSExport.ShowDialog">
-            <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.PS.PSExport.AddTextObject(FastReport.Export.PS.PSDocument,FastReport.TextObject,System.Boolean)">
             <summary>
@@ -32843,10 +34688,38 @@
             Add Shape.
             </summary>
         </member>
-        <member name="M:FastReport.Export.PS.PSExport.ToARGB(System.Int32,System.Int32,System.Int32)">
+        <member name="M:FastReport.Export.PS.PSExport.Start">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.PS.PSExport.ExportPageBegin(FastReport.ReportPage)">
             <summary>
-            Convert To ARG.
-             </summary>
+            Begin exporting of page
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.PS.PSExport.ExportBand(FastReport.Base)">
+            <summary>
+            Export of Band
+            </summary>
+            <param name="band"></param>
+        </member>
+        <member name="M:FastReport.Export.PS.PSExport.ExportPageEnd(FastReport.ReportPage)">
+            <summary>
+            End exporting
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.PS.PSExport.Finish">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.PS.PSExport.GetFileFilter">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.PS.PSExport.Serialize(FastReport.Utils.FRWriter)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.PS.PSExport.ShowDialog">
+            <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.PS.PSExport.#ctor">
             <summary>
@@ -32866,6 +34739,11 @@
         <member name="P:FastReport.Export.PS.PSExport.ImageFormat">
             <summary>
             Gets or sets the image format used when exporting.
+            </summary>
+        </member>
+        <member name="P:FastReport.Export.PS.PSExport.TextInCurves">
+            <summary>
+            Enable or disable export text in curves
             </summary>
         </member>
         <member name="T:FastReport.Export.Ppml.PPMLImageFormat">
@@ -32888,24 +34766,6 @@
             Represents the PPML export filter.
             </summary>
         </member>
-        <member name="M:FastReport.Export.Ppml.PPMLExport.Start">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.Ppml.PPMLExport.ExportPage(System.Int32)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.Ppml.PPMLExport.Finish">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.Ppml.PPMLExport.GetFileFilter">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.Ppml.PPMLExport.Serialize(FastReport.Utils.FRWriter)">
-            <inheritdoc/>
-        </member>
-        <member name="M:FastReport.Export.Ppml.PPMLExport.ShowDialog">
-            <inheritdoc/>
-        </member>
         <member name="M:FastReport.Export.Ppml.PPMLExport.AddTextObject(FastReport.Export.Ppml.PPMLDocument,FastReport.TextObject,System.Boolean)">
             <summary>
             Add TextObject.
@@ -32926,10 +34786,38 @@
             Add Shape.
             </summary>
         </member>
-        <member name="M:FastReport.Export.Ppml.PPMLExport.ToARGB(System.Int32,System.Int32,System.Int32)">
+        <member name="M:FastReport.Export.Ppml.PPMLExport.Start">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Ppml.PPMLExport.ExportPageBegin(FastReport.ReportPage)">
             <summary>
-            Convert To ARG.
-             </summary>
+            Begin exporting of page
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.Ppml.PPMLExport.ExportBand(FastReport.Base)">
+            <summary>
+            Export of Band
+            </summary>
+            <param name="band"></param>
+        </member>
+        <member name="M:FastReport.Export.Ppml.PPMLExport.ExportPageEnd(FastReport.ReportPage)">
+            <summary>
+            End exporting
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:FastReport.Export.Ppml.PPMLExport.Finish">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Ppml.PPMLExport.GetFileFilter">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Ppml.PPMLExport.Serialize(FastReport.Utils.FRWriter)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Ppml.PPMLExport.ShowDialog">
+            <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.Ppml.PPMLExport.#ctor">
             <summary>
@@ -32951,6 +34839,17 @@
             Gets or sets the image format used when exporting.
             </summary>
         </member>
+        <member name="P:FastReport.Export.Ppml.PPMLExport.TextInCurves">
+            <summary>
+            Enable or disable export text in curves
+            </summary>
+        </member>
+        <member name="T:FastReport.Forms.XpsExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.OoXML.XPSExport"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.XpsExportForm.components">
             <summary>
             Required designer variable.
@@ -32966,6 +34865,20 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.XpsExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.XpsExportForm.Done">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.XpsExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.XpsExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.XpsExportForm"/> class.
             </summary>
         </member>
         <member name="T:FastReport.Export.BinaryTree">
@@ -33421,6 +35334,28 @@
             Gets or sets the size of the pixel.
             </summary>
         </member>
+        <member name="T:FastReport.Utils.XmlProperty">
+            <summary>
+            Represents a xml property.
+            </summary>
+        </member>
+        <member name="F:FastReport.Utils.XmlProperty.Key">
+            <summary>
+            Represents a property key.
+            </summary>
+        </member>
+        <member name="F:FastReport.Utils.XmlProperty.Value">
+            <summary>
+            Represents a property value.
+            </summary>
+        </member>
+        <member name="M:FastReport.Utils.XmlProperty.Create(System.String,System.String)">
+            <summary>
+            Creates new property and assigns value
+            </summary>
+            <param name="key">Property key</param>
+            <param name="value">Property value</param>
+        </member>
         <member name="T:FastReport.Utils.XmlItem">
             <summary>
             Represents a xml node.
@@ -33478,24 +35413,36 @@
             <summary>
             Gets a property with specified name.
             </summary>
-            <param name="index">The property name.</param>
+            <param name="key">The property name.</param>
             <returns>The value of property, if found; empty string otherwise.</returns>
             <remarks>
             This property will return "0" when you request the "Left" property for a node 
             like <c>&lt;Node Text="" Left="0"/&gt;</c>
             </remarks>
         </member>
+        <member name="M:FastReport.Utils.XmlItem.ClearProps">
+            <summary>
+            Removes all properties.
+            </summary>
+        </member>
         <member name="M:FastReport.Utils.XmlItem.SetProp(System.String,System.String)">
             <summary>
             Sets the value for a specified property.
             </summary>
-            <param name="index">The property name.</param>
+            <param name="key">The property name.</param>
             <param name="value">Value to set.</param>
             <remarks>
             For example, you have a node like <c>&lt;Node Text="" Left="0"/&gt;</c>. When you set the
             "Text" property to "test", the node will be <c>&lt;Node Text="test" Left="0"/&gt;</c>.
             If property with specified name is not exist, it will be added.
             </remarks>
+        </member>
+        <member name="M:FastReport.Utils.XmlItem.RemoveProp(System.String)">
+            <summary>
+            Removes a property with specified name.
+            </summary>
+            <param name="key">The property name.</param>
+            <returns>Returns true if property is removed, false otherwise.</returns>
         </member>
         <member name="M:FastReport.Utils.XmlItem.Dispose">
             <summary>
@@ -33532,18 +35479,15 @@
             This property will return "Node" for a node like <c>&lt;Node Text="" Left="0"/&gt;</c>
             </remarks>
         </member>
+        <member name="P:FastReport.Utils.XmlItem.Properties">
+            <summary>
+            Gets or sets a list of properties in this node.
+            </summary>
+        </member>
         <member name="P:FastReport.Utils.XmlItem.Parent">
             <summary>
             Gets or sets the parent for this node.
             </summary>
-        </member>
-        <member name="P:FastReport.Utils.XmlItem.Text">
-            <summary>
-            Gets or sets the node text.
-            </summary>
-            <remarks>
-            This property will return "Text="" Left="0"" for a node like <c>&lt;Node Text="" Left="0"/&gt;</c>
-            </remarks>
         </member>
         <member name="P:FastReport.Utils.XmlItem.Value">
             <summary>
@@ -34429,7 +36373,7 @@
             Represents a barcode object.
             </summary>
             <remarks>
-            The instance of this class represents a barcode. Here are some common 
+            The instance of this class represents a barcode. Here are some common
             actions that can be performed with this object:
             <list type="bullet">
               <item>
@@ -34437,8 +36381,8 @@
                 </description>
               </item>
               <item>
-                <description>To specify a static barcode data, use the <see cref="P:FastReport.Barcode.BarcodeObject.Text"/> property. 
-                  You also may use the <see cref="P:FastReport.Barcode.BarcodeObject.DataColumn"/> or <see cref="P:FastReport.Barcode.BarcodeObject.Expression"/> properties 
+                <description>To specify a static barcode data, use the <see cref="P:FastReport.Barcode.BarcodeObject.Text"/> property.
+                  You also may use the <see cref="P:FastReport.Barcode.BarcodeObject.DataColumn"/> or <see cref="P:FastReport.Barcode.BarcodeObject.Expression"/> properties
                   to specify dynamic value for a barcode.
                 </description>
               </item>
@@ -34448,13 +36392,13 @@
               </item>
               <item>
                 <description>To specify the size of barcode, set the <see cref="P:FastReport.Barcode.BarcodeObject.AutoSize"/> property
-                  to <b>true</b> and use the <see cref="P:FastReport.Barcode.BarcodeObject.Zoom"/> property to zoom the barcode. 
+                  to <b>true</b> and use the <see cref="P:FastReport.Barcode.BarcodeObject.Zoom"/> property to zoom the barcode.
                   If <see cref="P:FastReport.Barcode.BarcodeObject.AutoSize"/> property is set to <b>false</b>, you need to specify the
-                  size using the <see cref="P:FastReport.ComponentBase.Width">Width</see> and 
+                  size using the <see cref="P:FastReport.ComponentBase.Width">Width</see> and
                   <see cref="P:FastReport.ComponentBase.Height">Height</see> properties.
                 </description>
               </item>
-            </list>  
+            </list>
             </remarks>
             <example>This example shows how to configure the BarcodeObject to display PDF417 barcode.
             <code>
@@ -34610,6 +36554,34 @@
         <member name="P:FastReport.Barcode.BarcodeObject.NoDataText">
             <summary>
             Gets or sets the text that will be displayed if the barcode data is empty.
+            </summary>
+        </member>
+        <member name="T:FastReport.Messaging.Xmpp.Iq">
+            <summary>
+            Represents the IQ stanza.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Iq.#ctor(System.String,System.String,System.String,System.String,System.String,System.Globalization.CultureInfo,System.Collections.Generic.List{System.Xml.XmlElement})">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.Iq"/> class with specified parameters.
+            </summary>
+            <param name="nspace">The namespace of the iq.</param>
+            <param name="type">The type of iq.</param>
+            <param name="jidFrom">The JID of the sender.</param>
+            <param name="jidTo">The JID of the recipient.</param>
+            <param name="id">The ID of the iq.</param>
+            <param name="language">The language of the iq.</param>
+            <param name="data">The data of the iq.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Iq.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.Iq"/> class using specified XmlElement instance.
+            </summary>
+            <param name="data">The XmlElement instance using like a data.</param>
+        </member>
+        <member name="P:FastReport.Messaging.Xmpp.Iq.Type">
+            <summary>
+            Gets or sets the type of iq.
             </summary>
         </member>
         <member name="T:FastReport.Map.SizeRanges">
@@ -34966,6 +36938,12 @@
             Gets or sets the Y-coordinate of a point.
             </summary>
         </member>
+        <member name="T:FastReport.Forms.TextExportForm">
+            <summary>
+            Form for <see cref="T:FastReport.Export.Text.TextExport"/>.
+            For internal use only.
+            </summary>
+        </member>
         <member name="F:FastReport.Forms.TextExportForm.components">
             <summary>
             Required designer variable.
@@ -34981,6 +36959,17 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FastReport.Forms.TextExportForm.Init(FastReport.Export.ExportBase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.TextExportForm.Localize">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Forms.TextExportForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Forms.TextExportForm"/> class.
             </summary>
         </member>
         <member name="T:FastReport.Export.Dbf.Record">
@@ -35029,7 +37018,13 @@
         <member name="M:FastReport.Export.OoXML.Word2007Export.Start">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.OoXML.Word2007Export.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.OoXML.Word2007Export.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.OoXML.Word2007Export.ExportBand(FastReport.Base)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.OoXML.Word2007Export.ExportPageEnd(FastReport.ReportPage)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.OoXML.Word2007Export.Finish">
@@ -38126,6 +40121,11 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:FastReport.Properties.Resources._235">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="P:FastReport.Properties.Resources.AddDataSource">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
@@ -38436,11 +40436,24 @@
             Method for add line with dash.
              </summary>
         </member>
-        <member name="M:FastReport.Export.Svg.SVGDocument.AddImage(System.String,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:FastReport.Export.Svg.SVGDocument.AddImage(System.String,System.String,System.String,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Add image
             </summary>
             <param name="filename"></param>
+            <param name="format"></param>
+            <param name="name"></param>
+            <param name="left"></param>
+            <param name="top"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:FastReport.Export.Svg.SVGDocument.AddImage(System.String,System.String,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Add image without name
+            </summary>
+            <param name="filename"></param>
+            <param name="format"></param>
             <param name="left"></param>
             <param name="top"></param>
             <param name="width"></param>
@@ -38472,10 +40485,16 @@
         <member name="M:FastReport.Export.Json.JsonExport.Finish">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Json.JsonExport.ExportPage(System.Int32)">
+        <member name="M:FastReport.Export.Json.JsonExport.GetFileFilter">
             <inheritdoc/>
         </member>
-        <member name="M:FastReport.Export.Json.JsonExport.GetFileFilter">
+        <member name="M:FastReport.Export.Json.JsonExport.ExportPageBegin(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Json.JsonExport.ExportPageEnd(FastReport.ReportPage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:FastReport.Export.Json.JsonExport.ExportBand(FastReport.Base)">
             <inheritdoc/>
         </member>
         <member name="M:FastReport.Export.Json.JsonExport.ShowDialog">
@@ -38965,6 +40984,12 @@
             Call this method if you change the <see cref="P:FastReport.Report.Styles"/> collection.
             </remarks>
         </member>
+        <member name="M:FastReport.Report.SetPreparedPages(FastReport.Preview.PreparedPages)">
+            <summary>
+            Sets prepared pages.
+            </summary>
+            <param name="pages"></param>            
+        </member>
         <member name="M:FastReport.Report.OnStartReport(System.EventArgs)">
             <summary>
             This method fires the <b>StartReport</b> event and the script code connected 
@@ -39242,6 +41267,12 @@
              Refresh prepared report after intercative actions.
             </summary>
         </member>
+        <member name="M:FastReport.Report.PreparePage(FastReport.ReportPage)">
+            <summary>
+            Prepare page
+            </summary>
+            <param name="page"></param>
+        </member>
         <member name="M:FastReport.Report.Show">
             <summary>
             Prepares the report and shows it in the preview window.
@@ -39383,6 +41414,13 @@
             <summary>
             Initializes a new instance of the <see cref="T:FastReport.Report"/> class with default settings.
             </summary>
+        </member>
+        <member name="M:FastReport.Report.PostNameProcess(System.String,System.Int32)">
+            <summary>
+            Create name for all unnamed elements with prefix and start with number
+            </summary>
+            <param name="prefix">Prefix for name</param>
+            <param name="number">Number from which to start</param>
         </member>
         <member name="E:FastReport.Report.CustomCalc">
             <summary>
@@ -40094,6 +42132,75 @@
             Updates HeaderWidth, HeaderHeight, BodyWidth, BodyHeight properties.
             </summary>
         </member>
+        <member name="T:FastReport.Messaging.Xmpp.Xml">
+            <summary>
+            Represents a static class to simplify the work with XmlElement instance.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Xml.CreateElement(System.String,System.String)">
+            <summary>
+            Creates a new XmlElement instance.
+            </summary>
+            <param name="name">The name of the element.</param>
+            <param name="nspace">The namespace of the element.</param>
+            <returns>A new instance of the <see cref="T:System.Xml.XmlElement"/> class.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Xml.AddChild(System.Xml.XmlElement,System.Xml.XmlElement)">
+            <summary>
+            Adds the specified child to the end of child nodes of element.
+            </summary>
+            <param name="element">The element for add the child to.</param>
+            <param name="child">The child node to add.</param>
+            <returns>A XmlElement instance.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Xml.AddAttribute(System.Xml.XmlElement,System.String,System.String)">
+            <summary>
+            Adds the attribute to XmlElement with spefied name and value.
+            </summary>
+            <param name="element">The element for add the attribute to.</param>
+            <param name="name">The name of attribute.</param>
+            <param name="value">The value of attribute.</param>
+            <returns>A XmlElement instance.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Xml.AddText(System.Xml.XmlElement,System.String)">
+            <summary>
+            Adds the specified text to the end of child nodes of element.
+            </summary>
+            <param name="element">The element for add the text to.</param>
+            <param name="text">The text for add.</param>
+            <returns>A XmlElement instance.</returns>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Xml.ToXmlString(System.Xml.XmlElement,System.Boolean,System.Boolean)">
+            <summary>
+            Converts the XmlElement instance to a string.
+            </summary>
+            <param name="element">The element to convert to.</param>
+            <param name="includeDeclaration">True if needed to include XML declaration.</param>
+            <param name="leaveOpen">True if needed to leave the tag of an empty element open.</param>
+            <returns>The XmlElement instance as string.</returns>
+        </member>
+        <member name="T:FastReport.Messaging.Xmpp.Presence">
+            <summary>
+            Represents the XMPP Presence.
+            </summary>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Presence.#ctor(System.String,System.String,System.String,System.String,System.Globalization.CultureInfo,System.Collections.Generic.List{System.Xml.XmlElement})">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.Presence"/> class with specified parameters.
+            </summary>
+            <param name="nspace">The namespace of the presence.</param>
+            <param name="jidFrom">The JID of the sender.</param>
+            <param name="jidTo">The JID of the recipient.</param>
+            <param name="id">The ID of the presence.</param>
+            <param name="language">The language of the presence.</param>
+            <param name="data">The data of the presence.</param>
+        </member>
+        <member name="M:FastReport.Messaging.Xmpp.Presence.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FastReport.Messaging.Xmpp.Presence"/> class using specified XmlElement instance.
+            </summary>
+            <param name="data">The XmlElement instance using like a data.</param>
+        </member>
         <member name="T:FastReport.Export.TTF.ExportTTFFont">
             <summary>
             Specifies the export font class.
@@ -40352,6 +42459,10 @@
             <summary>
             Description of OutlineTextMetric structure
             </summary>
+        </member>
+        <member name="M:FastReport.Export.Pdf.PDFMetaData.#ctor(System.String)">
+            
+            <param name="filename">File name without extentions, for example "MetaDataX"</param>
         </member>
         <member name="T:FastReport.Cloud.StorageClient.Dropbox.DropboxStorageClient">
             <summary>

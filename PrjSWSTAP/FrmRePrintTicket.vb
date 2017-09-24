@@ -119,18 +119,19 @@ Public Class FrmRePrintTicket
 
             If RadioButton1.Checked = True Then
                 ' FFB  
-                SQL = "SELECT * FROM V_TICKET_FINISH WHERE TRIM(NO_TICKET)='" & TextEdit3.Text & "' AND MATERIAL='FFB'"
+                SQL = "SELECT * FROM V_TICKET_FINISH WHERE TRIM(NO_TICKET)='" & Trim(TextEdit3.Text) & "' AND MATERIAL='FFB'"
                 ShowReport("RPTTICKETFFB", SQL, "R_TIKET")
             ElseIf UCase(TextEdit4.Text) = "CPO" Then
                 'TIMBANG SENDIRI NON FFB (CPO DSB) 
-                SQL = "SELECT * FROM V_TICKET_FINISH WHERE TRIM(NO_TICKET)='" & TextEdit3.Text & "'  AND MATERIAL='CPO'"
+                SQL = "SELECT * FROM V_TICKET_FINISH WHERE TRIM(NO_TICKET)='" & Trim(TextEdit3.Text) & "'  AND MATERIAL='CPO'"
                 ShowReport("RPTTICKETCPO", SQL, "R_TIKETCPO")
             Else
                 'SQL = "SELECT * FROM V_TICKET_FINISH WHERE TRIM(NO_TICKET)='" & TextEdit3.Text & "'"
                 'ShowReport("RPTTICKETFNT", SQL, "R_TIKET")
-                SQL = "SELECT * FROM V_TICKET_FINISH WHERE TRIM(NO_TICKET)='" & TextEdit3.Text & "' AND MATERIAL<>'FFB' AND MATERIAL<>'CPO' "
+                SQL = "SELECT * FROM V_TICKET_FINISH WHERE TRIM(NO_TICKET)='" & Trim(TextEdit3.Text) & "' AND MATERIAL<>'FFB' AND MATERIAL<>'CPO' "
                 ShowReport("RPTTICKETFFB", SQL, "R_TIKET")
             End If
         End If
     End Sub
+
 End Class

@@ -5,7 +5,7 @@ Imports System.Threading.Tasks
 Imports System.Text.RegularExpressions ' Namespace untuk manipulasi registry
 Imports System.Text
 
-Imports Devart.Data.Oracle 'Imports Oracle.ManagedDataAccess.Client
+Imports Oracle.ManagedDataAccess.Client 'Imports Devart.Data.Oracle
 
 Imports DevExpress
 Imports DevExpress.XtraSplashScreen

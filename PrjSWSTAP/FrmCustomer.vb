@@ -6,7 +6,7 @@ Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraGrid.Views.BandedGrid
 Imports DevExpress.XtraEditors.Repository
 
-Imports Devart.Data.Oracle 'Imports Oracle.ManagedDataAccess.Client
+Imports Oracle.ManagedDataAccess.Client 'Imports Devart.Data.Oracle
 Public Class FrmCustomer
     Private Sub UnlockAll()
         TextEdit1.Enabled = True

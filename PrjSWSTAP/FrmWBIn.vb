@@ -13,7 +13,7 @@ Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraGrid.Views.BandedGrid
 Imports DevExpress.XtraSplashScreen
 
-Imports Devart.Data.Oracle 'Imports Oracle.ManagedDataAccess.Client
+Imports Oracle.ManagedDataAccess.Client 'Imports Devart.Data.Oracle
 
 Public Class FrmWbIn
     Private Delegate Sub AppendTextBoxDelegate(ByVal TB As String, ByVal txt As String)
@@ -520,9 +520,14 @@ Public Class FrmWbIn
                     FrmShowUp(FrmPopBA)
                 End If
 
+                '//SETUJU BIKIN BA LANJUT JIKA TIDAK KELUAR 
                 If BA_DIALOG = True Then
-                    FrmShowUp(FrmBeritaAcara)
+                    FrmShowUp(FrmBeritaAcara)     'SHOW FORM BA
+                Else
+                    SimpleButton14.PerformClick() 'CANCEL
+                    Exit Sub
                 End If
+                TextEdit6.Text = GetTara(TextEdit4.Text) 'AMBIL TARA TERBARU
 
                 TextEdit6.Text = GetTara(TextEdit4.Text)
             End If
@@ -542,6 +547,8 @@ Public Class FrmWbIn
         ValueLoV = ""
         CODE = FrmShowLOV(FrmLoV, LSQL, "CONTRACT_NO", "CONTRACT_NO")
         TextEdit10.Text = CODE
+        'NO KOTRAK DI PAKAI UNTUK ISI DELIVERY TYPE BERDASRKAN KONTRAK
+        SQL = GetDeliveryContract(TextEdit10.Text)
     End Sub
 
     Private Sub SimpleButton11_Click(sender As Object, e As EventArgs) Handles SimpleButton11.Click
@@ -573,11 +580,15 @@ Public Class FrmWbIn
                     FrmShowUp(FrmPopBA)
                 End If
 
+                '//SETUJU BIKIN BA LANJUT JIKA TIDAK KELUAR 
                 If BA_DIALOG = True Then
-                    FrmShowUp(FrmBeritaAcara)
+                    FrmShowUp(FrmBeritaAcara)     'SHOW FORM BA
+                Else
+                    SimpleButton14.PerformClick() 'CANCEL
+                    Exit Sub
                 End If
+                TextEdit6.Text = GetTara(TextEdit4.Text) 'AMBIL TARA TERBARU
 
-                TextEdit6.Text = GetTara(TextEdit4.Text)
             End If
         End If
     End Sub
@@ -592,5 +603,15 @@ Public Class FrmWbIn
     Private Sub SimpleButton7_Click(sender As Object, e As EventArgs) Handles SimpleButton7.Click
         Close()
         FrmChildShow(FrmWbOut)
+    End Sub
+
+    Private Sub TextEdit7_EditValueChanged(sender As Object, e As EventArgs) Handles TextEdit7.EditValueChanged
+        If TextEdit7.Text = "2" Then
+            LabelControl17.Text = "NUMPANG TIMBANG"
+        ElseIf TextEdit7.Text = "1" Then
+            LabelControl17.Text = "TIMBANG SENDIRI"
+        Else
+            LabelControl17.Text = ""
+        End If
     End Sub
 End Class

@@ -110,10 +110,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\FastReport.dll</HintPath>
     </Reference>
-    <Reference Include="FastReport.Bars, Version=2017.1.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\FastReport.Bars.dll</HintPath>
-    </Reference>
     <Reference Include="FastReport.Editor, Version=2017.1.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\FastReport.Editor.dll</HintPath>

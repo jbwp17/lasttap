@@ -21,8 +21,7 @@ Imports DevExpress.XtraEditors.Repository
 Imports DevExpress.Utils
 
 Imports FastReport
-
-Imports Devart.Data.Oracle 'Imports Oracle.ManagedDataAccess.Client
+Imports Oracle.ManagedDataAccess.Client 'Imports Devart.Data.Oracle
 
 Module ModuleSWS
 
@@ -1348,11 +1347,9 @@ Module ModuleSWS
         Dim Fdss As New DataSet
         Dim Cmd As New OracleCommand
         Dim Da As New OracleDataAdapter
-
         Dim ConnR As OracleConnection = New OracleConnection(ConStringLocal)
         ConnR.ConnectionString = ConStringLocal
         ConnR.Open()
-
         With Cmd
             .Connection = ConnR
             .CommandText = queryString
@@ -1367,8 +1364,8 @@ Module ModuleSWS
         Rpt.Load("..\..\" & nRpt & ".frx")
         'registe parameter
         GetConfig()
-        Rpt.SetParameterValue("P1", nPT)
-        Rpt.SetParameterValue("P2", nAlamat)
+        Rpt.SetParameterValue("P1", Company)
+        Rpt.SetParameterValue("P2", LocationSite)
         Rpt.SetParameterValue("P3", nKota)
         Rpt.SetParameterValue("P4", nTelp)
         Rpt.SetParameterValue("P5", USERNAME)
