@@ -50,6 +50,7 @@ Partial Class FrmWbOut
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
         Me.LabelControl44 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl43 = New DevExpress.XtraEditors.LabelControl()
         Me.TextEdit38 = New DevExpress.XtraEditors.TextEdit()
@@ -132,8 +133,7 @@ Partial Class FrmWbOut
         Me.LabelControl42 = New DevExpress.XtraEditors.LabelControl()
         Me.path1 = New DevExpress.XtraEditors.LabelControl()
         Me.path2 = New DevExpress.XtraEditors.LabelControl()
-        Me.BWC1 = New System.ComponentModel.BackgroundWorker()
-        Me.BWC2 = New System.ComponentModel.BackgroundWorker()
+        Me.SimpleButton8 = New DevExpress.XtraEditors.SimpleButton()
         Me.BunifuGradientPanel2.SuspendLayout()
         Me.Panel9.SuspendLayout()
         CType(Me.PanelControl6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -538,6 +538,8 @@ Partial Class FrmWbOut
         Me.PanelControl2.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(239, Byte), Integer))
         Me.PanelControl2.Appearance.Options.UseBackColor = True
         Me.PanelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl2.Controls.Add(Me.SimpleButton8)
+        Me.PanelControl2.Controls.Add(Me.SimpleButton4)
         Me.PanelControl2.Controls.Add(Me.LabelControl44)
         Me.PanelControl2.Controls.Add(Me.LabelControl43)
         Me.PanelControl2.Controls.Add(Me.TextEdit38)
@@ -568,6 +570,20 @@ Partial Class FrmWbOut
         Me.PanelControl2.Size = New System.Drawing.Size(236, 532)
         Me.PanelControl2.TabIndex = 1
         '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton4.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.SimpleButton4.Appearance.Options.UseFont = True
+        Me.SimpleButton4.Appearance.Options.UseForeColor = True
+        Me.SimpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
+        Me.SimpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.SimpleButton4.Location = New System.Drawing.Point(190, 335)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(39, 20)
+        Me.SimpleButton4.TabIndex = 92
+        '
         'LabelControl44
         '
         Me.LabelControl44.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
@@ -590,6 +606,7 @@ Partial Class FrmWbOut
         '
         'TextEdit38
         '
+        Me.TextEdit38.EditValue = "0"
         Me.TextEdit38.EnterMoveNextControl = True
         Me.TextEdit38.Location = New System.Drawing.Point(96, 225)
         Me.TextEdit38.Name = "TextEdit38"
@@ -732,6 +749,7 @@ Partial Class FrmWbOut
         '
         'TextEdit11
         '
+        Me.TextEdit11.EditValue = "0"
         Me.TextEdit11.EnterMoveNextControl = True
         Me.TextEdit11.Location = New System.Drawing.Point(6, 225)
         Me.TextEdit11.Name = "TextEdit11"
@@ -1560,8 +1578,19 @@ Partial Class FrmWbOut
         Me.path2.TabIndex = 115
         Me.path2.Text = "C2 Status ."
         '
-        'BWC1
+        'SimpleButton8
         '
+        Me.SimpleButton8.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton8.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.SimpleButton8.Appearance.Options.UseFont = True
+        Me.SimpleButton8.Appearance.Options.UseForeColor = True
+        Me.SimpleButton8.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.SimpleButton8.Image = CType(resources.GetObject("SimpleButton8.Image"), System.Drawing.Image)
+        Me.SimpleButton8.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.SimpleButton8.Location = New System.Drawing.Point(190, 293)
+        Me.SimpleButton8.Name = "SimpleButton8"
+        Me.SimpleButton8.Size = New System.Drawing.Size(39, 20)
+        Me.SimpleButton8.TabIndex = 93
         '
         'FrmWbOut
         '
@@ -1766,8 +1795,8 @@ Partial Class FrmWbOut
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents path1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents path2 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents BWC1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents BWC2 As System.ComponentModel.BackgroundWorker
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton8 As DevExpress.XtraEditors.SimpleButton
 End Class

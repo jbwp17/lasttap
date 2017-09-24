@@ -217,32 +217,30 @@ Module ModuleSWS
         Picturebox.Image = img
     End Sub
 
-    Public Function GetCam(ByVal Source As String, ByRef Pb As PictureBox) As Image
-        GetCam = Nothing
+    Public Sub GetCam(ByVal Source As String, ByRef Pb As PictureBox)
+        'GetCam = Nothing
         Try
-            Do Until Not CAMCON1 = True
-                Dim buffer As Byte() = New Byte(99999) {}
-                Dim read As Integer, total As Integer = 0
-                Dim req As HttpWebRequest = DirectCast(WebRequest.Create(Source), HttpWebRequest)
-                req.Method = "POST"
-                req.Timeout = 500
-                'Dim cred As New NetworkCredential("Administrator", "admintdx")
-                'req.Credentials = cred
-                Dim resp As WebResponse = req.GetResponse()
-                ' get response stream
-                Dim stream As Stream = resp.GetResponseStream()
-                ' read data from stream
-                While (InlineAssignHelper(read, stream.Read(buffer, total, 1000))) <> 0
-                    total += read
-                End While
-                Dim bmp As Bitmap = DirectCast(Bitmap.FromStream(New MemoryStream(buffer, 0, total)), Bitmap)
-                Pb.Image = bmp
-                GetCam = Pb.Image
-            Loop
+            Dim buffer As Byte() = New Byte(99999) {}
+            Dim read As Integer, total As Integer = 0
+            Dim req As HttpWebRequest = DirectCast(WebRequest.Create(Source), HttpWebRequest)
+            req.Method = "POST"
+            req.Timeout = 500
+            'Dim cred As New NetworkCredential("Administrator", "admintdx")
+            'req.Credentials = cred
+            Dim resp As WebResponse = req.GetResponse()
+            ' get response stream
+            Dim stream As Stream = resp.GetResponseStream()
+            ' read data from stream
+            While (InlineAssignHelper(read, stream.Read(buffer, total, 1000))) <> 0
+                total += read
+            End While
+            Dim bmp As Bitmap = DirectCast(Bitmap.FromStream(New MemoryStream(buffer, 0, total)), Bitmap)
+            Pb.Image = bmp
+            'GetCam = Pb.Image
         Catch ex As Exception
         End Try
-        Return GetCam
-    End Function
+        'Return GetCam()
+    End Sub
     Public Function InlineAssignHelper(Of T)(ByRef target As T, value As T) As T
         target = value
         Return value
@@ -402,16 +400,16 @@ Module ModuleSWS
         Dim IP As String = GetIPAddr()
         LogOn = False
         'CHECK LOG
-        SQL = "SELECT * FROM TLOGINHISTORY WHERE USERID='" & USERNAME & "' AND USED='Y'"
+        SQL = "SELECT * FROM TLOGINHISTORY WHERE USERID='" & Trim(USERNAME) & "' AND USED='Y'"
         If CheckRecord(SQL) > 0 Then
-            Dim OnPC As String = GetLastOnline(USERNAME)
+            Dim OnPC As String = GetLastOnline(Trim(USERNAME))
             MsgBox("YOU ARE ONLINE ON " & OnPC, vbInformation, "Info Login")
             LogOn = True
             USERNAME = ""
         Else
             'INSERT LOG
             SQL = "INSERT INTO TLOGINHISTORY (LOGINDATE,USERID,IPADDRESS,REMARK,USED) " +
-              "VALUES('" & Time & "','" & USERNAME & "','" & IP & "','SUCCESS','Y')"
+              "VALUES('" & Time & "','" & Trim(USERNAME) & "','" & IP & "','SUCCESS','Y')"
             ExecuteNonQuery(SQL)
             LogOn = False
         End If
@@ -421,10 +419,10 @@ Module ModuleSWS
         Dim Time As String = Now
         Dim IP As String = GetIPAddr()
         'CHECK LOG
-        SQL = "SELECT * FROM TLOGINHISTORY WHERE USERID='" & USERNAME & "' AND USED='Y'"
+        SQL = "SELECT * FROM TLOGINHISTORY WHERE USERID='" & Trim(USERNAME) & "' AND USED='Y'"
         If CheckRecord(SQL) > 0 Then
-            Dim OnPC As String = GetLastOnline(USERNAME)
-            SQL = "UPDATE TLOGINHISTORY SET used='N',LOGOUTDATE='" & Time & "' WHERE used='Y' and userid='" & USERNAME & "' AND IPADDRESS='" & OnPC & "'"
+            Dim OnPC As String = GetLastOnline(Trim(USERNAME))
+            SQL = "UPDATE TLOGINHISTORY SET used='N',LOGOUTDATE='" & Time & "' WHERE used='Y' and userid='" & Trim(USERNAME) & "' AND IPADDRESS='" & OnPC & "'"
             ExecuteNonQuery(SQL)
         End If
     End Sub
@@ -489,7 +487,7 @@ Module ModuleSWS
         If Not OpenConnLocal() Then
             Exit Function
         End If
-        Dim strsql As String = " SELECT * FROM TLOGINHISTORY WHERE ROWNUM <= 1 And used='Y' and userid='" & nUsername & "' order by logindate desc "
+        Dim strsql As String = " SELECT * FROM TLOGINHISTORY WHERE ROWNUM <= 1 And used='Y' and userid='" & Trim(nUsername) & "' order by logindate desc "
         Dim Conn As New OracleConnection(ConStringLocal)
         CMD = New OracleCommand(strsql, Conn)
         Conn.Open()
@@ -584,7 +582,7 @@ Module ModuleSWS
 
         Dim dt As New DataTable
         Dim strsql As String = " SELECT DISTINCT PLATE_NUMBER,TARE,MAX_TARA,MIN_TARA FROM V_TOLERANCE_VEHICLE  " +
-                               " WHERE trim(PLATE_NUMBER) = '" & NOPOL & "'"
+                               " WHERE trim(PLATE_NUMBER) = '" & Trim(NOPOL) & "'"
         Try
             dt = ExecuteQuery(strsql)
             If dt.Rows.Count > 0 Then
@@ -607,9 +605,7 @@ Module ModuleSWS
         End If
         Dim i As Integer = 0
         Dim queryString As String = "SELECT * FROM T_USERPROFILE WHERE USERNAME='" & nUser & "' and PASSWD ='" & nPass & "' "
-        '       Dim Conn As New OracleConnection(ConStringLocal)
         Dim cmd As New OracleCommand(queryString, Conn)
-        '      Conn.Open()
         Dim DR As OracleDataReader = cmd.ExecuteReader
         Try
             While DR.Read()
@@ -654,8 +650,8 @@ Module ModuleSWS
             If DTS.Rows(0).Item("MAXTICKET") <> "" Then
                 GetMaxTr = DTS.Rows(0).Item("MaxTicket").ToString
                 GetMaxTr = Microsoft.VisualBasic.Right(GetMaxTr, 11)
-                MAXTIKET = GetMaxTr
-                GetMaxTr = MAXTIKET + 1
+                'MAXTIKET = GetMaxTr
+                'GetMaxTr = MAXTIKET
             Else
                 GetMaxTr = Th & Bln & "00000"
             End If
@@ -685,7 +681,8 @@ Module ModuleSWS
 
         ThBln = Th & Bln
 
-        Code = CStr(GetMaxTr("T_WBTICKET") + 1)
+        Code = GetMaxTr("T_WBTICKET")
+        Code = Code + 1
         GetTiketNew = ""
         Try
             If Code = "" Then
@@ -1191,7 +1188,7 @@ Module ModuleSWS
             CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
-                GetParent = rdr("ACCESSNAME").ToString
+                GetParent = Trim(rdr("ACCESSNAME").ToString)
             End While
             rdr.Close()
         Catch
@@ -1227,7 +1224,7 @@ Module ModuleSWS
                 Exit Function
             End If
 
-            Dim strsql As String = "SELECT ACCESSID,ACCESSNAME,PARENTID FROM T_ACCESSRIGHTS WHERE ACCESSID='" & menuname & "' AND TYPE=1"  'CARI PARENT DARI MENUID
+            Dim strsql As String = "SELECT ACCESSID,ACCESSNAME,PARENTID FROM T_ACCESSRIGHTS WHERE ACCESSID='" & Trim(menuname) & "' AND TYPE=1"  'CARI PARENT DARI MENUID
             CMD = New OracleCommand(strsql, Conn)
             Dim rdr As OracleDataReader = CMD.ExecuteReader
             While rdr.Read
@@ -1257,13 +1254,13 @@ Module ModuleSWS
                 Spl = DtWB.Rows(0).Item("supplier_code").ToString
                 JnsT = DtWB.Rows(0).Item("Jns_Timbangan").ToString
                 If Cst = "" And Spl <> "" Then
-                    GetTipeTrWB = "Penerimaan"
+                    GetTipeTrWB = "PENERIMAAN"
                 ElseIf Cst <> "" And Spl = "" Then
-                    GetTipeTrWB = "Pengiriman"
+                    GetTipeTrWB = "PENGELUARAN"
                 ElseIf Spl <> "" And JnsT = 2 Then
-                    GetTipeTrWB = "Intransit"
+                    GetTipeTrWB = "INTRANSIT"
                 ElseIf Spl <> "" And JnsT = 3 Then
-                    GetTipeTrWB = "Numpang Timbang"
+                    GetTipeTrWB = "NUMPANG TIMBANG"
                 End If
             End If
             DtWB.Clear()
@@ -1348,8 +1345,10 @@ Module ModuleSWS
         Dim Cmd As New OracleCommand
         Dim Da As New OracleDataAdapter
         Dim ConnR As OracleConnection = New OracleConnection(ConStringLocal)
+        Dim PATH As String = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
         ConnR.ConnectionString = ConStringLocal
         ConnR.Open()
+
         With Cmd
             .Connection = ConnR
             .CommandText = queryString
@@ -1362,6 +1361,7 @@ Module ModuleSWS
         Rpt.RegisterData(Fdss)
         ' load THE existing report
         Rpt.Load("..\..\" & nRpt & ".frx")
+        'Rpt.Load(PATH & "\" & nRpt & ".frx")
         'registe parameter
         GetConfig()
         Rpt.SetParameterValue("P1", Company)

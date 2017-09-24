@@ -291,8 +291,8 @@ Public Class FrmWbIn
             TextEdit6.Text = GetTara(TextEdit4.Text)       'TARA  DARI NO VEHICLE
 
             'CAPTURE IMAGE
-            PictureBox1.Image = GetCam(source1, PictureBox1)
-            PictureBox2.Image = GetCam(source2, PictureBox2)
+            GetCam(source1, PictureBox1)
+            GetCam(source2, PictureBox2)
             SIMPANGAMBAR(TextEdit2.Text)
         End If
     End Sub
@@ -349,7 +349,7 @@ Public Class FrmWbIn
         fls2.Close()
 
         Dim NO_TICKET As String = TextEdit2.Text
-        SQL = "INSERT INTO T_WBTICKET ( " +
+        Dim SQLX As String = "INSERT INTO T_WBTICKET ( " +
             " NO_TICKET,CUSTOMER_CODE,SUPPLIER_CODE,TRANSPORTER_CODE,VEHICLE_CODE,WBCode,DO_SPB,DATE_IN, " +
             " WEIGHT_IN,NETTO,MATERIAL_CODE," +
             " DRIVER_NAME, EMP_NAME, FFA, MOISTURE, DIRT, NO_SEGEL, SIM, TIMECAPTUREIN, " +
@@ -363,17 +363,21 @@ Public Class FrmWbIn
             " '', '" & TextEdit24.Text & "', '','" & TextEdit21.Text & "','" & TextEdit22.Text & "','" & TextEdit23.Text & "'," +
             " '', " + " :BlobParameter, " + " :BlobParameter2,'" & TextEdit17.Text & "' ,'" & TextEdit18.Text & "' , '" & TextEdit19.Text & "' , '" & TextEdit29.Text & "' ,'','') "
 
-        Dim CMD As OracleCommand = New OracleCommand(SQL, Conn)
-        Dim paramCollection As OracleParameterCollection = CMD.Parameters
+
+        Dim ConX As OracleConnection = New OracleConnection(ConStringLocal)
+        ConX.Open()
+        Dim CMDX As OracleCommand = New OracleCommand(SQLX, ConX)
+        Dim paramCollection As OracleParameterCollection = CMDX.Parameters
         Dim parameter As Object = New OracleParameter("BlobParameter", OracleDbType.Blob)
         Dim parameter2 As Object = New OracleParameter("BlobParameter2", OracleDbType.Blob)
 
         paramCollection.Add(":BlobParameter", blob)
         paramCollection.Add(":BlobParameter2", blob2)
 
-        CMD.Connection.Open()
-        CMD.ExecuteNonQuery()
-        CMD.Dispose()
+        'CMDX.Connection.Open()
+        CMDX.ExecuteNonQuery()
+        CMDX.Dispose()
+        ConX.Close()
     End Sub
     Private Sub SIMPANGAMBAR(ByVal NOTICKET)
         'PROSES GAMBAR

@@ -31,11 +31,11 @@ Public Class FrmWbOut
         Bw1.WorkerReportsProgress = True
         Bw1.WorkerSupportsCancellation = True
 
-        BWC1.WorkerReportsProgress = True
-        BWC1.WorkerSupportsCancellation = True
+        'BWC1.WorkerReportsProgress = True
+        'BWC1.WorkerSupportsCancellation = True
 
-        BWC2.WorkerReportsProgress = True
-        BWC2.WorkerSupportsCancellation = True
+        'BWC2.WorkerReportsProgress = True
+        'BWC2.WorkerSupportsCancellation = True
 
     End Sub
 
@@ -49,6 +49,8 @@ Public Class FrmWbOut
 
         GetWBConfig()
         INDICATORON()
+
+        CCTV_ON()
 
         LabelControl41.Text = "Cam 1"
         LabelControl42.Text = "Cam 2"
@@ -141,7 +143,7 @@ Public Class FrmWbOut
             TextEdit3.Text = Format(Now, "dd-MM-yyyy")   'DATE
             '//TAMPILKAN DATA YANG BELUM TIMBANG KELUAR..
             ShowDataWBin()
-            CCTV_ON()
+
         End If
     End Sub
     Private Sub ClearAllText()
@@ -164,7 +166,7 @@ Public Class FrmWbOut
     Private Sub ShowDataWBin()
         'CARI TIKET KELUAR
 
-        LSQL = " SELECT NO_TICKET,POLICE_NO,WEIGHT_IN,DATE_IN FROM V_TICKET_FINISH WHERE WEIGHT_OUT IS NULL ORDER BY DATE_IN DESC"
+        LSQL = " SELECT NO_TICKET,POLICE_NO,WEIGHT_IN,DATE_IN FROM V_TICKET_FINISH WHERE WEIGHT_OUT=0 ORDER BY DATE_IN DESC"
         LField = "NO_TICKET"
         ValueLoV = ""
         TextEdit2.Text = FrmShowLOV(FrmLoV, LSQL, "NO_TICKET", "WB IN DATA")
@@ -221,61 +223,11 @@ Public Class FrmWbOut
                 TextEdit35.Text = DT.Rows(0).Item("DIRT").ToString  'DIRT
                 TextEdit36.Text = DT.Rows(0).Item("NO_SEGEL").ToString  'NO SEGEL
 
-
+                'JENIS TRANSAKSI
                 TextEdit7.Text = GetTipeTrWB(TextEdit2.Text) 'TYPE TR WB
-
-                DisebelAllText() 'DISEBEL ALL
-
                 'BUKA SESUAI VALIDASI
                 MemoEdit1.Enabled = True 'REMARKS 
-
-                'JENIS TRANSAKSI
-                'PERNERIMAAN,PENGELUARAN ,NUMPANG TIMBANG
-                Dim JTRAN As String = ""
-                Dim MATERIAL As String = TextEdit13.Text
-                Dim SPL As String = Microsoft.VisualBasic.Left(TextEdit14.Text, 4)
-                Dim CUSTOMER As String = TextEdit16.Text
-
-                Dim CONTRACT As String = TextEdit15.Text
-                Dim SO1 As String = TextEdit17.Text
-
-                If SPL <> "" And CONTRACT <> "" Then
-                    JTRAN = "PENERIMAAN"
-                ElseIf SPL = "VINT" Or SPL = "TRST" Then
-                    JTRAN = "PENERIMAAN"
-                ElseIf CUSTOMER <> "" And SO1 <> "" Then
-                    JTRAN = "PENGELUARAN"
-                ElseIf MATERIAL <> "" Then
-                    JTRAN = "NUMPANG TIMBANG"
-                End If
-
-                LabelControl89.Text = JTRAN
-                Me.Text = JTRAN & " - WB OUT"
-                Select Case UCase(JTRAN)
-                    Case "PENERIMAAN"
-                        'MATERIAL
-                        If MATERIAL = "501010001" Then
-                            TextEnabled({TextEdit11, TextEdit38}) 'ADJUST WB 
-                            TextEnabled({TextEdit30, TextEdit31, TextEdit32}) 'LOADER 123
-                            TextEnabled({TextEdit23, TextEdit24, TextEdit25, TextEdit26, TextEdit27}) 'NAB.AFDELING,BLOCK,FFB,PL
-                        Else
-                            TextDisebled({TextEdit11, TextEdit38}) 'ADJUST WB
-                            TextDisebled({TextEdit23, TextEdit24, TextEdit25, TextEdit26, TextEdit27}) 'NAB.AFDELING,BLOCK,FFB,PL
-                        End If
-                        'VENDOR
-                        If SPL = "VINT" Then
-                            TextDisebled({TextEdit11, TextEdit38}) 'ADJUST WB
-                        Else
-                            TextEnabled({TextEdit11, TextEdit38}) 'ADJUST WB 
-                        End If
-                        'VENDOR INTERNAL FLAG KHUSUS
-                    Case "PENGELUARAN"
-                    Case "NUMPANG TIMBANG"
-
-                End Select
-
             End If
-
         End If
     End Sub
 
@@ -291,8 +243,9 @@ Public Class FrmWbOut
             TextEdit12.Text = Val(TextEdit10.Text) - Val(TextEdit11.Text) 'ADJUST_NETTO
 
             'CAPTURE IMAGE
-            PictureBox1.Image = PictureBox3.Image
-            PictureBox2.Image = PictureBox4.Image
+
+            GetCam(source1, PictureBox1)
+            GetCam(source2, PictureBox2)
             SIMPANGAMBAR(TextEdit2.Text)
 
         End If
@@ -353,7 +306,6 @@ Public Class FrmWbOut
     End Sub
 
     Private Sub SimpleButton14_Click(sender As Object, e As EventArgs) Handles SimpleButton14.Click
-
         'CANCEL
         LabelControl41.Text = "Cam 1"
         LabelControl42.Text = "Cam 2"
@@ -481,12 +433,10 @@ Public Class FrmWbOut
 
     Private Sub SimpleButton3_Click(sender As Object, e As EventArgs) Handles SimpleButton3.Click
         'MATERIAL
-        'MATERIAL
-        LSQL = "SELECT MATERIAL_CODE,MATERIAL_NAME ,INACTIVE FROM T_MATERIAL   WHERE INACTIVE IS NULL OR INACTIVE='N'"
+        LSQL = "SELECT MATERIAL_CODE,MATERIAL_NAME ,INACTIVE FROM T_MATERIAL  WHERE INACTIVE IS NULL "
         LField = "MATERIAL_CODE"
         ValueLoV = ""
         TextEdit13.Text = FrmShowLOV(FrmLoV, LSQL, "MATERIAL", "MATERIAL")
-
     End Sub
 
     Private Sub TxtWeight_EditValueChanged(sender As Object, e As EventArgs) Handles TxtWeight.EditValueChanged
@@ -505,43 +455,169 @@ Public Class FrmWbOut
         target = value
         Return value
     End Function
-    Private Sub BWC1_DoWork(sender As Object, e As DoWorkEventArgs) Handles BWC1.DoWork
+    Private Sub TextEdit13_EditValueChanged(sender As Object, e As EventArgs) Handles TextEdit13.EditValueChanged
+        'MATERIAL
+        Dim MATERIAL As String = Trim(TextEdit13.Text)
+        Dim JNSTRN As String = Trim(TextEdit17.Text)
+        TextEnabled({TextEdit23, TextEdit25, TextEdit26, TextEdit27, TextEdit28, TextEdit29})
+        TextEnabled({TextEdit33, TextEdit34, TextEdit35})
+        Select Case JNSTRN
+            Case "PENERIMAAN"
+                'DEFAULT ENEBLE
+                TextEnabled({TextEdit33, TextEdit34, TextEdit35})
+                TextEnabled({TextEdit23, TextEdit25, TextEdit26, TextEdit27, TextEdit28, TextEdit29})
+                If MATERIAL = "FFB" Or "501010001" Then
+                    'FFA ,MOIS,DIRT,NO SEGEL (DISEBEL)
+                    TextDisebled({TextEdit33, TextEdit34, TextEdit35})
+                Else
+                    'LOAD1,2,3,
+                    TextDisebled({TextEdit23, TextEdit25, TextEdit26, TextEdit27, TextEdit28, TextEdit29})
+                End If
+            Case "PENGELUARAN"
+                'DEFAULT ENEBLE
+                TextEnabled({TextEdit33, TextEdit34, TextEdit35})
+                TextEnabled({TextEdit23, TextEdit25, TextEdit26, TextEdit27, TextEdit28, TextEdit29})
+                If MATERIAL = "FFB" Or "501010001" Then
+                    'FFA ,MOIS,DIRT,NO SEGEL (DISEBEL)
+                    TextDisebled({TextEdit33, TextEdit34, TextEdit35})
+                Else
+                    'LOAD1,2,3,
+                    TextDisebled({TextEdit23, TextEdit25, TextEdit26, TextEdit27, TextEdit28, TextEdit29})
+                End If
+            Case "NUMPANG TIMBANG"
+                'DEFAULT ENEBLE
+                TextEnabled({TextEdit33, TextEdit34, TextEdit35})
+                TextEnabled({TextEdit23, TextEdit25, TextEdit26, TextEdit27, TextEdit28, TextEdit29})
+                If MATERIAL = "FFB" Or "501010001" Then
+                    'FFA ,MOIS,DIRT,NO SEGEL (DISEBEL)
+                    TextDisebled({TextEdit33, TextEdit34, TextEdit35})
+                Else
+                    'LOAD1,2,3,
+                    TextDisebled({TextEdit23, TextEdit25, TextEdit26, TextEdit27, TextEdit28, TextEdit29})
+                End If
 
-        Try
-            Do Until Not CAMCON1 = True
-                Dim buffer As Byte() = New Byte(99999) {}
-                Dim read As Integer, total As Integer = 0
-                Dim req As HttpWebRequest = DirectCast(WebRequest.Create(source1), HttpWebRequest)
-                req.Method = "POST"
-                req.Timeout = 500
-                'Dim cred As New NetworkCredential("Administrator", "admintdx")
-                'req.Credentials = cred
-                Dim resp As WebResponse = req.GetResponse()
-                ' get response stream
-                Dim stream As Stream = resp.GetResponseStream()
-                ' read data from stream
-                While (InlineAssignHelper(read, stream.Read(buffer, total, 1000))) <> 0
-                    total += read
-                End While
-                Dim bmp As Bitmap = DirectCast(Bitmap.FromStream(New MemoryStream(buffer, 0, total)), Bitmap)
-                PictureBox3.Image = bmp
-            Loop
-        Catch ex As Exception
-        End Try
+        End Select
+        MemoEdit1.Enabled = True 'REMAKS
+        'ABW = ADJ WEIGHT-FFB UNIT
+        TextEdit29.Text = Val(TextEdit11.Text) - Val(TextEdit27.Text) 'ABW
     End Sub
 
-    Private Sub BWC1_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BWC1.RunWorkerCompleted
-        If e.Cancelled = True Then
-            resultLabel.Text = "Canceled!"
-        ElseIf e.Error IsNot Nothing Then
-            resultLabel.Text = "Error: " & e.Error.Message
-        Else
-            CAMCON1 = True
-            BWC1.RunWorkerAsync()
+    Private Sub TextEdit10_EditValueChanged(sender As Object, e As EventArgs) Handles TextEdit10.EditValueChanged
+        TextEdit12.Text = Val(TextEdit10.Text) - Val(TextEdit11.Text) 'ADJ NETTO
+
+    End Sub
+
+    Private Sub TextEdit9_EditValueChanged(sender As Object, e As EventArgs) Handles TextEdit9.EditValueChanged
+        TextEdit10.Text = Val(TextEdit9.Text) - Val(TextEdit8.Text)
+    End Sub
+
+    Private Sub TextEdit7_EditValueChanged(sender As Object, e As EventArgs) Handles TextEdit7.EditValueChanged
+        'JENIS TRANSAKSI
+        'PERNERIMAAN,PENGELUARAN ,NUMPANG TIMBANG
+        Dim JTRAN As String = TextEdit7.Text
+        Dim MATERIAL As String = TextEdit13.Text
+        Dim SPL As String = Microsoft.VisualBasic.Left(Trim(TextEdit14.Text), 4)
+        Dim CUSTOMER As String = TextEdit16.Text
+        Dim CONTRACT As String = TextEdit15.Text
+        Dim SO1 As String = TextEdit17.Text
+
+        'If SPL <> "" And CONTRACT <> "" Then
+        '    JTRAN = "PENERIMAAN"
+        'ElseIf SPL = "VINT" Or SPL = "TRST" Then
+        '    JTRAN = "PENERIMAAN"
+        'ElseIf CUSTOMER <> "" And SO1 <> "" Then
+        '    JTRAN = "PENGELUARAN"
+        'ElseIf MATERIAL <> "" Then
+        '    JTRAN = "NUMPANG TIMBANG"
+        'End If
+
+        LabelControl89.Text = JTRAN
+        Me.Text = JTRAN & " - WB OUT"
+        DisebelAllText() 'DISEBEL ALL
+
+        Select Case UCase(JTRAN)
+                    'DIFAULT
+            Case "PENERIMAAN"
+                'MATERIAL
+                If MATERIAL = "501010001" Then
+                    TextEnabled({TextEdit11, TextEdit38}) 'ADJUST WB 
+                    TextEnabled({TextEdit30, TextEdit31, TextEdit32}) 'LOADER 123
+                    TextEnabled({TextEdit23, TextEdit24, TextEdit25, TextEdit26, TextEdit27}) 'NAB.AFDELING,BLOCK,FFB,PL
+                Else
+                    TextDisebled({TextEdit11, TextEdit38}) 'ADJUST WB
+                    TextDisebled({TextEdit23, TextEdit24, TextEdit25, TextEdit26, TextEdit27}) 'NAB.AFDELING,BLOCK,FFB,PL
+                End If
+                'VENDOR
+                If SPL = "VINT" Then
+                    TextDisebled({TextEdit11, TextEdit38}) 'ADJUST WB
+                Else
+                    TextEnabled({TextEdit11, TextEdit38}) 'ADJUST WB 
+                End If
+                        'VENDOR INTERNAL FLAG KHUSUS
+            Case "PENGELUARAN"
+                'MATERIAL
+                If MATERIAL = "501010001" Then
+                    TextDisebled({TextEdit11, TextEdit38}) 'ADJUST WB 
+                Else
+                    TextEnabled({TextEdit11, TextEdit38}) 'ADJUST WB
+                    TextEnabled({TextEdit23, TextEdit24, TextEdit25, TextEdit26, TextEdit27}) 'NAB.AFDELING,BLOCK,FFB,PL
+                End If
+                'VENDOR
+                If SPL = "VINT" Then
+                    TextDisebled({TextEdit11, TextEdit38}) 'ADJUST WB
+                Else
+                    TextEnabled({TextEdit11, TextEdit38}) 'ADJUST WB 
+                End If
+                        'VENDOR INTERNAL FLAG KHUSUS
+            Case "NUMPANG TIMBANG"
+                'MATERIAL
+                If MATERIAL = "501010001" Then
+                    TextDisebled({TextEdit11, TextEdit38}) 'ADJUST WB 
+                Else
+                    TextEnabled({TextEdit11, TextEdit38}) 'ADJUST WB
+                    TextEnabled({TextEdit23, TextEdit24, TextEdit25, TextEdit26, TextEdit27}) 'NAB.AFDELING,BLOCK,FFB,PL
+                End If
+                'VENDOR
+                If SPL = "VINT" Then
+                    TextDisebled({TextEdit11, TextEdit38}) 'ADJUST WB
+                Else
+                    TextEnabled({TextEdit11, TextEdit38}) 'ADJUST WB 
+                End If
+
+        End Select
+    End Sub
+
+    Private Sub SimpleButton8_Click(sender As Object, e As EventArgs) Handles SimpleButton8.Click
+        'SUPPLIER
+        '//SUPPLIER DI FILTER SESUAI DENGAN MATERIAL (KONTRAK)
+        'VALIDASI BERAT HARUS TERISI SEBELUM LANJUT
+        If Not IsEmptyText({TextEdit5}) Then
+            TextEnabled({TextEdit9})
+            LSQL = "SELECT DISTINCT A.VENDOR_CODE ,A.VENDOR_NAME FROM T_VENDOR A  " +
+            " WHERE VENDOR_CODE In (Select DISTINCT B.VENDORID  " +
+            " From T_CONTRACT B  " +
+            " Where b.MATERIALCODE ='" & TextEdit13.Text & "'" +
+            " And b.INACTIVE Is NULL " +
+            " And CONTRACTENDDATE>= SYSDATE )"
+            LField = "VENDOR_CODE"
+            ValueLoV = ""
+            TextEdit14.Text = FrmShowLOV(FrmLoV, LSQL, "SUPPLIER", "SUPPLIER")
+
+            TextDisebled({TextEdit16}) 'CUSTOMER
+            TextEdit16.Text = ""
+            LabelControl89.Text = "NUMPANG TIMBANG" 'HEADER FORM
+            '//VALIDASI SUPLIER /VENDOR
+            Dim SPL As String = Microsoft.VisualBasic.Left(TextEdit14.Text, 4)
+            TextEnabled({TextEdit15}) 'CONTRACT
+            If SPL = "VINT" Then
+                TextDisebled({TextEdit15}) 'CONTRACT
+                TextEnabled({TextEdit20, TextEdit21, TextEdit22}) 'NAB,AFDELING,BLOK
+            ElseIf SPL = "TRST" Then
+                TextDisebled({TextEdit15}) 'CONTRACT
+
+            ElseIf SPL = "MILL" Then
+                TextDisebled({TextEdit15}) 'CONTRACT
+            End If
         End If
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
     End Sub
 End Class
