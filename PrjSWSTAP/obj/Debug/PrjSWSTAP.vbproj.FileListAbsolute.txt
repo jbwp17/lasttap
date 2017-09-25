@@ -1455,3 +1455,7 @@ E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.SplashScreen1.resou
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.WaitForm1.resources
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.vbproj.GenerateResource.Cache
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.exe.licenses
+E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmStExport.resources
+E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmStImport.resources
+E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmStExport1.resources
+E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmStimport1.resources

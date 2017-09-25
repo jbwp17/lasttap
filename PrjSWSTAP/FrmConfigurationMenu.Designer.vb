@@ -201,6 +201,7 @@ Partial Class FrmConfigurationMenu
         Me.LabelControl64 = New DevExpress.XtraEditors.LabelControl()
         Me.BackstageViewTabItem6 = New DevExpress.XtraBars.Ribbon.BackstageViewTabItem()
         Me.BW1 = New System.ComponentModel.BackgroundWorker()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BunifuGradientPanel1.SuspendLayout()
         CType(Me.ImageCollection1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl9, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1419,7 +1420,7 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem2.Caption = "SERVER"
         Me.BackstageViewTabItem2.ContentControl = Me.BackstageViewClientControl2
         Me.BackstageViewTabItem2.Name = "BackstageViewTabItem2"
-        Me.BackstageViewTabItem2.Selected = True
+        Me.BackstageViewTabItem2.Selected = False
         '
         'BackstageViewClientControl2
         '
@@ -1613,7 +1614,7 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem1.Caption = "GENERAL"
         Me.BackstageViewTabItem1.ContentControl = Me.BackstageViewClientControl1
         Me.BackstageViewTabItem1.Name = "BackstageViewTabItem1"
-        Me.BackstageViewTabItem1.Selected = False
+        Me.BackstageViewTabItem1.Selected = True
         '
         'BackstageViewClientControl1
         '
@@ -2083,8 +2084,8 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewControl1.Location = New System.Drawing.Point(0, 43)
         Me.BackstageViewControl1.Name = "BackstageViewControl1"
         Me.BackstageViewControl1.PaintStyle = DevExpress.XtraBars.Ribbon.BackstageViewPaintStyle.Flat
-        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem2
-        Me.BackstageViewControl1.SelectedTabIndex = 1
+        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem1
+        Me.BackstageViewControl1.SelectedTabIndex = 0
         Me.BackstageViewControl1.Size = New System.Drawing.Size(810, 489)
         Me.BackstageViewControl1.TabIndex = 9
         Me.BackstageViewControl1.Text = "BackstageViewControl1"
@@ -2569,5 +2570,6 @@ Partial Class FrmConfigurationMenu
     Friend WithEvents TextEdit32 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TextEdit29 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TextEdit27 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     '    Friend WiTHEvents VlcControl1 As Vlc.DotNet.Forms.VlcControl
 End Class

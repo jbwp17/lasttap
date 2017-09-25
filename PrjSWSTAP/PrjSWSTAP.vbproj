@@ -146,6 +146,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmStExport.designer.vb">
+      <DependentUpon>FrmStExport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStExport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmRptPenjualan.designer.vb">
       <DependentUpon>FrmRptPenjualan.vb</DependentUpon>
     </Compile>
@@ -278,6 +284,18 @@
     <Compile Include="FrmRptGradingTbs.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmStExport1.Designer.vb">
+      <DependentUpon>FrmStExport1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStExport1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStImport.Designer.vb">
+      <DependentUpon>FrmStImport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStImport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmSalesOrder.Designer.vb">
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>
     </Compile>
@@ -288,6 +306,12 @@
       <DependentUpon>FrmServerSetup.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmServerSetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStimport1.Designer.vb">
+      <DependentUpon>FrmStimport1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStimport1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTransporter.designer.vb">
@@ -392,6 +416,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmStExport.resx">
+      <DependentUpon>FrmStExport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRptPenjualan.resx">
       <DependentUpon>FrmRptPenjualan.vb</DependentUpon>
     </EmbeddedResource>
@@ -458,11 +485,20 @@
     <EmbeddedResource Include="FrmRptGradingTbs.resx">
       <DependentUpon>FrmRptGradingTbs.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmStExport1.resx">
+      <DependentUpon>FrmStExport1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStImport.resx">
+      <DependentUpon>FrmStImport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSalesOrder.resx">
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmServerSetup.resx">
       <DependentUpon>FrmServerSetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStimport1.resx">
+      <DependentUpon>FrmStimport1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTransporter.resx">
       <DependentUpon>FrmTransporter.vb</DependentUpon>

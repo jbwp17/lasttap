@@ -923,6 +923,10 @@ Public Class FrmConfigurationMenu
 
     End Sub
 
+    Private Sub BackstageViewControl1_Click(sender As Object, e As EventArgs) Handles BackstageViewControl1.Click
+
+    End Sub
+
 
 #End Region
 End Class
