@@ -14,43 +14,47 @@ Imports DevExpress.XtraPrinting
 
 Imports Microsoft.VisualBasic
 Imports System
-Public Class FrmRptGradingTbs
-    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
-        Me.Close()
-
-    End Sub
-
+Public Class FrmRptPenjualan
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
-        LoadView()
+        Loadview()
     End Sub
-
-    Private Sub LoadView()
+    Private Sub Loadview()
         Dim tgl1 As String
         Dim tgl2 As String
+        Dim TRANSAKSI As String
+        Dim MATERIALTYPE As String
 
         DateEdit1.Properties.Mask.Culture = New System.Globalization.CultureInfo("en-US")
         DateEdit1.Properties.Mask.EditMask = "dd-MM-yyyy"
         DateEdit1.Properties.Mask.UseMaskAsDisplayFormat = True
         DateEdit1.Properties.CharacterCasing = CharacterCasing.Upper
-        tgl1 = "TO_DATE('" & DateEdit1.Text & "','dd-MM-yyyy')"
+        tgl1 = "DATE_IN('" & DateEdit1.Text & "','dd-MM-yyyy')"
 
         DateEdit2.Properties.Mask.Culture = New System.Globalization.CultureInfo("en-US")
         DateEdit2.Properties.Mask.EditMask = "dd-MM-yyyy"
         DateEdit2.Properties.Mask.UseMaskAsDisplayFormat = True
         DateEdit2.Properties.CharacterCasing = CharacterCasing.Upper
-        tgl2 = "TO_DATE('" & DateEdit2.Text & "','dd-MM-yyyy')"
+        tgl2 = "DATE_OUT('" & DateEdit2.Text & "','dd-MM-yyyy')"
+        If DateEdit1.Text <> "" = True Or DateEdit2.Text <> "" = True Then
+            '   SQL = "SELECT TO_CHAR(DATE_IN,'MM-YYYY')DATE_IN,DATE_OUT,MATERIAL, " +
+            ' " FROM V_TICKECT_FINISH " +
+            '" WHERE DATE_IN BETWEEN " & tgl1 & " AND " & tgl2 & "" +
+            '" ORDER BY DATE_IN DESC"
 
-        If DateEdit1.Text <> "" = True Or DateEdit2.Text <> "" = True THEn
-            SQL = "SELECT * FROM V_RPT_GRADING WHERE INPUT_DATE BETWEEN " & tgl1 & " AND " & tgl2 & "" +
-            " ORDER BY INPUT_DATE DESC"
+            SQL = "SELECT * FROM V_TICKET_FINISH WHERE DATE_IN BETWEEN " & tgl1 & " AND " & tgl2 & "" +
+           " ORDER BY INPUT_DATE DESC"
+
         Else
-            SQL = "SELECT * FROM V_RPT_GRADING ORDER BY INPUT_DATE"
+            SQL = "SELECT * FROM V_TICKET_FINISH ORDER BY DATE_IN"
+            ' SQL = "SELECT TO_CHAR(DATE_IN,'MM-YYYY')DATE_IN,DATE_OUT,MATERIAL, " +
+            '" FROM V_TICKECT_FINISH " +
+            ' " ORDER BY DATE_IN DESC"
         End If
-        FILLGridView(SQL, GridControl1)
+        FILLGridView(SQL, GridControl2)
     End Sub
 
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
-        'exs to xls
+        'ex to xls
         Dim myStream As Stream
         Dim saveFileDialog1 As New SaveFileDialog()
 
@@ -58,19 +62,24 @@ Public Class FrmRptGradingTbs
         saveFileDialog1.FilterIndex = 1
         saveFileDialog1.RestoreDirectory = True
 
-        If saveFileDialog1.ShowDialog() = DialogResult.OK THEn
+        If saveFileDialog1.ShowDialog() = DialogResult.OK Then
             myStream = saveFileDialog1.OpenFile()
-            If (myStream IsNot Nothing) THEn
+            If (myStream IsNot Nothing) Then
                 Dim nama As String = saveFileDialog1.FileName
                 myStream.Close()
-                GridView1.ExportToXls(nama)
-                MsgBox("Export successfull!", MessageBoxIcon.Information, "Report Grading")
+                GridView2.ExportToXls(nama)
+                MsgBox("Export successfull!", MessageBoxIcon.Information, "Report Penjualan")
             End If
         End If
     End Sub
-
-    Private Sub FrmRptGradingTbs_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FrmRptPenjualan(sender As Object, e As EventArgs) Handles Me.Load
         DateEdit1.Text = ""
         DateEdit2.Text = ""
+        ComboBoxEdit1.Text = ""
+        ComboBoxEdit2.Text = ""
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        Me.Close()
     End Sub
 End Class

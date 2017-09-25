@@ -146,6 +146,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmRptPenjualan.designer.vb">
+      <DependentUpon>FrmRptPenjualan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRptPenjualan.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmAccessRight.Designer.vb">
       <DependentUpon>FrmAccessRight.vb</DependentUpon>
     </Compile>
@@ -386,6 +392,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmRptPenjualan.resx">
+      <DependentUpon>FrmRptPenjualan.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAccessRight.resx">
       <DependentUpon>FrmAccessRight.vb</DependentUpon>
     </EmbeddedResource>
