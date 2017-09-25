@@ -146,10 +146,16 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmRptPenjualan.designer.vb">
-      <DependentUpon>FrmRptPenjualan.vb</DependentUpon>
+    <Compile Include="FrmRptNTimbang.designer.vb">
+      <DependentUpon>FrmRptNTimbang.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmRptPenjualan.vb">
+    <Compile Include="FrmRptNTimbang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRptPenerimaan.Designer.vb">
+      <DependentUpon>FrmRptPenerimaan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRptPenerimaan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAccessRight.Designer.vb">
@@ -278,6 +284,12 @@
     <Compile Include="FrmRptGradingTbs.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmRptPengeluaran.Designer.vb">
+      <DependentUpon>FrmRptPengeluaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRptPengeluaran.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmSalesOrder.Designer.vb">
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>
     </Compile>
@@ -392,8 +404,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmRptPenjualan.resx">
-      <DependentUpon>FrmRptPenjualan.vb</DependentUpon>
+    <EmbeddedResource Include="FrmRptNTimbang.resx">
+      <DependentUpon>FrmRptNTimbang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRptPenerimaan.resx">
+      <DependentUpon>FrmRptPenerimaan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAccessRight.resx">
       <DependentUpon>FrmAccessRight.vb</DependentUpon>
@@ -457,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRptGradingTbs.resx">
       <DependentUpon>FrmRptGradingTbs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRptPengeluaran.resx">
+      <DependentUpon>FrmRptPengeluaran.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSalesOrder.resx">
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>
