@@ -564,7 +564,6 @@ Partial Class FrmConfigurationMenu
         'PictureEdit3
         '
         Me.PictureEdit3.Cursor = System.Windows.Forms.Cursors.Default
-        Me.PictureEdit3.EditValue = Global.PrjSWSTAP.My.Resources.Resources.IndicatorPic
         Me.PictureEdit3.Location = New System.Drawing.Point(247, 63)
         Me.PictureEdit3.Name = "PictureEdit3"
         Me.PictureEdit3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
@@ -816,7 +815,6 @@ Partial Class FrmConfigurationMenu
         'PictureEdit2
         '
         Me.PictureEdit2.Cursor = System.Windows.Forms.Cursors.Default
-        Me.PictureEdit2.EditValue = Global.PrjSWSTAP.My.Resources.Resources.IndicatorPic
         Me.PictureEdit2.Location = New System.Drawing.Point(247, 65)
         Me.PictureEdit2.Name = "PictureEdit2"
         Me.PictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
@@ -1086,7 +1084,7 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem3.Caption = "IP CAMERA"
         Me.BackstageViewTabItem3.ContentControl = Me.BackstageViewClientControl3
         Me.BackstageViewTabItem3.Name = "BackstageViewTabItem3"
-        Me.BackstageViewTabItem3.Selected = False
+        Me.BackstageViewTabItem3.Selected = True
         '
         'BackstageViewClientControl3
         '
@@ -1164,11 +1162,11 @@ Partial Class FrmConfigurationMenu
         'PictureBox1
         '
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Image = Global.PrjSWSTAP.My.Resources.Resources.cctv
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(247, 71)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(193, 146)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 55
         Me.PictureBox1.TabStop = False
         '
@@ -1614,7 +1612,7 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewTabItem1.Caption = "GENERAL"
         Me.BackstageViewTabItem1.ContentControl = Me.BackstageViewClientControl1
         Me.BackstageViewTabItem1.Name = "BackstageViewTabItem1"
-        Me.BackstageViewTabItem1.Selected = True
+        Me.BackstageViewTabItem1.Selected = False
         '
         'BackstageViewClientControl1
         '
@@ -2084,8 +2082,8 @@ Partial Class FrmConfigurationMenu
         Me.BackstageViewControl1.Location = New System.Drawing.Point(0, 43)
         Me.BackstageViewControl1.Name = "BackstageViewControl1"
         Me.BackstageViewControl1.PaintStyle = DevExpress.XtraBars.Ribbon.BackstageViewPaintStyle.Flat
-        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem1
-        Me.BackstageViewControl1.SelectedTabIndex = 0
+        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem3
+        Me.BackstageViewControl1.SelectedTabIndex = 2
         Me.BackstageViewControl1.Size = New System.Drawing.Size(810, 489)
         Me.BackstageViewControl1.TabIndex = 9
         Me.BackstageViewControl1.Text = "BackstageViewControl1"

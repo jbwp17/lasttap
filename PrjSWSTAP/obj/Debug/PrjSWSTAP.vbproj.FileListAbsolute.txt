@@ -1267,7 +1267,6 @@ E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\bin\Debug\de\DevExpress.Office.v16.1.Co
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\bin\Debug\es\DevExpress.Office.v16.1.Core.resources.dll
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\bin\Debug\ja\DevExpress.Office.v16.1.Core.resources.dll
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\bin\Debug\ru\DevExpress.Office.v16.1.Core.resources.dll
-E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.vbprojResolveAssemblyReference.cache
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmAccessRight.resources
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmBeritaAcara.resources
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmChangePassword.resources
@@ -1312,3 +1311,4 @@ E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.exe.licenses
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.exe
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.xml
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.pdb
+E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.vbprojResolveAssemblyReference.cache

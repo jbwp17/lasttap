@@ -932,6 +932,7 @@ Partial Class FrmWbIn
         Me.PanelControl3.Controls.Add(Me.PictureEdit3)
         Me.PanelControl3.Controls.Add(Me.PictureBox1)
         Me.PanelControl3.Controls.Add(Me.PictureBox2)
+        Me.PanelControl3.Controls.Add(Me.resultLabel)
         Me.PanelControl3.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl3.Location = New System.Drawing.Point(389, 82)
         Me.PanelControl3.Name = "PanelControl3"
@@ -947,7 +948,7 @@ Partial Class FrmWbIn
         Me.path1.Appearance.Options.UseFont = True
         Me.path1.Appearance.Options.UseForeColor = True
         Me.path1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.path1.Location = New System.Drawing.Point(210, 94)
+        Me.path1.Location = New System.Drawing.Point(442, 3)
         Me.path1.Name = "path1"
         Me.path1.Size = New System.Drawing.Size(22, 15)
         Me.path1.TabIndex = 121
@@ -962,7 +963,7 @@ Partial Class FrmWbIn
         Me.path2.Appearance.Options.UseFont = True
         Me.path2.Appearance.Options.UseForeColor = True
         Me.path2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.path2.Location = New System.Drawing.Point(394, 93)
+        Me.path2.Location = New System.Drawing.Point(442, 26)
         Me.path2.Name = "path2"
         Me.path2.Size = New System.Drawing.Size(22, 15)
         Me.path2.TabIndex = 122
@@ -1004,9 +1005,9 @@ Partial Class FrmWbIn
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox1.Image = Global.PrjSWSTAP.My.Resources.Resources.cctv
-        Me.PictureBox1.Location = New System.Drawing.Point(207, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(207, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(180, 107)
+        Me.PictureBox1.Size = New System.Drawing.Size(107, 107)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 101
         Me.PictureBox1.TabStop = False
@@ -1018,9 +1019,9 @@ Partial Class FrmWbIn
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox2.Image = Global.PrjSWSTAP.My.Resources.Resources.cctv
-        Me.PictureBox2.Location = New System.Drawing.Point(391, 3)
+        Me.PictureBox2.Location = New System.Drawing.Point(323, 3)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(180, 107)
+        Me.PictureBox2.Size = New System.Drawing.Size(113, 107)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 102
         Me.PictureBox2.TabStop = False
@@ -1059,7 +1060,7 @@ Partial Class FrmWbIn
         Me.resultLabel.BackColor = System.Drawing.Color.Transparent
         Me.resultLabel.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.resultLabel.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.resultLabel.Location = New System.Drawing.Point(784, 197)
+        Me.resultLabel.Location = New System.Drawing.Point(442, 49)
         Me.resultLabel.Name = "resultLabel"
         Me.resultLabel.Size = New System.Drawing.Size(24, 15)
         Me.resultLabel.TabIndex = 114
@@ -1326,7 +1327,7 @@ Partial Class FrmWbIn
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(782, 221)
+        Me.Label1.Location = New System.Drawing.Point(782, 203)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(89, 13)
         Me.Label1.TabIndex = 121
@@ -1340,7 +1341,7 @@ Partial Class FrmWbIn
         Me.LabelControl16.Appearance.Options.UseBackColor = True
         Me.LabelControl16.Appearance.Options.UseFont = True
         Me.LabelControl16.Appearance.Options.UseForeColor = True
-        Me.LabelControl16.Location = New System.Drawing.Point(891, 221)
+        Me.LabelControl16.Location = New System.Drawing.Point(891, 203)
         Me.LabelControl16.Name = "LabelControl16"
         Me.LabelControl16.Size = New System.Drawing.Size(41, 13)
         Me.LabelControl16.TabIndex = 122
@@ -1352,7 +1353,7 @@ Partial Class FrmWbIn
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(782, 239)
+        Me.Label2.Location = New System.Drawing.Point(782, 221)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 123
@@ -1366,7 +1367,7 @@ Partial Class FrmWbIn
         Me.LabelControl17.Appearance.Options.UseBackColor = True
         Me.LabelControl17.Appearance.Options.UseFont = True
         Me.LabelControl17.Appearance.Options.UseForeColor = True
-        Me.LabelControl17.Location = New System.Drawing.Point(891, 239)
+        Me.LabelControl17.Location = New System.Drawing.Point(891, 221)
         Me.LabelControl17.Name = "LabelControl17"
         Me.LabelControl17.Size = New System.Drawing.Size(101, 13)
         Me.LabelControl17.TabIndex = 124
@@ -1384,7 +1385,6 @@ Partial Class FrmWbIn
         Me.Controls.Add(Me.PanelControl5)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.SimpleButton7)
-        Me.Controls.Add(Me.resultLabel)
         Me.Controls.Add(Me.PanelControl4)
         Me.Controls.Add(Me.PanelControl3)
         Me.Controls.Add(Me.PanelControl2)
