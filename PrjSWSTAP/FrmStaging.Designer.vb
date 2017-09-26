@@ -47,6 +47,7 @@ Partial Class FrmStaging
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
         Me.RadioButton7 = New System.Windows.Forms.RadioButton()
+        Me.LabelControl13 = New DevExpress.XtraEditors.LabelControl()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.RadioButton5 = New System.Windows.Forms.RadioButton()
@@ -263,7 +264,7 @@ Partial Class FrmStaging
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 43)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
-        Me.XtraTabControl1.Size = New System.Drawing.Size(985, 447)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(985, 551)
         Me.XtraTabControl1.TabIndex = 5
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2})
         '
@@ -276,16 +277,16 @@ Partial Class FrmStaging
         Me.XtraTabPage1.Controls.Add(Me.PanelControl3)
         Me.XtraTabPage1.Controls.Add(Me.PanelControl2)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(979, 419)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(979, 523)
         Me.XtraTabPage1.Text = "IMPORT DATA MASTER"
         '
         'GridControl2
         '
-        Me.GridControl2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GridControl2.Location = New System.Drawing.Point(0, 363)
+        Me.GridControl2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridControl2.Location = New System.Drawing.Point(0, 379)
         Me.GridControl2.MainView = Me.GridView2
         Me.GridControl2.Name = "GridControl2"
-        Me.GridControl2.Size = New System.Drawing.Size(979, 115)
+        Me.GridControl2.Size = New System.Drawing.Size(979, 144)
         Me.GridControl2.TabIndex = 176
         Me.GridControl2.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView2})
         '
@@ -306,9 +307,9 @@ Partial Class FrmStaging
         Me.LabelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.LabelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.LabelControl6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LabelControl6.Location = New System.Drawing.Point(0, 337)
+        Me.LabelControl6.Location = New System.Drawing.Point(0, 359)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(979, 26)
+        Me.LabelControl6.Size = New System.Drawing.Size(979, 20)
         Me.LabelControl6.TabIndex = 175
         Me.LabelControl6.Text = "      DATA STAGING"
         '
@@ -318,7 +319,7 @@ Partial Class FrmStaging
         Me.GridControl1.Location = New System.Drawing.Point(0, 179)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(979, 158)
+        Me.GridControl1.Size = New System.Drawing.Size(979, 180)
         Me.GridControl1.TabIndex = 174
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -349,6 +350,7 @@ Partial Class FrmStaging
         '
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PanelControl3.Controls.Add(Me.RadioButton7)
+        Me.PanelControl3.Controls.Add(Me.LabelControl13)
         Me.PanelControl3.Controls.Add(Me.RadioButton6)
         Me.PanelControl3.Controls.Add(Me.LabelControl2)
         Me.PanelControl3.Controls.Add(Me.RadioButton5)
@@ -367,19 +369,27 @@ Partial Class FrmStaging
         Me.RadioButton7.AutoSize = True
         Me.RadioButton7.BackColor = System.Drawing.Color.Transparent
         Me.RadioButton7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.RadioButton7.Location = New System.Drawing.Point(366, 90)
+        Me.RadioButton7.Location = New System.Drawing.Point(366, 68)
         Me.RadioButton7.Name = "RadioButton7"
         Me.RadioButton7.Size = New System.Drawing.Size(157, 17)
         Me.RadioButton7.TabIndex = 171
         Me.RadioButton7.Text = "IMPORT ALL DATA MASTER"
         Me.RadioButton7.UseVisualStyleBackColor = False
         '
+        'LabelControl13
+        '
+        Me.LabelControl13.Location = New System.Drawing.Point(366, 95)
+        Me.LabelControl13.Name = "LabelControl13"
+        Me.LabelControl13.Size = New System.Drawing.Size(51, 13)
+        Me.LabelControl13.TabIndex = 172
+        Me.LabelControl13.Text = "PROSES..."
+        '
         'RadioButton6
         '
         Me.RadioButton6.AutoSize = True
         Me.RadioButton6.BackColor = System.Drawing.Color.Transparent
         Me.RadioButton6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.RadioButton6.Location = New System.Drawing.Point(366, 56)
+        Me.RadioButton6.Location = New System.Drawing.Point(366, 45)
         Me.RadioButton6.Name = "RadioButton6"
         Me.RadioButton6.Size = New System.Drawing.Size(207, 17)
         Me.RadioButton6.TabIndex = 170
@@ -490,7 +500,7 @@ Partial Class FrmStaging
         Me.SimpleButton6.Appearance.Options.UseFont = True
         Me.SimpleButton6.Appearance.Options.UseForeColor = True
         Me.SimpleButton6.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.SimpleButton6.Location = New System.Drawing.Point(162, 6)
+        Me.SimpleButton6.Location = New System.Drawing.Point(162, 5)
         Me.SimpleButton6.Name = "SimpleButton6"
         Me.SimpleButton6.Size = New System.Drawing.Size(80, 27)
         Me.SimpleButton6.TabIndex = 55
@@ -506,7 +516,7 @@ Partial Class FrmStaging
         Me.XtraTabPage2.Controls.Add(Me.PanelControl7)
         Me.XtraTabPage2.Controls.Add(Me.PanelControl5)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(979, 419)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(979, 523)
         Me.XtraTabPage2.Text = "EXSPORT DATA TRANSAKSI"
         '
         'LabelControl11
@@ -762,7 +772,7 @@ Partial Class FrmStaging
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(985, 490)
+        Me.ClientSize = New System.Drawing.Size(985, 594)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.BunifuGradientPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -860,4 +870,5 @@ Partial Class FrmStaging
     Friend WithEvents DateEdit3 As DevExpress.XtraEditors.DateEdit
     Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl13 As DevExpress.XtraEditors.LabelControl
 End Class

@@ -130,10 +130,11 @@ Public Class FrmAccessRight
             TextEdit4.Text = GridView1.GetRowCellValue(e.RowHandle, "NO").ToString()  'ID
             ComboBoxEdit3.Text = GridView1.GetRowCellValue(e.RowHandle, "FRMNAME").ToString() 'NAME
             TextEdit1.Text = GridView1.GetRowCellValue(e.RowHandle, "MENUID").ToString()  'ID
+
             TextEdit1.Enabled = False
             TextEdit4.Enabled = False
-            GridView1.Columns("CHK").OptionsColumn.AllowEdit = True
 
+            GridView1.Columns("CHK").OptionsColumn.AllowEdit = True
             SimpleButton3.Enabled = True
             SimpleButton3.Text = "Update"
 

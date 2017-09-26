@@ -2,10 +2,6 @@
 Imports System.Threading
 Imports DevExpress.XtraNavBar
 Imports DevExpress.XtraSplashScreen
-''
-''.Oracle
-'Imports Devart.Common
-
 Public Class FrmUserLogin
     Dim attempts As Integer = 1
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
