@@ -1312,3 +1312,7 @@ E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.exe
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.xml
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.pdb
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.vbprojResolveAssemblyReference.cache
+D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\bin\Debug\SWS.exe.config
+D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\obj\Debug\SWS.exe
+D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\obj\Debug\SWS.xml
+D:\TIMBANGAN\GITHUB\lasttapp\PrjSWSTAP\obj\Debug\SWS.pdb
