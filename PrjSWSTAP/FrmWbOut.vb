@@ -291,8 +291,8 @@ Public Class FrmWbOut
             TextEdit12.Text = Val(TextEdit10.Text) - Val(TextEdit11.Text) 'ADJUST_NETTO
 
             'CAPTURE IMAGE
-            PictureBox1.Image = PictureBox3.Image
-            PictureBox2.Image = PictureBox4.Image
+
+
             SIMPANGAMBAR(TextEdit2.Text)
 
         End If
@@ -524,7 +524,7 @@ Public Class FrmWbOut
                     total += read
                 End While
                 Dim bmp As Bitmap = DirectCast(Bitmap.FromStream(New MemoryStream(buffer, 0, total)), Bitmap)
-                PictureBox3.Image = bmp
+
             Loop
         Catch ex As Exception
         End Try

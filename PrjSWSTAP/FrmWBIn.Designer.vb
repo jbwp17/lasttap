@@ -85,10 +85,10 @@ Partial Class FrmWbIn
         Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.resultLabel = New System.Windows.Forms.Label()
         Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
         Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.resultLabel = New System.Windows.Forms.Label()
         Me.SimpleButton7 = New DevExpress.XtraEditors.SimpleButton()
         Me.BW1 = New System.ComponentModel.BackgroundWorker()
         Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl()
@@ -1026,6 +1026,18 @@ Partial Class FrmWbIn
         Me.PictureBox2.TabIndex = 102
         Me.PictureBox2.TabStop = False
         '
+        'resultLabel
+        '
+        Me.resultLabel.AutoSize = True
+        Me.resultLabel.BackColor = System.Drawing.Color.Transparent
+        Me.resultLabel.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.resultLabel.ForeColor = System.Drawing.Color.CornflowerBlue
+        Me.resultLabel.Location = New System.Drawing.Point(442, 49)
+        Me.resultLabel.Name = "resultLabel"
+        Me.resultLabel.Size = New System.Drawing.Size(24, 15)
+        Me.resultLabel.TabIndex = 114
+        Me.resultLabel.Text = "WB."
+        '
         'PanelControl4
         '
         Me.PanelControl4.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(239, Byte), Integer))
@@ -1053,18 +1065,6 @@ Partial Class FrmWbIn
         Me.GridView1.GridControl = Me.GridControl1
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'resultLabel
-        '
-        Me.resultLabel.AutoSize = True
-        Me.resultLabel.BackColor = System.Drawing.Color.Transparent
-        Me.resultLabel.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.resultLabel.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.resultLabel.Location = New System.Drawing.Point(442, 49)
-        Me.resultLabel.Name = "resultLabel"
-        Me.resultLabel.Size = New System.Drawing.Size(24, 15)
-        Me.resultLabel.TabIndex = 114
-        Me.resultLabel.Text = "WB."
         '
         'SimpleButton7
         '
@@ -1324,7 +1324,7 @@ Partial Class FrmWbIn
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(782, 203)
@@ -1350,7 +1350,7 @@ Partial Class FrmWbIn
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
         Me.Label2.Location = New System.Drawing.Point(782, 221)

@@ -1,11 +1,11 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmWbOut
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up THE component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-        If disposing AndAlso components IsNot Nothing THEn
+        If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
         End If
         MyBase.Dispose(disposing)
@@ -17,7 +17,7 @@ Partial Class FrmWbOut
     'NOTE: THE following procedure is required by THE Windows Form Designer
     'It can be modified using THE Windows Form Designer.  
     'Do not modify it using THE code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmWbOut))
         Me.BunifuGradientPanel2 = New ns1.BunifuGradientPanel()
@@ -75,8 +75,6 @@ Partial Class FrmWbOut
         Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TxtWeight = New DevExpress.XtraEditors.TextEdit()
@@ -164,8 +162,6 @@ Partial Class FrmWbOut
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtWeight.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -888,11 +884,14 @@ Partial Class FrmWbOut
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(239, Byte), Integer))
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl3.Controls.Add(Me.PictureBox4)
-        Me.PanelControl3.Controls.Add(Me.PictureBox3)
+        Me.PanelControl3.Controls.Add(Me.path2)
         Me.PanelControl3.Controls.Add(Me.PictureBox2)
+        Me.PanelControl3.Controls.Add(Me.path1)
         Me.PanelControl3.Controls.Add(Me.PictureBox1)
+        Me.PanelControl3.Controls.Add(Me.LabelControl42)
+        Me.PanelControl3.Controls.Add(Me.LabelControl41)
         Me.PanelControl3.Controls.Add(Me.TxtWeight)
+        Me.PanelControl3.Controls.Add(Me.resultLabel)
         Me.PanelControl3.Controls.Add(Me.PictureEdit3)
         Me.PanelControl3.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl3.Location = New System.Drawing.Point(389, 82)
@@ -900,42 +899,17 @@ Partial Class FrmWbOut
         Me.PanelControl3.Size = New System.Drawing.Size(665, 113)
         Me.PanelControl3.TabIndex = 97
         '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackColor = System.Drawing.Color.White
-        Me.PictureBox4.BackgroundImage = CType(resources.GetObject("PictureBox4.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox4.Location = New System.Drawing.Point(573, 58)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(80, 51)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 123
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.White
-        Me.PictureBox3.BackgroundImage = CType(resources.GetObject("PictureBox3.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox3.Location = New System.Drawing.Point(573, 4)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(80, 51)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 122
-        Me.PictureBox3.TabStop = False
-        '
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.White
         Me.PictureBox2.BackgroundImage = CType(resources.GetObject("PictureBox2.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox2.Location = New System.Drawing.Point(391, 4)
+        Me.PictureBox2.Image = Global.PrjSWSTAP.My.Resources.Resources.cctv
+        Me.PictureBox2.Location = New System.Drawing.Point(337, 4)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(180, 107)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.Size = New System.Drawing.Size(137, 107)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 104
         Me.PictureBox2.TabStop = False
         '
@@ -945,10 +919,11 @@ Partial Class FrmWbOut
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Location = New System.Drawing.Point(207, 4)
+        Me.PictureBox1.Image = Global.PrjSWSTAP.My.Resources.Resources.cctv
+        Me.PictureBox1.Location = New System.Drawing.Point(192, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(180, 107)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.Size = New System.Drawing.Size(137, 107)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 103
         Me.PictureBox1.TabStop = False
         '
@@ -1492,7 +1467,7 @@ Partial Class FrmWbOut
         Me.SimpleButton7.Appearance.Options.UseForeColor = True
         Me.SimpleButton7.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.SimpleButton7.Image = CType(resources.GetObject("SimpleButton7.Image"), System.Drawing.Image)
-        Me.SimpleButton7.Location = New System.Drawing.Point(776, 296)
+        Me.SimpleButton7.Location = New System.Drawing.Point(791, 295)
         Me.SimpleButton7.Name = "SimpleButton7"
         Me.SimpleButton7.Size = New System.Drawing.Size(125, 33)
         Me.SimpleButton7.TabIndex = 107
@@ -1506,7 +1481,7 @@ Partial Class FrmWbOut
         Me.resultLabel.AutoSize = True
         Me.resultLabel.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.resultLabel.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.resultLabel.Location = New System.Drawing.Point(782, 198)
+        Me.resultLabel.Location = New System.Drawing.Point(490, 9)
         Me.resultLabel.Name = "resultLabel"
         Me.resultLabel.Size = New System.Drawing.Size(27, 15)
         Me.resultLabel.TabIndex = 110
@@ -1518,7 +1493,7 @@ Partial Class FrmWbOut
         Me.LabelControl41.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue
         Me.LabelControl41.Appearance.Options.UseFont = True
         Me.LabelControl41.Appearance.Options.UseForeColor = True
-        Me.LabelControl41.Location = New System.Drawing.Point(782, 214)
+        Me.LabelControl41.Location = New System.Drawing.Point(490, 25)
         Me.LabelControl41.Name = "LabelControl41"
         Me.LabelControl41.Size = New System.Drawing.Size(46, 15)
         Me.LabelControl41.TabIndex = 112
@@ -1530,7 +1505,7 @@ Partial Class FrmWbOut
         Me.LabelControl42.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue
         Me.LabelControl42.Appearance.Options.UseFont = True
         Me.LabelControl42.Appearance.Options.UseForeColor = True
-        Me.LabelControl42.Location = New System.Drawing.Point(782, 230)
+        Me.LabelControl42.Location = New System.Drawing.Point(490, 41)
         Me.LabelControl42.Name = "LabelControl42"
         Me.LabelControl42.Size = New System.Drawing.Size(46, 15)
         Me.LabelControl42.TabIndex = 113
@@ -1542,7 +1517,7 @@ Partial Class FrmWbOut
         Me.path1.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue
         Me.path1.Appearance.Options.UseFont = True
         Me.path1.Appearance.Options.UseForeColor = True
-        Me.path1.Location = New System.Drawing.Point(782, 246)
+        Me.path1.Location = New System.Drawing.Point(490, 57)
         Me.path1.Name = "path1"
         Me.path1.Size = New System.Drawing.Size(46, 15)
         Me.path1.TabIndex = 114
@@ -1554,7 +1529,7 @@ Partial Class FrmWbOut
         Me.path2.Appearance.ForeColor = System.Drawing.Color.CornflowerBlue
         Me.path2.Appearance.Options.UseFont = True
         Me.path2.Appearance.Options.UseForeColor = True
-        Me.path2.Location = New System.Drawing.Point(782, 262)
+        Me.path2.Location = New System.Drawing.Point(490, 73)
         Me.path2.Name = "path2"
         Me.path2.Size = New System.Drawing.Size(46, 15)
         Me.path2.TabIndex = 115
@@ -1568,11 +1543,6 @@ Partial Class FrmWbOut
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1054, 614)
-        Me.Controls.Add(Me.path2)
-        Me.Controls.Add(Me.path1)
-        Me.Controls.Add(Me.LabelControl42)
-        Me.Controls.Add(Me.LabelControl41)
-        Me.Controls.Add(Me.resultLabel)
         Me.Controls.Add(Me.SimpleButton7)
         Me.Controls.Add(Me.PanelControl4)
         Me.Controls.Add(Me.PanelControl5)
@@ -1618,8 +1588,7 @@ Partial Class FrmWbOut
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl3.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtWeight.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1652,55 +1621,54 @@ Partial Class FrmWbOut
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
-    Friend WiTHEvents BunifuGradientPanel2 As ns1.BunifuGradientPanel
-    Friend WiTHEvents LabelControl35 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl89 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents Panel9 As Panel
-    Friend WiTHEvents LabelControl14 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl13 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl9 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
-    Friend WiTHEvents PanelControl6 As DevExpress.XtraEditors.PanelControl
-    Friend WiTHEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
-    Friend WiTHEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WiTHEvents SimpleButton14 As DevExpress.XtraEditors.SimpleButton
-    Friend WiTHEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
-    Friend WiTHEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
-    Friend WiTHEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
-    Friend WiTHEvents TextEdit17 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit16 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit15 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit14 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit13 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit12 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit11 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents SimpleButton6 As DevExpress.XtraEditors.SimpleButton
-    Friend WiTHEvents TextEdit6 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit7 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit8 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit9 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit10 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit5 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit4 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit3 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit2 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents PanelControl3 As DevExpress.XtraEditors.PanelControl
-    Friend WiTHEvents TxtWeight As DevExpress.XtraEditors.TextEdit
-    Friend WiTHEvents PictureEdit3 As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents BunifuGradientPanel2 As ns1.BunifuGradientPanel
+    Friend WithEvents LabelControl35 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl89 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents LabelControl14 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl13 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl9 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents PanelControl6 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents SimpleButton14 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents TextEdit17 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit16 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit15 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit14 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit13 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit12 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit11 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents SimpleButton6 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents TextEdit6 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit7 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit8 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit9 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit10 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit5 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit4 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit3 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit2 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents PanelControl3 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents TxtWeight As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents PictureEdit3 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents LabelControl38 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl37 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl36 As DevExpress.XtraEditors.LabelControl
@@ -1768,6 +1736,4 @@ Partial Class FrmWbOut
     Friend WithEvents path2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents BWC1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents BWC2 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents PictureBox3 As PictureBox
 End Class

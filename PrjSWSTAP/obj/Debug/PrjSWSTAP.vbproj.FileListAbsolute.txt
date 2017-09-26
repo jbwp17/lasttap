@@ -1288,9 +1288,9 @@ E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmRoleAccesRight.r
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmRptBeritaAcara.resources
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmRptDetailSWS.resources
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmRptGradingTbs.resources
-E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmStaging.resources
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmSalesOrder.resources
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.Frm.resources
+E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmStaging.resources
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmTransporter.resources
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmUserLogin.resources
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmUserProfile.resources
@@ -1311,4 +1311,3 @@ E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.exe.licenses
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.exe
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.xml
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.pdb
-E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.vbprojResolveAssemblyReference.cache
