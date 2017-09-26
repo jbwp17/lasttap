@@ -148,4 +148,8 @@ Public Class FrmStaging
     Private Sub SimpleButton6_Click(sender As Object, e As EventArgs) Handles SimpleButton6.Click
         Me.Close()
     End Sub
+
+    Private Sub SimpleButton7_Click(sender As Object, e As EventArgs) Handles SimpleButton7.Click
+        Me.Close()
+    End Sub
 End Class
