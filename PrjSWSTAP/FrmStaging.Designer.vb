@@ -25,7 +25,6 @@ Partial Class FrmStaging
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmStaging))
         Me.BunifuGradientPanel1 = New ns1.BunifuGradientPanel()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.BackstageViewControl1 = New DevExpress.XtraBars.Ribbon.BackstageViewControl()
         Me.BackstageViewClientControl1 = New DevExpress.XtraBars.Ribbon.BackstageViewClientControl()
         Me.BackstageViewTabItem2 = New DevExpress.XtraBars.Ribbon.BackstageViewTabItem()
         Me.PanelControl6 = New DevExpress.XtraEditors.PanelControl()
@@ -38,10 +37,14 @@ Partial Class FrmStaging
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
         Me.SimpleButton9 = New DevExpress.XtraEditors.SimpleButton()
-        Me.BackstageViewClientControl2 = New DevExpress.XtraBars.Ribbon.BackstageViewClientControl()
-        Me.BackstageViewTabItem1 = New DevExpress.XtraBars.Ribbon.BackstageViewTabItem()
-        Me.BackstageViewClientControl3 = New DevExpress.XtraBars.Ribbon.BackstageViewClientControl()
-        Me.BackstageViewTabItem3 = New DevExpress.XtraBars.Ribbon.BackstageViewTabItem()
+        Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
+        Me.XtraTabPage1 = New DevExpress.XtraTab.XtraTabPage()
+        Me.GridControl2 = New DevExpress.XtraGrid.GridControl()
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
+        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
         Me.RadioButton7 = New System.Windows.Forms.RadioButton()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
@@ -51,68 +54,60 @@ Partial Class FrmStaging
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
-        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
-        Me.GridControl2 = New DevExpress.XtraGrid.GridControl()
-        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.SimpleButton6 = New DevExpress.XtraEditors.SimpleButton()
-        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
-        Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl()
-        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
-        Me.SimpleButton7 = New DevExpress.XtraEditors.SimpleButton()
-        Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton6 = New DevExpress.XtraEditors.SimpleButton()
+        Me.XtraTabPage2 = New DevExpress.XtraTab.XtraTabPage()
+        Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
+        Me.GridControl4 = New DevExpress.XtraGrid.GridControl()
+        Me.GridView4 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
+        Me.GridControl3 = New DevExpress.XtraGrid.GridControl()
+        Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
+        Me.PanelControl7 = New DevExpress.XtraEditors.PanelControl()
+        Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
         Me.DateEdit2 = New DevExpress.XtraEditors.DateEdit()
         Me.DateEdit3 = New DevExpress.XtraEditors.DateEdit()
-        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
-        Me.PanelControl7 = New DevExpress.XtraEditors.PanelControl()
+        Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
         Me.RadioButton11 = New System.Windows.Forms.RadioButton()
         Me.RadioButton12 = New System.Windows.Forms.RadioButton()
         Me.RadioButton13 = New System.Windows.Forms.RadioButton()
         Me.RadioButton14 = New System.Windows.Forms.RadioButton()
-        Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
-        Me.GridControl3 = New DevExpress.XtraGrid.GridControl()
-        Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
-        Me.GridControl4 = New DevExpress.XtraGrid.GridControl()
-        Me.GridView4 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.BackstageViewControl2 = New DevExpress.XtraBars.Ribbon.BackstageViewControl()
-        Me.BackstageViewControl3 = New DevExpress.XtraBars.Ribbon.BackstageViewControl()
+        Me.LabelControl12 = New DevExpress.XtraEditors.LabelControl()
+        Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl()
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton7 = New DevExpress.XtraEditors.SimpleButton()
         Me.BunifuGradientPanel1.SuspendLayout()
-        CType(Me.BackstageViewControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BackstageViewControl1.SuspendLayout()
         CType(Me.PanelControl6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DateEdit1.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DateEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BackstageViewClientControl2.SuspendLayout()
-        Me.BackstageViewClientControl3.SuspendLayout()
-        CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl3.SuspendLayout()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.XtraTabControl1.SuspendLayout()
+        Me.XtraTabPage1.SuspendLayout()
         CType(Me.GridControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl3.SuspendLayout()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
-        CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl5.SuspendLayout()
+        Me.XtraTabPage2.SuspendLayout()
+        CType(Me.GridControl4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridControl3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl7, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl7.SuspendLayout()
         CType(Me.DateEdit2.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DateEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DateEdit3.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DateEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PanelControl7, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl7.SuspendLayout()
-        CType(Me.GridControl3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridControl4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BackstageViewControl2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BackstageViewControl3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl5.SuspendLayout()
         Me.SuspendLayout()
         '
         'BunifuGradientPanel1
@@ -142,32 +137,6 @@ Partial Class FrmStaging
         Me.LabelControl1.Size = New System.Drawing.Size(242, 14)
         Me.LabelControl1.TabIndex = 0
         Me.LabelControl1.Text = "WEIGHBRIDGE EXPORT / IMPORT DATA"
-        '
-        'BackstageViewControl1
-        '
-        Me.BackstageViewControl1.Appearance.BackColor = System.Drawing.Color.DimGray
-        Me.BackstageViewControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackstageViewControl1.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold
-        Me.BackstageViewControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BackstageViewControl1.Appearance.Options.UseBackColor = True
-        Me.BackstageViewControl1.Appearance.Options.UseFont = True
-        Me.BackstageViewControl1.Appearance.Options.UseForeColor = True
-        Me.BackstageViewControl1.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow
-        Me.BackstageViewControl1.Controls.Add(Me.BackstageViewClientControl2)
-        Me.BackstageViewControl1.Controls.Add(Me.BackstageViewClientControl3)
-        Me.BackstageViewControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BackstageViewControl1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackstageViewControl1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BackstageViewControl1.Items.Add(Me.BackstageViewTabItem1)
-        Me.BackstageViewControl1.Items.Add(Me.BackstageViewTabItem3)
-        Me.BackstageViewControl1.Location = New System.Drawing.Point(0, 43)
-        Me.BackstageViewControl1.Name = "BackstageViewControl1"
-        Me.BackstageViewControl1.PaintStyle = DevExpress.XtraBars.Ribbon.BackstageViewPaintStyle.Flat
-        Me.BackstageViewControl1.SelectedTab = Me.BackstageViewTabItem3
-        Me.BackstageViewControl1.SelectedTabIndex = 1
-        Me.BackstageViewControl1.Size = New System.Drawing.Size(985, 447)
-        Me.BackstageViewControl1.TabIndex = 4
-        Me.BackstageViewControl1.Text = "BackstageViewControl1"
         '
         'BackstageViewClientControl1
         '
@@ -288,54 +257,93 @@ Partial Class FrmStaging
         Me.SimpleButton9.Size = New System.Drawing.Size(80, 27)
         Me.SimpleButton9.TabIndex = 55
         '
-        'BackstageViewClientControl2
+        'XtraTabControl1
         '
-        Me.BackstageViewClientControl2.Controls.Add(Me.GridControl4)
-        Me.BackstageViewClientControl2.Controls.Add(Me.LabelControl11)
-        Me.BackstageViewClientControl2.Controls.Add(Me.GridControl3)
-        Me.BackstageViewClientControl2.Controls.Add(Me.LabelControl10)
-        Me.BackstageViewClientControl2.Controls.Add(Me.PanelControl7)
-        Me.BackstageViewClientControl2.Controls.Add(Me.DateEdit2)
-        Me.BackstageViewClientControl2.Controls.Add(Me.DateEdit3)
-        Me.BackstageViewClientControl2.Controls.Add(Me.LabelControl8)
-        Me.BackstageViewClientControl2.Controls.Add(Me.LabelControl9)
-        Me.BackstageViewClientControl2.Controls.Add(Me.LabelControl7)
-        Me.BackstageViewClientControl2.Controls.Add(Me.PanelControl5)
-        Me.BackstageViewClientControl2.Controls.Add(Me.BackstageViewControl2)
-        Me.BackstageViewClientControl2.Location = New System.Drawing.Point(102, 0)
-        Me.BackstageViewClientControl2.Name = "BackstageViewClientControl2"
-        Me.BackstageViewClientControl2.Size = New System.Drawing.Size(883, 447)
-        Me.BackstageViewClientControl2.TabIndex = 1
+        Me.XtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.XtraTabControl1.Location = New System.Drawing.Point(0, 43)
+        Me.XtraTabControl1.Name = "XtraTabControl1"
+        Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
+        Me.XtraTabControl1.Size = New System.Drawing.Size(985, 447)
+        Me.XtraTabControl1.TabIndex = 5
+        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2})
         '
-        'BackstageViewTabItem1
+        'XtraTabPage1
         '
-        Me.BackstageViewTabItem1.Caption = "EXPORT"
-        Me.BackstageViewTabItem1.CaptionHorizontalAlignment = DevExpress.Utils.Drawing.ItemHorizontalAlignment.Left
-        Me.BackstageViewTabItem1.ContentControl = Me.BackstageViewClientControl2
-        Me.BackstageViewTabItem1.Name = "BackstageViewTabItem1"
-        Me.BackstageViewTabItem1.Selected = False
+        Me.XtraTabPage1.Controls.Add(Me.GridControl2)
+        Me.XtraTabPage1.Controls.Add(Me.LabelControl6)
+        Me.XtraTabPage1.Controls.Add(Me.GridControl1)
+        Me.XtraTabPage1.Controls.Add(Me.LabelControl5)
+        Me.XtraTabPage1.Controls.Add(Me.PanelControl3)
+        Me.XtraTabPage1.Controls.Add(Me.PanelControl2)
+        Me.XtraTabPage1.Name = "XtraTabPage1"
+        Me.XtraTabPage1.Size = New System.Drawing.Size(979, 419)
+        Me.XtraTabPage1.Text = "IMPORT DATA MASTER"
         '
-        'BackstageViewClientControl3
+        'GridControl2
         '
-        Me.BackstageViewClientControl3.Controls.Add(Me.GridControl2)
-        Me.BackstageViewClientControl3.Controls.Add(Me.LabelControl6)
-        Me.BackstageViewClientControl3.Controls.Add(Me.GridControl1)
-        Me.BackstageViewClientControl3.Controls.Add(Me.LabelControl5)
-        Me.BackstageViewClientControl3.Controls.Add(Me.PanelControl3)
-        Me.BackstageViewClientControl3.Controls.Add(Me.PanelControl2)
-        Me.BackstageViewClientControl3.Controls.Add(Me.BackstageViewControl3)
-        Me.BackstageViewClientControl3.Location = New System.Drawing.Point(102, 0)
-        Me.BackstageViewClientControl3.Name = "BackstageViewClientControl3"
-        Me.BackstageViewClientControl3.Size = New System.Drawing.Size(883, 447)
-        Me.BackstageViewClientControl3.TabIndex = 2
+        Me.GridControl2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GridControl2.Location = New System.Drawing.Point(0, 363)
+        Me.GridControl2.MainView = Me.GridView2
+        Me.GridControl2.Name = "GridControl2"
+        Me.GridControl2.Size = New System.Drawing.Size(979, 115)
+        Me.GridControl2.TabIndex = 176
+        Me.GridControl2.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView2})
         '
-        'BackstageViewTabItem3
+        'GridView2
         '
-        Me.BackstageViewTabItem3.Caption = "IMPORT"
-        Me.BackstageViewTabItem3.CaptionHorizontalAlignment = DevExpress.Utils.Drawing.ItemHorizontalAlignment.Left
-        Me.BackstageViewTabItem3.ContentControl = Me.BackstageViewClientControl3
-        Me.BackstageViewTabItem3.Name = "BackstageViewTabItem3"
-        Me.BackstageViewTabItem3.Selected = True
+        Me.GridView2.GridControl = Me.GridControl2
+        Me.GridView2.Name = "GridView2"
+        Me.GridView2.OptionsView.ShowGroupPanel = False
+        '
+        'LabelControl6
+        '
+        Me.LabelControl6.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl6.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.LabelControl6.Appearance.Options.UseBackColor = True
+        Me.LabelControl6.Appearance.Options.UseFont = True
+        Me.LabelControl6.Appearance.Options.UseForeColor = True
+        Me.LabelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.LabelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.LabelControl6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabelControl6.Location = New System.Drawing.Point(0, 337)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(979, 26)
+        Me.LabelControl6.TabIndex = 175
+        Me.LabelControl6.Text = "      DATA STAGING"
+        '
+        'GridControl1
+        '
+        Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GridControl1.Location = New System.Drawing.Point(0, 179)
+        Me.GridControl1.MainView = Me.GridView1
+        Me.GridControl1.Name = "GridControl1"
+        Me.GridControl1.Size = New System.Drawing.Size(979, 158)
+        Me.GridControl1.TabIndex = 174
+        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.GridControl1
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'LabelControl5
+        '
+        Me.LabelControl5.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl5.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.LabelControl5.Appearance.Options.UseBackColor = True
+        Me.LabelControl5.Appearance.Options.UseFont = True
+        Me.LabelControl5.Appearance.Options.UseForeColor = True
+        Me.LabelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.LabelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.LabelControl5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabelControl5.Location = New System.Drawing.Point(0, 159)
+        Me.LabelControl5.Name = "LabelControl5"
+        Me.LabelControl5.Size = New System.Drawing.Size(979, 20)
+        Me.LabelControl5.TabIndex = 173
+        Me.LabelControl5.Text = "      DATA LOCAL"
         '
         'PanelControl3
         '
@@ -351,8 +359,8 @@ Partial Class FrmStaging
         Me.PanelControl3.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl3.Location = New System.Drawing.Point(0, 39)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(883, 120)
-        Me.PanelControl3.TabIndex = 171
+        Me.PanelControl3.Size = New System.Drawing.Size(979, 120)
+        Me.PanelControl3.TabIndex = 172
         '
         'RadioButton7
         '
@@ -452,84 +460,15 @@ Partial Class FrmStaging
         Me.RadioButton1.Text = "IMPORT DATA CUSTOMER"
         Me.RadioButton1.UseVisualStyleBackColor = False
         '
-        'LabelControl5
+        'PanelControl2
         '
-        Me.LabelControl5.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl5.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.LabelControl5.Appearance.Options.UseBackColor = True
-        Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Appearance.Options.UseForeColor = True
-        Me.LabelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
-        Me.LabelControl5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LabelControl5.Location = New System.Drawing.Point(0, 159)
-        Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(883, 26)
-        Me.LabelControl5.TabIndex = 172
-        Me.LabelControl5.Text = "      DATA LOCAL"
-        '
-        'GridControl1
-        '
-        Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GridControl1.Location = New System.Drawing.Point(0, 185)
-        Me.GridControl1.MainView = Me.GridView1
-        Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(883, 158)
-        Me.GridControl1.TabIndex = 173
-        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
-        '
-        'GridView1
-        '
-        Me.GridView1.GridControl = Me.GridControl1
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'LabelControl6
-        '
-        Me.LabelControl6.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl6.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.LabelControl6.Appearance.Options.UseBackColor = True
-        Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Appearance.Options.UseForeColor = True
-        Me.LabelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
-        Me.LabelControl6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LabelControl6.Location = New System.Drawing.Point(0, 343)
-        Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(883, 26)
-        Me.LabelControl6.TabIndex = 174
-        Me.LabelControl6.Text = "      DATA STAGING"
-        '
-        'GridControl2
-        '
-        Me.GridControl2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GridControl2.Location = New System.Drawing.Point(0, 369)
-        Me.GridControl2.MainView = Me.GridView2
-        Me.GridControl2.Name = "GridControl2"
-        Me.GridControl2.Size = New System.Drawing.Size(883, 115)
-        Me.GridControl2.TabIndex = 175
-        Me.GridControl2.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView2})
-        '
-        'GridView2
-        '
-        Me.GridView2.GridControl = Me.GridControl2
-        Me.GridView2.Name = "GridView2"
-        Me.GridView2.OptionsView.ShowGroupPanel = False
-        '
-        'SimpleButton6
-        '
-        Me.SimpleButton6.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.SimpleButton6.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.SimpleButton6.Appearance.Options.UseFont = True
-        Me.SimpleButton6.Appearance.Options.UseForeColor = True
-        Me.SimpleButton6.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.SimpleButton6.Location = New System.Drawing.Point(167, 5)
-        Me.SimpleButton6.Name = "SimpleButton6"
-        Me.SimpleButton6.Size = New System.Drawing.Size(80, 27)
-        Me.SimpleButton6.TabIndex = 55
-        Me.SimpleButton6.Text = "Close"
+        Me.PanelControl2.Controls.Add(Me.SimpleButton5)
+        Me.PanelControl2.Controls.Add(Me.SimpleButton6)
+        Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelControl2.Location = New System.Drawing.Point(0, 0)
+        Me.PanelControl2.Name = "PanelControl2"
+        Me.PanelControl2.Size = New System.Drawing.Size(979, 39)
+        Me.PanelControl2.TabIndex = 171
         '
         'SimpleButton5
         '
@@ -540,212 +479,35 @@ Partial Class FrmStaging
         Me.SimpleButton5.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.SimpleButton5.Location = New System.Drawing.Point(14, 5)
         Me.SimpleButton5.Name = "SimpleButton5"
-        Me.SimpleButton5.Size = New System.Drawing.Size(147, 27)
+        Me.SimpleButton5.Size = New System.Drawing.Size(143, 27)
         Me.SimpleButton5.TabIndex = 56
         Me.SimpleButton5.Text = "Import Data Master"
         '
-        'PanelControl2
+        'SimpleButton6
         '
-        Me.PanelControl2.Controls.Add(Me.SimpleButton5)
-        Me.PanelControl2.Controls.Add(Me.SimpleButton6)
-        Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelControl2.Location = New System.Drawing.Point(0, 0)
-        Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(883, 39)
-        Me.PanelControl2.TabIndex = 170
+        Me.SimpleButton6.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton6.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.SimpleButton6.Appearance.Options.UseFont = True
+        Me.SimpleButton6.Appearance.Options.UseForeColor = True
+        Me.SimpleButton6.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.SimpleButton6.Location = New System.Drawing.Point(162, 6)
+        Me.SimpleButton6.Name = "SimpleButton6"
+        Me.SimpleButton6.Size = New System.Drawing.Size(80, 27)
+        Me.SimpleButton6.TabIndex = 55
+        Me.SimpleButton6.Text = "Close"
         '
-        'PanelControl5
+        'XtraTabPage2
         '
-        Me.PanelControl5.Controls.Add(Me.SimpleButton4)
-        Me.PanelControl5.Controls.Add(Me.SimpleButton7)
-        Me.PanelControl5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelControl5.Location = New System.Drawing.Point(0, 0)
-        Me.PanelControl5.Name = "PanelControl5"
-        Me.PanelControl5.Size = New System.Drawing.Size(883, 39)
-        Me.PanelControl5.TabIndex = 171
-        '
-        'SimpleButton4
-        '
-        Me.SimpleButton4.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.SimpleButton4.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.SimpleButton4.Appearance.Options.UseFont = True
-        Me.SimpleButton4.Appearance.Options.UseForeColor = True
-        Me.SimpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.SimpleButton4.Location = New System.Drawing.Point(14, 5)
-        Me.SimpleButton4.Name = "SimpleButton4"
-        Me.SimpleButton4.Size = New System.Drawing.Size(147, 27)
-        Me.SimpleButton4.TabIndex = 56
-        Me.SimpleButton4.Text = "Export Data Master"
-        '
-        'SimpleButton7
-        '
-        Me.SimpleButton7.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.SimpleButton7.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.SimpleButton7.Appearance.Options.UseFont = True
-        Me.SimpleButton7.Appearance.Options.UseForeColor = True
-        Me.SimpleButton7.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.SimpleButton7.Location = New System.Drawing.Point(167, 5)
-        Me.SimpleButton7.Name = "SimpleButton7"
-        Me.SimpleButton7.Size = New System.Drawing.Size(80, 27)
-        Me.SimpleButton7.TabIndex = 55
-        Me.SimpleButton7.Text = "Close"
-        '
-        'LabelControl7
-        '
-        Me.LabelControl7.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl7.Appearance.Options.UseBackColor = True
-        Me.LabelControl7.Appearance.Options.UseFont = True
-        Me.LabelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl7.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LabelControl7.Location = New System.Drawing.Point(0, 39)
-        Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(883, 34)
-        Me.LabelControl7.TabIndex = 172
-        '
-        'DateEdit2
-        '
-        Me.DateEdit2.EditValue = Nothing
-        Me.DateEdit2.EnterMoveNextControl = True
-        Me.DateEdit2.Location = New System.Drawing.Point(89, 45)
-        Me.DateEdit2.Name = "DateEdit2"
-        Me.DateEdit2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.DateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.DateEdit2.Properties.Mask.EditMask = "dd-MM-yyyy"
-        Me.DateEdit2.Size = New System.Drawing.Size(192, 20)
-        Me.DateEdit2.TabIndex = 173
-        '
-        'DateEdit3
-        '
-        Me.DateEdit3.EditValue = Nothing
-        Me.DateEdit3.EnterMoveNextControl = True
-        Me.DateEdit3.Location = New System.Drawing.Point(398, 45)
-        Me.DateEdit3.Name = "DateEdit3"
-        Me.DateEdit3.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.DateEdit3.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.DateEdit3.Properties.Mask.EditMask = "dd-MM-yyyy"
-        Me.DateEdit3.Size = New System.Drawing.Size(192, 20)
-        Me.DateEdit3.TabIndex = 174
-        '
-        'LabelControl8
-        '
-        Me.LabelControl8.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl8.Appearance.Options.UseBackColor = True
-        Me.LabelControl8.Appearance.Options.UseFont = True
-        Me.LabelControl8.Location = New System.Drawing.Point(14, 50)
-        Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(69, 13)
-        Me.LabelControl8.TabIndex = 176
-        Me.LabelControl8.Text = "START DATE"
-        '
-        'LabelControl9
-        '
-        Me.LabelControl9.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl9.Appearance.Options.UseBackColor = True
-        Me.LabelControl9.Appearance.Options.UseFont = True
-        Me.LabelControl9.Location = New System.Drawing.Point(339, 50)
-        Me.LabelControl9.Name = "LabelControl9"
-        Me.LabelControl9.Size = New System.Drawing.Size(53, 13)
-        Me.LabelControl9.TabIndex = 175
-        Me.LabelControl9.Text = "END DATE"
-        '
-        'PanelControl7
-        '
-        Me.PanelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl7.Controls.Add(Me.RadioButton11)
-        Me.PanelControl7.Controls.Add(Me.RadioButton12)
-        Me.PanelControl7.Controls.Add(Me.RadioButton13)
-        Me.PanelControl7.Controls.Add(Me.RadioButton14)
-        Me.PanelControl7.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelControl7.Location = New System.Drawing.Point(0, 73)
-        Me.PanelControl7.Name = "PanelControl7"
-        Me.PanelControl7.Size = New System.Drawing.Size(883, 112)
-        Me.PanelControl7.TabIndex = 177
-        '
-        'RadioButton11
-        '
-        Me.RadioButton11.AutoSize = True
-        Me.RadioButton11.BackColor = System.Drawing.Color.Transparent
-        Me.RadioButton11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.RadioButton11.Location = New System.Drawing.Point(14, 80)
-        Me.RadioButton11.Name = "RadioButton11"
-        Me.RadioButton11.Size = New System.Drawing.Size(277, 17)
-        Me.RadioButton11.TabIndex = 167
-        Me.RadioButton11.Text = "EXPORT ALL DATA TRANSACTION ( FFB , CPO , PK )"
-        Me.RadioButton11.UseVisualStyleBackColor = False
-        '
-        'RadioButton12
-        '
-        Me.RadioButton12.AutoSize = True
-        Me.RadioButton12.BackColor = System.Drawing.Color.Transparent
-        Me.RadioButton12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.RadioButton12.Location = New System.Drawing.Point(14, 57)
-        Me.RadioButton12.Name = "RadioButton12"
-        Me.RadioButton12.Size = New System.Drawing.Size(296, 17)
-        Me.RadioButton12.TabIndex = 166
-        Me.RadioButton12.Text = "EXPORT OTHERS TRANSACTION ( NUMPANG TIMBANG )"
-        Me.RadioButton12.UseVisualStyleBackColor = False
-        '
-        'RadioButton13
-        '
-        Me.RadioButton13.AutoSize = True
-        Me.RadioButton13.BackColor = System.Drawing.Color.Transparent
-        Me.RadioButton13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.RadioButton13.Location = New System.Drawing.Point(14, 34)
-        Me.RadioButton13.Name = "RadioButton13"
-        Me.RadioButton13.Size = New System.Drawing.Size(268, 17)
-        Me.RadioButton13.TabIndex = 165
-        Me.RadioButton13.Text = "EXPORT DATA TRANSACTION ( CPO , PK , SHELL )"
-        Me.RadioButton13.UseVisualStyleBackColor = False
-        '
-        'RadioButton14
-        '
-        Me.RadioButton14.AutoSize = True
-        Me.RadioButton14.BackColor = System.Drawing.Color.Transparent
-        Me.RadioButton14.Checked = True
-        Me.RadioButton14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.RadioButton14.Location = New System.Drawing.Point(14, 11)
-        Me.RadioButton14.Name = "RadioButton14"
-        Me.RadioButton14.Size = New System.Drawing.Size(204, 17)
-        Me.RadioButton14.TabIndex = 164
-        Me.RadioButton14.TabStop = True
-        Me.RadioButton14.Text = "EXPORT DATA TRANSACTION ( FFB )"
-        Me.RadioButton14.UseVisualStyleBackColor = False
-        '
-        'LabelControl10
-        '
-        Me.LabelControl10.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl10.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.LabelControl10.Appearance.Options.UseBackColor = True
-        Me.LabelControl10.Appearance.Options.UseFont = True
-        Me.LabelControl10.Appearance.Options.UseForeColor = True
-        Me.LabelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
-        Me.LabelControl10.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LabelControl10.Location = New System.Drawing.Point(0, 185)
-        Me.LabelControl10.Name = "LabelControl10"
-        Me.LabelControl10.Size = New System.Drawing.Size(883, 26)
-        Me.LabelControl10.TabIndex = 178
-        Me.LabelControl10.Text = "      DATA LOCAL"
-        '
-        'GridControl3
-        '
-        Me.GridControl3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GridControl3.Location = New System.Drawing.Point(0, 211)
-        Me.GridControl3.MainView = Me.GridView3
-        Me.GridControl3.Name = "GridControl3"
-        Me.GridControl3.Size = New System.Drawing.Size(883, 158)
-        Me.GridControl3.TabIndex = 179
-        Me.GridControl3.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView3})
-        '
-        'GridView3
-        '
-        Me.GridView3.GridControl = Me.GridControl3
-        Me.GridView3.Name = "GridView3"
-        Me.GridView3.OptionsView.ShowGroupPanel = False
+        Me.XtraTabPage2.Controls.Add(Me.LabelControl11)
+        Me.XtraTabPage2.Controls.Add(Me.GridControl4)
+        Me.XtraTabPage2.Controls.Add(Me.LabelControl9)
+        Me.XtraTabPage2.Controls.Add(Me.GridControl3)
+        Me.XtraTabPage2.Controls.Add(Me.LabelControl8)
+        Me.XtraTabPage2.Controls.Add(Me.PanelControl7)
+        Me.XtraTabPage2.Controls.Add(Me.PanelControl5)
+        Me.XtraTabPage2.Name = "XtraTabPage2"
+        Me.XtraTabPage2.Size = New System.Drawing.Size(979, 419)
+        Me.XtraTabPage2.Text = "EXSPORT DATA TRANSAKSI"
         '
         'LabelControl11
         '
@@ -758,20 +520,20 @@ Partial Class FrmStaging
         Me.LabelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.LabelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.LabelControl11.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LabelControl11.Location = New System.Drawing.Point(0, 369)
+        Me.LabelControl11.Location = New System.Drawing.Point(0, 506)
         Me.LabelControl11.Name = "LabelControl11"
-        Me.LabelControl11.Size = New System.Drawing.Size(883, 26)
-        Me.LabelControl11.TabIndex = 180
-        Me.LabelControl11.Text = "      DATA STAGING"
+        Me.LabelControl11.Size = New System.Drawing.Size(979, 20)
+        Me.LabelControl11.TabIndex = 178
+        Me.LabelControl11.Text = "      DATA LOCAL"
         '
         'GridControl4
         '
         Me.GridControl4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GridControl4.Location = New System.Drawing.Point(0, 395)
+        Me.GridControl4.Location = New System.Drawing.Point(0, 391)
         Me.GridControl4.MainView = Me.GridView4
         Me.GridControl4.Name = "GridControl4"
-        Me.GridControl4.Size = New System.Drawing.Size(883, 115)
-        Me.GridControl4.TabIndex = 181
+        Me.GridControl4.Size = New System.Drawing.Size(979, 115)
+        Me.GridControl4.TabIndex = 177
         Me.GridControl4.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView4})
         '
         'GridView4
@@ -780,77 +542,271 @@ Partial Class FrmStaging
         Me.GridView4.Name = "GridView4"
         Me.GridView4.OptionsView.ShowGroupPanel = False
         '
-        'BackstageViewControl2
+        'LabelControl9
         '
-        Me.BackstageViewControl2.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow
-        Me.BackstageViewControl2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BackstageViewControl2.Location = New System.Drawing.Point(0, 0)
-        Me.BackstageViewControl2.Name = "BackstageViewControl2"
-        Me.BackstageViewControl2.Size = New System.Drawing.Size(883, 447)
-        Me.BackstageViewControl2.TabIndex = 182
+        Me.LabelControl9.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl9.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.LabelControl9.Appearance.Options.UseBackColor = True
+        Me.LabelControl9.Appearance.Options.UseFont = True
+        Me.LabelControl9.Appearance.Options.UseForeColor = True
+        Me.LabelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.LabelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.LabelControl9.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabelControl9.Location = New System.Drawing.Point(0, 365)
+        Me.LabelControl9.Name = "LabelControl9"
+        Me.LabelControl9.Size = New System.Drawing.Size(979, 26)
+        Me.LabelControl9.TabIndex = 176
+        Me.LabelControl9.Text = "      DATA STAGING"
         '
-        'BackstageViewControl3
+        'GridControl3
         '
-        Me.BackstageViewControl3.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow
-        Me.BackstageViewControl3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BackstageViewControl3.Location = New System.Drawing.Point(0, 0)
-        Me.BackstageViewControl3.Name = "BackstageViewControl3"
-        Me.BackstageViewControl3.Size = New System.Drawing.Size(883, 447)
-        Me.BackstageViewControl3.TabIndex = 176
+        Me.GridControl3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GridControl3.Location = New System.Drawing.Point(0, 207)
+        Me.GridControl3.MainView = Me.GridView3
+        Me.GridControl3.Name = "GridControl3"
+        Me.GridControl3.Size = New System.Drawing.Size(979, 158)
+        Me.GridControl3.TabIndex = 175
+        Me.GridControl3.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView3})
         '
-        'FrmStExport1
+        'GridView3
+        '
+        Me.GridView3.GridControl = Me.GridControl3
+        Me.GridView3.Name = "GridView3"
+        Me.GridView3.OptionsView.ShowGroupPanel = False
+        '
+        'LabelControl8
+        '
+        Me.LabelControl8.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl8.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.LabelControl8.Appearance.Options.UseBackColor = True
+        Me.LabelControl8.Appearance.Options.UseFont = True
+        Me.LabelControl8.Appearance.Options.UseForeColor = True
+        Me.LabelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.LabelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.LabelControl8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabelControl8.Location = New System.Drawing.Point(0, 187)
+        Me.LabelControl8.Name = "LabelControl8"
+        Me.LabelControl8.Size = New System.Drawing.Size(979, 20)
+        Me.LabelControl8.TabIndex = 174
+        Me.LabelControl8.Text = "      DATA LOCAL"
+        '
+        'PanelControl7
+        '
+        Me.PanelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl7.Controls.Add(Me.LabelControl10)
+        Me.PanelControl7.Controls.Add(Me.DateEdit2)
+        Me.PanelControl7.Controls.Add(Me.DateEdit3)
+        Me.PanelControl7.Controls.Add(Me.LabelControl7)
+        Me.PanelControl7.Controls.Add(Me.RadioButton11)
+        Me.PanelControl7.Controls.Add(Me.RadioButton12)
+        Me.PanelControl7.Controls.Add(Me.RadioButton13)
+        Me.PanelControl7.Controls.Add(Me.RadioButton14)
+        Me.PanelControl7.Controls.Add(Me.LabelControl12)
+        Me.PanelControl7.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelControl7.Location = New System.Drawing.Point(0, 39)
+        Me.PanelControl7.Name = "PanelControl7"
+        Me.PanelControl7.Size = New System.Drawing.Size(979, 148)
+        Me.PanelControl7.TabIndex = 173
+        '
+        'LabelControl10
+        '
+        Me.LabelControl10.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl10.Appearance.Options.UseBackColor = True
+        Me.LabelControl10.Appearance.Options.UseFont = True
+        Me.LabelControl10.Location = New System.Drawing.Point(428, 16)
+        Me.LabelControl10.Name = "LabelControl10"
+        Me.LabelControl10.Size = New System.Drawing.Size(53, 13)
+        Me.LabelControl10.TabIndex = 172
+        Me.LabelControl10.Text = "END DATE"
+        '
+        'DateEdit2
+        '
+        Me.DateEdit2.EditValue = Nothing
+        Me.DateEdit2.EnterMoveNextControl = True
+        Me.DateEdit2.Location = New System.Drawing.Point(103, 12)
+        Me.DateEdit2.Name = "DateEdit2"
+        Me.DateEdit2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DateEdit2.Size = New System.Drawing.Size(192, 20)
+        Me.DateEdit2.TabIndex = 170
+        '
+        'DateEdit3
+        '
+        Me.DateEdit3.EditValue = Nothing
+        Me.DateEdit3.EnterMoveNextControl = True
+        Me.DateEdit3.Location = New System.Drawing.Point(494, 12)
+        Me.DateEdit3.Name = "DateEdit3"
+        Me.DateEdit3.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DateEdit3.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DateEdit3.Size = New System.Drawing.Size(192, 20)
+        Me.DateEdit3.TabIndex = 171
+        '
+        'LabelControl7
+        '
+        Me.LabelControl7.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl7.Appearance.Options.UseBackColor = True
+        Me.LabelControl7.Appearance.Options.UseFont = True
+        Me.LabelControl7.Location = New System.Drawing.Point(21, 16)
+        Me.LabelControl7.Name = "LabelControl7"
+        Me.LabelControl7.Size = New System.Drawing.Size(69, 13)
+        Me.LabelControl7.TabIndex = 169
+        Me.LabelControl7.Text = "START DATE"
+        '
+        'RadioButton11
+        '
+        Me.RadioButton11.AutoSize = True
+        Me.RadioButton11.BackColor = System.Drawing.Color.Transparent
+        Me.RadioButton11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.RadioButton11.Location = New System.Drawing.Point(20, 120)
+        Me.RadioButton11.Name = "RadioButton11"
+        Me.RadioButton11.Size = New System.Drawing.Size(268, 17)
+        Me.RadioButton11.TabIndex = 167
+        Me.RadioButton11.Text = "EXPORT ALL DATA TRANSACTION (FFB, CPO, PK )"
+        Me.RadioButton11.UseVisualStyleBackColor = False
+        '
+        'RadioButton12
+        '
+        Me.RadioButton12.AutoSize = True
+        Me.RadioButton12.BackColor = System.Drawing.Color.Transparent
+        Me.RadioButton12.Checked = True
+        Me.RadioButton12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.RadioButton12.Location = New System.Drawing.Point(20, 97)
+        Me.RadioButton12.Name = "RadioButton12"
+        Me.RadioButton12.Size = New System.Drawing.Size(296, 17)
+        Me.RadioButton12.TabIndex = 166
+        Me.RadioButton12.TabStop = True
+        Me.RadioButton12.Text = "EXPORT OTHERS TRANSACTION ( NUMPANG TIMBANG )"
+        Me.RadioButton12.UseVisualStyleBackColor = False
+        '
+        'RadioButton13
+        '
+        Me.RadioButton13.AutoSize = True
+        Me.RadioButton13.BackColor = System.Drawing.Color.Transparent
+        Me.RadioButton13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.RadioButton13.Location = New System.Drawing.Point(20, 74)
+        Me.RadioButton13.Name = "RadioButton13"
+        Me.RadioButton13.Size = New System.Drawing.Size(265, 17)
+        Me.RadioButton13.TabIndex = 165
+        Me.RadioButton13.Text = "EXPORT DATA TRANSACTION  ( CPO, PK, SHELL )"
+        Me.RadioButton13.UseVisualStyleBackColor = False
+        '
+        'RadioButton14
+        '
+        Me.RadioButton14.AutoSize = True
+        Me.RadioButton14.BackColor = System.Drawing.Color.Transparent
+        Me.RadioButton14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.RadioButton14.Location = New System.Drawing.Point(20, 51)
+        Me.RadioButton14.Name = "RadioButton14"
+        Me.RadioButton14.Size = New System.Drawing.Size(204, 17)
+        Me.RadioButton14.TabIndex = 164
+        Me.RadioButton14.Text = "EXPORT DATA TRANSACTION ( FFB )"
+        Me.RadioButton14.UseVisualStyleBackColor = False
+        '
+        'LabelControl12
+        '
+        Me.LabelControl12.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LabelControl12.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl12.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.LabelControl12.Appearance.Options.UseBackColor = True
+        Me.LabelControl12.Appearance.Options.UseFont = True
+        Me.LabelControl12.Appearance.Options.UseForeColor = True
+        Me.LabelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.LabelControl12.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.LabelControl12.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabelControl12.Location = New System.Drawing.Point(0, 0)
+        Me.LabelControl12.Name = "LabelControl12"
+        Me.LabelControl12.Size = New System.Drawing.Size(979, 45)
+        Me.LabelControl12.TabIndex = 174
+        '
+        'PanelControl5
+        '
+        Me.PanelControl5.Controls.Add(Me.SimpleButton4)
+        Me.PanelControl5.Controls.Add(Me.SimpleButton7)
+        Me.PanelControl5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelControl5.Location = New System.Drawing.Point(0, 0)
+        Me.PanelControl5.Name = "PanelControl5"
+        Me.PanelControl5.Size = New System.Drawing.Size(979, 39)
+        Me.PanelControl5.TabIndex = 172
+        '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton4.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.SimpleButton4.Appearance.Options.UseFont = True
+        Me.SimpleButton4.Appearance.Options.UseForeColor = True
+        Me.SimpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.SimpleButton4.Location = New System.Drawing.Point(14, 5)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(143, 27)
+        Me.SimpleButton4.TabIndex = 56
+        Me.SimpleButton4.Text = "Export Data Master"
+        '
+        'SimpleButton7
+        '
+        Me.SimpleButton7.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton7.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.SimpleButton7.Appearance.Options.UseFont = True
+        Me.SimpleButton7.Appearance.Options.UseForeColor = True
+        Me.SimpleButton7.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.SimpleButton7.Location = New System.Drawing.Point(162, 6)
+        Me.SimpleButton7.Name = "SimpleButton7"
+        Me.SimpleButton7.Size = New System.Drawing.Size(80, 27)
+        Me.SimpleButton7.TabIndex = 55
+        Me.SimpleButton7.Text = "Close"
+        '
+        'FrmStaging
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(985, 490)
-        Me.Controls.Add(Me.BackstageViewControl1)
+        Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.BunifuGradientPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "FrmStExport1"
+        Me.Name = "FrmStaging"
         Me.Text = "FrmStExport1"
         Me.BunifuGradientPanel1.ResumeLayout(False)
         Me.BunifuGradientPanel1.PerformLayout()
-        CType(Me.BackstageViewControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BackstageViewControl1.ResumeLayout(False)
         CType(Me.PanelControl6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DateEdit1.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DateEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BackstageViewClientControl2.ResumeLayout(False)
-        Me.BackstageViewClientControl2.PerformLayout()
-        Me.BackstageViewClientControl3.ResumeLayout(False)
+        CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.XtraTabControl1.ResumeLayout(False)
+        Me.XtraTabPage1.ResumeLayout(False)
+        CType(Me.GridControl2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
         Me.PanelControl3.PerformLayout()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridControl2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
-        CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl5.ResumeLayout(False)
+        Me.XtraTabPage2.ResumeLayout(False)
+        CType(Me.GridControl4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridControl3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl7, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl7.ResumeLayout(False)
+        Me.PanelControl7.PerformLayout()
         CType(Me.DateEdit2.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DateEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DateEdit3.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DateEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PanelControl7, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl7.ResumeLayout(False)
-        Me.PanelControl7.PerformLayout()
-        CType(Me.GridControl3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridControl4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BackstageViewControl2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BackstageViewControl3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents BunifuGradientPanel1 As ns1.BunifuGradientPanel
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents BackstageViewControl1 As DevExpress.XtraBars.Ribbon.BackstageViewControl
     Friend WithEvents BackstageViewTabItem2 As DevExpress.XtraBars.Ribbon.BackstageViewTabItem
     Friend WithEvents BackstageViewClientControl1 As DevExpress.XtraBars.Ribbon.BackstageViewClientControl
     Friend WithEvents PanelControl6 As DevExpress.XtraEditors.PanelControl
@@ -863,10 +819,11 @@ Partial Class FrmStaging
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PanelControl4 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents SimpleButton9 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BackstageViewClientControl2 As DevExpress.XtraBars.Ribbon.BackstageViewClientControl
-    Friend WithEvents BackstageViewClientControl3 As DevExpress.XtraBars.Ribbon.BackstageViewClientControl
-    Friend WithEvents BackstageViewTabItem1 As DevExpress.XtraBars.Ribbon.BackstageViewTabItem
-    Friend WithEvents BackstageViewTabItem3 As DevExpress.XtraBars.Ribbon.BackstageViewTabItem
+    Friend WithEvents XtraTabControl1 As DevExpress.XtraTab.XtraTabControl
+    Friend WithEvents XtraTabPage1 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PanelControl3 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents RadioButton7 As RadioButton
     Friend WithEvents RadioButton6 As RadioButton
@@ -876,34 +833,31 @@ Partial Class FrmStaging
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents GridControl2 As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents PanelControl5 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents SimpleButton7 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton6 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents XtraTabPage2 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents GridControl2 As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents GridControl4 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView4 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl9 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents GridControl3 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView3 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PanelControl7 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents RadioButton11 As RadioButton
     Friend WithEvents RadioButton12 As RadioButton
     Friend WithEvents RadioButton13 As RadioButton
     Friend WithEvents RadioButton14 As RadioButton
+    Friend WithEvents PanelControl5 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton7 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents DateEdit2 As DevExpress.XtraEditors.DateEdit
     Friend WithEvents DateEdit3 As DevExpress.XtraEditors.DateEdit
-    Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl9 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents BackstageViewControl3 As DevExpress.XtraBars.Ribbon.BackstageViewControl
-    Friend WithEvents BackstageViewControl2 As DevExpress.XtraBars.Ribbon.BackstageViewControl
+    Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
 End Class

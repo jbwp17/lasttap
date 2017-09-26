@@ -272,12 +272,6 @@
     <Compile Include="FrmRptGradingTbs.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmStaging.Designer.vb">
-      <DependentUpon>FrmStaging.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmStaging.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FrmSalesOrder.Designer.vb">
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>
     </Compile>
@@ -288,6 +282,12 @@
       <DependentUpon>FrmServerSetup.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmServerSetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaging.designer.vb">
+      <DependentUpon>FrmStaging.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaging.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTransporter.designer.vb">
@@ -455,14 +455,14 @@
     <EmbeddedResource Include="FrmRptGradingTbs.resx">
       <DependentUpon>FrmRptGradingTbs.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStaging.resx">
-      <DependentUpon>FrmStaging.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmSalesOrder.resx">
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmServerSetup.resx">
       <DependentUpon>FrmServerSetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaging.resx">
+      <DependentUpon>FrmStaging.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTransporter.resx">
       <DependentUpon>FrmTransporter.vb</DependentUpon>

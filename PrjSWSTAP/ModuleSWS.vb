@@ -904,6 +904,25 @@ Module ModuleSWS
         Catch ex As Exception
         End Try
     End Sub
+    Public Sub FILLGridViewstg(ByVal sql As String, ByVal DgView As DevExpress.XtraGrid.GridControl)
+        Dim View As GridView = CType(DgView.FocusedView, GridView)
+        Dim DTS As New DataTable
+        Try
+            If Not OpenConnStaging() Then
+                Exit Sub
+            End If
+            DgView.DataSource = Nothing
+            DTS = ExecuteQuery(sql)
+            If DTS.Rows.Count > 0 Then
+                DgView.DataSource = DTS
+                View.OptionsView.ColumnAutoWidth = False
+                View.OptionsView.BestFitMaxRowCount = -1
+                View.BestFitColumns()
+                View.OptionsBehavior.Editable = False
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
 
     Public Sub FillListView(ByVal sqlData As DataTable, ByVal lvList As ListView, ByVal imageID As Integer)
         Dim i As Integer
