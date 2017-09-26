@@ -1311,3 +1311,7 @@ E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.exe.licenses
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.exe
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.xml
 E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\SWS.pdb
+E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.vbprojResolveAssemblyReference.cache
+E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmRptNTimbang.resources
+E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmRptPenerimaan.resources
+E:\TAP\kopiitem\SWSEXE\lasttap\PrjSWSTAP\obj\Debug\PrjSWSTAP.FrmRptPengeluaran.resources

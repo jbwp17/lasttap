@@ -272,6 +272,24 @@
     <Compile Include="FrmRptGradingTbs.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmRptNTimbang.designer.vb">
+      <DependentUpon>FrmRptNTimbang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRptNTimbang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRptPenerimaan.designer.vb">
+      <DependentUpon>FrmRptPenerimaan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRptPenerimaan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRptPengeluaran.Designer.vb">
+      <DependentUpon>FrmRptPengeluaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRptPengeluaran.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmSalesOrder.Designer.vb">
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>
     </Compile>
@@ -454,6 +472,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRptGradingTbs.resx">
       <DependentUpon>FrmRptGradingTbs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRptNTimbang.resx">
+      <DependentUpon>FrmRptNTimbang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRptPenerimaan.resx">
+      <DependentUpon>FrmRptPenerimaan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRptPengeluaran.resx">
+      <DependentUpon>FrmRptPengeluaran.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSalesOrder.resx">
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>

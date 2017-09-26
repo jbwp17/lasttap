@@ -104,6 +104,7 @@ Public Class FrmAccessRight
         " FROM  T_ACCESSRIGHTS A " +
         " LEFT JOIN T_ACCESSRIGHTS B On A.PARENTID=B.ACCESSID " +
         " ORDER BY A.URUT,A.ACCESSID,B.ACCESSNAME"
+        GridControl1.DataSource = Nothing
         FILLGridView(SQL, GridControl1)
     End Sub
 

@@ -31,7 +31,7 @@
         CheckEdit1.Checked = If(My.Settings.SinggleFrmActive = 1, True, False)
         singgeleForm = If(My.Settings.SinggleFrmActive = 1, True, False)
         TextEdit1.Text = My.Settings.PathImage
-        CheckEdit2.Checked = If(My.Settings.ValidasiTara = 1, True, False)
+        '' CheckEdit2.Checked = If(My.Settings.ValidasiTara = 1, True, False)
     End Sub
 
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
