@@ -91,14 +91,6 @@
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>C:\Program Files (x86)\Bunifu Technologies\Bunifu Framework Manager\bin\updates\Bunifu_UI_1.5\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
-    <Reference Include="Devart.Data, Version=5.0.1555.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\Devart.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Devart.Data.Oracle, Version=9.1.131.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\Devart.Data.Oracle.dll</HintPath>
-    </Reference>
     <Reference Include="DevExpress.Data.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -218,22 +210,6 @@
     <Compile Include="FrmMaterialType.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMNumpang.Designer.vb">
-      <DependentUpon>FrmMNumpang.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMNumpang.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMPenerimaan.Designer.vb">
-      <DependentUpon>FrmMPenerimaan.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMPenerimaan.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMPengeluaran.Designer.vb">
-      <DependentUpon>FrmMPengeluaran.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMPengeluaran.vb" />
     <Compile Include="FrmParameter.Designer.vb">
       <DependentUpon>FrmParameter.vb</DependentUpon>
     </Compile>
@@ -286,6 +262,24 @@
       <DependentUpon>FrmRptGradingTbs.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmRptGradingTbs.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRptNTimbang.designer.vb">
+      <DependentUpon>FrmRptNTimbang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRptNTimbang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRptPenerimaan.designer.vb">
+      <DependentUpon>FrmRptPenerimaan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRptPenerimaan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRptPengeluaran.Designer.vb">
+      <DependentUpon>FrmRptPengeluaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRptPengeluaran.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmSalesOrder.Designer.vb">
@@ -444,15 +438,6 @@
     <EmbeddedResource Include="FrmMaterialType.resx">
       <DependentUpon>FrmMaterialType.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMNumpang.resx">
-      <DependentUpon>FrmMNumpang.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMPenerimaan.resx">
-      <DependentUpon>FrmMPenerimaan.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMPengeluaran.resx">
-      <DependentUpon>FrmMPengeluaran.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmParameter.resx">
       <DependentUpon>FrmParameter.vb</DependentUpon>
     </EmbeddedResource>
@@ -479,6 +464,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRptGradingTbs.resx">
       <DependentUpon>FrmRptGradingTbs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRptNTimbang.resx">
+      <DependentUpon>FrmRptNTimbang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRptPenerimaan.resx">
+      <DependentUpon>FrmRptPenerimaan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRptPengeluaran.resx">
+      <DependentUpon>FrmRptPengeluaran.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSalesOrder.resx">
       <DependentUpon>FrmSalesOrder.vb</DependentUpon>
