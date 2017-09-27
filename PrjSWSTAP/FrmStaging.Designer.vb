@@ -46,6 +46,7 @@ Partial Class FrmStaging
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl()
+        Me.ProgressBarControl1 = New DevExpress.XtraEditors.ProgressBarControl()
         Me.RadioButton7 = New System.Windows.Forms.RadioButton()
         Me.LabelControl13 = New DevExpress.XtraEditors.LabelControl()
         Me.RadioButton6 = New System.Windows.Forms.RadioButton()
@@ -94,6 +95,7 @@ Partial Class FrmStaging
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
+        CType(Me.ProgressBarControl1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
         Me.XtraTabPage2.SuspendLayout()
@@ -349,6 +351,7 @@ Partial Class FrmStaging
         'PanelControl3
         '
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl3.Controls.Add(Me.ProgressBarControl1)
         Me.PanelControl3.Controls.Add(Me.RadioButton7)
         Me.PanelControl3.Controls.Add(Me.LabelControl13)
         Me.PanelControl3.Controls.Add(Me.RadioButton6)
@@ -363,6 +366,13 @@ Partial Class FrmStaging
         Me.PanelControl3.Name = "PanelControl3"
         Me.PanelControl3.Size = New System.Drawing.Size(979, 120)
         Me.PanelControl3.TabIndex = 172
+        '
+        'ProgressBarControl1
+        '
+        Me.ProgressBarControl1.Location = New System.Drawing.Point(560, 95)
+        Me.ProgressBarControl1.Name = "ProgressBarControl1"
+        Me.ProgressBarControl1.Size = New System.Drawing.Size(412, 18)
+        Me.ProgressBarControl1.TabIndex = 173
         '
         'RadioButton7
         '
@@ -795,6 +805,7 @@ Partial Class FrmStaging
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
         Me.PanelControl3.PerformLayout()
+        CType(Me.ProgressBarControl1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
         Me.XtraTabPage2.ResumeLayout(False)
@@ -871,4 +882,5 @@ Partial Class FrmStaging
     Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl13 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents ProgressBarControl1 As DevExpress.XtraEditors.ProgressBarControl
 End Class
