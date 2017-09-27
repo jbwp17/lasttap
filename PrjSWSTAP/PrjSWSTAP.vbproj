@@ -218,6 +218,24 @@
     <Compile Include="FrmMaterialType.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmMNumpang.Designer.vb">
+      <DependentUpon>FrmMNumpang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMNumpang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMPenerimaan.Designer.vb">
+      <DependentUpon>FrmMPenerimaan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMPenerimaan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMPengeluaran.Designer.vb">
+      <DependentUpon>FrmMPengeluaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMPengeluaran.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmParameter.Designer.vb">
       <DependentUpon>FrmParameter.vb</DependentUpon>
     </Compile>
@@ -427,6 +445,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMaterialType.resx">
       <DependentUpon>FrmMaterialType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMNumpang.resx">
+      <DependentUpon>FrmMNumpang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMPenerimaan.resx">
+      <DependentUpon>FrmMPenerimaan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMPengeluaran.resx">
+      <DependentUpon>FrmMPengeluaran.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmParameter.resx">
       <DependentUpon>FrmParameter.vb</DependentUpon>
